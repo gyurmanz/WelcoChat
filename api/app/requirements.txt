@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pymysql
+cryptography
+python-dotenv
+passlib[argon2]
+python-jose[cryptography]
+pydantic[email]
+anthropic
+requests
+beautifulsoup4
+stripe
+pypdf
+python-docx
+python-multipart

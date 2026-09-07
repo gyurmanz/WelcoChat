@@ -1,0 +1,16 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon mark: rounded chat bubble with a checkmark -->
+  <rect x="14" y="16" width="88" height="66" rx="24" fill="#004A9C"/>
+  <path d="M34 82 L26 106 L54 82 Z" fill="#004A9C"/>
+  <path d="M39 51 L54 66 L79 34" stroke="#F68C36" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- WelcoChat wordmark -->
+  <text x="128" y="78"
+        font-family="Manrope, system-ui, Arial, sans-serif"
+        font-size="52"
+        fill="#111B28"
+        font-weight="800"
+        letter-spacing="-0.5">
+    WelcoChat
+  </text>
+</svg>

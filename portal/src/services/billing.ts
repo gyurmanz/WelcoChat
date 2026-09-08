@@ -1,4 +1,4 @@
-import { apiFetch } from './http'
+import { apiFetch, extractErrorMessage } from './http'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -49,7 +49,7 @@ export async function saveCompany(payload: CompanyPayload): Promise<Company> {
   })
   const data = await r.json().catch(() => ({}))
   if (!r.ok) {
-    throw new Error((data?.detail as string) || 'Failed to save billing details')
+    throw new Error(extractErrorMessage(data, 'Failed to save billing details'))
   }
   return data as Company
 }
@@ -58,7 +58,7 @@ export async function getPortalSessionUrl(): Promise<string> {
   const r = await apiFetch(`${API_BASE_URL}/billing/portal-session`, { method: 'POST' })
   const data = await r.json().catch(() => ({}))
   if (!r.ok) {
-    throw new Error((data?.detail as string) || 'Failed to open billing portal')
+    throw new Error(extractErrorMessage(data, 'Failed to open billing portal'))
   }
   return (data as { url: string }).url
 }

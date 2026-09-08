@@ -33,7 +33,14 @@ def _build_scope(environ):
             name = key[5:].lower().replace("_", "-")
             headers.append((name.encode("latin-1"), value.encode("latin-1")))
         elif key in ("CONTENT_TYPE", "CONTENT_LENGTH") and value:
-            headers.append((key.lower().encode("latin-1"), value.encode("latin-1")))
+            # ASGI/HTTP header names use hyphens ("content-type"), not the
+            # CGI/WSGI environ's underscores ("CONTENT_TYPE") — Starlette
+            # matches on the exact hyphenated name to find Content-Type, so
+            # this replace is required, not cosmetic (missing it silently
+            # broke all form/JSON body parsing: the header was there but
+            # unrecognized, so every POST looked like an empty body).
+            name = key.lower().replace("_", "-")
+            headers.append((name.encode("latin-1"), value.encode("latin-1")))
 
     server_port = environ.get("SERVER_PORT") or "0"
     remote_port = environ.get("REMOTE_PORT") or "0"
@@ -79,8 +86,17 @@ async def _run_asgi(scope, body):
 
 def application(environ, start_response):
     scope = _build_scope(environ)
-    content_length = int(environ.get("CONTENT_LENGTH") or 0)
-    body = environ["wsgi.input"].read(content_length) if content_length else b""
+    # HTTP/2 requests can omit Content-Length entirely (framing marks the
+    # message end instead), so its absence does NOT mean there's no body —
+    # only a header that's actually present and says "0" does. When it's
+    # missing on a method that can carry a body, read until EOF instead.
+    raw_content_length = environ.get("CONTENT_LENGTH")
+    if raw_content_length:
+        body = environ["wsgi.input"].read(int(raw_content_length))
+    elif environ.get("REQUEST_METHOD") in ("POST", "PUT", "PATCH"):
+        body = environ["wsgi.input"].read()
+    else:
+        body = b""
 
     response = asyncio.run(_run_asgi(scope, body))
 

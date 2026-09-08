@@ -1,4 +1,4 @@
-import { apiFetch } from './http'
+import { apiFetch, extractErrorMessage } from './http'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -24,7 +24,7 @@ export interface InviteDetails {
 export async function getTeam(): Promise<TeamListResponse> {
   const r = await apiFetch(`${API_BASE_URL}/team/members`, { method: 'GET' })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to load team')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to load team'))
   return d as TeamListResponse
 }
 
@@ -35,7 +35,7 @@ export async function inviteMember(email: string, name?: string): Promise<TeamMe
     body: JSON.stringify({ email, name: name || null }),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to invite team member')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to invite team member'))
   return d as TeamMember
 }
 
@@ -43,14 +43,14 @@ export async function removeMember(id: number): Promise<void> {
   const r = await apiFetch(`${API_BASE_URL}/team/members/${id}`, { method: 'DELETE' })
   if (!r.ok) {
     const d = await r.json().catch(() => ({}))
-    throw new Error((d?.detail as string) || 'Failed to remove team member')
+    throw new Error(extractErrorMessage(d, 'Failed to remove team member'))
   }
 }
 
 export async function getInviteDetails(token: string): Promise<InviteDetails> {
   const r = await apiFetch(`${API_BASE_URL}/team/invite/${token}`, { method: 'GET' })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'This invite link is invalid or has expired')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'This invite link is invalid or has expired'))
   return d as InviteDetails
 }
 
@@ -65,6 +65,6 @@ export async function acceptInvite(
     body: JSON.stringify({ token, display_name: displayName, password }),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to accept invite')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to accept invite'))
   return d as { access_token: string; token_type: string }
 }

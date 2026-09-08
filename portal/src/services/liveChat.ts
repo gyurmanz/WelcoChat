@@ -1,4 +1,4 @@
-import { apiFetch } from './http'
+import { apiFetch, extractErrorMessage } from './http'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -43,7 +43,7 @@ export async function getConversations(silent = false): Promise<ConversationSumm
 export async function getConversation(id: number, silent = false): Promise<ConversationDetail> {
   const r = await apiFetch(`${API_BASE_URL}/live-chat/${id}`, { method: 'GET' }, { silent })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to load conversation')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to load conversation'))
   return d as ConversationDetail
 }
 
@@ -54,13 +54,13 @@ export async function sendReply(id: number, content: string): Promise<ConvMessag
     body: JSON.stringify({ content }),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to send reply')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to send reply'))
   return d as ConvMessage
 }
 
 export async function closeConversation(id: number): Promise<ConversationDetail> {
   const r = await apiFetch(`${API_BASE_URL}/live-chat/${id}/close`, { method: 'POST' })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to close conversation')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to close conversation'))
   return d as ConversationDetail
 }

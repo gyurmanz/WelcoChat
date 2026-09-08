@@ -1,4 +1,4 @@
-import { apiFetch } from './http'
+import { apiFetch, extractErrorMessage } from './http'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -86,7 +86,7 @@ export async function createTrialSubscription(serviceKey: string): Promise<Subsc
     body: JSON.stringify({ service_key: serviceKey }),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to start trial')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to start trial'))
   return d as Subscription
 }
 
@@ -97,7 +97,7 @@ export async function createCheckoutSession(serviceId: number, billingPeriod: Bi
     body: JSON.stringify({ service_id: serviceId, billing_period: billingPeriod }),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to start checkout')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to start checkout'))
   return (d as { checkout_url: string }).checkout_url
 }
 
@@ -113,7 +113,7 @@ export async function changePlan(subscriptionId: number, payload: ChangePlanPayl
     body: JSON.stringify(payload),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to change plan')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to change plan'))
   return d as Subscription
 }
 
@@ -136,7 +136,7 @@ export async function updateInstanceSetup(instanceId: number, update: InstanceSe
     body: JSON.stringify(update),
   })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to update setup status')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to update setup status'))
   return d as ServiceInstance
 }
 

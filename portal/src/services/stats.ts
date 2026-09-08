@@ -1,4 +1,4 @@
-import { apiFetch } from './http'
+import { apiFetch, extractErrorMessage } from './http'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -28,6 +28,6 @@ export interface StatsResponse {
 export async function getStats(): Promise<StatsResponse> {
   const r = await apiFetch(`${API_BASE_URL}/stats`, { method: 'GET' })
   const d = await r.json().catch(() => ({}))
-  if (!r.ok) throw new Error((d?.detail as string) || 'Failed to load statistics')
+  if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to load statistics'))
   return d as StatsResponse
 }

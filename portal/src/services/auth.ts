@@ -1,4 +1,4 @@
-import { apiFetch } from './/http'
+import { apiFetch, extractErrorMessage } from './/http'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -51,11 +51,7 @@ export async function login(email: string, password: string): Promise<LoginRespo
   const data = await response.json().catch(() => ({}))
 
   if (!response.ok) {
-    const message =
-      (data?.detail as string) ||
-      (data?.message as string) ||
-      'Invalid email or password'
-    throw new Error(message)
+    throw new Error(extractErrorMessage(data, 'Invalid email or password'))
   }
 
   return {
@@ -69,9 +65,7 @@ export async function getMe(): Promise<MeResponse> {
   const data = await response.json().catch(() => ({}))
 
   if (!response.ok) {
-    const message =
-      (data?.detail as string) || (data?.message as string) || 'Unauthorized'
-    throw new Error(message)
+    throw new Error(extractErrorMessage(data, 'Unauthorized'))
   }
 
   return {
@@ -100,7 +94,7 @@ export async function updateProfile(payload: {
   })
   const data = await response.json().catch(() => ({}))
   if (!response.ok) {
-    throw new Error((data?.detail as string) || 'Failed to update profile')
+    throw new Error(extractErrorMessage(data, 'Failed to update profile'))
   }
   return data as UpdateProfileResult
 }
@@ -119,7 +113,7 @@ export async function changePassword(
   })
   const data = await response.json().catch(() => ({}))
   if (!response.ok) {
-    throw new Error((data?.detail as string) || 'Failed to change password')
+    throw new Error(extractErrorMessage(data, 'Failed to change password'))
   }
 }
 
@@ -138,7 +132,7 @@ export async function signup(
 
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))
-    throw new Error((data?.detail as string) || 'Registration failed')
+    throw new Error(extractErrorMessage(data, 'Registration failed'))
   }
 }
 
@@ -154,7 +148,7 @@ export async function verifyEmail(token: string): Promise<void> {
 
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))
-    throw new Error((data?.detail as string) || 'Email verification failed')
+    throw new Error(extractErrorMessage(data, 'Email verification failed'))
   }
 }
 
@@ -171,9 +165,7 @@ export async function forgotPassword(email: string): Promise<void> {
 
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))
-    throw new Error(
-      (data?.detail as string) || 'Failed to send password reset email',
-    )
+    throw new Error(extractErrorMessage(data, 'Failed to send password reset email'))
   }
 }
 
@@ -186,7 +178,7 @@ export async function resetPassword(token: string, email: string, newPassword: s
 
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))
-    throw new Error((data?.detail as string) || 'Password reset failed')
+    throw new Error(extractErrorMessage(data, 'Password reset failed'))
   }
 }
 
@@ -197,7 +189,7 @@ export async function confirmEmailChange(token: string): Promise<void> {
   )
   if (!response.ok) {
     const data = await response.json().catch(() => ({}))
-    throw new Error((data?.detail as string) || 'Email change confirmation failed')
+    throw new Error(extractErrorMessage(data, 'Email change confirmation failed'))
   }
 }
 
@@ -242,11 +234,7 @@ export async function exchangeGoogleCode(code: string, redirectUri: string): Pro
   const data = await response.json().catch(() => ({}))
 
   if (!response.ok) {
-    const message =
-      (data?.detail as string) ||
-      (data?.message as string) ||
-      'Google sign-in failed'
-    throw new Error(message)
+    throw new Error(extractErrorMessage(data, 'Google sign-in failed'))
   }
 
   return {

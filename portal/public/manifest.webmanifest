@@ -1,0 +1,16 @@
+{
+  "name": "WelcoChat Client Portal",
+  "short_name": "WelcoChat",
+  "description": "Manage your WelcoChat subscriptions, agent setup and live handoffs.",
+  "start_url": "/portal/",
+  "scope": "/portal/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#004A9C",
+  "icons": [
+    { "src": "/portal/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/portal/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/portal/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/portal/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -290,3 +290,22 @@ class PasswordReset(Base):
         nullable=False,
         default=datetime.utcnow
     )
+
+
+class PushSubscription(Base):
+    """A browser Push API subscription for one logged-in portal user (one row
+    per browser/device that opted in) — used to send an OS-level notification
+    on a live handoff when the portal is installed as a PWA / running in the
+    background."""
+    __tablename__ = "PushSubscription"
+
+    Id = Column(Integer, primary_key=True, index=True)
+    UserId = Column(Integer, ForeignKey("User.Id"), nullable=False, index=True)
+    Endpoint = Column(String(500), unique=True, nullable=False)
+    P256dh = Column(String(255), nullable=False)
+    Auth = Column(String(255), nullable=False)
+    Created = Column(
+        DateTime,
+        nullable=False,
+        default=datetime.utcnow
+    )

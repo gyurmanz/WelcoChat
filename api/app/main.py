@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .database import Base, engine, SessionLocal
 from . import models
-from .routers import auth, billing, subscriptions, contact, welco, team, stats, live_chat
+from .routers import auth, billing, subscriptions, contact, welco, team, stats, live_chat, push
 from .seed_data import COUNTRIES, SERVICE_PLANS
 
 # Táblák létrehozása (fejlesztéshez oké, később mehet alembic)
@@ -111,3 +111,5 @@ app.include_router(team.router, prefix="/team", tags=["team"])
 app.include_router(stats.router, prefix="/stats", tags=["stats"])
 # Live chat (portal-side reply into a Welco handoff conversation)
 app.include_router(live_chat.router, prefix="/live-chat", tags=["live-chat"])
+
+app.include_router(push.router, prefix="/push", tags=["push"])

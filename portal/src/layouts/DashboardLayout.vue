@@ -19,14 +19,27 @@
           alt="WelcoChat logo"
           class="dash-topbar-logo"
         />
-        <span class="dash-topbar-title">Client Portal</span>
+        <span class="dash-topbar-title">{{ t('nav.clientPortal') }}</span>
       </div>
 
       <div class="dash-topbar-right">
+        <button
+          v-if="pushPermission !== 'unsupported'"
+          type="button"
+          class="dash-push-btn"
+          :class="{ 'dash-push-btn--active': pushEnabled }"
+          :title="pushEnabled ? t('nav.pushOn') : t('nav.pushOff')"
+          :aria-label="pushEnabled ? t('nav.pushOn') : t('nav.pushOff')"
+          :aria-pressed="pushEnabled"
+          @click="togglePush"
+        >
+          <span aria-hidden="true">{{ pushEnabled ? '🔔' : '🔕' }}</span>
+        </button>
+        <LanguageSwitcher />
         <div class="dash-user-menu" @click="toggleUserMenu">
           <div class="dash-user-info">
             <span class="dash-user-name">{{ userLabel }}</span>
-            <span class="dash-user-meta">Signed in</span>
+            <span class="dash-user-meta">{{ t('nav.signedIn') }}</span>
           </div>
           <div class="avatar-small">
             <span>{{ userInitial }}</span>
@@ -41,14 +54,14 @@
               class="dash-user-menu-item"
               @click.stop="goToAccount"
             >
-              <span>Account</span>
+              <span>{{ t('nav.account') }}</span>
             </button>
             <button
               type="button"
               class="dash-user-menu-item"
               @click.stop="logout"
             >
-              <span>Logout</span>
+              <span>{{ t('nav.logout') }}</span>
             </button>
           </div>
         </div>
@@ -66,7 +79,7 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">▣</span>
-            <span class="dash-nav-label">Dashboard</span>
+            <span class="dash-nav-label">{{ t('nav.dashboard') }}</span>
           </router-link>
 
           <router-link
@@ -75,7 +88,7 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">➕</span>
-            <span class="dash-nav-label">Add subscription</span>
+            <span class="dash-nav-label">{{ t('nav.addSubscription') }}</span>
           </router-link>
 
           <router-link
@@ -85,7 +98,7 @@
             exact-active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">⏱</span>
-            <span class="dash-nav-label">Subscriptions</span>
+            <span class="dash-nav-label">{{ t('nav.subscriptions') }}</span>
           </router-link>
 
           <router-link
@@ -94,7 +107,8 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">💬</span>
-            <span class="dash-nav-label">Live Chat</span>
+            <span class="dash-nav-label">{{ t('nav.liveChat') }}</span>
+            <span v-if="waitingCount > 0" class="dash-nav-badge">{{ waitingCount }}</span>
           </router-link>
 
           <router-link
@@ -103,7 +117,7 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">📊</span>
-            <span class="dash-nav-label">Statistics</span>
+            <span class="dash-nav-label">{{ t('nav.statistics') }}</span>
           </router-link>
 
           <router-link
@@ -112,7 +126,7 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">🧾</span>
-            <span class="dash-nav-label">Invoices</span>
+            <span class="dash-nav-label">{{ t('nav.invoices') }}</span>
           </router-link>
 
           <router-link
@@ -121,7 +135,7 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">👥</span>
-            <span class="dash-nav-label">Team</span>
+            <span class="dash-nav-label">{{ t('nav.team') }}</span>
           </router-link>
 
           <router-link
@@ -130,7 +144,7 @@
             active-class="dash-nav-item--active"
           >
             <span class="dash-nav-icon">👤</span>
-            <span class="dash-nav-label">Profile</span>
+            <span class="dash-nav-label">{{ t('nav.companyProfile') }}</span>
           </router-link>
         </nav>
       </aside>
@@ -156,7 +170,7 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">▣</span>
-            <span class="dash-nav-label">Dashboard</span>
+            <span class="dash-nav-label">{{ t('nav.dashboard') }}</span>
           </router-link>
 
           <router-link
@@ -166,7 +180,7 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">➕</span>
-            <span class="dash-nav-label">Add subscription</span>
+            <span class="dash-nav-label">{{ t('nav.addSubscription') }}</span>
           </router-link>
 
           <router-link
@@ -177,7 +191,7 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">⏱</span>
-            <span class="dash-nav-label">Subscriptions</span>
+            <span class="dash-nav-label">{{ t('nav.subscriptions') }}</span>
           </router-link>
 
           <router-link
@@ -187,7 +201,8 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">💬</span>
-            <span class="dash-nav-label">Live Chat</span>
+            <span class="dash-nav-label">{{ t('nav.liveChat') }}</span>
+            <span v-if="waitingCount > 0" class="dash-nav-badge">{{ waitingCount }}</span>
           </router-link>
 
           <router-link
@@ -197,7 +212,7 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">📊</span>
-            <span class="dash-nav-label">Statistics</span>
+            <span class="dash-nav-label">{{ t('nav.statistics') }}</span>
           </router-link>
 
           <router-link
@@ -207,7 +222,7 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">🧾</span>
-            <span class="dash-nav-label">Invoices</span>
+            <span class="dash-nav-label">{{ t('nav.invoices') }}</span>
           </router-link>
 
           <router-link
@@ -217,7 +232,7 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">👥</span>
-            <span class="dash-nav-label">Team</span>
+            <span class="dash-nav-label">{{ t('nav.team') }}</span>
           </router-link>
 
           <router-link
@@ -227,19 +242,38 @@
             @click="handleNavClick"
           >
             <span class="dash-nav-icon">👤</span>
-            <span class="dash-nav-label">Profile</span>
+            <span class="dash-nav-label">{{ t('nav.companyProfile') }}</span>
           </router-link>
         </nav>
       </div>
+    </div>
+
+    <!-- Live handoff warning toast -->
+    <div v-if="showToast" class="handoff-toast" role="status">
+      <span class="handoff-toast-icon" aria-hidden="true">💬</span>
+      <span class="handoff-toast-text">{{ t('nav.handoffToast') }}</span>
+      <button type="button" class="handoff-toast-action" @click="goToLiveChat">{{ t('nav.handoffToastView') }}</button>
+      <button type="button" class="handoff-toast-close" :aria-label="t('nav.dismiss')" @click="showToast = false">✕</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { authSession } from '@/stores/authSession'
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+import { getConversations } from '@/services/liveChat'
+import {
+  getExistingSubscription,
+  getPermissionState,
+  subscribeToPush,
+  unsubscribeFromPush,
+  type PushPermissionState,
+} from '@/services/push'
 
+const { t } = useI18n()
 const router = useRouter()
 
 const userLabel = computed(
@@ -252,6 +286,57 @@ const userInitial = computed(() => {
 
 const isMobileNavOpen = ref(false)
 const isUserMenuOpen = ref(false)
+
+// Live handoff warning: a lightweight poll (not the 5s Live Chat page one)
+// that runs on every portal page, so a handoff is never missed just because
+// the user isn't looking at Live Chat right now.
+const waitingCount = ref(0)
+const showToast = ref(false)
+const pushPermission = ref<PushPermissionState>(getPermissionState())
+const pushEnabled = ref(false)
+let toastTimer: ReturnType<typeof setTimeout> | null = null
+let pollTimer: ReturnType<typeof setInterval> | null = null
+let hasPolledOnce = false
+
+async function pollHandoffs() {
+  try {
+    const convs = await getConversations(true)
+    const waiting = convs.filter((c) => c.status === 'waiting').length
+    if (hasPolledOnce && waiting > waitingCount.value) {
+      showToast.value = true
+      if (toastTimer) clearTimeout(toastTimer)
+      toastTimer = setTimeout(() => {
+        showToast.value = false
+      }, 8000)
+    }
+    waitingCount.value = waiting
+    hasPolledOnce = true
+  } catch {
+    // transient — keep polling on the next tick
+  }
+}
+
+function goToLiveChat() {
+  showToast.value = false
+  router.push('/live-chat')
+}
+
+async function togglePush() {
+  if (pushEnabled.value) {
+    await unsubscribeFromPush()
+    pushEnabled.value = false
+  } else {
+    const ok = await subscribeToPush()
+    pushEnabled.value = ok
+    pushPermission.value = getPermissionState()
+  }
+}
+
+function handleServiceWorkerMessage(event: MessageEvent) {
+  if (event.data?.type === 'welcochat-notification-click') {
+    router.push('/live-chat')
+  }
+}
 
 function toggleMobileNav() {
   isMobileNavOpen.value = !isMobileNavOpen.value
@@ -280,6 +365,13 @@ function goToAccount() {
 }
 
 async function logout() {
+  // Leiratkozás a push-értesítésekről, amíg még hitelesítve vagyunk — így egy
+  // megosztott böngészőn a következő bejelentkező felhasználó nem kap
+  // véletlenül az előző cég élő átadásairól szóló értesítéseket.
+  if (pushEnabled.value) {
+    await unsubscribeFromPush().catch(() => {})
+  }
+
   // token + user info törlése
   if (typeof window !== 'undefined') {
     window.localStorage.removeItem('auth_token')
@@ -292,4 +384,24 @@ async function logout() {
 
   await router.push('/login')
 }
+
+onMounted(async () => {
+  pollHandoffs()
+  pollTimer = setInterval(pollHandoffs, 20000)
+
+  const existing = await getExistingSubscription()
+  pushEnabled.value = !!existing
+
+  if (typeof navigator !== 'undefined' && navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener('message', handleServiceWorkerMessage)
+  }
+})
+
+onUnmounted(() => {
+  if (pollTimer) clearInterval(pollTimer)
+  if (toastTimer) clearTimeout(toastTimer)
+  if (typeof navigator !== 'undefined' && navigator.serviceWorker) {
+    navigator.serviceWorker.removeEventListener('message', handleServiceWorkerMessage)
+  }
+})
 </script>

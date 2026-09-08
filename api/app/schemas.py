@@ -439,3 +439,25 @@ class WelcoStatsRead(BaseModel):
 
 class StatsResponse(BaseModel):
     welco: list[WelcoStatsRead]
+
+
+# -------------------------------------------------------------------
+# Push notifications (Web Push / PWA)
+# -------------------------------------------------------------------
+
+class PushSubscriptionKeys(BaseModel):
+    p256dh: str
+    auth: str
+
+
+class PushSubscriptionCreate(BaseModel):
+    endpoint: str
+    keys: PushSubscriptionKeys
+
+
+class PushUnsubscribeRequest(BaseModel):
+    endpoint: str
+
+
+class VapidPublicKeyRead(BaseModel):
+    public_key: str

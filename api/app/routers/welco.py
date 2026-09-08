@@ -1,5 +1,6 @@
 # app/routers/welco.py
 import json
+import logging
 import os
 import time
 import uuid
@@ -19,7 +20,10 @@ from ..welco_crawler import crawl_site
 from .. import welco_engine
 from .. import welco_documents
 from .. import notifications
+from .. import push_service
 from .. import whatsapp
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -520,6 +524,23 @@ def _notify_handoff(
                 "live_chat_url": f"{FRONTEND_BASE_URL}/live-chat",
             },
         )
+
+        company_id = (
+            db.query(models.Subscription.CompanyId)
+            .join(models.ServiceInstance, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
+            .filter(models.ServiceInstance.Id == instance.Id)
+            .scalar()
+        )
+        if company_id is not None:
+            try:
+                push_service.notify_company_users(
+                    db, company_id,
+                    title=f"{widget_name} needs you",
+                    body="A visitor needs a human — open Live Chat to reply.",
+                    url="/portal/live-chat",
+                )
+            except Exception:
+                logger.exception("Push notification failed for handoff on instance %s", service_instance_id)
 
 
 @widget_router.post("/{public_id}/conversations", response_model=schemas.WelcoConversationCreateResponse, status_code=201)

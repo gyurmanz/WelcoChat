@@ -798,6 +798,119 @@ button {
   flex: 1;
 }
 
+.dash-nav-badge {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Push notification toggle (topbar bell) */
+
+.dash-push-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.6);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.dash-push-btn:hover {
+  border-color: rgba(148, 163, 184, 0.8);
+  color: var(--text-main);
+}
+
+.dash-push-btn--active {
+  border-color: rgba(52, 211, 153, 0.7);
+  background: rgba(34, 197, 94, 0.12);
+}
+
+/* Live handoff warning toast */
+
+.handoff-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.9rem;
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  max-width: calc(100vw - 2rem);
+}
+
+.handoff-toast-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.handoff-toast-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.handoff-toast-action {
+  flex-shrink: 0;
+  border: 1px solid rgba(52, 211, 153, 0.6);
+  background: rgba(34, 197, 94, 0.14);
+  color: var(--text-main);
+  border-radius: 0.6rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.handoff-toast-close {
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.2rem;
+}
+
+.handoff-toast-close:hover {
+  color: var(--text-main);
+}
+
+@media (max-width: 640px) {
+  .handoff-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    transform: none;
+    max-width: none;
+  }
+}
+
 /* Main dashboard content area */
 
 .dash-main {

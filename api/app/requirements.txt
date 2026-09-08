@@ -14,3 +14,4 @@ stripe
 pypdf
 python-docx
 python-multipart
+pywebpush

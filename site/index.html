@@ -4,18 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WelcoChat — an AI agent for your website</title>
-  <meta name="description" content="WelcoChat answers visitor questions from your own content, captures leads while you sleep, and hands off to your team whenever a human is needed. Live in minutes." />
+  <meta name="description" content="WelcoChat is an AI agent for your website — it answers visitor questions from your own content, captures leads, and hands off to a human when needed." />
   <meta property="og:title" content="WelcoChat — an AI agent for your website" />
   <meta property="og:description" content="Answers from your own content. Captures leads. Hands off to a human when it matters. Live on your site in minutes." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://welcochat.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://welcochat.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://welcochat.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WelcoChat",
+    "url": "https://welcochat.com/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "WelcoChat is an AI agent for your website — it answers visitor questions from your own content, captures leads, and hands off to a human when needed.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "39",
+      "highPrice": "299",
+      "offerCount": "3"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "WelcoChat",
+      "url": "https://welcochat.com/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How fast can I get WelcoChat live on my site?", "acceptedAnswer": { "@type": "Answer", "text": "Minutes — create an account, connect your content, paste one embed snippet." } },
+      { "@type": "Question", "name": "Does the agent ever make things up?", "acceptedAnswer": { "@type": "Answer", "text": "No. It only answers from the content you've connected. If it's not confident, it hands off to a human instead of guessing." } },
+      { "@type": "Question", "name": "What happens when the agent can't answer?", "acceptedAnswer": { "@type": "Answer", "text": "Your team is notified immediately by email (or Slack/Teams/webhook on Business+) and can join that conversation and reply live from the portal." } },
+      { "@type": "Question", "name": "Do I need a credit card to start?", "acceptedAnswer": { "@type": "Answer", "text": "No — every account gets a 14-day free trial with no card required." } },
+      { "@type": "Question", "name": "Can I use WelcoChat on more than one website?", "acceptedAnswer": { "@type": "Answer", "text": "Each subscription covers one website. For additional websites, create an additional subscription — contact us if you're setting up several." } },
+      { "@type": "Question", "name": "Can visitors reach the agent on WhatsApp too?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, on the Business plan and above — connect your own WhatsApp Business number and the same agent answers there too, with the same live handoff." } },
+      { "@type": "Question", "name": "Can more than one person on my team manage the agent?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, on the Business plan and above — invite teammates to your WelcoChat account." } },
+      { "@type": "Question", "name": "Can I use my own logo and pick which side the widget opens on?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, on the Business plan and above. Enterprise also adds a custom CSS override for further fine-tuning." } },
+      { "@type": "Question", "name": "What languages does it support?", "acceptedAnswer": { "@type": "Answer", "text": "The agent detects and responds in the visitor's language automatically." } },
+      { "@type": "Question", "name": "Can I see what visitors are asking?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the statistics dashboard shows conversation volume, handoff rate and leads, and every handed-off conversation is visible in Live Chat." } },
+      { "@type": "Question", "name": "What happens if my trial ends or my subscription lapses?", "acceptedAnswer": { "@type": "Answer", "text": "The widget pauses on your website until billing is resolved — visitors just won't see it, not a broken chat. Your portal access and everything you've configured stay untouched." } },
+      { "@type": "Question", "name": "Can I change plans later?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — upgrade or downgrade anytime from the portal. Nothing you've configured is ever deleted on a downgrade; features tied to a higher tier just pause until you upgrade again." } },
+      { "@type": "Question", "name": "Can visitors send images?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, on the Business plan and above — visitors can attach a photo and the agent actually looks at it before replying, not just the accompanying text." } },
+      { "@type": "Question", "name": "Can I update my website's content after I've gone live?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — change the connected website URL or edit your uploaded documents and notes anytime from the portal; WelcoChat re-learns the new content with no downtime." } },
+      { "@type": "Question", "name": "Does the widget slow down my site or work on mobile?", "acceptedAnswer": { "@type": "Answer", "text": "It loads asynchronously so it never blocks your page, and it's fully usable on phones and tablets." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -46,6 +95,7 @@
     </div>
   </header>
 
+  <main>
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
@@ -349,6 +399,7 @@
       </form>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">

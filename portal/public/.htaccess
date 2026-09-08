@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /portal/
+
+# Serve real files/dirs (JS/CSS assets, favicon) as-is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else is a client-side (Vue Router) route -> serve the SPA shell
+RewriteRule ^ index.html [L]

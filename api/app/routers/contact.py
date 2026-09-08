@@ -9,8 +9,8 @@ from ..email.service import send_email
 
 router = APIRouter()
 
-# Hova menjenek a kaptila.com landing-oldal demo-kerelmei (env-bol felulirhato).
-CONTACT_TO = os.getenv("CONTACT_TO", "notification@kaptila.com")
+# Hova menjenek a welcochat.com landing-oldal demo-kerelmei (env-bol felulirhato).
+CONTACT_TO = os.getenv("CONTACT_TO", "info@welcochat.com")
 
 
 @router.post("/contact")

@@ -186,11 +186,13 @@ def create_trial_subscription(
 
     today = datetime.utcnow()
     billing_period = "monthly"  # trial always starts monthly; switch to annual later via Change Plan
-    month = today.month % 12 + 1
-    year = today.year + (1 if today.month == 12 else 0)
-    end = today.replace(year=year, month=month)
     paid_price = Decimal(str(service.MonthlyPrice))
     trial_ends_at = today + timedelta(days=_TRIAL_DAYS)
+    # The first billing period for a trialing subscription ends exactly when
+    # the trial does (this also matches what Stripe reports as
+    # current_period_end once the webhook syncs it) — not one calendar month
+    # from today, which used to drift from the trial end date shown next to it.
+    end = trial_ends_at
 
     sub = models.Subscription(
         CompanyId=company.Id,

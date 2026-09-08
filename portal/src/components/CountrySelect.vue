@@ -4,7 +4,7 @@
       class="input"
       type="text"
       v-model="query"
-      :placeholder="placeholder || 'Search country…'"
+      :placeholder="placeholder || t('common.searchCountry')"
       autocomplete="off"
       @focus="open = true"
       @input="open = true"
@@ -20,14 +20,17 @@
       </li>
     </ul>
     <ul v-else-if="open && query.trim()" class="country-list">
-      <li class="no-match">No matching country</li>
+      <li class="no-match">{{ t('common.noMatchingCountry') }}</li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
 import type { Country } from '@/services/billing'
+
+const { t } = useI18n()
 
 const props = defineProps<{
   modelValue: number | null

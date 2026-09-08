@@ -203,7 +203,11 @@ const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || ''
 
 /** Same redirect_uri for the Google authorize redirect AND the backend code exchange. */
 export function googleRedirectUri(): string {
-  return `${window.location.origin}/auth/google/callback`
+  // BASE_URL is '/portal/' in production (see vite.config.ts) — the
+  // callback route lives under the portal's own base path, not the site
+  // root, now that the portal is served from /portal instead of owning
+  // its own origin.
+  return `${window.location.origin}${import.meta.env.BASE_URL}auth/google/callback`
 }
 
 /** URL that sends the user to the Google consent screen. `state` is a CSRF nonce. */

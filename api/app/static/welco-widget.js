@@ -4,12 +4,12 @@
   var scriptEl = document.currentScript;
   var publicId = scriptEl.getAttribute("data-agent");
   if (!publicId) {
-    console.error("Kaptila Welco: missing data-agent attribute on the widget script tag.");
+    console.error("WelcoChat: missing data-agent attribute on the widget script tag.");
     return;
   }
 
   // API base = the origin+path this script was served from, minus the trailing
-  // "/static/welco-widget.js" — keeps the widget working from any Kaptila host
+  // "/static/welco-widget.js" — keeps the widget working from any host
   // without hardcoding a URL inside the file.
   var apiBase = scriptEl.src.replace(/\/static\/welco-widget\.js.*$/, "");
 
@@ -83,7 +83,7 @@
   // same `history` array we already send to /message. Once handed off, the
   // server-stored conversation becomes the single source of truth, so we
   // save only the id and rebuild the thread from GET .../conversations/{id}.
-  var STORAGE_KEY = "kaptila_welco_" + publicId;
+  var STORAGE_KEY = "welcochat_" + publicId;
   var STORAGE_TTL_MS = 24 * 60 * 60 * 1000;
 
   function loadSavedState() {

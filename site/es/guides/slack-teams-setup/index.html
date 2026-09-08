@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNL159CW3Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNL159CW3Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de configuración de Slack y Teams - WelcoChat</title>
+  <meta name="description" content="Paso a paso: conecta Slack o Microsoft Teams con WelcoChat para que tu equipo sea notificado en cuanto un visitante necesite una persona." />
+  <meta property="og:title" content="Guía de configuración de Slack y Teams - WelcoChat" />
+  <meta property="og:description" content="Paso a paso: conecta Slack o Microsoft Teams con las notificaciones de transferencia de WelcoChat." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://welcochat.com/es/guides/slack-teams-setup/" />
+  <meta property="og:image" content="https://welcochat.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="canonical" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+  <link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/es/" class="brand">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+          <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+          <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        WelcoChat
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="/es/#features">Funciones</a>
+        <a href="/es/#how-it-works">Cómo funciona</a>
+        <a href="/es/#pricing">Precios</a>
+        <a href="/es/#faq">Preguntas frecuentes</a>
+        <a href="/es/#contact">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.3 2.5 3.6 5.6 3.6 9s-1.3 6.5-3.6 9c-2.3-2.5-3.6-5.6-3.6-9s1.3-6.5 3.6-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span class="lang-switch-code">ES</span>
+            <svg class="lang-switch-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-switch-menu" role="listbox">
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/en/guides/slack-teams-setup/">English</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/de/guides/slack-teams-setup/">Deutsch</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/fr/guides/slack-teams-setup/">Français</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hu/guides/slack-teams-setup/">Magyar</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/pl/guides/slack-teams-setup/">Polski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/sk/guides/slack-teams-setup/">Slovenčina</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hr/guides/slack-teams-setup/">Hrvatski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/el/guides/slack-teams-setup/">Ελληνικά</a></li>
+            <li class="is-current" role="option" aria-selected="true"><a href="https://welcochat.com/es/guides/slack-teams-setup/">Español<svg class="lang-switch-check" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          </ul>
+        </div>
+        <a href="/portal" class="btn btn-ghost">Iniciar sesión</a>
+        <a href="/portal/signup" class="btn btn-primary">Crear cuenta</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Alternar menú"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container legal-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Guía · Plan Business y superiores</div>
+      <h1 style="font-size:clamp(1.8rem,3vw,2.6rem);">Guía de configuración de Slack &amp; Teams</h1>
+      <p class="legal-updated">Recibe un mensaje en cuanto un visitante necesite una persona</p>
+
+      <p>WelcoChat notifica a tu equipo publicando en una URL de webhook que proporciones — no hay ninguna aplicación que instalar ni permiso OAuth que conceder por tu parte. Creas el webhook en Slack o Teams, pegas la URL en la sección Notificaciones de tu página de configuración de WelcoChat, y listo. Esto funciona de la misma manera para la opción de webhook genérico (Zapier, Make, o cualquier herramienta que pueda recibir un webhook entrante).</p>
+
+      <h2>Slack</h2>
+      <ol>
+        <li>Ve a <code>api.slack.com/apps</code> e inicia sesión en tu espacio de trabajo.</li>
+        <li>Haz clic en <strong>Create New App</strong> → <strong>From scratch</strong>. Dale un nombre (p. ej., "WelcoChat") y elige tu espacio de trabajo.</li>
+        <li>En la configuración de la app, abre <strong>Incoming Webhooks</strong> en la barra lateral izquierda.</li>
+        <li>Activa <strong>Activate Incoming Webhooks</strong>.</li>
+        <li>Desplázate hacia abajo y haz clic en <strong>Add New Webhook to Workspace</strong>.</li>
+        <li>Elige el canal que debe recibir las notificaciones de transferencia, y haz clic en <strong>Allow</strong>.</li>
+        <li>Copia la URL del webhook que aparece (comienza con <code>https://hooks.slack.com/services/...</code>).</li>
+        <li>En WelcoChat, ve a la página de configuración de tu servicio → <strong>Notificaciones</strong>, establece el Canal en <strong>Slack</strong>, y pega la URL.</li>
+      </ol>
+
+      <h2>Microsoft Teams</h2>
+      <p>Microsoft ha estado migrando los canales de Teams del antiguo sistema "Connectors" (Office 365 Connector) a <strong>Workflows</strong> — usa Workflows si está disponible en tu tenant.</p>
+      <ol>
+        <li>Abre el canal de Teams que debe recibir las notificaciones de transferencia.</li>
+        <li>Haz clic en <strong>⋯</strong> (más opciones) junto al nombre del canal → <strong>Workflows</strong>.</li>
+        <li>Busca y selecciona la plantilla <strong>"Post to a channel when a webhook request is received"</strong>.</li>
+        <li>Sigue las indicaciones para confirmar el canal, luego haz clic en <strong>Create flow</strong> (o Add workflow).</li>
+        <li>Copia la URL del webhook que genera Teams.</li>
+        <li>En WelcoChat, ve a la página de configuración de tu servicio → <strong>Notificaciones</strong>, establece el Canal en <strong>Microsoft Teams</strong>, y pega la URL.</li>
+      </ol>
+      <p class="legal-note">Si tu tenant todavía solo dispone del conector heredado "Incoming Webhook" en lugar de Workflows, eso también funciona de la misma manera — añade el conector Incoming Webhook al canal, copia su URL, y pégala en el mismo lugar.</p>
+
+      <h2>Webhook genérico (Zapier, Make, etc.)</h2>
+      <p>Elige <strong>Webhook</strong> como canal y pega la URL de "catch hook" de tu herramienta de automatización. WelcoChat envía un payload JSON con el tipo de evento, un mensaje y los identificadores relevantes (instancia y conversación) — construye tu automatización alrededor de los campos que necesites de ese payload.</p>
+
+      <h2>Probarlo</h2>
+      <p>Después de guardar un canal y una URL de webhook, usa el botón <strong>Enviar mensaje de prueba</strong> en la página de configuración — envía una notificación real por la misma vía que usaría una transferencia en vivo, para que puedas confirmar que llega al lugar correcto antes de confiar en ella.</p>
+
+      <p style="margin-top:2.5rem;"><a href="/portal">← Volver al portal</a></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/es/" class="brand" style="margin-bottom: 10px;">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+              <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+              <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            WelcoChat
+          </a>
+          <p>Un agente de IA para tu sitio web — responde a partir de tu contenido, capta clientes potenciales, transfiere a una persona cuando importa.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Producto</h4>
+          <a href="/es/#features">Funciones</a>
+          <a href="/es/#pricing">Precios</a>
+          <a href="/es/#faq">Preguntas frecuentes</a>
+          <a href="/portal">Portal de cliente</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="/es/#contact">Contacto</a>
+          <a href="/es/terms/">Términos del Servicio</a>
+          <a href="/es/privacy/">Política de Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 WelcoChat. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

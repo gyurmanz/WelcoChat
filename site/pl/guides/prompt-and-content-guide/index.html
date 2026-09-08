@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNL159CW3Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNL159CW3Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jak przygotować treści dla swojego agenta - WelcoChat</title>
+  <meta name="description" content="Jak podłączyć i napisać treści, aby Twój agent WelcoChat udzielał dokładnych, przydatnych odpowiedzi — co uwzględnić, czego unikać i jak działa pole dodatkowych notatek." />
+  <meta property="og:title" content="Jak przygotować treści dla swojego agenta - WelcoChat" />
+  <meta property="og:description" content="Jak podłączyć i napisać treści, aby Twój agent WelcoChat udzielał dokładnych, przydatnych odpowiedzi." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+  <meta property="og:image" content="https://welcochat.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="canonical" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/pl/" class="brand">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+          <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+          <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        WelcoChat
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="/pl/#features">Funkcje</a>
+        <a href="/pl/#how-it-works">Jak to działa</a>
+        <a href="/pl/#pricing">Cennik</a>
+        <a href="/pl/#faq">FAQ</a>
+        <a href="/pl/#contact">Kontakt</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Język">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.3 2.5 3.6 5.6 3.6 9s-1.3 6.5-3.6 9c-2.3-2.5-3.6-5.6-3.6-9s1.3-6.5 3.6-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span class="lang-switch-code">PL</span>
+            <svg class="lang-switch-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-switch-menu" role="listbox">
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/en/guides/prompt-and-content-guide/">English</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/de/guides/prompt-and-content-guide/">Deutsch</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/fr/guides/prompt-and-content-guide/">Français</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hu/guides/prompt-and-content-guide/">Magyar</a></li>
+            <li class="is-current" role="option" aria-selected="true"><a href="https://welcochat.com/pl/guides/prompt-and-content-guide/">Polski<svg class="lang-switch-check" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/sk/guides/prompt-and-content-guide/">Slovenčina</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hr/guides/prompt-and-content-guide/">Hrvatski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/el/guides/prompt-and-content-guide/">Ελληνικά</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/es/guides/prompt-and-content-guide/">Español</a></li>
+          </ul>
+        </div>
+        <a href="/portal" class="btn btn-ghost">Zaloguj się</a>
+        <a href="/portal/signup" class="btn btn-primary">Utwórz konto</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Przełącz menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container legal-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Przewodnik</div>
+      <h1 style="font-size:clamp(1.8rem,3vw,2.6rem);">Jak przygotować treści dla swojego agenta</h1>
+      <p class="legal-updated">Praktyczny przewodnik po uzyskiwaniu dobrych odpowiedzi z WelcoChat</p>
+
+      <p>WelcoChat odpowiada wyłącznie na podstawie treści, które wyraźnie podłączyłeś — Twojej strony internetowej i wszystkiego, co przesyłasz. Nigdy nie wymyśla faktów, a jeśli nie ma odpowiedzi w swoich treściach, przekazuje sprawę Twojemu zespołowi zamiast zgadywać. Oznacza to, że jakość Twojego agenta zależy niemal całkowicie od jakości tego, co mu dostarczysz. Ten przewodnik obejmuje oba źródła: automatyczne indeksowanie strony internetowej i pole notatek "Dodatkowe dokumenty / FAQ".</p>
+
+      <h2>1. Co dobrze wychwytuje indeksowanie strony</h2>
+      <p>Gdy podłączysz adres URL strony internetowej, WelcoChat indeksuje publiczne strony i wyodrębnia ich tekst. Działa najlepiej na stronach napisanych prostym językiem dla ludzi:</p>
+      <ul>
+        <li>Strony produktów/usług z jasnymi opisami</li>
+        <li>Strony z cennikiem</li>
+        <li>Strona FAQ, jeśli ją masz — to zwykle najbardziej wartościowa strona do zindeksowania</li>
+        <li>Strony dotyczące wysyłki, zwrotów, gwarancji i innych zasad</li>
+        <li>Informacje kontaktowe i godziny pracy</li>
+      </ul>
+      <p><em>Nie</em> wyodrębnia informacji uwięzionych w obrazach, plikach PDF połączonych, ale nie osadzonych jako tekst, ani treści renderowanych przez JavaScript, które nigdy nie pojawiają się w kodzie HTML strony. Jeśli kluczowe informacje znajdują się w broszurze PDF lub zeskanowanym obrazie, prześlij je jako dokument (patrz poniżej), zamiast zakładać, że indeksowanie je uchwyciło.</p>
+
+      <h2>2. Co umieścić w "Dodatkowych dokumentach / FAQ"</h2>
+      <p>To pole tekstowe to miejsce, w którym wypełniasz luki, których strona internetowa nie obejmuje, i gdzie możesz kształtować <em>sposób</em>, w jaki agent mówi o Twojej firmie. Jest odczytywane w taki sam sposób jak zindeksowana treść — jako materiał źródłowy do odpowiadania — więc traktuj je jak pisemny brief, a nie zwykłą notatkę. Dobre rzeczy do uwzględnienia:</p>
+      <ul>
+        <li>Odpowiedzi na często zadawane pytania, które nie są jasno napisane nigdzie na Twojej stronie</li>
+        <li>Wewnętrzne skróty lub nazwy produktów wyjaśnione ("gdy ktoś mówi 'plan Pro', ma na myśli...")</li>
+        <li>Wskazówki dotyczące tonu: "Utrzymuj odpowiedzi krótkie i przyjazne", "Nigdy nie omawiaj konkurencji", "Zawsze wspomnij o bezpłatnym okresie próbnym, gdy jest to istotne"</li>
+        <li>Wszystko, co zmienia się sezonowo i jeszcze nie będzie na stronie (nadchodząca wyprzedaż, tymczasowe opóźnienie w wysyłce)</li>
+      </ul>
+      <p>Utrzymuj to zorganizowane pod krótkimi nagłówkami lub jako listę pytań i odpowiedzi — agent lepiej radzi sobie ze strukturalnym, przeglądalnym tekstem niż z jednym długim akapitem.</p>
+
+      <h2>3. Przesyłanie dokumentów</h2>
+      <p>Obsługiwane są pliki PDF, DOCX i TXT, do 10 MB każdy. System wyodrębnia warstwę tekstu — dokument musi faktycznie zawierać zaznaczalny tekst, a nie tylko zeskanowany obraz strony, aby to zadziałało. Jeśli nie jesteś pewien, spróbuj zaznaczyć tekst w pliku PDF kursorem; jeśli nie możesz, agent też nie będzie w stanie go odczytać.</p>
+      <p>Dobrzy kandydaci: karty specyfikacji produktu, szczegółowy dokument FAQ, dokumenty dotyczące zasad, cenniki, przewodniki wdrożeniowe.</p>
+
+      <h2>4. Czego unikać</h2>
+      <ul>
+        <li><strong>Sprzecznych informacji.</strong> Jeśli Twoja strona podaje jedną cenę, a przesłany dokument inną, agent nie ma sposobu, aby wiedzieć, która jest aktualna — może wybrać dowolną z nich. Utrzymuj jedno źródło prawdy na fakt.</li>
+        <li><strong>Ogromnych, nieskupionych zrzutów danych.</strong> 200-stronicowy eksport wewnętrznej wiki z notatkami ze spotkań i niedokończonymi szkicami zmieszanymi razem utrudnia agentowi znalezienie faktycznie istotnej odpowiedzi. Uporządkuj przed przesłaniem.</li>
+        <li><strong>Wszystkiego, czego nie chciałbyś, aby odwiedzający potencjalnie zobaczył dosłownie.</strong> Agent odpowiada, czerpiąc bezpośrednio z podłączonych treści — nie umieszczaj wewnętrznych cen negocjowanych dla konkretnych klientów, nieopublikowanych planów ani niczego poufnego.</li>
+      </ul>
+
+      <h2>5. Uwaga na temat sposobu generowania odpowiedzi</h2>
+      <p>Widget wyświetla tylko zwykły tekst konwersacyjny — bez formatowania Markdown, bez tabel, bez list wypunktowanych renderowanych jako takie. Twoja treść źródłowa może być sformatowana w dowolny sposób (nagłówki, punkty, tabele — wszystko można pisać), ale swoje <em>własne</em> notatki "Dodatkowe dokumenty" pisz w miarę możliwości jako zwykłe zdania, ponieważ jest to najbliższe temu, co agent faktycznie wygeneruje dla odwiedzającego.</p>
+
+      <h2>6. Utrzymywanie aktualności</h2>
+      <p>Możesz w dowolnym momencie ponownie zindeksować swoją stronę internetową lub edytować swoje notatki i dokumenty ze strony konfiguracji — zmiany w notatkach i dokumentach wchodzą w życie natychmiast, a ponowne indeksowanie zmienionej strony trwa około minuty. Podczas aktualizacji nie ma przestojów.</p>
+
+      <p style="margin-top:2.5rem;"><a href="/portal">← Powrót do portalu</a></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/pl/" class="brand" style="margin-bottom: 10px;">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+              <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+              <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            WelcoChat
+          </a>
+          <p>Agent AI dla Twojej strony internetowej — odpowiada na podstawie Twoich treści, zbiera leady, przekazuje sprawę człowiekowi, gdy ma to znaczenie.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Produkt</h4>
+          <a href="/pl/#features">Funkcje</a>
+          <a href="/pl/#pricing">Cennik</a>
+          <a href="/pl/#faq">FAQ</a>
+          <a href="/portal">Portal klienta</a>
+        </div>
+        <div class="footer-col">
+          <h4>Firma</h4>
+          <a href="/pl/#contact">Kontakt</a>
+          <a href="/pl/terms/">Regulamin</a>
+          <a href="/pl/privacy/">Polityka prywatności</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 WelcoChat. Wszelkie prawa zastrzeżone.</div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

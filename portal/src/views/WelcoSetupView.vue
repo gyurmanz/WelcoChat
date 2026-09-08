@@ -1,17 +1,17 @@
 <template>
   <div class="page">
-    <div v-if="loading" class="input-hint">Loading…</div>
+    <div v-if="loading" class="input-hint">{{ t('common.loading') }}</div>
 
     <div v-else-if="loadError" class="empty-state">
       <p class="empty-text">{{ loadError }}</p>
-      <router-link to="/subscriptions" class="btn btn-primary">Go to Services</router-link>
+      <router-link to="/subscriptions" class="btn btn-primary">{{ t('addSub.goToServices') }}</router-link>
     </div>
 
     <template v-else>
-      <h1>{{ isManaging ? 'Manage WelcoChat' : 'Set up WelcoChat' }}</h1>
+      <h1>{{ isManaging ? t('welcoSetup.manageTitle') : t('welcoSetup.setupTitle') }}</h1>
 
       <!-- Stepper (only during initial setup, not once the agent is live) -->
-      <div v-if="!isManaging" class="stepper" aria-label="Setup progress">
+      <div v-if="!isManaging" class="stepper" :aria-label="t('welcoSetup.stepperAriaLabel')">
         <div
           v-for="(label, i) in stepLabels"
           :key="i"
@@ -27,56 +27,55 @@
 
       <!-- STEP 1: Overview -->
       <section v-if="wizardStep === 1" class="order-section">
-        <p class="step-subtitle">Configure the AI agent for your website.</p>
+        <p class="step-subtitle">{{ t('welcoSetup.step1Subtitle') }}</p>
 
         <div class="review-block">
-          <div class="review-row"><span>Product</span><b>WelcoChat</b></div>
-          <div class="review-row"><span>Plan</span><b>{{ instanceTier }}</b></div>
-          <div class="review-row"><span>Current status</span><b>{{ statusLabel(setupStatus) }}</b></div>
+          <div class="review-row"><span>{{ t('welcoSetup.product') }}</span><b>WelcoChat</b></div>
+          <div class="review-row"><span>{{ t('addSub.plan') }}</span><b>{{ instanceTier }}</b></div>
+          <div class="review-row"><span>{{ t('welcoSetup.currentStatus') }}</span><b>{{ statusLabel(setupStatus) }}</b></div>
           <div v-if="subscription?.status === 'trialing'" class="review-row">
-            <span>Trial</span><b>Ends {{ formatDate(subscription.trial_ends_at) }}</b>
+            <span>{{ t('welcoSetup.trial') }}</span><b>{{ t('welcoSetup.endsDate', { date: formatDate(subscription.trial_ends_at) }) }}</b>
           </div>
           <div v-if="subscription?.start_date" class="review-row">
-            <span>Started</span><b>{{ formatDate(subscription.start_date) }}</b>
+            <span>{{ t('welcoSetup.started') }}</span><b>{{ formatDate(subscription.start_date) }}</b>
           </div>
           <div v-if="subscription?.pending_tier" class="review-row">
-            <span>Downgrades to</span><b>{{ subscription.pending_tier }} on {{ formatDate(subscription.end_date) }}</b>
+            <span>{{ t('welcoSetup.downgradesTo') }}</span><b>{{ subscription.pending_tier }} {{ t('welcoSetup.onDate', { date: formatDate(subscription.end_date) }) }}</b>
           </div>
           <div v-else-if="subscription?.end_date" class="review-row">
-            <span>Renews</span><b>{{ formatDate(subscription.end_date) }}</b>
+            <span>{{ t('welcoSetup.renews') }}</span><b>{{ formatDate(subscription.end_date) }}</b>
           </div>
         </div>
 
         <p class="review-next">
-          Welco answers visitor questions from your own content, captures leads, and hands off to
-          your team whenever a human is needed.
+          {{ t('welcoSetup.explainWelco') }}
         </p>
 
         <div class="form-actions">
-          <button class="btn btn-primary" @click="startSetup">Start setup</button>
+          <button class="btn btn-primary" @click="startSetup">{{ t('welcoSetup.startSetup') }}</button>
         </div>
       </section>
 
       <!-- STEP 2: Connect content -->
       <section v-if="wizardStep === 2" class="order-section">
-        <button class="back-btn" @click="wizardStep = 1">← Back</button>
+        <button class="back-btn" @click="wizardStep = 1">{{ t('addSub.back') }}</button>
         <p class="step-subtitle">
-          Tell Welco where to find your content.
-          <a href="/guides/prompt-and-content-guide/" target="_blank" rel="noopener">How to prepare good content for your agent</a>.
+          {{ t('welcoSetup.step2Subtitle') }}
+          <a href="/guides/prompt-and-content-guide/" target="_blank" rel="noopener">{{ t('welcoSetup.contentGuideLink') }}</a>.
         </p>
 
         <form class="billing-form" @submit.prevent="wizardStep = 3" novalidate>
           <div class="form-row">
-            <label class="form-label">Website URL <span class="req">*</span></label>
+            <label class="form-label">{{ t('welcoSetup.websiteUrl') }} <span class="req">*</span></label>
             <input v-model="form.website_url" class="input" placeholder="https://yourcompany.com" />
-            <span class="field-hint">Welco will crawl this site to build its knowledge base.</span>
+            <span class="field-hint">{{ t('welcoSetup.websiteUrlHint') }}</span>
           </div>
           <div class="form-row">
-            <label class="form-label">Additional docs / FAQs to include</label>
-            <textarea v-model="form.additional_docs_note" class="input textarea textarea-lg" rows="8" placeholder="Optional — any extra context, FAQs or notes you want Welco to know about"></textarea>
+            <label class="form-label">{{ t('welcoSetup.additionalDocsLabel') }}</label>
+            <textarea v-model="form.additional_docs_note" class="input textarea textarea-lg" rows="8" :placeholder="t('welcoSetup.additionalDocsPlaceholder')"></textarea>
           </div>
           <div class="form-row">
-            <label class="form-label">Documents (Word, PDF, TXT)</label>
+            <label class="form-label">{{ t('welcoSetup.documentsLabel') }}</label>
             <input
               ref="fileInputEl"
               type="file"
@@ -85,15 +84,15 @@
               class="file-input"
               @change="onFilesSelected"
             />
-            <span class="field-hint">Upload FAQs, product docs or policies for Welco to answer from — up to 10 MB each.</span>
+            <span class="field-hint">{{ t('welcoSetup.documentsHint') }}</span>
 
-            <p v-if="uploadingDocs" class="input-hint">Uploading…</p>
+            <p v-if="uploadingDocs" class="input-hint">{{ t('welcoSetup.uploading') }}</p>
 
             <ul v-if="documents.length" class="doc-list">
               <li v-for="doc in documents" :key="doc.id" class="doc-row">
                 <span class="doc-name">{{ doc.file_name }}</span>
-                <span class="doc-meta">{{ doc.char_count ?? 0 }} chars</span>
-                <button type="button" class="btn-remove" @click="removeDocument(doc.id)" aria-label="Remove document">✕</button>
+                <span class="doc-meta">{{ t('welcoSetup.charsCount', { count: doc.char_count ?? 0 }) }}</span>
+                <button type="button" class="btn-remove" @click="removeDocument(doc.id)" :aria-label="t('welcoSetup.removeDocument')">✕</button>
               </li>
             </ul>
             <ul v-if="uploadErrors.length" class="doc-errors">
@@ -101,292 +100,291 @@
             </ul>
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Continue</button>
+            <button type="submit" class="btn btn-primary">{{ t('welcoSetup.continue') }}</button>
           </div>
         </form>
       </section>
 
       <!-- STEP 3: Widget customization -->
       <section v-if="wizardStep === 3" class="order-section">
-        <button class="back-btn" @click="wizardStep = 2">← Back</button>
-        <p class="step-subtitle">Customize how the widget looks and greets visitors.</p>
+        <button class="back-btn" @click="wizardStep = 2">{{ t('addSub.back') }}</button>
+        <p class="step-subtitle">{{ t('welcoSetup.step3Subtitle') }}</p>
 
         <form class="billing-form" @submit.prevent="wizardStep = 4" novalidate>
           <div class="form-row">
-            <label class="form-label">Widget name</label>
-            <input v-model="form.widget_name" class="input" placeholder="e.g. Welco Assistant" />
+            <label class="form-label">{{ t('welcoSetup.widgetNameLabel') }}</label>
+            <input v-model="form.widget_name" class="input" :placeholder="t('welcoSetup.widgetNamePlaceholder')" />
           </div>
           <div class="form-row">
-            <label class="form-label">Greeting message</label>
-            <textarea v-model="form.greeting_message" class="input textarea" rows="2" placeholder="Hi! How can I help you today?"></textarea>
+            <label class="form-label">{{ t('welcoSetup.greetingLabel') }}</label>
+            <textarea v-model="form.greeting_message" class="input textarea" rows="2" :placeholder="t('welcoSetup.greetingPlaceholder')"></textarea>
           </div>
 
-          <h3 class="section-h3">Appearance</h3>
+          <h3 class="section-h3">{{ t('welcoSetup.appearance') }}</h3>
           <div class="form-row">
-            <label class="form-label">Theme</label>
+            <label class="form-label">{{ t('welcoSetup.themeLabel') }}</label>
             <select v-model="form.widget_theme" class="input">
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-              <option value="custom">Custom</option>
+              <option value="light">{{ t('welcoSetup.themeLight') }}</option>
+              <option value="dark">{{ t('welcoSetup.themeDark') }}</option>
+              <option value="custom">{{ t('welcoSetup.themeCustom') }}</option>
             </select>
           </div>
           <template v-if="form.widget_theme === 'custom'">
             <div class="form-row">
-              <label class="form-label">Accent color</label>
+              <label class="form-label">{{ t('welcoSetup.accentColor') }}</label>
               <input v-model="form.widget_color" class="input color-input" type="color" />
             </div>
             <div class="form-row">
-              <label class="form-label">Background color</label>
+              <label class="form-label">{{ t('welcoSetup.backgroundColor') }}</label>
               <input v-model="form.widget_bg_color" class="input color-input" type="color" />
             </div>
           </template>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Continue to review</button>
+            <button type="submit" class="btn btn-primary">{{ t('welcoSetup.continueToReview') }}</button>
           </div>
         </form>
       </section>
 
       <!-- STEP 4: Review -->
       <section v-if="wizardStep === 4" class="order-section">
-        <button class="back-btn" @click="wizardStep = 3">← Back</button>
-        <h2 class="review-h2">Review setup</h2>
+        <button class="back-btn" @click="wizardStep = 3">{{ t('addSub.back') }}</button>
+        <h2 class="review-h2">{{ t('welcoSetup.reviewSetup') }}</h2>
 
         <div class="review-block">
-          <div class="review-block-title">Content</div>
-          <div class="review-row"><span>Website</span><b>{{ form.website_url || '-' }}</b></div>
-          <div class="review-row" v-if="form.additional_docs_note"><span>Additional docs</span><b>{{ form.additional_docs_note }}</b></div>
+          <div class="review-block-title">{{ t('welcoSetup.content') }}</div>
+          <div class="review-row"><span>{{ t('welcoSetup.website') }}</span><b>{{ form.website_url || '-' }}</b></div>
+          <div class="review-row" v-if="form.additional_docs_note"><span>{{ t('welcoSetup.additionalDocs') }}</span><b>{{ form.additional_docs_note }}</b></div>
         </div>
 
         <div class="review-block">
-          <div class="review-block-title">Widget</div>
-          <div class="review-row"><span>Name</span><b>{{ form.widget_name || 'Welco Assistant' }}</b></div>
-          <div class="review-row" v-if="form.greeting_message"><span>Greeting</span><b>{{ form.greeting_message }}</b></div>
+          <div class="review-block-title">{{ t('welcoSetup.widget') }}</div>
+          <div class="review-row"><span>{{ t('welcoSetup.name') }}</span><b>{{ form.widget_name || 'Welco Assistant' }}</b></div>
+          <div class="review-row" v-if="form.greeting_message"><span>{{ t('welcoSetup.greeting') }}</span><b>{{ form.greeting_message }}</b></div>
         </div>
 
         <div class="review-block">
-          <div class="review-block-title">Appearance</div>
-          <div class="review-row"><span>Theme</span><b>{{ themeLabel(form.widget_theme) }}</b></div>
+          <div class="review-block-title">{{ t('welcoSetup.appearance') }}</div>
+          <div class="review-row"><span>{{ t('welcoSetup.theme') }}</span><b>{{ themeLabel(form.widget_theme) }}</b></div>
           <template v-if="form.widget_theme === 'custom'">
-            <div class="review-row"><span>Accent color</span><b>{{ form.widget_color }}</b></div>
-            <div class="review-row"><span>Background color</span><b>{{ form.widget_bg_color }}</b></div>
+            <div class="review-row"><span>{{ t('welcoSetup.accentColor') }}</span><b>{{ form.widget_color }}</b></div>
+            <div class="review-row"><span>{{ t('welcoSetup.backgroundColor') }}</span><b>{{ form.widget_bg_color }}</b></div>
           </template>
         </div>
 
         <div class="review-checks">
           <label class="check-row">
             <input type="checkbox" v-model="confirmCorrect" />
-            I confirm that the setup details are correct.
+            {{ t('welcoSetup.confirmCorrect') }}
           </label>
         </div>
 
         <div class="form-actions">
           <button class="btn btn-outline" :disabled="saving" @click="saveDraft">
-            {{ saving ? 'Saving…' : 'Save as draft' }}
+            {{ saving ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveAsDraft') }}
           </button>
           <button class="btn btn-primary" :disabled="!confirmCorrect || saving" @click="submitForActivation">
-            {{ saving ? 'Submitting…' : 'Submit for activation' }}
+            {{ saving ? t('welcoSetup.submitting') : t('welcoSetup.submitForActivation') }}
           </button>
         </div>
-        <p v-if="draftSaved" class="draft-saved">Draft saved.</p>
+        <p v-if="draftSaved" class="draft-saved">{{ t('welcoSetup.draftSaved') }}</p>
       </section>
 
       <!-- STEP 5: Activation status -->
       <section v-if="wizardStep === 5" class="order-section">
         <template v-if="welcoStatus === 'ready'">
           <div class="confirm-icon">✓</div>
-          <h2 class="confirm-h2">Your Welco agent is live</h2>
+          <h2 class="confirm-h2">{{ t('welcoSetup.agentLiveTitle') }}</h2>
           <p class="confirm-sub">
-            We crawled {{ welcoPageCount }} page{{ welcoPageCount === 1 ? '' : 's' }} from your site.
-            Paste this snippet into your website's HTML to add the widget:
+            {{ welcoPageCount === 1 ? t('welcoSetup.crawledPagesOne', { count: welcoPageCount }) : t('welcoSetup.crawledPagesMany', { count: welcoPageCount }) }}
+            {{ t('welcoSetup.pasteSnippet') }}
           </p>
           <div class="embed-box">
             <code>{{ embedSnippet }}</code>
             <button class="btn btn-outline btn-sm" @click="copyEmbedSnippet">
-              {{ copied ? 'Copied!' : 'Copy' }}
+              {{ copied ? t('welcoSetup.copied') : t('welcoSetup.copy') }}
             </button>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Subscription</h3>
+            <h3 class="manage-h3">{{ t('welcoSetup.subscription') }}</h3>
             <div class="review-block">
-              <div class="review-row"><span>Product</span><b>WelcoChat</b></div>
-              <div class="review-row"><span>Plan</span><b>{{ instanceTier }}</b></div>
+              <div class="review-row"><span>{{ t('welcoSetup.product') }}</span><b>WelcoChat</b></div>
+              <div class="review-row"><span>{{ t('addSub.plan') }}</span><b>{{ instanceTier }}</b></div>
               <div v-if="subscription?.status === 'trialing'" class="review-row">
-                <span>Trial</span><b>Ends {{ formatDate(subscription.trial_ends_at) }}</b>
+                <span>{{ t('welcoSetup.trial') }}</span><b>{{ t('welcoSetup.endsDate', { date: formatDate(subscription.trial_ends_at) }) }}</b>
               </div>
               <div v-if="subscription?.start_date" class="review-row">
-                <span>Started</span><b>{{ formatDate(subscription.start_date) }}</b>
+                <span>{{ t('welcoSetup.started') }}</span><b>{{ formatDate(subscription.start_date) }}</b>
               </div>
               <div v-if="subscription?.pending_tier" class="review-row">
-                <span>Downgrades to</span><b>{{ subscription.pending_tier }} on {{ formatDate(subscription.end_date) }}</b>
+                <span>{{ t('welcoSetup.downgradesTo') }}</span><b>{{ subscription.pending_tier }} {{ t('welcoSetup.onDate', { date: formatDate(subscription.end_date) }) }}</b>
               </div>
               <div v-else-if="subscription?.end_date" class="review-row">
-                <span>Renews</span><b>{{ formatDate(subscription.end_date) }}</b>
+                <span>{{ t('welcoSetup.renews') }}</span><b>{{ formatDate(subscription.end_date) }}</b>
               </div>
             </div>
             <div class="form-actions">
-              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">Change plan</router-link>
+              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">{{ t('changePlan.title') }}</router-link>
             </div>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Website</h3>
-            <p class="field-hint">Changing this re-crawls the new site — takes about a minute.</p>
+            <h3 class="manage-h3">{{ t('welcoSetup.website') }}</h3>
+            <p class="field-hint">{{ t('welcoSetup.websiteChangeHint') }}</p>
             <input v-model="form.website_url" class="input" placeholder="https://yourcompany.com" />
             <div class="form-actions">
               <button class="btn btn-outline btn-sm" :disabled="activating" @click="saveWebsiteAndRecrawl">
-                {{ activating ? 'Re-crawling…' : 'Save & re-crawl' }}
+                {{ activating ? t('welcoSetup.recrawling') : t('welcoSetup.saveAndRecrawl') }}
               </button>
             </div>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Widget</h3>
-            <p class="field-hint">Changes here take effect immediately — no need to reactivate.</p>
+            <h3 class="manage-h3">{{ t('welcoSetup.widget') }}</h3>
+            <p class="field-hint">{{ t('welcoSetup.immediateEffectHint') }}</p>
             <div class="form-row">
-              <label class="form-label">Widget name</label>
-              <input v-model="form.widget_name" class="input" placeholder="e.g. Welco Assistant" />
+              <label class="form-label">{{ t('welcoSetup.widgetNameLabel') }}</label>
+              <input v-model="form.widget_name" class="input" :placeholder="t('welcoSetup.widgetNamePlaceholder')" />
             </div>
             <div class="form-row">
-              <label class="form-label">Greeting message</label>
-              <textarea v-model="form.greeting_message" class="input textarea" rows="2" placeholder="Hi! How can I help you today?"></textarea>
+              <label class="form-label">{{ t('welcoSetup.greetingLabel') }}</label>
+              <textarea v-model="form.greeting_message" class="input textarea" rows="2" :placeholder="t('welcoSetup.greetingPlaceholder')"></textarea>
             </div>
             <div class="form-actions">
               <button class="btn btn-outline btn-sm" :disabled="savingWidget" @click="saveWidgetSettings">
-                {{ savingWidget ? 'Saving…' : 'Save widget settings' }}
+                {{ savingWidget ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveWidgetSettings') }}
               </button>
-              <span v-if="widgetSaved" class="draft-saved">Saved.</span>
+              <span v-if="widgetSaved" class="draft-saved">{{ t('welcoSetup.saved') }}</span>
             </div>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Appearance</h3>
-            <p class="field-hint">Changes here take effect immediately — no need to reactivate.</p>
+            <h3 class="manage-h3">{{ t('welcoSetup.appearance') }}</h3>
+            <p class="field-hint">{{ t('welcoSetup.immediateEffectHint') }}</p>
             <div class="form-row">
-              <label class="form-label">Theme</label>
+              <label class="form-label">{{ t('welcoSetup.themeLabel') }}</label>
               <select v-model="form.widget_theme" class="input">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="custom">Custom</option>
+                <option value="light">{{ t('welcoSetup.themeLight') }}</option>
+                <option value="dark">{{ t('welcoSetup.themeDark') }}</option>
+                <option value="custom">{{ t('welcoSetup.themeCustom') }}</option>
               </select>
             </div>
             <template v-if="form.widget_theme === 'custom'">
               <div class="form-row">
-                <label class="form-label">Accent color</label>
+                <label class="form-label">{{ t('welcoSetup.accentColor') }}</label>
                 <input v-model="form.widget_color" class="input color-input" type="color" />
               </div>
               <div class="form-row">
-                <label class="form-label">Background color</label>
+                <label class="form-label">{{ t('welcoSetup.backgroundColor') }}</label>
                 <input v-model="form.widget_bg_color" class="input color-input" type="color" />
               </div>
             </template>
             <div class="form-actions">
               <button class="btn btn-outline btn-sm" :disabled="savingAppearance" @click="saveAppearance">
-                {{ savingAppearance ? 'Saving…' : 'Save appearance' }}
+                {{ savingAppearance ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveAppearance') }}
               </button>
-              <span v-if="appearanceSaved" class="draft-saved">Saved.</span>
+              <span v-if="appearanceSaved" class="draft-saved">{{ t('welcoSetup.saved') }}</span>
             </div>
 
-            <h4 class="manage-h4">Logo &amp; position</h4>
+            <h4 class="manage-h4">{{ t('welcoSetup.logoAndPosition') }}</h4>
             <template v-if="hasBusinessTier">
               <div class="form-row">
-                <label class="form-label">Logo</label>
+                <label class="form-label">{{ t('welcoSetup.logo') }}</label>
                 <div class="logo-row">
-                  <img v-if="widgetLogoUrl" :src="widgetLogoUrl" alt="Widget logo" class="logo-preview" />
+                  <img v-if="widgetLogoUrl" :src="widgetLogoUrl" :alt="t('welcoSetup.widgetLogoAlt')" class="logo-preview" />
                   <input ref="logoInputEl" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="file-input" @change="onLogoSelected" />
                   <button v-if="widgetLogoUrl" type="button" class="btn btn-outline btn-sm" :disabled="removingLogo" @click="onRemoveLogo">
-                    {{ removingLogo ? 'Removing…' : 'Remove' }}
+                    {{ removingLogo ? t('welcoSetup.removing') : t('welcoSetup.remove') }}
                   </button>
                 </div>
-                <span class="field-hint">PNG, JPEG, WebP or SVG, up to 2 MB. Replaces the default bubble icon.</span>
-                <p v-if="uploadingLogo" class="input-hint">Uploading…</p>
+                <span class="field-hint">{{ t('welcoSetup.logoHint') }}</span>
+                <p v-if="uploadingLogo" class="input-hint">{{ t('welcoSetup.uploading') }}</p>
                 <p v-if="logoError" class="doc-error">{{ logoError }}</p>
               </div>
               <div class="form-row">
-                <label class="form-label">Position</label>
+                <label class="form-label">{{ t('welcoSetup.positionLabel') }}</label>
                 <select v-model="form.widget_position" class="input">
-                  <option value="bottom-right">Bottom right</option>
-                  <option value="bottom-left">Bottom left</option>
+                  <option value="bottom-right">{{ t('welcoSetup.positionBottomRight') }}</option>
+                  <option value="bottom-left">{{ t('welcoSetup.positionBottomLeft') }}</option>
                 </select>
               </div>
               <div class="form-actions">
                 <button class="btn btn-outline btn-sm" :disabled="savingAppearance" @click="saveAppearance">
-                  {{ savingAppearance ? 'Saving…' : 'Save position' }}
+                  {{ savingAppearance ? t('welcoSetup.savingEllipsis') : t('welcoSetup.savePosition') }}
                 </button>
               </div>
             </template>
             <div v-else class="locked-feature">
-              <p class="field-hint">A custom logo and widget position are available on the Business plan and up.</p>
-              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">Upgrade plan</router-link>
+              <p class="field-hint">{{ t('welcoSetup.logoLocked') }}</p>
+              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">{{ t('welcoSetup.upgradePlan') }}</router-link>
             </div>
 
-            <h4 class="manage-h4">Custom CSS</h4>
+            <h4 class="manage-h4">{{ t('welcoSetup.customCss') }}</h4>
             <template v-if="hasEnterpriseTier">
               <p class="field-hint">
-                Advanced: raw CSS applied inside the widget only (it can't affect your page). It can add new
-                rules freely, but overriding an existing style may need <code>!important</code>.
+                {{ t('welcoSetup.customCssHint') }}
               </p>
               <textarea v-model="form.widget_custom_css" class="input textarea" rows="5" placeholder=".welcochat-example { font-family: inherit; }"></textarea>
               <div class="form-actions">
                 <button class="btn btn-outline btn-sm" :disabled="savingAppearance" @click="saveAppearance">
-                  {{ savingAppearance ? 'Saving…' : 'Save custom CSS' }}
+                  {{ savingAppearance ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveCustomCss') }}
                 </button>
               </div>
             </template>
             <div v-else class="locked-feature">
-              <p class="field-hint">Custom CSS is available on the Enterprise plan.</p>
-              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">Upgrade plan</router-link>
+              <p class="field-hint">{{ t('welcoSetup.customCssLocked') }}</p>
+              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">{{ t('welcoSetup.upgradePlan') }}</router-link>
             </div>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Additional notes</h3>
+            <h3 class="manage-h3">{{ t('welcoSetup.additionalNotes') }}</h3>
             <p class="field-hint">
-              Changes here take effect immediately — no need to reactivate.
-              <a href="/guides/prompt-and-content-guide/" target="_blank" rel="noopener">How to prepare good content for your agent</a>.
+              {{ t('welcoSetup.immediateEffectHint') }}
+              <a href="/guides/prompt-and-content-guide/" target="_blank" rel="noopener">{{ t('welcoSetup.contentGuideLink') }}</a>.
             </p>
-            <textarea v-model="form.additional_docs_note" class="input textarea textarea-lg" rows="6" placeholder="Optional — any extra context, FAQs or notes you want Welco to know about"></textarea>
+            <textarea v-model="form.additional_docs_note" class="input textarea textarea-lg" rows="6" :placeholder="t('welcoSetup.additionalDocsPlaceholder')"></textarea>
             <div class="form-actions">
               <button class="btn btn-outline btn-sm" :disabled="savingNote" @click="saveNote">
-                {{ savingNote ? 'Saving…' : 'Save notes' }}
+                {{ savingNote ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveNotes') }}
               </button>
-              <span v-if="noteSaved" class="draft-saved">Saved.</span>
+              <span v-if="noteSaved" class="draft-saved">{{ t('welcoSetup.saved') }}</span>
             </div>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Notifications</h3>
+            <h3 class="manage-h3">{{ t('welcoSetup.notifications') }}</h3>
 
             <div class="form-row">
-              <label class="form-label">Handoff email</label>
+              <label class="form-label">{{ t('welcoSetup.handoffEmail') }}</label>
               <input v-model="form.notification_email" type="email" class="input" placeholder="team@yourcompany.com" />
-              <span class="field-hint">Where handoff emails are sent. Leave empty to turn off email notifications — Slack/Teams/webhook below still work independently.</span>
+              <span class="field-hint">{{ t('welcoSetup.handoffEmailHint') }}</span>
             </div>
 
-            <h4 class="manage-h4">Slack &amp; Teams</h4>
+            <h4 class="manage-h4">{{ t('welcoSetup.slackTeams') }}</h4>
             <template v-if="hasBusinessTier">
               <p class="field-hint">
-                Get a Slack or Teams message when a visitor needs a human.
-                <a href="/guides/slack-teams-setup/" target="_blank" rel="noopener">Step-by-step setup guide</a>.
+                {{ t('welcoSetup.slackTeamsIntro') }}
+                <a href="/guides/slack-teams-setup/" target="_blank" rel="noopener">{{ t('welcoSetup.slackTeamsGuideLink') }}</a>.
               </p>
               <div class="form-row">
-                <label class="form-label">Channel</label>
+                <label class="form-label">{{ t('welcoSetup.channelLabel') }}</label>
                 <select v-model="form.notification_channel_type" class="input">
-                  <option value="">None</option>
+                  <option value="">{{ t('welcoSetup.channelNone') }}</option>
                   <option value="slack">Slack</option>
                   <option value="teams">Microsoft Teams</option>
-                  <option value="generic">Webhook (Zapier, Make, …)</option>
+                  <option value="generic">{{ t('welcoSetup.channelWebhook') }}</option>
                 </select>
               </div>
               <div class="form-row" v-if="form.notification_channel_type">
-                <label class="form-label">Webhook URL</label>
+                <label class="form-label">{{ t('welcoSetup.webhookUrl') }}</label>
                 <input v-model="form.notification_webhook_url" class="input" placeholder="https://hooks.slack.com/services/…" />
               </div>
             </template>
             <div v-else class="locked-feature">
-              <p class="field-hint">Slack, Teams and webhook notifications are available on the Business plan and up.</p>
-              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">Upgrade plan</router-link>
+              <p class="field-hint">{{ t('welcoSetup.notificationsLocked') }}</p>
+              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">{{ t('welcoSetup.upgradePlan') }}</router-link>
             </div>
 
             <div class="form-actions">
@@ -397,12 +395,12 @@
                 :disabled="testingNotification || !form.notification_webhook_url"
                 @click="sendTestNotification"
               >
-                {{ testingNotification ? 'Sending…' : 'Send test message' }}
+                {{ testingNotification ? t('welcoSetup.sendingEllipsis') : t('welcoSetup.sendTestMessage') }}
               </button>
               <button class="btn btn-outline btn-sm" :disabled="savingNotification" @click="saveNotificationSettings">
-                {{ savingNotification ? 'Saving…' : 'Save notification settings' }}
+                {{ savingNotification ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveNotificationSettings') }}
               </button>
-              <span v-if="notificationSaved" class="draft-saved">Saved.</span>
+              <span v-if="notificationSaved" class="draft-saved">{{ t('welcoSetup.saved') }}</span>
             </div>
             <p v-if="notificationTestResult" class="field-hint">{{ notificationTestResult }}</p>
           </div>
@@ -411,47 +409,46 @@
             <h3 class="manage-h3">WhatsApp</h3>
             <template v-if="hasBusinessTier">
               <p class="field-hint">
-                Connect your own Twilio WhatsApp sender so this agent can answer on WhatsApp too.
-                WelcoChat doesn't provision the number or handle Meta verification — bring your own Twilio account.
+                {{ t('welcoSetup.whatsappIntro') }}
               </p>
               <div class="form-row">
-                <label class="form-label">Twilio Account SID</label>
+                <label class="form-label">{{ t('welcoSetup.twilioSid') }}</label>
                 <input v-model="form.whatsapp_account_sid" class="input" placeholder="ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
               </div>
               <div class="form-row">
-                <label class="form-label">Twilio Auth Token</label>
-                <input v-model="form.whatsapp_auth_token" type="password" class="input" placeholder="Your Twilio Auth Token" />
+                <label class="form-label">{{ t('welcoSetup.twilioToken') }}</label>
+                <input v-model="form.whatsapp_auth_token" type="password" class="input" :placeholder="t('welcoSetup.twilioTokenPlaceholder')" />
               </div>
               <div class="form-row">
-                <label class="form-label">WhatsApp number</label>
+                <label class="form-label">{{ t('welcoSetup.whatsappNumber') }}</label>
                 <input v-model="form.whatsapp_number" class="input" placeholder="+14155238886" />
               </div>
               <div class="form-actions">
                 <button class="btn btn-outline btn-sm" :disabled="savingWhatsapp" @click="saveWhatsappSettings">
-                  {{ savingWhatsapp ? 'Saving…' : 'Save WhatsApp settings' }}
+                  {{ savingWhatsapp ? t('welcoSetup.savingEllipsis') : t('welcoSetup.saveWhatsappSettings') }}
                 </button>
-                <span v-if="whatsappSaved" class="draft-saved">Saved.</span>
+                <span v-if="whatsappSaved" class="draft-saved">{{ t('welcoSetup.saved') }}</span>
               </div>
               <template v-if="whatsappWebhookUrl">
                 <p class="field-hint" style="margin-top:0.9rem;">
-                  Paste this as the "when a message comes in" webhook in your Twilio WhatsApp sender settings:
+                  {{ t('welcoSetup.whatsappWebhookHint') }}
                 </p>
                 <div class="embed-box">
                   <code>{{ whatsappWebhookUrl }}</code>
                   <button class="btn btn-outline btn-sm" @click="copyWhatsappWebhookUrl">
-                    {{ whatsappUrlCopied ? 'Copied!' : 'Copy' }}
+                    {{ whatsappUrlCopied ? t('welcoSetup.copied') : t('welcoSetup.copy') }}
                   </button>
                 </div>
               </template>
             </template>
             <div v-else class="locked-feature">
-              <p class="field-hint">The WhatsApp channel is available on the Business plan and up.</p>
-              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">Upgrade plan</router-link>
+              <p class="field-hint">{{ t('welcoSetup.whatsappLocked') }}</p>
+              <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">{{ t('welcoSetup.upgradePlan') }}</router-link>
             </div>
           </div>
 
           <div class="manage-section">
-            <h3 class="manage-h3">Documents</h3>
+            <h3 class="manage-h3">{{ t('welcoSetup.documents') }}</h3>
             <input
               ref="fileInputEl"
               type="file"
@@ -460,15 +457,15 @@
               class="file-input"
               @change="onFilesSelected"
             />
-            <span class="field-hint">Upload FAQs, product docs or policies for Welco to answer from — up to 10 MB each. Takes effect immediately.</span>
+            <span class="field-hint">{{ t('welcoSetup.documentsHintImmediate') }}</span>
 
-            <p v-if="uploadingDocs" class="input-hint">Uploading…</p>
+            <p v-if="uploadingDocs" class="input-hint">{{ t('welcoSetup.uploading') }}</p>
 
             <ul v-if="documents.length" class="doc-list">
               <li v-for="doc in documents" :key="doc.id" class="doc-row">
                 <span class="doc-name">{{ doc.file_name }}</span>
-                <span class="doc-meta">{{ doc.char_count ?? 0 }} chars</span>
-                <button type="button" class="btn-remove" @click="removeDocument(doc.id)" aria-label="Remove document">✕</button>
+                <span class="doc-meta">{{ t('welcoSetup.charsCount', { count: doc.char_count ?? 0 }) }}</span>
+                <button type="button" class="btn-remove" @click="removeDocument(doc.id)" :aria-label="t('welcoSetup.removeDocument')">✕</button>
               </li>
             </ul>
             <ul v-if="uploadErrors.length" class="doc-errors">
@@ -479,15 +476,15 @@
 
         <template v-else-if="welcoStatus === 'error'">
           <div class="confirm-icon confirm-icon-error">!</div>
-          <h2 class="confirm-h2">We couldn't build your knowledge base</h2>
-          <p class="confirm-sub">{{ welcoError || 'Something went wrong while crawling your site.' }}</p>
+          <h2 class="confirm-h2">{{ t('welcoSetup.kbFailedTitle') }}</h2>
+          <p class="confirm-sub">{{ welcoError || t('welcoSetup.kbFailedDefault') }}</p>
 
           <div class="manage-section" style="margin-top: 0; padding-top: 0; border-top: none;">
-            <h3 class="manage-h3">Website</h3>
+            <h3 class="manage-h3">{{ t('welcoSetup.website') }}</h3>
             <input v-model="form.website_url" class="input" placeholder="https://yourcompany.com" />
             <div class="form-actions">
               <button class="btn btn-primary" :disabled="activating" @click="saveWebsiteAndRecrawl">
-                {{ activating ? 'Retrying…' : 'Save & retry' }}
+                {{ activating ? t('welcoSetup.retrying') : t('welcoSetup.saveAndRetry') }}
               </button>
             </div>
           </div>
@@ -495,16 +492,15 @@
 
         <template v-else>
           <div class="confirm-icon confirm-icon-pending">…</div>
-          <h2 class="confirm-h2">Building your knowledge base</h2>
+          <h2 class="confirm-h2">{{ t('welcoSetup.buildingKb') }}</h2>
           <p class="confirm-sub">
-            We're crawling your site now. This usually takes under a minute — this page will update
-            automatically.
+            {{ t('welcoSetup.buildingKbSub') }}
           </p>
         </template>
 
-        <div class="confirm-actions">
-          <router-link to="/subscriptions" class="btn btn-primary">Go to Services</router-link>
-          <router-link to="/dashboard" class="btn btn-outline">Go to Dashboard</router-link>
+        <div v-if="welcoStatus === 'ready' || welcoStatus === 'error'" class="confirm-actions">
+          <router-link to="/subscriptions" class="btn btn-primary">{{ t('addSub.goToServices') }}</router-link>
+          <router-link to="/dashboard" class="btn btn-outline">{{ t('addSub.goToDashboard') }}</router-link>
         </div>
       </section>
     </template>
@@ -513,6 +509,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { getServiceInstances, getSubscriptions, updateInstanceSetup, type ServiceInstance, type Subscription, type ServiceConfiguration } from '@/services/subscriptions'
 import {
@@ -521,6 +518,7 @@ import {
   type WelcoDocument, type WelcoDocumentUploadResult,
 } from '@/services/welco'
 
+const { t } = useI18n()
 const route = useRoute()
 const instanceId = computed(() => Number(route.params.id))
 
@@ -532,7 +530,13 @@ const draftSaved = ref(false)
 const confirmCorrect = ref(false)
 
 const wizardStep = ref(1)
-const stepLabels = ['Overview', 'Connect content', 'Widget', 'Review setup', 'Activation']
+const stepLabels = computed(() => [
+  t('welcoSetup.stepOverview'),
+  t('welcoSetup.stepConnectContent'),
+  t('welcoSetup.stepWidget'),
+  t('welcoSetup.stepReviewSetup'),
+  t('welcoSetup.stepActivation'),
+])
 const isManaging = computed(() => wizardStep.value === 5 && welcoStatus.value === 'ready')
 
 const setupStatus = ref('not_configured')
@@ -592,7 +596,7 @@ async function onFilesSelected(evt: Event) {
     uploadErrors.value = results.filter((r) => r.error)
     await loadDocuments()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to upload documents.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorUploadDocuments')
   } finally {
     uploadingDocs.value = false
     if (fileInputEl.value) fileInputEl.value.value = ''
@@ -611,7 +615,7 @@ async function saveWidgetSettings() {
     widgetSaved.value = true
     setTimeout(() => (widgetSaved.value = false), 2000)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save widget settings.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveWidgetSettings')
   } finally {
     savingWidget.value = false
   }
@@ -629,7 +633,7 @@ async function saveAppearance() {
     appearanceSaved.value = true
     setTimeout(() => (appearanceSaved.value = false), 2000)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save appearance.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveAppearance')
   } finally {
     savingAppearance.value = false
   }
@@ -645,7 +649,7 @@ async function onLogoSelected(evt: Event) {
   try {
     widgetLogoUrl.value = await uploadWelcoLogo(instanceId.value, file)
   } catch (err: unknown) {
-    logoError.value = err instanceof Error ? err.message : 'Failed to upload logo.'
+    logoError.value = err instanceof Error ? err.message : t('welcoSetup.errorUploadLogo')
   } finally {
     uploadingLogo.value = false
     if (logoInputEl.value) logoInputEl.value.value = ''
@@ -659,7 +663,7 @@ async function onRemoveLogo() {
     await removeWelcoLogo(instanceId.value)
     widgetLogoUrl.value = ''
   } catch (err: unknown) {
-    logoError.value = err instanceof Error ? err.message : 'Failed to remove logo.'
+    logoError.value = err instanceof Error ? err.message : t('welcoSetup.errorRemoveLogo')
   } finally {
     removingLogo.value = false
   }
@@ -677,7 +681,7 @@ async function saveNote() {
     noteSaved.value = true
     setTimeout(() => (noteSaved.value = false), 2000)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save notes.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveNotes')
   } finally {
     savingNote.value = false
   }
@@ -697,7 +701,7 @@ async function saveNotificationSettings() {
     notificationSaved.value = true
     setTimeout(() => (notificationSaved.value = false), 2000)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save notification settings.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveNotificationSettings')
   } finally {
     savingNotification.value = false
   }
@@ -709,10 +713,10 @@ async function sendTestNotification() {
   try {
     await testWelcoNotification(instanceId.value, form.value.notification_channel_type, form.value.notification_webhook_url)
     notificationTestResult.value = form.value.notification_channel_type === 'generic'
-      ? 'Test payload sent as structured JSON — check your webhook.'
-      : 'Test message sent — check your channel.'
+      ? t('welcoSetup.testSentWebhook')
+      : t('welcoSetup.testSentChannel')
   } catch (err: unknown) {
-    notificationTestResult.value = err instanceof Error ? err.message : 'Failed to send test message.'
+    notificationTestResult.value = err instanceof Error ? err.message : t('welcoSetup.errorSendTestMessage')
   } finally {
     testingNotification.value = false
   }
@@ -723,24 +727,28 @@ async function removeDocument(docId: number) {
     await deleteWelcoDocument(instanceId.value, docId)
     documents.value = documents.value.filter((d) => d.id !== docId)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to remove document.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorRemoveDocument')
   }
 }
 
 function themeLabel(theme: string): string {
-  const map: Record<string, string> = { light: 'Light', dark: 'Dark', custom: 'Custom' }
-  return map[theme] ?? 'Light'
+  const map: Record<string, string> = {
+    light: t('welcoSetup.themeLight'),
+    dark: t('welcoSetup.themeDark'),
+    custom: t('welcoSetup.themeCustom'),
+  }
+  return map[theme] ?? t('welcoSetup.themeLight')
 }
 
 function statusLabel(status: string): string {
   const map: Record<string, string> = {
-    not_configured: 'Not configured',
-    setup_in_progress: 'Setup in progress',
-    pending_review: 'Pending review',
-    running: 'Running',
-    paused: 'Paused',
-    error: 'Needs attention',
-    cancelled: 'Cancelled',
+    not_configured: t('serviceStatus.notConfigured'),
+    setup_in_progress: t('serviceStatus.setupInProgress'),
+    pending_review: t('serviceStatus.pendingReview'),
+    running: t('serviceStatus.running'),
+    paused: t('serviceStatus.paused'),
+    error: t('subscriptions.needsAttention'),
+    cancelled: t('serviceStatus.cancelled'),
   }
   return map[status] ?? status
 }
@@ -783,7 +791,7 @@ async function startSetup() {
     setupStatus.value = 'setup_in_progress'
     wizardStep.value = 2
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to start setup.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorStartSetup')
   }
 }
 
@@ -795,7 +803,7 @@ async function saveDraft() {
     await updateInstanceSetup(instanceId.value, { setup_status: 'setup_in_progress', configuration: buildConfiguration() })
     draftSaved.value = true
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save draft.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveDraft')
   } finally {
     saving.value = false
   }
@@ -845,7 +853,7 @@ async function activateAndWatch() {
     wizardStep.value = 5
     if (status.status !== 'ready' && status.status !== 'error') startPolling()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to activate Welco.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorActivate')
   } finally {
     activating.value = false
   }
@@ -853,7 +861,7 @@ async function activateAndWatch() {
 
 async function saveWebsiteAndRecrawl() {
   if (!form.value.website_url.trim()) {
-    error.value = 'Website URL is required.'
+    error.value = t('welcoSetup.errorWebsiteRequired')
     return
   }
   error.value = ''
@@ -861,7 +869,7 @@ async function saveWebsiteAndRecrawl() {
     await updateInstanceSetup(instanceId.value, { configuration: buildConfiguration() })
     await activateAndWatch()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save website.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveWebsite')
   }
 }
 
@@ -891,7 +899,7 @@ async function saveWhatsappSettings() {
     whatsappSaved.value = true
     setTimeout(() => (whatsappSaved.value = false), 2000)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save WhatsApp settings.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSaveWhatsapp')
   } finally {
     savingWhatsapp.value = false
   }
@@ -905,7 +913,7 @@ async function submitForActivation() {
     setupStatus.value = 'pending_review'
     await activateAndWatch()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to submit setup.'
+    error.value = err instanceof Error ? err.message : t('welcoSetup.errorSubmitSetup')
   } finally {
     saving.value = false
   }
@@ -922,11 +930,11 @@ onMounted(async () => {
     ])
     const inst = instances.find((i) => i.id === instanceId.value)
     if (!inst) {
-      loadError.value = 'Service instance not found.'
+      loadError.value = t('welcoSetup.errorInstanceNotFound')
       return
     }
     if (inst.service_key !== 'welco') {
-      loadError.value = 'This setup wizard is for WelcoChat only.'
+      loadError.value = t('welcoSetup.errorWrongWizard')
       return
     }
     setupStatus.value = inst.setup_status
@@ -949,7 +957,7 @@ onMounted(async () => {
       wizardStep.value = 2
     }
   } catch (err: unknown) {
-    loadError.value = err instanceof Error ? err.message : 'Failed to load setup.'
+    loadError.value = err instanceof Error ? err.message : t('welcoSetup.errorLoadSetup')
   } finally {
     loading.value = false
   }
@@ -992,6 +1000,7 @@ onMounted(async () => {
 .textarea { resize: vertical; }
 .textarea-lg { min-height: 9rem; }
 .field-hint { font-size: 0.78rem; color: rgba(148, 163, 184, 0.7); }
+.field-hint a { color: var(--blue-2, #60a5fa); text-decoration: underline; }
 
 .file-input { font-size: 0.85rem; }
 .doc-list { list-style: none; padding: 0; margin: 0.6rem 0 0; display: flex; flex-direction: column; gap: 0.4rem; }

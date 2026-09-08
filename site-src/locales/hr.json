@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "home": {
+      "title": "WelcoChat — AI agent za vašu web stranicu",
+      "description": "WelcoChat je AI agent za vašu web stranicu — odgovara na pitanja posjetitelja na temelju vašeg vlastitog sadržaja, prikuplja potencijalne klijente i prosljeđuje ih djelatniku kada je to potrebno.",
+      "ogTitle": "WelcoChat — AI agent za vašu web stranicu",
+      "ogDescription": "Odgovara na temelju vašeg vlastitog sadržaja. Prikuplja potencijalne klijente. Prosljeđuje djelatniku kada je to važno. Aktivan na vašoj stranici za nekoliko minuta."
+    },
+    "terms": {
+      "title": "Uvjeti korištenja - WelcoChat",
+      "description": "Uvjeti korištenja WelcoChata.",
+      "ogTitle": "Uvjeti korištenja - WelcoChat",
+      "ogDescription": "Uvjeti korištenja WelcoChata."
+    },
+    "privacy": {
+      "title": "Politika privatnosti - WelcoChat",
+      "description": "Kako WelcoChat prikuplja, koristi i štiti podatke putem WelcoChat widgeta i klijentskog portala.",
+      "ogTitle": "Politika privatnosti - WelcoChat",
+      "ogDescription": "Kako WelcoChat prikuplja, koristi i štiti podatke putem WelcoChat widgeta i klijentskog portala."
+    },
+    "guidePromptContent": {
+      "title": "Kako pripremiti sadržaj za svog agenta - WelcoChat",
+      "description": "Kako povezati i napisati sadržaj kako bi vaš WelcoChat agent davao točne, korisne odgovore — što uključiti, čega se kloniti i kako funkcionira polje za dodatne napomene.",
+      "ogTitle": "Kako pripremiti sadržaj za svog agenta - WelcoChat",
+      "ogDescription": "Kako povezati i napisati sadržaj kako bi vaš WelcoChat agent davao točne, korisne odgovore."
+    },
+    "guideSlackTeams": {
+      "title": "Vodič za postavljanje Slacka i Teamsa - WelcoChat",
+      "description": "Korak po korak: povežite Slack ili Microsoft Teams s WelcoChatom kako bi vaš tim bio obaviješten čim posjetitelj zatreba djelatnika.",
+      "ogTitle": "Vodič za postavljanje Slacka i Teamsa - WelcoChat",
+      "ogDescription": "Korak po korak: povežite Slack ili Microsoft Teams s WelcoChat obavijestima o prosljeđivanju."
+    }
+  },
+  "common": {
+    "brand": "WelcoChat",
+    "nav": {
+      "features": "Značajke",
+      "howItWorks": "Kako funkcionira",
+      "pricing": "Cijene",
+      "faq": "FAQ",
+      "contact": "Kontakt"
+    },
+    "signIn": "Prijava",
+    "createAccount": "Otvorite račun",
+    "toggleMenu": "Prikaži izbornik",
+    "langSwitchLabel": "Jezik",
+    "footer": {
+      "tagline": "AI agent za vašu web stranicu — odgovara na temelju vašeg sadržaja, prikuplja potencijalne klijente, prosljeđuje djelatniku kada je to važno.",
+      "productHeading": "Proizvod",
+      "companyHeading": "Tvrtka",
+      "contact": "Kontakt",
+      "terms": "Uvjeti korištenja",
+      "privacy": "Politika privatnosti",
+      "portal": "Klijentski portal",
+      "copyright": "© 2026 WelcoChat. Sva prava pridržana."
+    },
+    "backToPortal": "← Natrag na portal",
+    "legalUpdated": "Zadnje ažurirano: rujan 2026."
+  },
+  "home": {
+    "eyebrow": "AI chat agent za vašu web stranicu",
+    "h1": "AI agent za vašu web stranicu, aktivan za nekoliko minuta.",
+    "heroSub": "WelcoChat odgovara na pitanja posjetitelja na temelju vašeg vlastitog sadržaja, prikuplja potencijalne klijente dok spavate i prosljeđuje ih vašem timu kad god je potreban djelatnik.",
+    "contactUs": "Kontaktirajte nas",
+    "heroNote": "Kreditna kartica nije potrebna. 14-dnevno besplatno probno razdoblje uz svaki plan.",
+    "heroVisual": {
+      "bubbleVisitor1": "Dostavljate li u Mađarsku?",
+      "bubbleAgent1": "Da — 2 do 4 radna dana, besplatno za narudžbe iznad 50 €. Želite da provjerim datum dostave za vaš poštanski broj?",
+      "bubbleVisitor2": "Zapravo imam pitanje o jamstvu koje možda ne znate.",
+      "bubbleHandoff": "Proslijeđeno vašem timu — uskoro će odgovoriti ovdje."
+    },
+    "outputCards": [
+      { "title": "Odgovoreno na temelju vašeg sadržaja", "body": "Posjetitelj je pitao o cijenama → odgovoreno izravno s vaše stranice s cijenama." },
+      { "title": "Proslijeđeno djelatniku", "body": "Posjetitelj je pitao nešto što agent nije znao → vaš tim obaviješten e-poštom." },
+      { "title": "Potencijalni klijent zabilježen", "body": "Ime, e-pošta, tvrtka i za što su zainteresirani — automatski spremljeno." }
+    ],
+    "problem": {
+      "h2": "Većina posjetitelja web stranice ode a da nikada ne postavi pitanje.",
+      "body": "Chat uživo funkcionira samo kad ga netko prati. Kontaktni obrasci se ignoriraju. Stranice FAQ se preskaču. U međuvremenu posjetitelji odlaze s neodgovorenim pitanjima i bez načina da vas kontaktiraju izvan radnog vremena. WelcoChat je na vašoj stranici 0-24, odgovara na temelju vašeg vlastitog sadržaja i uključuje djelatnika samo kada razgovor to zaista zahtijeva."
+    },
+    "painItems": [
+      "Posjetitelji odlaze bez dobivenog odgovora",
+      "Timovi za podršku/prodaju ne mogu pokriti chat uživo 0-24",
+      "Potencijalni klijenti iz kontaktnih obrazaca stižu bez konteksta",
+      "Stranice FAQ postoje, ali ih posjetitelji ne čitaju",
+      "Dobri potencijalni klijenti ohlade dok čekaju odgovor"
+    ],
+    "howItWorks": {
+      "h2": "Kako funkcionira WelcoChat",
+      "steps": [
+        { "title": "Otvorite račun", "body": "Registrirajte se i pokrenite svoje 14-dnevno besplatno probno razdoblje — kreditna kartica nije potrebna." },
+        { "title": "Povežite svoj sadržaj", "body": "WelcoChat pretražuje vašu web stranicu i/ili učitavate dokumente i FAQ za izradu baze znanja." },
+        { "title": "Prilagodite widget", "body": "Naziv, avatar, boje, poruka dobrodošlice — neka djeluje kao dio vaše stranice." },
+        { "title": "Ugradite jedan redak koda", "body": "Zalijepite isječak koda na svoju stranicu. Gotovo." },
+        { "title": "Pregledajte i poboljšajte", "body": "Pregledajte razgovore i neodgovorena pitanja na svojoj nadzornoj ploči — baza znanja se s vremenom poboljšava." },
+        { "title": "Prosljeđivanje djelatniku, uvijek dostupno", "body": "Agent prosljeđuje kad god nije siguran ili posjetitelj zatraži osobu." }
+      ]
+    },
+    "features": {
+      "h2": "Sve što vam je potrebno za postavljanje AI agenta na svoju stranicu",
+      "cards": [
+        { "title": "Baza znanja web stranice", "body": "Automatsko pretraživanje vaše stranice, učitavanje PDF-ova i dokumenata, redovito ažuriranje.", "tier": null },
+        { "title": "Widget za ugradnju", "body": "Jedna skriptna oznaka, potpuno prilagodljiv izgled.", "tier": null },
+        { "title": "Prikupljanje potencijalnih klijenata", "body": "Strukturirano ime, e-pošta, tvrtka i namjera za svaki kvalificirani razgovor.", "tier": null },
+        { "title": "Prosljeđivanje djelatniku uživo", "body": "Vaš tim je obaviješten i može odgovarati uživo u istom razgovoru s WelcoChat portala — ne samo primiti obavijest.", "tier": null },
+        { "title": "Nadzorna ploča statistike", "body": "Volumen razgovora, stopa prosljeđivanja, prikupljeni potencijalni klijenti, stanje baze znanja.", "tier": null },
+        { "title": "Obavijesti putem Slacka, Teamsa i webhooka", "body": "Primite obavijest čim posjetitelju zatreba djelatnik — generički webhook pokriva Zapier, Make ili bilo koji drugi alat.", "tier": "Business+" },
+        { "title": "WhatsApp kanal", "body": "Povežite vlastiti broj WhatsApp Business kako bi isti agent odgovarao i tamo, s istim prosljeđivanjem uživo.", "tier": "Business+" },
+        { "title": "Timski računi", "body": "Pozovite kolege da zajedno upravljaju agentom i vode razgovore uživo.", "tier": "Business+" },
+        { "title": "Prilagođeni logotip i pozicija widgeta", "body": "Učitajte vlastiti logotip i odaberite postavljanje dolje lijevo ili dolje desno.", "tier": "Business+" },
+        { "title": "Prilagođeni CSS", "body": "Nadjačavanje čistim CSS-om, sigurno ograničeno na vlastiti shadow DOM widgeta — ne može utjecati na ostatak vaše stranice.", "tier": "Enterprise" },
+        { "title": "Prilozi slika", "body": "Posjetitelji mogu priložiti fotografiju, a agent odgovara na temelju slike i sadržaja vaše stranice putem stvarnog AI vida.", "tier": "Business+" },
+        { "title": "Višejezičnost", "body": "Automatski odgovara posjetiteljima na njihovom vlastitom jeziku.", "tier": null }
+      ]
+    },
+    "pricing": {
+      "h2": "Jednostavne, transparentne cijene",
+      "note": "Svaki novi račun počinje 14-dnevnim besplatnim probnim razdobljem. Kreditna kartica nije potrebna.",
+      "monthly": "Mjesečno",
+      "annual": "Godišnje",
+      "save20": "Uštedite 20%",
+      "billedAnnually": "naplaćuje se godišnje",
+      "recommended": "Preporučeno",
+      "perMo": "/mj.",
+      "startFreeTrial": "Pokreni besplatno probno razdoblje",
+      "tiers": [
+        {
+          "name": "Basic",
+          "priceMonthly": "39 €",
+          "priceAnnual": "31 €",
+          "recommended": false,
+          "features": [
+            "Do 500 razgovora/mjesečno",
+            "Baza znanja web stranice",
+            "Widget za ugradnju",
+            "Prikupljanje potencijalnih klijenata",
+            "Prosljeđivanje uživo (e-pošta)",
+            "Nadzorna ploča statistike",
+            "Višejezičnost"
+          ]
+        },
+        {
+          "name": "Business",
+          "priceMonthly": "99 €",
+          "priceAnnual": "79 €",
+          "recommended": true,
+          "features": [
+            "Do 3000 razgovora/mjesečno",
+            "Sve iz Basica",
+            "Prilagođeni logotip i pozicija widgeta",
+            "Obavijesti putem Slacka / Teamsa / webhooka",
+            "Timski računi",
+            "WhatsApp kanal",
+            "Prilozi slika"
+          ]
+        },
+        {
+          "name": "Enterprise",
+          "priceMonthly": "299 €",
+          "priceAnnual": "239 €",
+          "recommended": false,
+          "features": [
+            "Do 15 000 razgovora/mjesečno",
+            "Sve iz Businessa",
+            "Prilagođeno nadjačavanje CSS-a",
+            "Prilagođene integracije",
+            "Prioritetna podrška",
+            "SLA"
+          ]
+        }
+      ],
+      "foot": "Sve cijene ne uključuju PDV gdje je primjenjivo. Godišnji planovi naplaćuju se unaprijed."
+    },
+    "faq": {
+      "h2": "Često postavljana pitanja",
+      "items": [
+        { "q": "Koliko brzo mogu pokrenuti WelcoChat na svojoj stranici?", "a": "Za nekoliko minuta — otvorite račun, povežite svoj sadržaj, zalijepite jedan isječak koda." },
+        { "q": "Izmišlja li agent ikad stvari?", "a": "Ne. Odgovara samo na temelju sadržaja koji ste povezali. Ako nije siguran, prosljeđuje djelatniku umjesto nagađanja." },
+        { "q": "Što se događa kada agent ne može odgovoriti?", "a": "Vaš tim odmah biva obaviješten e-poštom (ili putem Slacka/Teamsa/webhooka na planu Business+) i može se pridružiti tom razgovoru i odgovarati uživo s portala." },
+        { "q": "Trebam li kreditnu karticu za početak?", "a": "Ne — svaki račun dobiva 14-dnevno besplatno probno razdoblje bez potrebne kartice." },
+        { "q": "Mogu li koristiti WelcoChat na više od jedne web stranice?", "a": "Svaka pretplata pokriva jednu web stranicu. Za dodatne web stranice otvorite dodatnu pretplatu — kontaktirajte nas ako postavljate više njih." },
+        { "q": "Mogu li posjetitelji kontaktirati agenta i putem WhatsAppa?", "a": "Da, od plana Business — povežite vlastiti broj WhatsApp Business i isti agent odgovara i tamo, s istim prosljeđivanjem uživo." },
+        { "q": "Može li agenta upravljati više od jedne osobe iz mog tima?", "a": "Da, od plana Business — pozovite kolege u svoj WelcoChat račun." },
+        { "q": "Mogu li koristiti vlastiti logotip i odabrati na kojoj se strani widget otvara?", "a": "Da, od plana Business. Enterprise dodatno donosi prilagođeno nadjačavanje CSS-a za dodatno fino podešavanje." },
+        { "q": "Koje jezike podržava?", "a": "Agent automatski prepoznaje i odgovara na jeziku posjetitelja." },
+        { "q": "Mogu li vidjeti što posjetitelji pitaju?", "a": "Da — nadzorna ploča statistike prikazuje volumen razgovora, stopu prosljeđivanja i potencijalne klijente, a svaki proslijeđeni razgovor vidljiv je u Chatu uživo." },
+        { "q": "Što se događa ako mi istekne probno razdoblje ili pretplata?", "a": "Widget se pauzira na vašoj web stranici dok se ne riješi naplata — posjetitelji ga jednostavno neće vidjeti, umjesto neispravnog chata. Vaš pristup portalu i sve što ste konfigurirali ostaje netaknuto, i sve se nastavlja čim vaša pretplata ponovno postane aktivna." },
+        { "q": "Mogu li kasnije promijeniti plan?", "a": "Da — nadogradite ili degradirajte plan bilo kada s portala. Ništa što ste konfigurirali se nikada ne briše prilikom downgradea; značajke vezane uz višu razinu samo se pauziraju dok ponovno ne nadogradite." },
+        { "q": "Mogu li posjetitelji slati slike?", "a": "Da, od plana Business — posjetitelji mogu priložiti fotografiju, a agent je zaista pogleda prije odgovora, ne samo popratni tekst." },
+        { "q": "Mogu li ažurirati sadržaj svoje web stranice nakon što je postane aktivna?", "a": "Da — promijenite povezani URL web stranice ili uredite svoje učitane dokumente i napomene bilo kada s portala; WelcoChat ponovno uči novi sadržaj bez prekida rada." },
+        { "q": "Usporava li widget moju stranicu ili radi li na mobitelu?", "a": "Učitava se asinkrono, tako da nikada ne blokira vašu stranicu, i potpuno je upotrebljiv na telefonima i tabletima." }
+      ]
+    },
+    "contact": {
+      "h2": "Kontaktirajte WelcoChat",
+      "sub": "Imate pitanje prije otvaranja računa? Pošaljite nam poruku.",
+      "emailLabel": "E-pošta",
+      "email": "info@welcochat.com",
+      "responseLabel": "Vrijeme odgovora",
+      "response": "Obično unutar jednog radnog dana",
+      "form": {
+        "name": "Ime",
+        "company": "Tvrtka",
+        "email": "E-pošta",
+        "website": "Web stranica",
+        "topicLabel": "S čime vam možemo pomoći?",
+        "topics": [
+          { "value": "question_before_registering", "label": "Imam pitanje prije registracije" },
+          { "value": "choosing_plan", "label": "Trebam pomoć pri odabiru plana" },
+          { "value": "billing", "label": "Imam pitanje o naplati" },
+          { "value": "technical", "label": "Imam tehničko pitanje" },
+          { "value": "partnership", "label": "Partnerstvo" },
+          { "value": "other", "label": "Ostalo" }
+        ],
+        "message": "Poruka",
+        "submit": "Pošalji poruku",
+        "sending": "Slanje...",
+        "success": "Hvala. Primili smo vašu poruku i uskoro ćemo vam odgovoriti.",
+        "errorGeneric": "Nešto je pošlo po zlu. Pokušajte ponovno."
+      }
+    }
+  },
+  "terms": {
+    "eyebrow": "Pravne informacije",
+    "h1": "Uvjeti korištenja",
+    "intro": "Ovi Uvjeti korištenja (\"Uvjeti\") uređuju pristup i korištenje WelcoChata te WelcoChat klijentskog portala na <code>/portal</code> (zajedno \"Usluge\"), koje pruža Mango Group, estonska tvrtka, pod markom WelcoChat (\"WelcoChat\", \"mi\"). Otvaranjem WelcoChat računa ili korištenjem Usluga prihvaćate ove Uvjete u svoje ime i, ako je primjenjivo, u ime tvrtke koju predstavljate (\"vi\").",
+    "note": "Registracija tvrtke Mango Group u Estoniji je u tijeku. Nakon završetka ova će stranica biti ažurirana s potpunim registriranim poslovnim podacima (naziv pravne osobe, matični broj i registrirana adresa). U međuvremenu nas možete kontaktirati na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>.",
+    "sections": [
+      { "h2": "1. Usluga", "body": "WelcoChat je AI agent koji ugrađujete na vlastitu web stranicu. Odgovara na pitanja posjetitelja koristeći sadržaj pretražen s vaše stranice, prikuplja potencijalne klijente i prosljeđuje ih vašem timu e-poštom (ili putem Slacka/Teamsa/webhooka na planu Business+) kada ne može pouzdano odgovoriti." },
+      { "h2": "2. Računi", "body": "Prilikom otvaranja WelcoChat računa morate navesti točne informacije i odgovorni ste za sve aktivnosti pod svojim računom te za povjerljivost svojih pristupnih podataka. Odmah nas obavijestite na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> ako posumnjate na neovlašteno korištenje svog računa." },
+      { "h2": "3. Besplatno probno razdoblje", "body": "Svaka nova pretplata počinje 14-dnevnim besplatnim probnim razdobljem. Za pokretanje probnog razdoblja nije potreban način plaćanja, i ništa se ne naplaćuje tijekom probnog razdoblja. Ako dodate način plaćanja prije isteka probnog razdoblja, naplata automatski počinje na kraju probnog razdoblja prema odabranom planu i razdoblju naplate. Ako na kraju probnog razdoblja nema pohranjenog načina plaćanja, naplata za tu pretplatu se pauzira (ne otkazuje) dok se ne doda način plaćanja — vaši podaci i konfiguracija se zadržavaju." },
+      { "h2": "4. Pretplate i naplata", "body": "Plaćene pretplate naplaćuju se mjesečno ili godišnje unaprijed, ovisno o odabiru pri plaćanju. Godišnji planovi naplaćuju se unaprijed za cijelu godinu. Pretplate se automatski obnavljaju za sljedeća razdoblja osim ako se ne otkažu prije datuma obnove. Plaćanja obrađuje Stripe; WelcoChat ne pohranjuje podatke vaše kartice. Cijene su prikazane bez PDV-a gdje je primjenjivo, koji se može dodati pri plaćanju ovisno o vašoj lokaciji naplate. Cijene za buduća razdoblja naplate možemo mijenjati uz najmanje 30-dnevnu prethodnu obavijest putem e-pošte." },
+      { "h2": "5. Otkazivanje i povrat novca", "body": "Pretplatu možete otkazati u bilo kojem trenutku putem Portala za naplatu, dostupnog sa stranice Računi klijentskog portala. Otkazivanje stupa na snagu na kraju trenutnog razdoblja naplate; do tada zadržavate pristup. Već plaćene naknade za razdoblje naplate se ne vraćaju, osim ako to zahtijeva primjenjivi zakon." },
+      { "h2": "6. Prihvatljivo korištenje", "body": "Slažete se da nećete koristiti Usluge za: kršenje bilo kojeg primjenjivog zakona; prijenos nezakonitog, uvredljivog ili štetnog sadržaja; pokušaj ometanja, obrnutog inženjerstva ili neovlaštenog pristupa Uslugama ili WelcoChat infrastrukturi; ili korištenje Usluga na način koji se razumno može smatrati zlouporabom ili preopterećenjem temeljnih AI sustava. Možemo suspendirati račune koji krše ovaj odjeljak." },
+      { "h2": "7. Izlazni sadržaj generiran AI-jem", "body": "WelcoChat koristi AI jezične modele za generiranje odgovora. Izlazni sadržaj AI-ja može biti netočan ili nepotpun. WelcoChat je dizajniran da odgovara isključivo na temelju sadržaja vaše vlastite web stranice i prosljeđuje djelatniku kada je nesiguran, ali vi ostajete odgovorni za provjeru izlaznih podataka korištenih u važnim odlukama." },
+      { "h2": "8. Vaš sadržaj", "body": "Zadržavate vlasništvo nad sadržajem na svojoj web stranici koji WelcoChat pretražuje, kao i nad svim podacima koje vi ili vaši krajnji korisnici dostavljate putem Usluga (\"Vaš sadržaj\"). Dajete WelcoChatu licenciju za obradu Vašeg sadržaja isključivo radi pružanja i poboljšanja Usluga za vas. Odgovorni ste za posjedovanje potrebnih prava na Vaš sadržaj i za podatke vlastitih krajnjih korisnika prikupljene putem widgeta u skladu s primjenjivim zakonom." },
+      { "h2": "9. Usluge trećih strana", "body": "WelcoChat se za rad Usluga oslanja na pružatelje trećih strana, uključujući Stripe (plaćanja), Anthropic (AI obrada) te pružatelje infrastrukture i e-pošte. Korištenje Usluga predstavlja prihvaćanje da relevantne podatke obrađuju ti pružatelji, kao što je opisano u našoj <a href=\"{{PRIVACY_URL}}\">Politici privatnosti</a>." },
+      { "h2": "10. Intelektualno vlasništvo", "body": "WelcoChat i njegovi davatelji licenci zadržavaju sva prava, vlasništvo i interes u Uslugama, uključujući temeljni softver, dizajn i marku. Ništa u ovim Uvjetima ne prenosi na vas takva prava izvan ograničenog prava korištenja Usluga na predviđeni način." },
+      { "h2": "11. Ograničenje odgovornosti", "body": "U najvećoj mjeri dopuštenoj zakonom, WelcoChat nije odgovoran za neizravnu, slučajnu ili posljedičnu štetu koja proizlazi iz korištenja Usluga. Naša ukupna odgovornost za bilo koji zahtjev vezan uz Usluge ograničena je na iznos koji ste nam platili za predmetnu pretplatu u 12 mjeseci prije zahtjeva." },
+      { "h2": "12. Raskid", "body": "Možemo suspendirati ili raskinuti vaš pristup Uslugama zbog kršenja ovih Uvjeta, neplaćanja ili ako to zahtijeva zakon, uz obavijest gdje je to razumno moguće. Korištenje Usluga možete prestati koristiti i otkazati pretplatu u bilo kojem trenutku kako je opisano u Odjeljku 5." },
+      { "h2": "13. Izmjene ovih Uvjeta", "body": "Ove Uvjete možemo povremeno ažurirati. Obavijestit ćemo vas o značajnim izmjenama e-poštom ili putem klijentskog portala prije nego što stupe na snagu. Nastavak korištenja Usluga nakon stupanja izmjene na snagu predstavlja prihvaćanje ažuriranih Uvjeta." },
+      { "h2": "14. Mjerodavno pravo", "body": "Ovi Uvjeti podliježu zakonima Estonije, bez obzira na načela sukoba zakona, osim ako obvezno pravo zaštite potrošača u vašoj zemlji prebivališta ne propisuje drugačije." },
+      { "h2": "15. Kontakt", "body": "Pitanja o ovim Uvjetima mogu se poslati na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." }
+    ]
+  },
+  "privacy": {
+    "eyebrow": "Pravne informacije",
+    "h1": "Politika privatnosti",
+    "intro": "Ova Politika privatnosti objašnjava koje podatke Mango Group, estonska tvrtka koja posluje pod markom WelcoChat (\"WelcoChat\", \"mi\"), prikuplja putem WelcoChat widgeta i klijentskog portala na <code>/portal</code> (zajedno \"Usluge\") te kako ih koristimo.",
+    "note": "Registracija tvrtke Mango Group u Estoniji je u tijeku. Nakon završetka ova će stranica biti ažurirana s potpunim registriranim poslovnim podacima kao voditelja obrade. U međuvremenu, pitanja ili zahtjeve vezane uz privatnost možete poslati na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>.",
+    "dataWeCollectIntro": "Prikupljamo različite podatke ovisno o tome kako komunicirate s WelcoChatom:",
+    "dataWeCollectItems": [
+      { "strong": "Podaci o računu", "text": " — ime, e-mail adresa, broj telefona, naziv tvrtke i adresa za naplatu, kada registrirate WelcoChat račun ili se pretplatite." },
+      { "strong": "Podaci o naplati", "text": " — povijest pretplata i računa. Podatke o kartici prikuplja i pohranjuje naš obrađivač plaćanja, Stripe; WelcoChat ne prima niti pohranjuje potpuni broj vaše kartice." },
+      { "strong": "Sadržaj widgeta", "text": " — javni sadržaj vaše web stranice, koji WelcoChat pretražuje radi izgradnje svoje baze znanja, te poruke razmijenjene između posjetitelja vaše web stranice i widgeta, uključujući svako ime, e-mail ili poruku koju posjetitelj pošalje kako bi kontaktirao vaš tim." },
+      { "strong": "Podaci o korištenju i zapisnici", "text": " — tehnički podaci poput IP adrese, vrste preglednika i posjećenih stranica, automatski prikupljeni kada koristite Usluge ili javnu web stranicu." }
+    ],
+    "whoWeShareIntro": "Podatke dijelimo sa sljedećim kategorijama pružatelja trećih strana, isključivo za rad Usluga:",
+    "whoWeShareItems": [
+      { "strong": "Stripe", "text": " — obrada plaćanja i naplata." },
+      { "strong": "Anthropic", "text": " — AI pružatelj iza WelcoChata. Kada WelcoChat odgovara posjetitelju, relevantni sadržaj se šalje Anthropic API-ju radi generiranja odgovora." },
+      { "strong": "Pružatelji dostave e-pošte i hostinga", "text": " — za slanje e-pošte o računu i obavijestima te za hostiranje Usluga." },
+      { "strong": "Google Analytics", "text": " — samo na našoj javnoj web stranici (<code>welcochat.com</code>), radi razumijevanja agregiranog prometa posjetitelja. Klijentski portal i sam WelcoChat widget ne koriste Google Analytics." }
+    ],
+    "whoWeShareFoot": "Ne prodajemo osobne podatke. Neki od ovih pružatelja mogu obrađivati podatke izvan Europskog gospodarskog prostora; u tom slučaju to čine uz odgovarajuće zaštitne mjere poput standardnih ugovornih klauzula.",
+    "sections": [
+      { "h2": "2. Kako ih koristimo", "body": "Ove podatke koristimo za: pružanje i održavanje Usluga; obradu plaćanja i slanje komunikacije vezane uz naplatu; odgovaranje na zahtjeve za podršku; te slanje obavijesti vezanih uz uslugu (npr. isticanje probnog razdoblja, status postavljanja)." },
+      { "h2": "3. Pravna osnova obrade", "body": "Tamo gdje se primjenjuje Opća uredba o zaštiti podataka (GDPR), osobne podatke obrađujemo na sljedećim osnovama: izvršenje ugovora (pružanje Usluga na koje ste se pretplatili), legitimni interes (osiguravanje i poboljšanje Usluga, odgovaranje na upite) i pristanak (kada ste ga izričito dali, primjerice za neobavezne marketinške komunikacije)." },
+      { "h2": "5. Ako koristite WelcoChat na vlastitoj web stranici", "body": "Ako ugradite WelcoChat widget na svoju web stranicu, vi ste voditelj obrade za vlastite posjetitelje web stranice, a WelcoChat djeluje kao izvršitelj obrade u vaše ime za razgovore i potencijalne klijente koje prikuplja. Odgovorni ste osigurati da su vaši posjetitelji na odgovarajući način obaviješteni (npr. u vlastitoj politici privatnosti) da je prisutan chat widget i kako se njihove poruke obrađuju." },
+      { "h2": "6. Zadržavanje podataka", "body": "Podatke o računu i naplati zadržavamo dok je vaš račun aktivan, a nakon toga u skladu s primjenjivim poreznim i računovodstvenim propisima. Sadržaj baze znanja i podaci o razgovorima/potencijalnim klijentima zadržavaju se dok je povezana pretplata aktivna, te se brišu ili anonimiziraju u razumnom roku nakon otkazivanja, osim ako zatražite ranije brisanje." },
+      { "h2": "7. Vaša prava", "body": "Podložno primjenjivom pravu, imate pravo na: pristup osobnim podacima koje čuvamo o vama; zahtjev za ispravak netočnih podataka; zahtjev za brisanje; prigovor na ili ograničenje određene obrade; te zahtjev za prijenosivu kopiju svojih podataka. Za ostvarivanje bilo kojeg od ovih prava kontaktirajte <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>. Ako se nalazite u EU/EGP-u i smatrate da vaša prava nisu poštovana, možete podnijeti i pritužbu svom lokalnom tijelu za zaštitu podataka (u Estoniji, Estonska inspekcija za zaštitu podataka — Andmekaitse Inspektsioon)." },
+      { "h2": "8. Kolačići", "body": "Klijentski portal za rad koristi samo strogo nužno pohranjivanje (poput vaše prijavne sesije) — nema oglasnih ili pratećih kolačića. Naša javna marketinška web stranica koristi Google Analytics, koji postavlja kolačiće za mjerenje agregiranog korištenja stranice." },
+      { "h2": "9. Privatnost djece", "body": "Usluge su namijenjene poslovnoj upotrebi i nisu usmjerene na djecu. Svjesno ne prikupljamo osobne podatke od djece." },
+      { "h2": "10. Izmjene ove politike", "body": "Ovu Politiku privatnosti možemo povremeno ažurirati. Obavijestit ćemo vas o značajnim izmjenama e-poštom ili putem klijentskog portala prije nego što stupe na snagu." },
+      { "h2": "11. Kontakt", "body": "Pitanja o ovoj Politici privatnosti ili načinu obrade vaših podataka mogu se poslati na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." }
+    ]
+  },
+  "guidePromptContent": {
+    "eyebrow": "Vodič",
+    "h1": "Kako pripremiti sadržaj za svog agenta",
+    "sub": "Praktičan vodič za dobivanje dobrih odgovora od WelcoChata",
+    "intro": "WelcoChat odgovara samo na temelju sadržaja koji ste izričito povezali — vaše web stranice i svega što učitate. Nikada ne izmišlja činjenice, a ako u svom sadržaju nema odgovor, prosljeđuje ga vašem timu umjesto nagađanja. To znači da kvaliteta vašeg agenta gotovo u potpunosti ovisi o kvaliteti onoga što mu date. Ovaj vodič pokriva oba izvora: automatsko pretraživanje web stranice i polje za napomene \"Dodatni dokumenti / FAQ\".",
+    "sections": [
+      {
+        "h2": "1. Što pretraživanje web stranice dobro uočava",
+        "body": "Kada povežete URL web stranice, WelcoChat pretražuje javne stranice i izdvaja njihov tekst. Najbolje funkcionira na stranicama napisanim jednostavnim jezikom za ljude:",
+        "list": [
+          "Stranice proizvoda/usluga s jasnim opisima",
+          "Stranice s cijenama",
+          "Stranica FAQ, ako je imate — obično je to najvrjednija stranica za pretraživanje",
+          "Stranice o dostavi, povratima, jamstvu i drugim pravilima",
+          "Podaci o kontaktu i radnom vremenu"
+        ],
+        "after": "<em>Ne</em> izdvaja informacije zarobljene u slikama, PDF-ovima koji su povezani, ali nisu ugrađeni kao tekst, ili sadržaj renderiran putem JavaScripta koji se nikada ne pojavljuje u HTML-u stranice. Ako se ključne informacije nalaze u PDF brošuri ili skeniranoj slici, umjesto pretpostavke da ih je pretraživanje uhvatilo, učitajte ih kao dokument (pogledajte niže)."
+      },
+      {
+        "h2": "2. Što staviti u \"Dodatne dokumente / FAQ\"",
+        "body": "Ovo polje slobodnog teksta mjesto je gdje popunjavate praznine koje web stranica ne pokriva, i gdje možete oblikovati <em>kako</em> agent govori o vašem poslovanju. Čita se na isti način kao pretraženi sadržaj — kao izvorni materijal za odgovaranje — pa se prema njemu odnosite kao prema pisanom uputstvu, ne usputnoj bilješci. Dobre stvari za uključiti:",
+        "list": [
+          "Odgovori na pitanja koja često primate, a koja nisu jasno napisana nigdje na vašoj stranici",
+          "Interne kratice ili nazivi proizvoda razjašnjeni (\"kada netko kaže 'Pro plan', misli na...\")",
+          "Smjernice za ton: \"Odgovore držite kratkim i prijateljskim\", \"Nikada ne raspravljajte o konkurenciji\", \"Uvijek spomenite besplatnu probu kada je relevantno\"",
+          "Sve što se sezonski mijenja i još neće biti na stranici (nadolazeća akcija, privremeno kašnjenje u dostavi)"
+        ],
+        "after": "Neka bude organizirano pod kratkim naslovima ili kao popis pitanja i odgovora — agent bolje obrađuje strukturiran, pregledan tekst nego jedan dugi odlomak."
+      },
+      {
+        "h2": "3. Učitavanje dokumenata",
+        "body": "Podržani su PDF, DOCX i TXT format, do 10 MB svaki. Sustav izdvaja tekstualni sloj — dokument mora zaista sadržavati tekst koji se može označiti, a ne samo skeniranu sliku stranice, da bi ovo funkcioniralo. Ako niste sigurni, pokušajte označiti tekst u PDF-u kursorom; ako ne možete, ni agent ga neće moći pročitati.",
+        "after": "Dobri kandidati: specifikacije proizvoda, detaljan FAQ dokument, dokumenti s pravilima, cjenici, vodiči za uvođenje."
+      },
+      {
+        "h2": "4. Čega se kloniti",
+        "list_strong": [
+          { "strong": "Proturječne informacije.", "text": " Ako vaša stranica navodi jednu cijenu, a učitani dokument drugu, agent nema način da zna koja je aktualna — može odabrati bilo koju. Za svaku činjenicu održavajte jedan izvor istine." },
+          { "strong": "Ogromni, neusmjereni dump podataka.", "text": " Interni izvoz wikija od 200 stranica pomiješan s bilješkama sa sastanaka i nedovršenim nacrtima otežava agentu pronalaženje stvarno relevantnog odgovora. Odaberite prije učitavanja." },
+          { "strong": "Sve što ne biste željeli da posjetitelj potencijalno vidi doslovno.", "text": " Agent odgovara oslanjajući se izravno na povezani sadržaj — nemojte uključivati interne cijene dogovorene za određene klijente, neobjavljene planove ili bilo što povjerljivo." }
+        ]
+      },
+      {
+        "h2": "5. Napomena o tome kako se generiraju odgovori",
+        "body": "Widget prikazuje samo jednostavan konverzacijski tekst — bez Markdown formatiranja, bez tablica, popisi s oznakama se ne prikazuju kao takvi. Vaš izvorni sadržaj možete formatirati kako želite (naslovi, oznake, tablice su u redu za pisanje), ali svoje <em>vlastite</em> napomene \"Dodatni dokumenti\" pišite kao jednostavne rečenice gdje je to moguće, jer je to najbliže onome što će agent zapravo proizvesti za posjetitelja."
+      },
+      {
+        "h2": "6. Održavanje ažurnosti",
+        "body": "Svoju web stranicu možete ponovno pretražiti ili urediti svoje napomene i dokumente bilo kada sa stranice za postavljanje — promjene napomena i dokumenata odmah stupaju na snagu, a ponovno pretraživanje izmijenjene web stranice traje otprilike minutu. Nema zastoja tijekom ažuriranja."
+      }
+    ]
+  },
+  "guideSlackTeams": {
+    "eyebrow": "Vodič · Plan Business i viši",
+    "h1": "Vodič za postavljanje Slacka &amp; Teamsa",
+    "sub": "Dobijte poruku čim posjetitelj zatreba djelatnika",
+    "intro": "WelcoChat obavještava vaš tim slanjem na URL webhooka koji vi navedete — nema aplikacije za instalirati ni OAuth dopuštenja za dodijeliti s vaše strane. Webhook izradite u Slacku ili Teamsu, zalijepite URL u odjeljak Obavijesti na WelcoChat stranici za postavljanje i gotovo. Ovo funkcionira jednako za opciju generičkog webhooka (Zapier, Make ili bilo koji alat koji može primiti dolazni webhook).",
+    "slack": {
+      "h2": "Slack",
+      "steps": [
+        "Idite na <code>api.slack.com/apps</code> i prijavite se u svoj radni prostor.",
+        "Kliknite <strong>Create New App</strong> → <strong>From scratch</strong>. Dajte mu naziv (npr. \"WelcoChat\") i odaberite svoj radni prostor.",
+        "U postavkama aplikacije otvorite <strong>Incoming Webhooks</strong> na lijevoj bočnoj traci.",
+        "Uključite <strong>Activate Incoming Webhooks</strong>.",
+        "Pomaknite se prema dolje i kliknite <strong>Add New Webhook to Workspace</strong>.",
+        "Odaberite kanal koji bi trebao primati obavijesti o prosljeđivanju i kliknite <strong>Allow</strong>.",
+        "Kopirajte prikazani Webhook URL (počinje s <code>https://hooks.slack.com/services/...</code>).",
+        "U WelcoChatu idite na stranicu za postavljanje svoje usluge → <strong>Obavijesti</strong>, postavite Kanal na <strong>Slack</strong> i zalijepite URL."
+      ]
+    },
+    "teams": {
+      "h2": "Microsoft Teams",
+      "intro": "Microsoft prebacuje Teams kanale sa starog sustava \"Connectors\" (Office 365 Connector) na <strong>Workflows</strong> — koristite Workflows ako je dostupan u vašem tenantu.",
+      "steps": [
+        "Otvorite Teams kanal koji bi trebao primati obavijesti o prosljeđivanju.",
+        "Kliknite <strong>⋯</strong> (više opcija) pokraj naziva kanala → <strong>Workflows</strong>.",
+        "Potražite i odaberite predložak <strong>\"Post to a channel when a webhook request is received\"</strong>.",
+        "Slijedite upute za potvrdu kanala, zatim kliknite <strong>Create flow</strong> (ili Add workflow).",
+        "Kopirajte webhook URL koji generira Teams.",
+        "U WelcoChatu idite na stranicu za postavljanje svoje usluge → <strong>Obavijesti</strong>, postavite Kanal na <strong>Microsoft Teams</strong> i zalijepite URL."
+      ],
+      "note": "Ako vaš tenant još uvijek ima samo stari konektor \"Incoming Webhook\" umjesto Workflowsa, i to funkcionira na isti način — dodajte konektor Incoming Webhook u kanal, kopirajte njegov URL i zalijepite ga na isto mjesto."
+    },
+    "generic": {
+      "h2": "Generički webhook (Zapier, Make itd.)",
+      "body": "Odaberite <strong>Webhook</strong> kao kanal i zalijepite URL \"catch hook\" iz svog alata za automatizaciju. WelcoChat šalje JSON payload s vrstom događaja, porukom i relevantnim ID-jevima (instanca i razgovor) — izgradite svoju automatizaciju oko polja koja vam trebaju iz tog payloada."
+    },
+    "testing": {
+      "h2": "Testiranje",
+      "body": "Nakon spremanja kanala i webhook URL-a, upotrijebite gumb <strong>Pošalji testnu poruku</strong> na stranici za postavljanje — šalje jednu stvarnu obavijest istim putem koji bi koristilo i prosljeđivanje uživo, tako da možete potvrditi da stiže na pravo mjesto prije nego se na to oslonite."
+    }
+  }
+}

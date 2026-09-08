@@ -4,20 +4,18 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
 
-        <h1 class="auth-title">Create your account</h1>
-        <p class="auth-subtitle">
-          Set up your client portal access in a few quick steps.
-        </p>
+        <h1 class="auth-title">{{ t('signup.title') }}</h1>
+        <p class="auth-subtitle">{{ t('signup.subtitle') }}</p>
       </header>
 
       <form class="auth-form" @submit.prevent="handleSubmit">
         <!-- Display name -->
         <div class="input-group">
-          <label for="displayName" class="input-label">Display name</label>
+          <label for="displayName" class="input-label">{{ t('signup.displayNameLabel') }}</label>
           <input
             id="displayName"
             v-model="displayName"
@@ -31,7 +29,7 @@
 
         <!-- Email -->
         <div class="input-group">
-          <label for="email" class="input-label">Email address</label>
+          <label for="email" class="input-label">{{ t('signup.emailLabel') }}</label>
           <input
             id="email"
             v-model="email"
@@ -45,7 +43,7 @@
 
         <!-- Password -->
         <div class="input-group">
-          <label for="password" class="input-label">Password</label>
+          <label for="password" class="input-label">{{ t('signup.passwordLabel') }}</label>
           <input
             id="password"
             v-model="password"
@@ -55,20 +53,18 @@
             autocomplete="new-password"
             required
           />
-          <p class="input-hint">
-            Use at least 8 characters, including a number.
-          </p>
+          <p class="input-hint">{{ t('signup.passwordHint') }}</p>
         </div>
 
         <!-- Confirm password -->
         <div class="input-group">
-          <label for="passwordConfirm" class="input-label">Confirm password</label>
+          <label for="passwordConfirm" class="input-label">{{ t('signup.confirmPasswordLabel') }}</label>
           <input
             id="passwordConfirm"
             v-model="passwordConfirm"
             type="password"
             class="input-field"
-            placeholder="Re-enter your password"
+            :placeholder="t('signup.confirmPasswordPlaceholder')"
             autocomplete="new-password"
             required
           />
@@ -85,7 +81,7 @@
         <div class="auth-options-row">
           <label class="checkbox">
             <input v-model="acceptedTerms" type="checkbox" />
-            <span>I agree to the Terms and Privacy Policy</span>
+            <span>{{ t('signup.acceptTerms') }}</span>
           </label>
         </div>
 
@@ -95,31 +91,31 @@
           class="btn btn-primary btn-full"
           :disabled="loading"
         >
-          <span v-if="loading">Creating request...</span>
-          <span v-else>Create account</span>
+          <span v-if="loading">{{ t('signup.creating') }}</span>
+          <span v-else>{{ t('signup.createAccount') }}</span>
         </button>
       </form>
 
       <!-- Divider -->
       <div class="auth-divider">
-        <span>or sign up with</span>
+        <span>{{ t('signup.orSignUpWith') }}</span>
       </div>
 
       <!-- Social sign up buttons (UI only for now) -->
       <div class="social-buttons">
         <button type="button" class="btn btn-outline social-btn social-google">
           <span class="social-icon">G</span>
-          <span>Google</span>
+          <span>{{ t('login.google') }}</span>
         </button>
       </div>
 
       <!-- Footer text -->
       <footer class="auth-footer">
         <span class="auth-footer-text">
-          Already have an account?
+          {{ t('signup.haveAccount') }}
         </span>
         <router-link to="/login" class="link-inline">
-          Sign in
+          {{ t('login.signIn') }}
         </router-link>
       </footer>
     </div>
@@ -128,9 +124,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { signup } from '@/services/auth'
 
+const { t } = useI18n()
 const router = useRouter()
 
 const displayName = ref('')
@@ -146,12 +144,12 @@ async function handleSubmit() {
   errorMessage.value = ''
 
   if (!acceptedTerms.value) {
-    errorMessage.value = 'You must accept the Terms and Privacy Policy.'
+    errorMessage.value = t('signup.errorAcceptTerms')
     return
   }
 
   if (password.value !== passwordConfirm.value) {
-    errorMessage.value = 'Passwords do not match.'
+    errorMessage.value = t('signup.errorPasswordMismatch')
     return
   }
 
@@ -173,7 +171,7 @@ async function handleSubmit() {
     if (err instanceof Error) {
       errorMessage.value = err.message
     } else {
-      errorMessage.value = 'Registration failed. Please try again.'
+      errorMessage.value = t('signup.errorGeneric')
     }
   } finally {
     loading.value = false

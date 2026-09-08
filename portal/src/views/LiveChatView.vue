@@ -1,25 +1,25 @@
 <template>
   <div class="page">
-    <h1>Live Chat</h1>
-    <p class="step-subtitle">Reply live to visitors your Welco agent has handed off to a human.</p>
+    <h1>{{ t('liveChat.title') }}</h1>
+    <p class="step-subtitle">{{ t('liveChat.intro') }}</p>
 
     <p v-if="error" class="input-hint" role="alert">{{ error }}</p>
 
     <div class="live-chat-layout">
       <aside class="conv-list">
         <div class="conv-filters">
-          <input v-model="searchQuery" type="text" class="input conv-search" placeholder="Search…" />
+          <input v-model="searchQuery" type="text" class="input conv-search" :placeholder="t('liveChat.searchPlaceholder')" />
           <select v-model="statusFilter" class="input conv-status-filter">
-            <option value="all">All statuses</option>
-            <option value="waiting">Waiting for reply</option>
-            <option value="active">In progress</option>
-            <option value="resolved_by_email">Handed to email</option>
-            <option value="closed">Closed</option>
+            <option value="all">{{ t('liveChat.filterAll') }}</option>
+            <option value="waiting">{{ t('liveChat.statusWaiting') }}</option>
+            <option value="active">{{ t('liveChat.statusActive') }}</option>
+            <option value="resolved_by_email">{{ t('liveChat.statusResolvedByEmail') }}</option>
+            <option value="closed">{{ t('liveChat.statusClosed') }}</option>
           </select>
         </div>
-        <div v-if="loadingList" class="input-hint">Loading…</div>
+        <div v-if="loadingList" class="input-hint">{{ t('common.loading') }}</div>
         <p v-else-if="groupedConversations.length === 0" class="empty-text">
-          {{ conversations.length === 0 ? 'No conversations yet.' : 'No conversations match your filters.' }}
+          {{ conversations.length === 0 ? t('liveChat.noConversations') : t('liveChat.noMatches') }}
         </p>
         <template v-for="group in groupedConversations" :key="group.instanceId">
           <div class="conv-group-header">
@@ -36,7 +36,7 @@
           >
             <div class="conv-row-top">
               <span class="badge" :class="badgeClass(c.status)">{{ statusLabel(c.status) }}</span>
-              <span class="channel-icon" :title="c.channel === 'whatsapp' ? 'WhatsApp' : 'Website'">
+              <span class="channel-icon" :title="c.channel === 'whatsapp' ? 'WhatsApp' : t('liveChat.website')">
                 {{ c.channel === 'whatsapp' ? '📱' : '💬' }}
               </span>
               <span class="conv-time">{{ formatTime(lastActivity(c)) }}</span>
@@ -48,30 +48,30 @@
       </aside>
 
       <section class="conv-detail">
-        <p v-if="!selectedId" class="empty-text">Select a conversation to view it.</p>
+        <p v-if="!selectedId" class="empty-text">{{ t('liveChat.selectConversation') }}</p>
         <template v-else-if="detail">
           <div class="conv-detail-header">
             <div class="conv-detail-who">
               <span class="channel-icon">{{ detail.channel === 'whatsapp' ? '📱' : '💬' }}</span>
-              <span>{{ detail.channel === 'whatsapp' ? detail.visitor_phone : 'Website visitor' }}</span>
+              <span>{{ detail.channel === 'whatsapp' ? detail.visitor_phone : t('liveChat.websiteVisitor') }}</span>
             </div>
             <div class="conv-detail-instance">{{ detail.instance_name }}</div>
           </div>
           <div class="conv-thread" ref="threadEl">
             <div v-for="m in detail.messages" :key="m.id" class="msg" :class="msgClass(m.sender)">
               <div v-if="m.sender !== 'visitor'" class="msg-label">
-                {{ m.sender === 'human' ? (m.sender_name || 'You') : 'Assistant' }}
+                {{ m.sender === 'human' ? (m.sender_name || t('liveChat.you')) : t('liveChat.assistant') }}
               </div>
               <div class="msg-bubble">{{ m.content }}</div>
             </div>
           </div>
 
           <form v-if="detail.status !== 'closed'" class="reply-form" @submit.prevent="onReply">
-            <input v-model="replyText" class="input" placeholder="Type a reply…" :disabled="sending" />
-            <button class="btn btn-primary" :disabled="sending || !replyText.trim()">Send</button>
-            <button type="button" class="btn btn-outline" :disabled="closing" @click="onClose">Close</button>
+            <input v-model="replyText" class="input" :placeholder="t('liveChat.replyPlaceholder')" :disabled="sending" />
+            <button class="btn btn-primary" :disabled="sending || !replyText.trim()">{{ t('liveChat.send') }}</button>
+            <button type="button" class="btn btn-outline" :disabled="closing" @click="onClose">{{ t('liveChat.close') }}</button>
           </form>
-          <p v-else class="field-hint">This conversation is closed.</p>
+          <p v-else class="field-hint">{{ t('liveChat.conversationClosed') }}</p>
         </template>
       </section>
     </div>
@@ -80,10 +80,13 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 import {
   getConversations, getConversation, sendReply, closeConversation,
   type ConversationSummary, type ConversationDetail,
 } from '@/services/liveChat'
+
+const { t } = useI18n()
 
 const conversations = ref<ConversationSummary[]>([])
 const selectedId = ref<number | null>(null)
@@ -144,10 +147,10 @@ let detailTimer: ReturnType<typeof setInterval> | null = null
 
 function statusLabel(status: string): string {
   const map: Record<string, string> = {
-    waiting: 'Waiting for reply',
-    active: 'In progress',
-    resolved_by_email: 'Handed to email',
-    closed: 'Closed',
+    waiting: t('liveChat.statusWaiting'),
+    active: t('liveChat.statusActive'),
+    resolved_by_email: t('liveChat.statusResolvedByEmail'),
+    closed: t('liveChat.statusClosed'),
   }
   return map[status] ?? status
 }
@@ -182,7 +185,7 @@ async function loadList(silent = false) {
   try {
     conversations.value = await getConversations(silent)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load conversations.'
+    error.value = err instanceof Error ? err.message : t('liveChat.errorLoadConversations')
   } finally {
     loadingList.value = false
   }
@@ -194,7 +197,7 @@ async function loadDetail(silent = false) {
     detail.value = await getConversation(selectedId.value, silent)
     scrollToBottom()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load conversation.'
+    error.value = err instanceof Error ? err.message : t('liveChat.errorLoadConversation')
   }
 }
 
@@ -214,7 +217,7 @@ async function onReply() {
     await loadDetail()
     await loadList()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to send reply.'
+    error.value = err instanceof Error ? err.message : t('liveChat.errorSendReply')
   } finally {
     sending.value = false
   }
@@ -229,7 +232,7 @@ async function onClose() {
     await loadDetail()
     await loadList()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to close conversation.'
+    error.value = err instanceof Error ? err.message : t('liveChat.errorCloseConversation')
   } finally {
     closing.value = false
   }

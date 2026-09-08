@@ -1,16 +1,16 @@
 <template>
   <div class="page">
-    <h1>Subscriptions</h1>
+    <h1>{{ t('subscriptions.title') }}</h1>
 
     <p v-if="error" class="input-hint" role="alert">{{ error }}</p>
 
-    <div v-if="loading" class="input-hint">Loading your services…</div>
+    <div v-if="loading" class="input-hint">{{ t('subscriptions.loading') }}</div>
 
     <!-- Empty state: no subscription -->
     <div v-else-if="instances.length === 0" class="empty-state">
-      <p class="empty-text">You do not have any active WelcoChat subscriptions yet.</p>
+      <p class="empty-text">{{ t('subscriptions.noSubscriptions') }}</p>
       <div class="empty-actions">
-        <router-link to="/subscriptions/add" class="btn btn-primary">Add subscription</router-link>
+        <router-link to="/subscriptions/add" class="btn btn-primary">{{ t('dashboard.addSubscription') }}</router-link>
       </div>
     </div>
 
@@ -26,16 +26,16 @@
         <div class="svc-meta">
           <span class="svc-tier-badge">{{ inst.tier }}</span>
           <span v-if="subscriptionFor(inst.subscription_id)?.status === 'trialing'" class="svc-trial-badge">
-            Trial · ends {{ formatDate(subscriptionFor(inst.subscription_id)?.trial_ends_at) }}
+            {{ t('subscriptions.trialEnds', { date: formatDate(subscriptionFor(inst.subscription_id)?.trial_ends_at) }) }}
           </span>
         </div>
         <div v-if="subscriptionFor(inst.subscription_id)?.start_date" class="svc-dates">
-          Started {{ formatDate(subscriptionFor(inst.subscription_id)?.start_date) }}
+          {{ t('subscriptions.started', { date: formatDate(subscriptionFor(inst.subscription_id)?.start_date) }) }}
           <span v-if="subscriptionFor(inst.subscription_id)?.pending_tier">
-            · Downgrades to {{ subscriptionFor(inst.subscription_id)?.pending_tier }} on {{ formatDate(subscriptionFor(inst.subscription_id)?.end_date) }}
+            · {{ t('subscriptions.downgradesTo', { tier: subscriptionFor(inst.subscription_id)?.pending_tier, date: formatDate(subscriptionFor(inst.subscription_id)?.end_date) }) }}
           </span>
           <span v-else-if="subscriptionFor(inst.subscription_id)?.end_date">
-            · Renews {{ formatDate(subscriptionFor(inst.subscription_id)?.end_date) }}
+            · {{ t('subscriptions.renews', { date: formatDate(subscriptionFor(inst.subscription_id)?.end_date) }) }}
           </span>
         </div>
         <div class="svc-footer">
@@ -46,22 +46,24 @@
           >
             {{ ctaLabel(inst.setup_status) }}
           </button>
-          <router-link :to="`/subscriptions/${inst.subscription_id}/change-plan`" class="btn btn-outline">Change plan</router-link>
+          <router-link :to="`/subscriptions/${inst.subscription_id}/change-plan`" class="btn btn-outline">{{ t('subscriptions.changePlan') }}</router-link>
         </div>
       </article>
     </section>
 
     <div v-if="!loading && instances.length > 0" class="services-actions">
-      <router-link to="/subscriptions/add" class="btn btn-outline">Add subscription</router-link>
+      <router-link to="/subscriptions/add" class="btn btn-outline">{{ t('dashboard.addSubscription') }}</router-link>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { getServiceInstances, getSubscriptions, type ServiceInstance, type Subscription } from '@/services/subscriptions'
 
+const { t } = useI18n()
 const router = useRouter()
 const instances = ref<ServiceInstance[]>([])
 const subscriptions = ref<Subscription[]>([])
@@ -80,13 +82,13 @@ function formatDate(iso: string | null | undefined): string {
 
 function statusLabel(status: string): string {
   const map: Record<string, string> = {
-    not_configured: 'Not configured',
-    setup_in_progress: 'Setup in progress',
-    pending_review: 'Pending review',
-    running: 'Running',
-    paused: 'Paused',
-    error: 'Needs attention',
-    cancelled: 'Cancelled',
+    not_configured: t('serviceStatus.notConfigured'),
+    setup_in_progress: t('serviceStatus.setupInProgress'),
+    pending_review: t('serviceStatus.pendingReview'),
+    running: t('serviceStatus.running'),
+    paused: t('serviceStatus.paused'),
+    error: t('subscriptions.needsAttention'),
+    cancelled: t('serviceStatus.cancelled'),
   }
   return map[status] ?? status
 }
@@ -100,11 +102,11 @@ function statusClass(status: string): string {
 }
 
 function ctaLabel(status: string): string {
-  if (status === 'not_configured') return 'Set up'
-  if (status === 'setup_in_progress') return 'Continue setup'
-  if (status === 'running') return 'Manage'
-  if (status === 'error') return 'Fix issue'
-  return 'View details'
+  if (status === 'not_configured') return t('dashboard.ctaSetUp')
+  if (status === 'setup_in_progress') return t('dashboard.ctaContinueSetup')
+  if (status === 'running') return t('dashboard.ctaManage')
+  if (status === 'error') return t('dashboard.ctaFixIssue')
+  return t('dashboard.ctaViewDetails')
 }
 
 function ctaClass(status: string): string {
@@ -125,7 +127,7 @@ async function load() {
     instances.value = inst
     subscriptions.value = subs
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load services.'
+    error.value = err instanceof Error ? err.message : t('subscriptions.errorLoad')
   } finally {
     loading.value = false
   }

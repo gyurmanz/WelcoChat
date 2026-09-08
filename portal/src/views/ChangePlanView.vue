@@ -1,28 +1,28 @@
 <template>
   <div class="page">
-    <h1>Change plan</h1>
+    <h1>{{ t('changePlan.title') }}</h1>
 
-    <div v-if="loading" class="input-hint">Loading…</div>
+    <div v-if="loading" class="input-hint">{{ t('common.loading') }}</div>
 
     <template v-else-if="loadError">
       <p class="form-error" role="alert">{{ loadError }}</p>
-      <router-link to="/subscriptions" class="btn btn-primary">Go to Services</router-link>
+      <router-link to="/subscriptions" class="btn btn-primary">{{ t('addSub.goToServices') }}</router-link>
     </template>
 
     <template v-else>
       <p class="step-subtitle">
-        Current plan for <strong>{{ currentSubscription?.service_name }}</strong>:
+        {{ t('changePlan.currentPlanFor') }} <strong>{{ currentSubscription?.service_name }}</strong>:
         <strong>{{ cap(currentSubscription?.tier ?? '') }}</strong> ({{ cap(currentSubscription?.billing_period ?? '') }})
       </p>
       <p v-if="currentSubscription?.pending_tier" class="pending-note">
-        Already scheduled to change to <strong>{{ cap(currentSubscription.pending_tier) }}</strong>
-        on {{ formatDate(currentSubscription.end_date) }}.
+        {{ t('changePlan.alreadyScheduled') }} <strong>{{ cap(currentSubscription.pending_tier) }}</strong>
+        {{ t('changePlan.on') }} {{ formatDate(currentSubscription.end_date) }}.
       </p>
 
       <div class="billing-toggle">
-        <button class="billing-opt" :class="{ active: billing === 'monthly' }" @click="billing = 'monthly'">Monthly</button>
-        <button class="billing-opt" :class="{ active: billing === 'annual' }" @click="billing = 'annual'">Annual</button>
-        <span v-if="billing === 'annual'" class="save-badge">Save 20%</span>
+        <button class="billing-opt" :class="{ active: billing === 'monthly' }" @click="billing = 'monthly'">{{ t('addSub.monthly') }}</button>
+        <button class="billing-opt" :class="{ active: billing === 'annual' }" @click="billing = 'annual'">{{ t('addSub.annual') }}</button>
+        <span v-if="billing === 'annual'" class="save-badge">{{ t('addSub.save20') }}</span>
       </div>
 
       <div class="plan-cards">
@@ -36,18 +36,14 @@
           :tabindex="0"
           @keyup.enter="selectedPlan = plan"
         >
-          <div class="pc-tier">{{ cap(plan.tier) }}<span v-if="isCurrent(plan)" class="pc-current-badge">Current</span></div>
-          <div class="pc-price">€{{ fmt(billing === 'annual' ? plan.annual_price : plan.monthly_price) }}/mo</div>
-          <div v-if="billing === 'annual'" class="pc-annual">billed annually</div>
+          <div class="pc-tier">{{ cap(plan.tier) }}<span v-if="isCurrent(plan)" class="pc-current-badge">{{ t('changePlan.current') }}</span></div>
+          <div class="pc-price">{{ t('addSub.pricePerMo', { price: fmt(billing === 'annual' ? plan.annual_price : plan.monthly_price) }) }}</div>
+          <div v-if="billing === 'annual'" class="pc-annual">{{ t('addSub.billedAnnually') }}</div>
         </div>
       </div>
 
       <p v-if="isDowngrade" class="downgrade-warning">
-        This is a downgrade — it takes effect on {{ formatDate(currentSubscription?.end_date) }}, when your
-        current period ends. You keep {{ cap(currentSubscription?.tier ?? '') }} (including Team accounts,
-        Slack/Teams/webhook notifications, WhatsApp, custom logo/position and custom CSS if set up) until
-        then, at the same price. You can cancel this scheduled change anytime before it takes effect by
-        selecting your current plan again.
+        {{ t('changePlan.downgradeWarning', { date: formatDate(currentSubscription?.end_date), tier: cap(currentSubscription?.tier ?? '') }) }}
       </p>
 
       <p v-if="error" class="form-error" role="alert">{{ error }}</p>
@@ -59,9 +55,9 @@
           :disabled="!canSubmit || submitting"
           @click="submit"
         >
-          {{ submitting ? 'Changing…' : 'Confirm change' }}
+          {{ submitting ? t('changePlan.changing') : t('changePlan.confirmChange') }}
         </button>
-        <router-link to="/subscriptions" class="btn btn-outline">Cancel</router-link>
+        <router-link to="/subscriptions" class="btn btn-outline">{{ t('changePlan.cancel') }}</router-link>
       </div>
     </template>
   </div>
@@ -69,12 +65,14 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import {
   getServicePlans, getSubscriptions, changePlan,
   type ServicePlan, type Subscription, type BillingPeriod,
 } from '@/services/subscriptions'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const subscriptionId = computed(() => Number(route.params.id))
@@ -126,15 +124,15 @@ async function submit() {
   try {
     const updated = await changePlan(subscriptionId.value, { new_service_id: selectedPlan.value.id, billing_period: billing.value })
     if (updated.pending_tier) {
-      success.value = `Downgrade scheduled — you'll move to ${cap(updated.pending_tier)} on ${formatDate(updated.end_date)}.`
+      success.value = t('changePlan.downgradeScheduled', { tier: cap(updated.pending_tier), date: formatDate(updated.end_date) })
     } else if (hadPendingBefore) {
-      success.value = 'Scheduled downgrade cancelled — staying on your current plan.'
+      success.value = t('changePlan.downgradeCancelled')
     } else {
-      success.value = 'Plan changed.'
+      success.value = t('changePlan.planChanged')
     }
     setTimeout(() => router.push('/subscriptions'), 1600)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to change plan.'
+    error.value = err instanceof Error ? err.message : t('changePlan.errorChangePlan')
   } finally {
     submitting.value = false
   }
@@ -156,13 +154,13 @@ onMounted(async () => {
     plans.value = allPlans
     const sub = subs.find((s) => s.id === subscriptionId.value)
     if (!sub) {
-      loadError.value = 'Subscription not found.'
+      loadError.value = t('changePlan.errorNotFound')
       return
     }
     currentSubscription.value = sub
     billing.value = (sub.billing_period as BillingPeriod) || 'monthly'
   } catch (err: unknown) {
-    loadError.value = err instanceof Error ? err.message : 'Failed to load plan options.'
+    loadError.value = err instanceof Error ? err.message : t('changePlan.errorLoadOptions')
   } finally {
     loading.value = false
   }

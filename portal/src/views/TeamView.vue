@@ -1,11 +1,11 @@
 <template>
   <div class="page">
-    <h1>Team</h1>
-    <p class="step-subtitle">Everyone listed here can see and manage your WelcoChat subscriptions.</p>
+    <h1>{{ t('team.title') }}</h1>
+    <p class="step-subtitle">{{ t('team.intro') }}</p>
 
     <p v-if="error" class="input-hint" role="alert">{{ error }}</p>
 
-    <div v-if="loading" class="input-hint">Loading…</div>
+    <div v-if="loading" class="input-hint">{{ t('common.loading') }}</div>
 
     <template v-else>
       <section class="team-list">
@@ -21,36 +21,39 @@
             :disabled="removingId === m.id"
             @click="onRemove(m.id)"
           >
-            {{ removingId === m.id ? 'Removing…' : 'Remove' }}
+            {{ removingId === m.id ? t('team.removing') : t('team.remove') }}
           </button>
         </article>
       </section>
 
       <section v-if="isOwner && tierEligible" class="invite-section">
-        <h2 class="invite-h2">Invite a teammate</h2>
+        <h2 class="invite-h2">{{ t('team.inviteHeading') }}</h2>
         <form class="invite-form" @submit.prevent="onInvite">
-          <input v-model="inviteName" class="input" placeholder="Name (optional)" />
+          <input v-model="inviteName" class="input" :placeholder="t('team.namePlaceholder')" />
           <input v-model="inviteEmail" class="input" type="email" placeholder="teammate@company.com" required />
           <button class="btn btn-primary" :disabled="inviting">
-            {{ inviting ? 'Sending…' : 'Send invite' }}
+            {{ inviting ? t('team.sending') : t('team.sendInvite') }}
           </button>
         </form>
-        <p v-if="inviteSent" class="draft-saved">Invite sent to {{ inviteSent }}.</p>
+        <p v-if="inviteSent" class="draft-saved">{{ t('team.inviteSentTo', { email: inviteSent }) }}</p>
       </section>
 
       <div v-else-if="isOwner && !tierEligible" class="invite-section locked-feature">
-        <p class="field-hint">Team accounts are available on the Business plan and up.</p>
-        <router-link to="/subscriptions" class="btn btn-outline btn-sm">Upgrade a subscription</router-link>
+        <p class="field-hint">{{ t('team.lockedFeature') }}</p>
+        <router-link to="/subscriptions" class="btn btn-outline btn-sm">{{ t('team.upgradeSubscription') }}</router-link>
       </div>
 
-      <p v-else class="field-hint">Only the account owner can invite or remove team members.</p>
+      <p v-else class="field-hint">{{ t('team.ownerOnly') }}</p>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { getTeam, inviteMember, removeMember, type TeamMember } from '@/services/team'
+
+const { t } = useI18n()
 
 const loading = ref(true)
 const error = ref('')
@@ -65,7 +68,7 @@ const inviteSent = ref('')
 const removingId = ref<number | null>(null)
 
 function statusLabel(status: string): string {
-  const map: Record<string, string> = { active: 'Active', invited: 'Invite sent' }
+  const map: Record<string, string> = { active: t('team.statusActive'), invited: t('team.statusInvited') }
   return map[status] ?? status
 }
 
@@ -82,7 +85,7 @@ async function load() {
     tierEligible.value = result.tier_eligible
     members.value = result.members
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load your team.'
+    error.value = err instanceof Error ? err.message : t('team.errorLoad')
   } finally {
     loading.value = false
   }
@@ -99,7 +102,7 @@ async function onInvite() {
     inviteEmail.value = ''
     await load()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to send invite.'
+    error.value = err instanceof Error ? err.message : t('team.errorInvite')
   } finally {
     inviting.value = false
   }
@@ -112,7 +115,7 @@ async function onRemove(id: number) {
     await removeMember(id)
     members.value = members.value.filter((m) => m.id !== id)
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to remove team member.'
+    error.value = err instanceof Error ? err.message : t('team.errorRemove')
   } finally {
     removingId.value = null
   }

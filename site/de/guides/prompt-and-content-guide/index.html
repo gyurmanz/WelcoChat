@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNL159CW3Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNL159CW3Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>So bereiten Sie Inhalte für Ihren Agenten vor - WelcoChat</title>
+  <meta name="description" content="Wie Sie Inhalte verbinden und schreiben, damit Ihr WelcoChat-Agent genaue, nützliche Antworten gibt — was einzuschließen ist, was zu vermeiden ist, und wie das Feld für zusätzliche Hinweise funktioniert." />
+  <meta property="og:title" content="So bereiten Sie Inhalte für Ihren Agenten vor - WelcoChat" />
+  <meta property="og:description" content="Wie Sie Inhalte verbinden und schreiben, damit Ihr WelcoChat-Agent genaue, nützliche Antworten gibt." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+  <meta property="og:image" content="https://welcochat.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="canonical" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/de/" class="brand">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+          <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+          <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        WelcoChat
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="/de/#features">Funktionen</a>
+        <a href="/de/#how-it-works">So funktioniert's</a>
+        <a href="/de/#pricing">Preise</a>
+        <a href="/de/#faq">FAQ</a>
+        <a href="/de/#contact">Kontakt</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Sprache">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.3 2.5 3.6 5.6 3.6 9s-1.3 6.5-3.6 9c-2.3-2.5-3.6-5.6-3.6-9s1.3-6.5 3.6-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span class="lang-switch-code">DE</span>
+            <svg class="lang-switch-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-switch-menu" role="listbox">
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/en/guides/prompt-and-content-guide/">English</a></li>
+            <li class="is-current" role="option" aria-selected="true"><a href="https://welcochat.com/de/guides/prompt-and-content-guide/">Deutsch<svg class="lang-switch-check" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/fr/guides/prompt-and-content-guide/">Français</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hu/guides/prompt-and-content-guide/">Magyar</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/pl/guides/prompt-and-content-guide/">Polski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/sk/guides/prompt-and-content-guide/">Slovenčina</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hr/guides/prompt-and-content-guide/">Hrvatski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/el/guides/prompt-and-content-guide/">Ελληνικά</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/es/guides/prompt-and-content-guide/">Español</a></li>
+          </ul>
+        </div>
+        <a href="/portal" class="btn btn-ghost">Anmelden</a>
+        <a href="/portal/signup" class="btn btn-primary">Konto erstellen</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü umschalten"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container legal-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Anleitung</div>
+      <h1 style="font-size:clamp(1.8rem,3vw,2.6rem);">So bereiten Sie Inhalte für Ihren Agenten vor</h1>
+      <p class="legal-updated">Ein praktischer Leitfaden, um gute Antworten von WelcoChat zu erhalten</p>
+
+      <p>WelcoChat antwortet nur aus Inhalten, die Sie ausdrücklich verbunden haben — Ihre Website und alles, was Sie hochladen. Es erfindet niemals Fakten, und wenn es in seinen Inhalten keine Antwort findet, übergibt es an Ihr Team, anstatt zu raten. Das bedeutet, dass die Qualität Ihres Agenten fast vollständig von der Qualität dessen abhängt, was Sie ihm geben. Dieser Leitfaden behandelt beide Quellen: das automatische Website-Crawling und das Feld "Zusätzliche Dokumente / FAQs".</p>
+
+      <h2>1. Was der Website-Crawl gut erfasst</h2>
+      <p>Wenn Sie eine Website-URL verbinden, crawlt WelcoChat die öffentlichen Seiten und extrahiert deren Text. Am besten funktioniert es bei Seiten, die in einfacher Sprache für Menschen geschrieben sind:</p>
+      <ul>
+        <li>Produkt-/Dienstleistungsseiten mit klaren Beschreibungen</li>
+        <li>Preisseiten</li>
+        <li>Eine FAQ-Seite, falls vorhanden — dies ist in der Regel die wertvollste Seite, die gecrawlt werden kann</li>
+        <li>Versand-, Rückgabe-, Garantie- und andere Richtlinienseiten</li>
+        <li>Kontakt- und Geschäftszeiteninformationen</li>
+      </ul>
+      <p>Es extrahiert <em>keine</em> Informationen, die in Bildern eingeschlossen sind, verlinkte, aber nicht als Text eingebettete PDFs, oder JavaScript-gerenderte Inhalte, die nie im HTML der Seite erscheinen. Wenn wichtige Informationen in einer Broschüren-PDF oder einem gescannten Bild liegen, laden Sie sie stattdessen als Dokument hoch (siehe unten), anstatt anzunehmen, dass der Crawl sie erfasst hat.</p>
+
+      <h2>2. Was Sie in "Zusätzliche Dokumente / FAQs" eintragen sollten</h2>
+      <p>In diesem Freitextfeld füllen Sie Lücken, die die Website nicht abdeckt, und können prägen, <em>wie</em> der Agent über Ihr Unternehmen spricht. Es wird auf die gleiche Weise gelesen wie gecrawlte Inhalte — als Quellmaterial zum Beantworten — behandeln Sie es also wie ein schriftliches Briefing, nicht wie eine beiläufige Notiz. Gute Dinge zum Einbeziehen:</p>
+      <ul>
+        <li>Antworten auf Fragen, die häufig gestellt werden und nirgends klar auf Ihrer Website stehen</li>
+        <li>Interne Abkürzungen oder Produktnamen ausgeschrieben ("wenn jemand 'den Pro-Plan' sagt, meint er...")</li>
+        <li>Ton-Hinweise: "Antworten kurz und freundlich halten", "Nie über Mitbewerber sprechen", "Immer die kostenlose Testversion erwähnen, wenn relevant"</li>
+        <li>Alles, was sich saisonal ändert und noch nicht auf der Website steht (ein bevorstehender Sale, eine vorübergehende Lieferverzögerung)</li>
+      </ul>
+      <p>Halten Sie es unter kurzen Überschriften oder als F&amp;A-Liste organisiert — der Agent verarbeitet strukturierten, überfliegbaren Text besser als einen langen Absatz.</p>
+
+      <h2>3. Dokumente hochladen</h2>
+      <p>PDF-, DOCX- und TXT-Dateien werden unterstützt, jeweils bis zu 10 MB. Das System extrahiert die Textebene — ein Dokument muss tatsächlich auswählbaren Text enthalten, nicht nur ein gescanntes Bild einer Seite, damit dies funktioniert. Wenn Sie sich nicht sicher sind, versuchen Sie, Text im PDF mit dem Cursor auszuwählen; wenn das nicht funktioniert, kann der Agent es auch nicht lesen.</p>
+      <p>Gute Kandidaten: Produktdatenblätter, ein detailliertes FAQ-Dokument, Richtliniendokumente, Preislisten, Onboarding-Leitfäden.</p>
+
+      <h2>4. Was zu vermeiden ist</h2>
+      <ul>
+        <li><strong>Widersprüchliche Informationen.</strong> Wenn Ihre Website einen Preis nennt und ein hochgeladenes Dokument einen anderen, hat der Agent keine Möglichkeit zu wissen, welcher aktuell ist — er wählt möglicherweise einen davon. Halten Sie pro Fakt eine einzige verlässliche Quelle.</li>
+        <li><strong>Riesige, unfokussierte Datenmengen.</strong> Ein 200-seitiger interner Wiki-Export mit Besprechungsnotizen und halbfertigen Entwürfen erschwert es dem Agenten, die tatsächlich relevante Antwort zu finden. Kuratieren Sie, bevor Sie hochladen.</li>
+        <li><strong>Alles, was ein Besucher möglicherweise nicht wortwörtlich sehen sollte.</strong> Der Agent antwortet, indem er direkt auf verbundene Inhalte zurückgreift — schließen Sie interne, für bestimmte Kunden verhandelte Preise, unveröffentlichte Pläne oder vertrauliche Informationen nicht ein.</li>
+      </ul>
+
+      <h2>5. Ein Hinweis dazu, wie Antworten generiert werden</h2>
+      <p>Das Widget zeigt nur einfachen Gesprächstext an — keine Markdown-Formatierung, keine Tabellen, keine Aufzählungslisten als solche. Ihre Quellinhalte können beliebig formatiert werden (Überschriften, Aufzählungspunkte, Tabellen sind alle in Ordnung), aber schreiben Sie Ihre <em>eigenen</em> "Zusätzliche Dokumente"-Hinweise wenn möglich als einfache Sätze, da dies dem am nächsten kommt, was der Agent einem Besucher tatsächlich zurückgeben wird.</p>
+
+      <h2>6. Aktuell halten</h2>
+      <p>Sie können Ihre Website jederzeit über die Einrichtungsseite erneut crawlen lassen oder Ihre Hinweise und Dokumente bearbeiten — Änderungen an Hinweisen und Dokumenten werden sofort wirksam, und das erneute Crawlen einer geänderten Website dauert etwa eine Minute. Während des Updates gibt es keine Ausfallzeit.</p>
+
+      <p style="margin-top:2.5rem;"><a href="/portal">← Zurück zum Portal</a></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/de/" class="brand" style="margin-bottom: 10px;">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+              <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+              <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            WelcoChat
+          </a>
+          <p>Ein KI-Agent für Ihre Website — antwortet aus Ihren Inhalten, erfasst Leads, übergibt bei Bedarf an einen Menschen.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Produkt</h4>
+          <a href="/de/#features">Funktionen</a>
+          <a href="/de/#pricing">Preise</a>
+          <a href="/de/#faq">FAQ</a>
+          <a href="/portal">Kundenportal</a>
+        </div>
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <a href="/de/#contact">Kontakt</a>
+          <a href="/de/terms/">Nutzungsbedingungen</a>
+          <a href="/de/privacy/">Datenschutzerklärung</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 WelcoChat. Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

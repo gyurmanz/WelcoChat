@@ -4,34 +4,29 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
 
-        <h1 class="auth-title">Check your email</h1>
+        <h1 class="auth-title">{{ t('registrationSuccess.title') }}</h1>
         <p class="auth-subtitle">
-          We have sent a confirmation link to
-          <strong>{{ emailToShow }}</strong>. Please follow the instructions
-          in the email to finish setting up your account.
+          {{ t('registrationSuccess.subtitle', { email: emailToShow }) }}
         </p>
       </header>
 
       <div class="auth-form">
-        <p class="input-hint">
-          If you don't see the email in a few minutes, please also check your
-          spam or promotions folder.
-        </p>
+        <p class="input-hint">{{ t('registrationSuccess.checkSpam') }}</p>
 
         <button class="btn btn-primary btn-full" @click="goToLogin">
-          Go to sign in
+          {{ t('registrationSuccess.goToSignIn') }}
         </button>
 
         <div class="auth-footer">
           <span class="auth-footer-text">
-            Used the wrong email address?
+            {{ t('registrationSuccess.wrongEmail') }}
           </span>
           <router-link to="/signup" class="link-inline">
-            Start over
+            {{ t('registrationSuccess.startOver') }}
           </router-link>
         </div>
       </div>
@@ -41,8 +36,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
@@ -51,7 +48,7 @@ const emailToShow = computed(() => {
   if (typeof q === 'string' && q.trim().length > 0) {
     return q
   }
-  return 'your email address'
+  return t('registrationSuccess.yourEmailAddress')
 })
 
 function goToLogin() {

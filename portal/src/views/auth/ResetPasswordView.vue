@@ -6,23 +6,19 @@
           <div class="auth-logo">
             <div class="logo-circle">CP</div>
           </div>
-          <h1 class="auth-title">Set a new password</h1>
-          <p class="auth-subtitle">
-            Choose a strong password to secure your account.
-          </p>
+          <h1 class="auth-title">{{ t('resetPassword.title') }}</h1>
+          <p class="auth-subtitle">{{ t('resetPassword.subtitle') }}</p>
         </header>
 
         <form class="auth-form" @submit.prevent="handleSubmit">
           <!-- Token missing / invalid -->
           <div class="input-group" v-if="!token">
-            <p class="input-hint">
-              The reset link is invalid or has expired. Please request a new password reset.
-            </p>
+            <p class="input-hint">{{ t('resetPassword.invalidLink') }}</p>
           </div>
 
           <!-- Email (read-only if present) -->
           <div class="input-group" v-if="email">
-            <label for="email" class="input-label">Email address</label>
+            <label for="email" class="input-label">{{ t('login.emailLabel') }}</label>
             <input
               id="email"
               type="email"
@@ -34,7 +30,7 @@
 
           <!-- New password -->
           <div class="input-group">
-            <label for="password" class="input-label">New password</label>
+            <label for="password" class="input-label">{{ t('resetPassword.newPasswordLabel') }}</label>
             <input
               id="password"
               v-model="password"
@@ -45,20 +41,18 @@
               :disabled="!token || loading"
               required
             />
-            <p class="input-hint">
-              Use at least 8 characters, including a number.
-            </p>
+            <p class="input-hint">{{ t('signup.passwordHint') }}</p>
           </div>
 
           <!-- Confirm new password -->
           <div class="input-group">
-            <label for="passwordConfirm" class="input-label">Confirm new password</label>
+            <label for="passwordConfirm" class="input-label">{{ t('resetPassword.confirmNewPasswordLabel') }}</label>
             <input
               id="passwordConfirm"
               v-model="passwordConfirm"
               type="password"
               class="input-field"
-              placeholder="Re-enter your password"
+              :placeholder="t('signup.confirmPasswordPlaceholder')"
               autocomplete="new-password"
               :disabled="!token || loading"
               required
@@ -79,17 +73,17 @@
             class="btn btn-primary btn-full"
             :disabled="!token || loading"
           >
-            <span v-if="loading">Updating password...</span>
-            <span v-else>Update password</span>
+            <span v-if="loading">{{ t('resetPassword.updating') }}</span>
+            <span v-else>{{ t('resetPassword.update') }}</span>
           </button>
         </form>
 
         <footer class="auth-footer">
           <span class="auth-footer-text">
-            Back to
+            {{ t('resetPassword.backTo') }}
           </span>
           <router-link to="/login" class="link-inline">
-            Sign in
+            {{ t('login.signIn') }}
           </router-link>
         </footer>
       </div>
@@ -99,9 +93,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { resetPassword } from '@/services/auth'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
@@ -117,7 +113,7 @@ const successMessage = ref('')
 
 async function handleSubmit() {
   if (!token.value) {
-    errorMessage.value = 'The reset link is invalid or has expired.'
+    errorMessage.value = t('resetPassword.invalidLinkShort')
     return
   }
 
@@ -125,12 +121,12 @@ async function handleSubmit() {
   successMessage.value = ''
 
   if (password.value.length < 8) {
-    errorMessage.value = 'Password must be at least 8 characters long.'
+    errorMessage.value = t('resetPassword.errorTooShort')
     return
   }
 
   if (password.value !== passwordConfirm.value) {
-    errorMessage.value = 'Passwords do not match.'
+    errorMessage.value = t('signup.errorPasswordMismatch')
     return
   }
 
@@ -143,7 +139,7 @@ async function handleSubmit() {
       password.value,
     )
 
-    successMessage.value = 'Your password has been updated successfully. Redirecting...'
+    successMessage.value = t('resetPassword.successMessage')
 
     setTimeout(() => {
       router.push('/login')
@@ -153,7 +149,7 @@ async function handleSubmit() {
     if (err instanceof Error) {
       errorMessage.value = err.message
     } else {
-      errorMessage.value = 'Failed to reset password. Please try again.'
+      errorMessage.value = t('resetPassword.errorGeneric')
     }
   } finally {
     loading.value = false

@@ -1,9 +1,9 @@
 <template>
   <div class="page">
     <div class="page-header">
-      <h1>Invoices</h1>
+      <h1>{{ t('invoices.title') }}</h1>
       <button class="btn btn-outline" :disabled="openingPortal" @click="openPortal">
-        {{ openingPortal ? 'Opening…' : 'Manage billing' }}
+        {{ openingPortal ? t('invoices.opening') : t('invoices.manageBilling') }}
       </button>
     </div>
 
@@ -12,24 +12,24 @@
     </div>
 
     <section class="subs-section" :aria-busy="loading ? 'true' : 'false'">
-      <p v-if="loading" class="input-hint">Loading your invoices…</p>
+      <p v-if="loading" class="input-hint">{{ t('invoices.loading') }}</p>
 
       <div v-else-if="invoices.length === 0" class="empty-state">
-        <p class="empty-title">You do not have any invoices yet.</p>
-        <p class="empty-sub">Invoices will appear here after a paid subscription order is confirmed or renewed.</p>
-        <router-link to="/subscriptions/add" class="btn btn-primary">Add subscription</router-link>
+        <p class="empty-title">{{ t('invoices.emptyTitle') }}</p>
+        <p class="empty-sub">{{ t('invoices.emptySub') }}</p>
+        <router-link to="/subscriptions/add" class="btn btn-primary">{{ t('dashboard.addSubscription') }}</router-link>
       </div>
 
       <div v-else class="table-wrap">
         <table class="subs-table">
-          <caption class="sr-only">Your invoices</caption>
+          <caption class="sr-only">{{ t('invoices.tableCaption') }}</caption>
           <thead>
             <tr>
-              <th scope="col">Invoice number</th>
-              <th scope="col">Date</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Status</th>
-              <th scope="col">Actions</th>
+              <th scope="col">{{ t('invoices.invoiceNumber') }}</th>
+              <th scope="col">{{ t('invoices.date') }}</th>
+              <th scope="col">{{ t('invoices.amount') }}</th>
+              <th scope="col">{{ t('invoices.status') }}</th>
+              <th scope="col">{{ t('invoices.actions') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -47,7 +47,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inv-link"
-                >Download PDF</a>
+                >{{ t('invoices.downloadPdf') }}</a>
                 <span v-else class="inv-muted">—</span>
               </td>
             </tr>
@@ -60,8 +60,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { getInvoices, type Invoice } from '@/services/subscriptions'
 import { getPortalSessionUrl } from '@/services/billing'
+
+const { t } = useI18n()
 
 const invoices = ref<Invoice[]>([])
 const loading = ref(true)
@@ -75,7 +78,7 @@ async function openPortal() {
     const url = await getPortalSessionUrl()
     window.location.href = url
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to open billing portal.'
+    error.value = err instanceof Error ? err.message : t('invoices.errorOpenPortal')
   } finally {
     openingPortal.value = false
   }
@@ -101,7 +104,12 @@ function formatAmount(amount: number | null, currency: string | null): string {
 }
 
 function statusLabel(status: string): string {
-  const map: Record<string, string> = { paid: 'Paid', unpaid: 'Unpaid', overdue: 'Overdue', cancelled: 'Cancelled' }
+  const map: Record<string, string> = {
+    paid: t('invoices.statusPaid'),
+    unpaid: t('invoices.statusUnpaid'),
+    overdue: t('invoices.statusOverdue'),
+    cancelled: t('invoices.statusCancelled'),
+  }
   return map[(status ?? '').toLowerCase()] ?? status ?? '-'
 }
 
@@ -119,7 +127,7 @@ async function load() {
   try {
     invoices.value = await getInvoices()
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load invoices.'
+    error.value = err instanceof Error ? err.message : t('invoices.errorLoad')
   } finally {
     loading.value = false
   }

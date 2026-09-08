@@ -1,16 +1,16 @@
 <template>
   <div class="page">
-    <h1>Statistics</h1>
-    <p class="step-subtitle">How your WelcoChat agent is performing, updated live.</p>
+    <h1>{{ t('statistics.title') }}</h1>
+    <p class="step-subtitle">{{ t('statistics.intro') }}</p>
 
     <p v-if="error" class="input-hint" role="alert">{{ error }}</p>
-    <div v-if="loading" class="input-hint">Loading your statistics…</div>
+    <div v-if="loading" class="input-hint">{{ t('statistics.loading') }}</div>
 
     <template v-else>
       <div v-if="welco.length === 0" class="empty-state">
-        <p class="empty-text">You do not have an active WelcoChat agent yet.</p>
+        <p class="empty-text">{{ t('statistics.noAgent') }}</p>
         <div class="empty-actions">
-          <router-link to="/subscriptions/add" class="btn btn-primary">Add subscription</router-link>
+          <router-link to="/subscriptions/add" class="btn btn-primary">{{ t('dashboard.addSubscription') }}</router-link>
         </div>
       </div>
 
@@ -20,42 +20,42 @@
         <div class="tile-row">
           <div class="tile">
             <div class="tile-value">{{ w.total_messages }}</div>
-            <div class="tile-label">Messages answered</div>
-            <div class="tile-sub">{{ w.messages_last_30d }} in the last 30 days</div>
+            <div class="tile-label">{{ t('statistics.messagesAnswered') }}</div>
+            <div class="tile-sub">{{ t('statistics.inLast30Days', { count: w.messages_last_30d }) }}</div>
           </div>
           <div class="tile">
             <div class="tile-value">{{ w.handoff_rate }}%</div>
-            <div class="tile-label">Handoff rate</div>
-            <div class="tile-sub">passed to a human</div>
+            <div class="tile-label">{{ t('statistics.handoffRate') }}</div>
+            <div class="tile-sub">{{ t('statistics.passedToHuman') }}</div>
           </div>
           <div class="tile">
             <div class="tile-value">{{ w.total_leads }}</div>
-            <div class="tile-label">Leads captured</div>
-            <div class="tile-sub">{{ w.leads_last_30d }} in the last 30 days</div>
+            <div class="tile-label">{{ t('statistics.leadsCaptured') }}</div>
+            <div class="tile-sub">{{ t('statistics.inLast30Days', { count: w.leads_last_30d }) }}</div>
           </div>
         </div>
 
         <div v-if="w.total_messages > 0" class="trend">
-          <div class="trend-title">Messages — last 30 days</div>
+          <div class="trend-title">{{ t('statistics.trendTitle') }}</div>
           <div class="trend-bars">
             <div
               v-for="d in w.daily_messages"
               :key="d.date"
               class="trend-bar"
-              :title="`${d.date}: ${d.count} message${d.count === 1 ? '' : 's'}`"
+              :title="`${d.date}: ${d.count} ${d.count === 1 ? t('statistics.message') : t('statistics.messages')}`"
               :style="{ height: barHeight(d.count, maxCount(w.daily_messages)) }"
             ></div>
           </div>
         </div>
-        <p v-else class="no-data">No conversations yet — once your widget is live, activity will show up here.</p>
+        <p v-else class="no-data">{{ t('statistics.noData') }}</p>
 
         <div class="kb-health">
           <span class="badge" :class="kbBadgeClass(w.kb_status)">{{ kbStatusLabel(w.kb_status) }}</span>
           <span v-if="w.page_count" class="kb-detail">
-            {{ w.page_count }} page{{ w.page_count === 1 ? '' : 's' }} crawled
-            <template v-if="w.crawled_at"> · last crawl {{ formatDate(w.crawled_at) }}</template>
+            {{ w.page_count === 1 ? t('statistics.pageCrawledOne', { count: w.page_count }) : t('statistics.pageCrawledMany', { count: w.page_count }) }}
+            <template v-if="w.crawled_at"> · {{ t('statistics.lastCrawl', { date: formatDate(w.crawled_at) }) }}</template>
           </span>
-          <span class="kb-detail">{{ w.document_count }} document{{ w.document_count === 1 ? '' : 's' }} uploaded</span>
+          <span class="kb-detail">{{ w.document_count === 1 ? t('statistics.documentUploadedOne', { count: w.document_count }) : t('statistics.documentUploadedMany', { count: w.document_count }) }}</span>
         </div>
       </section>
     </template>
@@ -64,7 +64,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { getStats, type WelcoStats, type DailyCount } from '@/services/stats'
+
+const { t } = useI18n()
 
 const loading = ref(true)
 const error = ref('')
@@ -81,10 +84,10 @@ function barHeight(count: number, max: number): string {
 
 function kbStatusLabel(status: string): string {
   const map: Record<string, string> = {
-    pending: 'Not crawled yet',
-    crawling: 'Crawling…',
-    ready: 'Knowledge base ready',
-    error: 'Crawl error',
+    pending: t('statistics.kbPending'),
+    crawling: t('statistics.kbCrawling'),
+    ready: t('statistics.kbReady'),
+    error: t('statistics.kbError'),
   }
   return map[status] ?? status
 }
@@ -107,7 +110,7 @@ async function load() {
     const result = await getStats()
     welco.value = result.welco
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load statistics.'
+    error.value = err instanceof Error ? err.message : t('statistics.errorLoad')
   } finally {
     loading.value = false
   }

@@ -4,7 +4,7 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
 
@@ -26,7 +26,7 @@
           class="btn btn-primary btn-full"
           @click="goToLogin"
         >
-          Go to sign in
+          {{ t('verifyEmail.goToSignIn') }}
         </button>
       </div>
     </div>
@@ -35,11 +35,13 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { confirmEmailChange } from '@/services/auth'
 
 type Status = 'loading' | 'success' | 'error' | 'missing'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
@@ -47,44 +49,29 @@ const status = ref<Status>('loading')
 const errorMessage = ref('')
 
 const token = computed(() => {
-  const t = route.query.token
-  return typeof t === 'string' ? t : ''
+  const tok = route.query.token
+  return typeof tok === 'string' ? tok : ''
 })
 
 const title = computed(() => {
-  if (status.value === 'success') return 'Email address updated'
-  if (status.value === 'missing') return 'Invalid link'
-  if (status.value === 'error') return 'Confirmation failed'
-  return 'Confirming your new email'
+  if (status.value === 'success') return t('confirmEmailChange.titleSuccess')
+  if (status.value === 'missing') return t('confirmEmailChange.titleMissing')
+  if (status.value === 'error') return t('confirmEmailChange.titleError')
+  return t('confirmEmailChange.titleLoading')
 })
 
 const subtitle = computed(() => {
-  if (status.value === 'success') {
-    return 'Your new email address has been confirmed.'
-  }
-  if (status.value === 'missing') {
-    return 'The confirmation link is missing or invalid.'
-  }
-  if (status.value === 'error') {
-    return 'We could not confirm your new email address.'
-  }
-  return 'Please wait while we confirm your new email address.'
+  if (status.value === 'success') return t('confirmEmailChange.subtitleSuccess')
+  if (status.value === 'missing') return t('confirmEmailChange.subtitleMissing')
+  if (status.value === 'error') return t('confirmEmailChange.subtitleError')
+  return t('confirmEmailChange.subtitleLoading')
 })
 
 const details = computed(() => {
-  if (status.value === 'success') {
-    return 'Please sign in again using your new email address.'
-  }
-  if (status.value === 'missing') {
-    return 'The confirmation URL did not contain a valid token. Please use the link from your email.'
-  }
-  if (status.value === 'error') {
-    return (
-      errorMessage.value ||
-      'The confirmation link may have expired or has already been used.'
-    )
-  }
-  return 'This will only take a moment.'
+  if (status.value === 'success') return t('confirmEmailChange.detailsSuccess')
+  if (status.value === 'missing') return t('confirmEmailChange.detailsMissing')
+  if (status.value === 'error') return errorMessage.value || t('confirmEmailChange.detailsError')
+  return t('confirmEmailChange.detailsLoading')
 })
 
 function goToLogin() {

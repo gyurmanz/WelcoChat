@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "home": {
+      "title": "WelcoChat — agent AI dla Twojej strony internetowej",
+      "description": "WelcoChat to agent AI dla Twojej strony internetowej — odpowiada na pytania odwiedzających na podstawie Twoich treści, zbiera leady i przekazuje sprawę człowiekowi, gdy jest to potrzebne.",
+      "ogTitle": "WelcoChat — agent AI dla Twojej strony internetowej",
+      "ogDescription": "Odpowiada na podstawie Twoich treści. Zbiera leady. Przekazuje sprawę człowiekowi, gdy ma to znaczenie. Aktywny na Twojej stronie w kilka minut."
+    },
+    "terms": {
+      "title": "Regulamin - WelcoChat",
+      "description": "Regulamin WelcoChat.",
+      "ogTitle": "Regulamin - WelcoChat",
+      "ogDescription": "Regulamin WelcoChat."
+    },
+    "privacy": {
+      "title": "Polityka prywatności - WelcoChat",
+      "description": "Jak WelcoChat zbiera, wykorzystuje i chroni dane w widgecie WelcoChat i portalu klienta.",
+      "ogTitle": "Polityka prywatności - WelcoChat",
+      "ogDescription": "Jak WelcoChat zbiera, wykorzystuje i chroni dane w widgecie WelcoChat i portalu klienta."
+    },
+    "guidePromptContent": {
+      "title": "Jak przygotować treści dla swojego agenta - WelcoChat",
+      "description": "Jak podłączyć i napisać treści, aby Twój agent WelcoChat udzielał dokładnych, przydatnych odpowiedzi — co uwzględnić, czego unikać i jak działa pole dodatkowych notatek.",
+      "ogTitle": "Jak przygotować treści dla swojego agenta - WelcoChat",
+      "ogDescription": "Jak podłączyć i napisać treści, aby Twój agent WelcoChat udzielał dokładnych, przydatnych odpowiedzi."
+    },
+    "guideSlackTeams": {
+      "title": "Przewodnik konfiguracji Slack i Teams - WelcoChat",
+      "description": "Krok po kroku: połącz Slacka lub Microsoft Teams z WelcoChat, aby Twój zespół był powiadamiany, gdy tylko odwiedzający potrzebuje człowieka.",
+      "ogTitle": "Przewodnik konfiguracji Slack i Teams - WelcoChat",
+      "ogDescription": "Krok po kroku: połącz Slacka lub Microsoft Teams z powiadomieniami o przekazaniu WelcoChat."
+    }
+  },
+  "common": {
+    "brand": "WelcoChat",
+    "nav": {
+      "features": "Funkcje",
+      "howItWorks": "Jak to działa",
+      "pricing": "Cennik",
+      "faq": "FAQ",
+      "contact": "Kontakt"
+    },
+    "signIn": "Zaloguj się",
+    "createAccount": "Utwórz konto",
+    "toggleMenu": "Przełącz menu",
+    "langSwitchLabel": "Język",
+    "footer": {
+      "tagline": "Agent AI dla Twojej strony internetowej — odpowiada na podstawie Twoich treści, zbiera leady, przekazuje sprawę człowiekowi, gdy ma to znaczenie.",
+      "productHeading": "Produkt",
+      "companyHeading": "Firma",
+      "contact": "Kontakt",
+      "terms": "Regulamin",
+      "privacy": "Polityka prywatności",
+      "portal": "Portal klienta",
+      "copyright": "© 2026 WelcoChat. Wszelkie prawa zastrzeżone."
+    },
+    "backToPortal": "← Powrót do portalu",
+    "legalUpdated": "Ostatnia aktualizacja: wrzesień 2026"
+  },
+  "home": {
+    "eyebrow": "Agent czatu AI dla Twojej strony internetowej",
+    "h1": "Agent AI dla Twojej strony internetowej, aktywny w kilka minut.",
+    "heroSub": "WelcoChat odpowiada na pytania odwiedzających na podstawie Twoich własnych treści, zbiera leady, gdy śpisz, i przekazuje sprawę Twojemu zespołowi, gdy potrzebny jest człowiek.",
+    "contactUs": "Skontaktuj się z nami",
+    "heroNote": "Karta kredytowa nie jest wymagana. 14-dniowy bezpłatny okres próbny w każdym planie.",
+    "heroVisual": {
+      "bubbleVisitor1": "Czy wysyłacie do Węgier?",
+      "bubbleAgent1": "Tak — 2–4 dni robocze, bezpłatnie od 50 €. Chcesz, żebym sprawdził termin dostawy dla Twojego kodu pocztowego?",
+      "bubbleVisitor2": "Właściwie mam pytanie o gwarancję, o którym możesz nie wiedzieć.",
+      "bubbleHandoff": "Przekazano Twojemu zespołowi — wkrótce tu odpowiedzą."
+    },
+    "outputCards": [
+      { "title": "Odpowiedź na podstawie Twoich treści", "body": "Odwiedzający zapytał o ceny → odpowiedź udzielona bezpośrednio na podstawie strony z cennikiem." },
+      { "title": "Przekazano człowiekowi", "body": "Odwiedzający zapytał o coś, czego agent nie wiedział → Twój zespół powiadomiony e-mailem." },
+      { "title": "Lead zebrany", "body": "Imię, e-mail, firma i czym są zainteresowani — zapisywane automatycznie." }
+    ],
+    "problem": {
+      "h2": "Większość odwiedzających stronę wychodzi, nigdy nie zadając pytania.",
+      "body": "Czat na żywo działa tylko wtedy, gdy ktoś go pilnuje. Formularze kontaktowe są ignorowane. Strony FAQ są pomijane. Tymczasem odwiedzający wychodzą z niezadanymi pytaniami i bez możliwości skontaktowania się z Tobą poza godzinami pracy. WelcoChat pozostaje na Twojej stronie przez całą dobę, odpowiada na podstawie Twoich własnych treści i angażuje człowieka tylko wtedy, gdy rozmowa naprawdę tego wymaga."
+    },
+    "painItems": [
+      "Odwiedzający wychodzą bez otrzymania odpowiedzi",
+      "Zespoły wsparcia/sprzedaży nie mogą obsadzić czatu na żywo przez całą dobę",
+      "Leady z formularzy kontaktowych docierają bez kontekstu",
+      "Strony FAQ istnieją, ale odwiedzający ich nie czytają",
+      "Dobre leady stygną, czekając na odpowiedź"
+    ],
+    "howItWorks": {
+      "h2": "Jak działa WelcoChat",
+      "steps": [
+        { "title": "Utwórz konto", "body": "Zarejestruj się i rozpocznij 14-dniowy bezpłatny okres próbny — karta kredytowa nie jest wymagana." },
+        { "title": "Połącz swoje treści", "body": "WelcoChat indeksuje Twoją stronę i/lub przesyłasz dokumenty i FAQ, aby zbudować bazę wiedzy." },
+        { "title": "Dostosuj widget", "body": "Nazwa, awatar, kolory, wiadomość powitalna — spraw, by wyglądał jak część Twojej strony." },
+        { "title": "Osadź jedną linijkę kodu", "body": "Wklej fragment kodu na swojej stronie. Gotowe." },
+        { "title": "Przeglądaj i ulepszaj", "body": "Zobacz rozmowy i niezadowolone pytania w panelu — baza wiedzy z czasem staje się coraz lepsza." },
+        { "title": "Przekazanie do człowieka, zawsze dostępne", "body": "Agent przekazuje sprawę zawsze, gdy nie jest pewien lub odwiedzający prosi o kontakt z osobą." }
+      ]
+    },
+    "features": {
+      "h2": "Wszystko, czego potrzebujesz, aby umieścić agenta AI na swojej stronie",
+      "cards": [
+        { "title": "Baza wiedzy strony internetowej", "body": "Automatyczne indeksowanie strony, przesyłanie plików PDF i dokumentów, aktualizacja na bieżąco.", "tier": null },
+        { "title": "Widget do osadzenia", "body": "Jeden tag skryptu, w pełni konfigurowalny wygląd.", "tier": null },
+        { "title": "Zbieranie leadów", "body": "Ustrukturyzowane imię, e-mail, firma i intencja dla każdej kwalifikowanej rozmowy.", "tier": null },
+        { "title": "Przekazanie do człowieka na żywo", "body": "Twój zespół jest powiadamiany i może odpowiadać na żywo w tej samej rozmowie z poziomu portalu WelcoChat — nie tylko otrzymuje powiadomienie.", "tier": null },
+        { "title": "Panel statystyk", "body": "Wolumen rozmów, wskaźnik przekazań, zebrane leady, stan bazy wiedzy.", "tier": null },
+        { "title": "Powiadomienia Slack, Teams i webhook", "body": "Otrzymuj powiadomienie, gdy tylko odwiedzający potrzebuje człowieka — ogólny webhook obsługuje Zapier, Make lub dowolne inne narzędzie.", "tier": "Business+" },
+        { "title": "Kanał WhatsApp", "body": "Podłącz własny numer WhatsApp Business, aby ten sam agent odpowiadał również tam, z tym samym przekazaniem na żywo.", "tier": "Business+" },
+        { "title": "Konta zespołowe", "body": "Zaproś współpracowników do wspólnego zarządzania agentem i obsługi rozmów na żywo.", "tier": "Business+" },
+        { "title": "Niestandardowe logo i pozycja widgetu", "body": "Prześlij własne logo i wybierz umiejscowienie w lewym lub prawym dolnym rogu.", "tier": "Business+" },
+        { "title": "Niestandardowy CSS", "body": "Surowe nadpisanie CSS, bezpiecznie ograniczone do własnego shadow DOM widgetu — nie może wpłynąć na resztę Twojej strony.", "tier": "Enterprise" },
+        { "title": "Załączniki graficzne", "body": "Odwiedzający mogą dołączyć zdjęcie, a agent odpowiada w oparciu zarówno o obraz, jak i treść Twojej strony, dzięki prawdziwemu widzeniu AI.", "tier": "Business+" },
+        { "title": "Wielojęzyczność", "body": "Automatycznie odpowiada odwiedzającym w ich własnym języku.", "tier": null }
+      ]
+    },
+    "pricing": {
+      "h2": "Proste, przejrzyste ceny",
+      "note": "Każde nowe konto rozpoczyna się 14-dniowym bezpłatnym okresem próbnym. Karta kredytowa nie jest wymagana.",
+      "monthly": "Miesięcznie",
+      "annual": "Rocznie",
+      "save20": "Oszczędź 20%",
+      "billedAnnually": "rozliczane rocznie",
+      "recommended": "Polecany",
+      "perMo": "/mies.",
+      "startFreeTrial": "Rozpocznij bezpłatny okres próbny",
+      "tiers": [
+        {
+          "name": "Basic",
+          "priceMonthly": "39 €",
+          "priceAnnual": "31 €",
+          "recommended": false,
+          "features": [
+            "Do 500 rozmów/miesiąc",
+            "Baza wiedzy strony internetowej",
+            "Widget do osadzenia",
+            "Zbieranie leadów",
+            "Przekazanie na żywo (e-mail)",
+            "Panel statystyk",
+            "Wielojęzyczność"
+          ]
+        },
+        {
+          "name": "Business",
+          "priceMonthly": "99 €",
+          "priceAnnual": "79 €",
+          "recommended": true,
+          "features": [
+            "Do 3000 rozmów/miesiąc",
+            "Wszystko z planu Basic",
+            "Niestandardowe logo i pozycja widgetu",
+            "Powiadomienia Slack / Teams / webhook",
+            "Konta zespołowe",
+            "Kanał WhatsApp",
+            "Załączniki graficzne"
+          ]
+        },
+        {
+          "name": "Enterprise",
+          "priceMonthly": "299 €",
+          "priceAnnual": "239 €",
+          "recommended": false,
+          "features": [
+            "Do 15 000 rozmów/miesiąc",
+            "Wszystko z planu Business",
+            "Niestandardowe nadpisanie CSS",
+            "Niestandardowe integracje",
+            "Priorytetowe wsparcie",
+            "SLA"
+          ]
+        }
+      ],
+      "foot": "Wszystkie ceny nie zawierają VAT, jeśli ma zastosowanie. Plany roczne są rozliczane z góry."
+    },
+    "faq": {
+      "h2": "Najczęściej zadawane pytania",
+      "items": [
+        { "q": "Jak szybko mogę uruchomić WelcoChat na mojej stronie?", "a": "W kilka minut — utwórz konto, połącz swoje treści, wklej jeden fragment kodu." },
+        { "q": "Czy agent kiedykolwiek zmyśla informacje?", "a": "Nie. Odpowiada wyłącznie na podstawie podłączonych treści. Jeśli nie jest pewien, przekazuje sprawę człowiekowi, zamiast zgadywać." },
+        { "q": "Co się dzieje, gdy agent nie może odpowiedzieć?", "a": "Twój zespół jest natychmiast powiadamiany e-mailem (lub przez Slack/Teams/webhook w planie Business+) i może dołączyć do rozmowy oraz odpowiadać na żywo z poziomu portalu." },
+        { "q": "Czy potrzebuję karty kredytowej, aby zacząć?", "a": "Nie — każde konto otrzymuje 14-dniowy bezpłatny okres próbny bez karty." },
+        { "q": "Czy mogę używać WelcoChat na więcej niż jednej stronie internetowej?", "a": "Każda subskrypcja obejmuje jedną stronę internetową. Dla dodatkowych stron utwórz dodatkową subskrypcję — skontaktuj się z nami, jeśli konfigurujesz kilka." },
+        { "q": "Czy odwiedzający mogą kontaktować się z agentem również przez WhatsApp?", "a": "Tak, od planu Business — podłącz własny numer WhatsApp Business, a ten sam agent odpowiada również tam, z tym samym przekazaniem na żywo." },
+        { "q": "Czy więcej niż jedna osoba w moim zespole może zarządzać agentem?", "a": "Tak, od planu Business — zaproś współpracowników do swojego konta WelcoChat." },
+        { "q": "Czy mogę użyć własnego logo i wybrać, po której stronie otwiera się widget?", "a": "Tak, od planu Business. Plan Enterprise dodaje również niestandardowe nadpisanie CSS do dalszego dostrajania." },
+        { "q": "Jakie języki są obsługiwane?", "a": "Agent automatycznie wykrywa i odpowiada w języku odwiedzającego." },
+        { "q": "Czy mogę zobaczyć, o co pytają odwiedzający?", "a": "Tak — panel statystyk pokazuje wolumen rozmów, wskaźnik przekazań i leady, a każda przekazana rozmowa jest widoczna w Czacie na żywo." },
+        { "q": "Co się stanie, jeśli mój okres próbny się skończy lub subskrypcja wygaśnie?", "a": "Widget zostaje wstrzymany na Twojej stronie, dopóki rozliczenie nie zostanie uregulowane — odwiedzający po prostu go nie zobaczą, a nie zobaczą uszkodzonego czatu. Twój dostęp do portalu i wszystko, co skonfigurowałeś, pozostaje nietknięte, a wszystko wraca do działania, gdy tylko Twoja subskrypcja znów będzie aktywna." },
+        { "q": "Czy mogę później zmienić plan?", "a": "Tak — możesz ulepszyć lub obniżyć plan w dowolnym momencie z poziomu portalu. Nic, co skonfigurowałeś, nigdy nie jest usuwane przy obniżeniu planu; funkcje związane z wyższym poziomem po prostu zostają wstrzymane do momentu ponownego ulepszenia." },
+        { "q": "Czy odwiedzający mogą wysyłać obrazy?", "a": "Tak, od planu Business — odwiedzający mogą dołączyć zdjęcie, a agent faktycznie je analizuje przed odpowiedzią, a nie tylko towarzyszący tekst." },
+        { "q": "Czy mogę aktualizować treści mojej strony po jej uruchomieniu?", "a": "Tak — zmień podłączony adres URL strony lub edytuj przesłane dokumenty i notatki w dowolnym momencie z poziomu portalu; WelcoChat uczy się nowej treści bez przestojów." },
+        { "q": "Czy widget spowalnia moją stronę lub działa na urządzeniach mobilnych?", "a": "Ładuje się asynchronicznie, więc nigdy nie blokuje Twojej strony, i jest w pełni użyteczny na telefonach i tabletach." }
+      ]
+    },
+    "contact": {
+      "h2": "Skontaktuj się z WelcoChat",
+      "sub": "Masz pytanie przed utworzeniem konta? Wyślij nam wiadomość.",
+      "emailLabel": "E-mail",
+      "email": "info@welcochat.com",
+      "responseLabel": "Czas odpowiedzi",
+      "response": "Zwykle w ciągu jednego dnia roboczego",
+      "form": {
+        "name": "Imię i nazwisko",
+        "company": "Firma",
+        "email": "E-mail",
+        "website": "Strona internetowa",
+        "topicLabel": "W czym możemy pomóc?",
+        "topics": [
+          { "value": "question_before_registering", "label": "Mam pytanie przed rejestracją" },
+          { "value": "choosing_plan", "label": "Potrzebuję pomocy w wyborze planu" },
+          { "value": "billing", "label": "Mam pytanie dotyczące rozliczeń" },
+          { "value": "technical", "label": "Mam pytanie techniczne" },
+          { "value": "partnership", "label": "Współpraca" },
+          { "value": "other", "label": "Inne" }
+        ],
+        "message": "Wiadomość",
+        "submit": "Wyślij wiadomość",
+        "sending": "Wysyłanie...",
+        "success": "Dziękujemy. Otrzymaliśmy Twoją wiadomość i wkrótce się z Tobą skontaktujemy.",
+        "errorGeneric": "Coś poszło nie tak. Spróbuj ponownie."
+      }
+    }
+  },
+  "terms": {
+    "eyebrow": "Informacje prawne",
+    "h1": "Regulamin",
+    "intro": "Niniejszy Regulamin (\"Warunki\") reguluje dostęp do i korzystanie z WelcoChat oraz portalu klienta WelcoChat pod adresem <code>/portal</code> (łącznie \"Usługi\"), świadczonych przez Mango Group, estońską spółkę, pod marką WelcoChat (\"WelcoChat\", \"my\"). Tworząc konto WelcoChat lub korzystając z Usług, akceptujesz niniejsze Warunki w swoim imieniu oraz, w stosownych przypadkach, w imieniu firmy, którą reprezentujesz (\"Ty\").",
+    "note": "Rejestracja firmy Mango Group w Estonii jest w toku. Po jej zakończeniu ta strona zostanie zaktualizowana o nasze pełne zarejestrowane dane firmowe (nazwa podmiotu prawnego, numer rejestracji i zarejestrowany adres). W międzyczasie możesz się z nami skontaktować pod adresem <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>.",
+    "sections": [
+      { "h2": "1. Usługa", "body": "WelcoChat to agent AI, który osadzasz na własnej stronie internetowej. Odpowiada na pytania odwiedzających, wykorzystując treści zindeksowane z Twojej strony, zbiera leady i przekazuje sprawę Twojemu zespołowi e-mailem (lub przez Slack/Teams/webhook w planie Business+), gdy nie może odpowiedzieć z pewnością." },
+      { "h2": "2. Konta", "body": "Musisz podać dokładne informacje podczas tworzenia konta WelcoChat i jesteś odpowiedzialny za wszystkie działania w ramach swojego konta oraz za zachowanie poufności swoich danych logowania. Powiadom nas niezwłocznie na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>, jeśli podejrzewasz nieautoryzowane użycie swojego konta." },
+      { "h2": "3. Bezpłatny okres próbny", "body": "Każda nowa subskrypcja rozpoczyna się 14-dniowym bezpłatnym okresem próbnym. Nie jest wymagana metoda płatności, aby rozpocząć okres próbny, i nic nie jest naliczane w jego trakcie. Jeśli dodasz metodę płatności przed końcem okresu próbnego, rozliczenie rozpocznie się automatycznie po jego zakończeniu, zgodnie z wybranym planem i okresem rozliczeniowym. Jeśli po zakończeniu okresu próbnego nie ma zapisanej metody płatności, rozliczenie danej subskrypcji zostaje wstrzymane (nie anulowane), dopóki nie dodasz metody płatności — Twoje dane i konfiguracja są zachowywane." },
+      { "h2": "4. Subskrypcje i rozliczenia", "body": "Płatne subskrypcje są rozliczane miesięcznie lub rocznie z góry, zgodnie z wyborem dokonanym przy płatności. Plany roczne są rozliczane z góry za cały rok. Subskrypcje odnawiają się automatycznie na kolejne okresy, chyba że zostaną anulowane przed datą odnowienia. Płatności są przetwarzane przez Stripe; WelcoChat nie przechowuje danych Twojej karty. Ceny są wyświetlane bez VAT, jeśli ma zastosowanie, który może zostać dodany przy płatności w zależności od miejsca rozliczenia. Możemy zmienić ceny na przyszłe okresy rozliczeniowe z co najmniej 30-dniowym wyprzedzeniem, powiadamiając e-mailem." },
+      { "h2": "5. Anulowanie i zwroty", "body": "Możesz anulować subskrypcję w dowolnym momencie z Portalu rozliczeniowego, dostępnego ze strony Faktury w portalu klienta. Anulowanie wchodzi w życie na koniec bieżącego okresu rozliczeniowego; do tego czasu zachowujesz dostęp. Opłaty już zapłacone za okres rozliczeniowy nie podlegają zwrotowi, chyba że wymaga tego obowiązujące prawo." },
+      { "h2": "6. Dopuszczalne użytkowanie", "body": "Zgadzasz się nie wykorzystywać Usług do: naruszania jakiegokolwiek obowiązującego prawa; przesyłania nielegalnych, naruszających prawa lub szkodliwych treści; prób zakłócenia, inżynierii wstecznej lub uzyskania nieautoryzowanego dostępu do Usług lub infrastruktury WelcoChat; lub korzystania z Usług w sposób, który można racjonalnie uznać za nadużycie lub przeciążenie leżących u ich podstaw systemów AI. Możemy zawiesić konta naruszające tę sekcję." },
+      { "h2": "7. Wyniki generowane przez AI", "body": "WelcoChat wykorzystuje modele językowe AI do generowania odpowiedzi. Wyniki AI mogą być niedokładne lub niekompletne. WelcoChat został zaprojektowany tak, aby odpowiadać wyłącznie na podstawie treści Twojej własnej strony internetowej i przekazywać sprawę człowiekowi w razie niepewności, ale Ty pozostajesz odpowiedzialny za weryfikację wyników wykorzystywanych w ważnych decyzjach." },
+      { "h2": "8. Twoje treści", "body": "Zachowujesz własność treści na swojej stronie internetowej, które indeksuje WelcoChat, oraz wszelkich danych, które Ty lub Twoi użytkownicy końcowi przesyłają za pośrednictwem Usług (\"Twoje Treści\"). Udzielasz WelcoChat licencji na przetwarzanie Twoich Treści wyłącznie w celu świadczenia i ulepszania Usług dla Ciebie. Jesteś odpowiedzialny za posiadanie niezbędnych praw do Twoich Treści oraz za dane własnych użytkowników końcowych zebrane za pośrednictwem widgetu, zgodnie z obowiązującym prawem." },
+      { "h2": "9. Usługi stron trzecich", "body": "WelcoChat korzysta z usług dostawców zewnętrznych do obsługi Usług, w tym Stripe (płatności), Anthropic (przetwarzanie AI) oraz dostawców infrastruktury i poczty e-mail. Korzystanie z Usług stanowi akceptację, że odpowiednie dane są przetwarzane przez tych dostawców zgodnie z opisem w naszej <a href=\"{{PRIVACY_URL}}\">Polityce prywatności</a>." },
+      { "h2": "10. Własność intelektualna", "body": "WelcoChat i jego licencjodawcy zachowują wszelkie prawa, tytuły i udziały w Usługach, w tym w leżącym u ich podstaw oprogramowaniu, projekcie i marce. Nic w niniejszym Regulaminie nie przenosi na Ciebie żadnych takich praw poza ograniczonym prawem do korzystania z Usług zgodnie z ich przeznaczeniem." },
+      { "h2": "11. Ograniczenie odpowiedzialności", "body": "W maksymalnym zakresie dozwolonym przez prawo, WelcoChat nie ponosi odpowiedzialności za szkody pośrednie, przypadkowe lub wynikowe wynikające z korzystania z Usług. Nasza całkowita odpowiedzialność za jakiekolwiek roszczenie związane z Usługami jest ograniczona do kwoty, którą zapłaciłeś nam za daną subskrypcję w ciągu 12 miesięcy poprzedzających roszczenie." },
+      { "h2": "12. Rozwiązanie umowy", "body": "Możemy zawiesić lub zakończyć Twój dostęp do Usług z powodu naruszenia niniejszego Regulaminu, braku płatności lub jeśli wymaga tego prawo, z powiadomieniem tam, gdzie jest to rozsądnie możliwe. Możesz przestać korzystać z Usług i anulować subskrypcję w dowolnym momencie, jak opisano w Sekcji 5." },
+      { "h2": "13. Zmiany niniejszego Regulaminu", "body": "Możemy od czasu do czasu aktualizować niniejszy Regulamin. Powiadomimy Cię o istotnych zmianach e-mailem lub za pośrednictwem portalu klienta przed ich wejściem w życie. Dalsze korzystanie z Usług po wejściu w życie zmiany stanowi akceptację zaktualizowanego Regulaminu." },
+      { "h2": "14. Prawo właściwe", "body": "Niniejszy Regulamin podlega prawu Estonii, bez względu na zasady kolizyjne, chyba że bezwzględnie obowiązujące prawo ochrony konsumentów w kraju Twojego zamieszkania stanowi inaczej." },
+      { "h2": "15. Kontakt", "body": "Pytania dotyczące niniejszego Regulaminu można kierować na adres <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." }
+    ]
+  },
+  "privacy": {
+    "eyebrow": "Informacje prawne",
+    "h1": "Polityka prywatności",
+    "intro": "Niniejsza Polityka prywatności wyjaśnia, jakie dane Mango Group, estońska spółka działająca pod marką WelcoChat (\"WelcoChat\", \"my\"), zbiera za pośrednictwem widgetu WelcoChat i portalu klienta pod adresem <code>/portal</code> (łącznie \"Usługi\") oraz jak je wykorzystujemy.",
+    "note": "Rejestracja firmy Mango Group w Estonii jest w toku. Po jej zakończeniu ta strona zostanie zaktualizowana o nasze pełne zarejestrowane dane firmowe jako administratora danych. W międzyczasie pytania lub żądania dotyczące prywatności można kierować na adres <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>.",
+    "dataWeCollectIntro": "Zbieramy różne dane w zależności od tego, jak korzystasz z WelcoChat:",
+    "dataWeCollectItems": [
+      { "strong": "Dane konta", "text": " — imię i nazwisko, adres e-mail, numer telefonu, nazwa firmy i adres rozliczeniowy, gdy rejestrujesz konto WelcoChat lub subskrybujesz usługę." },
+      { "strong": "Dane rozliczeniowe", "text": " — historia subskrypcji i faktur. Dane karty są zbierane i przechowywane przez naszego procesora płatności, Stripe; WelcoChat nie otrzymuje ani nie przechowuje pełnego numeru Twojej karty." },
+      { "strong": "Treść widgetu", "text": " — publiczna treść Twojej strony internetowej, którą WelcoChat indeksuje, aby zbudować swoją bazę wiedzy, oraz wiadomości wymieniane między odwiedzającymi Twoją stronę a widgetem, w tym imię, e-mail lub wiadomość, którą odwiedzający przesyła, aby skontaktować się z Twoim zespołem." },
+      { "strong": "Dane o użytkowaniu i logi", "text": " — dane techniczne, takie jak adres IP, typ przeglądarki i odwiedzone strony, zbierane automatycznie podczas korzystania z Usług lub publicznej strony internetowej." }
+    ],
+    "whoWeShareIntro": "Udostępniamy dane następującym kategoriom dostawców zewnętrznych, wyłącznie w celu obsługi Usług:",
+    "whoWeShareItems": [
+      { "strong": "Stripe", "text": " — przetwarzanie płatności i rozliczenia." },
+      { "strong": "Anthropic", "text": " — dostawca AI stojący za WelcoChat. Gdy WelcoChat odpowiada odwiedzającemu, odpowiednia treść jest wysyłana do API Anthropic w celu wygenerowania odpowiedzi." },
+      { "strong": "Dostawcy poczty e-mail i hostingu", "text": " — do wysyłania e-maili dotyczących konta i powiadomień oraz do hostowania Usług." },
+      { "strong": "Google Analytics", "text": " — wyłącznie na naszej publicznej stronie internetowej (<code>welcochat.com</code>), aby zrozumieć zagregowany ruch odwiedzających. Portal klienta i sam widget WelcoChat nie korzystają z Google Analytics." }
+    ],
+    "whoWeShareFoot": "Nie sprzedajemy danych osobowych. Niektórzy z tych dostawców mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym; w takim przypadku robią to na podstawie odpowiednich zabezpieczeń, takich jak Standardowe Klauzule Umowne.",
+    "sections": [
+      { "h2": "2. Jak je wykorzystujemy", "body": "Wykorzystujemy te dane do: świadczenia i utrzymania Usług; przetwarzania płatności i wysyłania komunikacji rozliczeniowej; odpowiadania na zapytania o wsparcie; oraz wysyłania powiadomień związanych z usługą (np. koniec okresu próbnego, status konfiguracji)." },
+      { "h2": "3. Podstawa prawna przetwarzania", "body": "Tam, gdzie ma zastosowanie Ogólne rozporządzenie o ochronie danych (RODO), przetwarzamy dane osobowe na następujących podstawach: wykonanie umowy (świadczenie Usług, które subskrybowałeś), uzasadniony interes (zabezpieczenie i ulepszanie Usług, odpowiadanie na zapytania) oraz zgoda (gdy wyraźnie jej udzieliłeś, np. na opcjonalną komunikację marketingową)." },
+      { "h2": "5. Jeśli korzystasz z WelcoChat na własnej stronie internetowej", "body": "Jeśli osadzisz widget WelcoChat na swojej stronie internetowej, jesteś administratorem danych dla własnych odwiedzających Twoją stronę, a WelcoChat działa w Twoim imieniu jako podmiot przetwarzający dane w zakresie rozmów i leadów, które zbiera. Jesteś odpowiedzialny za zapewnienie, że Twoi odwiedzający są odpowiednio informowani (np. we własnej polityce prywatności) o obecności widgetu czatu i sposobie przetwarzania ich wiadomości." },
+      { "h2": "6. Przechowywanie danych", "body": "Przechowujemy dane konta i rozliczeniowe tak długo, jak Twoje konto jest aktywne, a następnie zgodnie z obowiązującym prawem podatkowym i rachunkowym. Treści bazy wiedzy oraz dane rozmów/leadów są przechowywane tak długo, jak aktywna jest powiązana subskrypcja, i są usuwane lub anonimizowane w rozsądnym czasie po anulowaniu, chyba że zażądasz wcześniejszego usunięcia." },
+      { "h2": "7. Twoje prawa", "body": "Z zastrzeżeniem obowiązującego prawa, masz prawo do: dostępu do danych osobowych, które o Tobie przechowujemy; żądania sprostowania niedokładnych danych; żądania usunięcia; sprzeciwu wobec lub ograniczenia niektórych przetwarzań; oraz żądania przenośnej kopii swoich danych. Aby skorzystać z któregokolwiek z tych praw, skontaktuj się z <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>. Jeśli jesteś w UE/EOG i uważasz, że Twoje prawa nie zostały uszanowane, możesz również złożyć skargę do lokalnego organu ochrony danych (w Estonii — Estońska Inspekcja Ochrony Danych, Andmekaitse Inspektsioon)." },
+      { "h2": "8. Pliki cookie", "body": "Portal klienta wykorzystuje wyłącznie ściśle niezbędne przechowywanie danych (takie jak Twoja sesja logowania) do działania — brak reklamowych lub śledzących plików cookie. Nasza publiczna strona marketingowa korzysta z Google Analytics, który ustawia pliki cookie do pomiaru zagregowanego użytkowania strony." },
+      { "h2": "9. Prywatność dzieci", "body": "Usługi są przeznaczone do użytku biznesowego i nie są kierowane do dzieci. Nie zbieramy świadomie danych osobowych od dzieci." },
+      { "h2": "10. Zmiany niniejszej polityki", "body": "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. Powiadomimy Cię o istotnych zmianach e-mailem lub za pośrednictwem portalu klienta przed ich wejściem w życie." },
+      { "h2": "11. Kontakt", "body": "Pytania dotyczące niniejszej Polityki prywatności lub sposobu przetwarzania Twoich danych można kierować na adres <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." }
+    ]
+  },
+  "guidePromptContent": {
+    "eyebrow": "Przewodnik",
+    "h1": "Jak przygotować treści dla swojego agenta",
+    "sub": "Praktyczny przewodnik po uzyskiwaniu dobrych odpowiedzi z WelcoChat",
+    "intro": "WelcoChat odpowiada wyłącznie na podstawie treści, które wyraźnie podłączyłeś — Twojej strony internetowej i wszystkiego, co przesyłasz. Nigdy nie wymyśla faktów, a jeśli nie ma odpowiedzi w swoich treściach, przekazuje sprawę Twojemu zespołowi zamiast zgadywać. Oznacza to, że jakość Twojego agenta zależy niemal całkowicie od jakości tego, co mu dostarczysz. Ten przewodnik obejmuje oba źródła: automatyczne indeksowanie strony internetowej i pole notatek \"Dodatkowe dokumenty / FAQ\".",
+    "sections": [
+      {
+        "h2": "1. Co dobrze wychwytuje indeksowanie strony",
+        "body": "Gdy podłączysz adres URL strony internetowej, WelcoChat indeksuje publiczne strony i wyodrębnia ich tekst. Działa najlepiej na stronach napisanych prostym językiem dla ludzi:",
+        "list": [
+          "Strony produktów/usług z jasnymi opisami",
+          "Strony z cennikiem",
+          "Strona FAQ, jeśli ją masz — to zwykle najbardziej wartościowa strona do zindeksowania",
+          "Strony dotyczące wysyłki, zwrotów, gwarancji i innych zasad",
+          "Informacje kontaktowe i godziny pracy"
+        ],
+        "after": "<em>Nie</em> wyodrębnia informacji uwięzionych w obrazach, plikach PDF połączonych, ale nie osadzonych jako tekst, ani treści renderowanych przez JavaScript, które nigdy nie pojawiają się w kodzie HTML strony. Jeśli kluczowe informacje znajdują się w broszurze PDF lub zeskanowanym obrazie, prześlij je jako dokument (patrz poniżej), zamiast zakładać, że indeksowanie je uchwyciło."
+      },
+      {
+        "h2": "2. Co umieścić w \"Dodatkowych dokumentach / FAQ\"",
+        "body": "To pole tekstowe to miejsce, w którym wypełniasz luki, których strona internetowa nie obejmuje, i gdzie możesz kształtować <em>sposób</em>, w jaki agent mówi o Twojej firmie. Jest odczytywane w taki sam sposób jak zindeksowana treść — jako materiał źródłowy do odpowiadania — więc traktuj je jak pisemny brief, a nie zwykłą notatkę. Dobre rzeczy do uwzględnienia:",
+        "list": [
+          "Odpowiedzi na często zadawane pytania, które nie są jasno napisane nigdzie na Twojej stronie",
+          "Wewnętrzne skróty lub nazwy produktów wyjaśnione (\"gdy ktoś mówi 'plan Pro', ma na myśli...\")",
+          "Wskazówki dotyczące tonu: \"Utrzymuj odpowiedzi krótkie i przyjazne\", \"Nigdy nie omawiaj konkurencji\", \"Zawsze wspomnij o bezpłatnym okresie próbnym, gdy jest to istotne\"",
+          "Wszystko, co zmienia się sezonowo i jeszcze nie będzie na stronie (nadchodząca wyprzedaż, tymczasowe opóźnienie w wysyłce)"
+        ],
+        "after": "Utrzymuj to zorganizowane pod krótkimi nagłówkami lub jako listę pytań i odpowiedzi — agent lepiej radzi sobie ze strukturalnym, przeglądalnym tekstem niż z jednym długim akapitem."
+      },
+      {
+        "h2": "3. Przesyłanie dokumentów",
+        "body": "Obsługiwane są pliki PDF, DOCX i TXT, do 10 MB każdy. System wyodrębnia warstwę tekstu — dokument musi faktycznie zawierać zaznaczalny tekst, a nie tylko zeskanowany obraz strony, aby to zadziałało. Jeśli nie jesteś pewien, spróbuj zaznaczyć tekst w pliku PDF kursorem; jeśli nie możesz, agent też nie będzie w stanie go odczytać.",
+        "after": "Dobrzy kandydaci: karty specyfikacji produktu, szczegółowy dokument FAQ, dokumenty dotyczące zasad, cenniki, przewodniki wdrożeniowe."
+      },
+      {
+        "h2": "4. Czego unikać",
+        "list_strong": [
+          { "strong": "Sprzecznych informacji.", "text": " Jeśli Twoja strona podaje jedną cenę, a przesłany dokument inną, agent nie ma sposobu, aby wiedzieć, która jest aktualna — może wybrać dowolną z nich. Utrzymuj jedno źródło prawdy na fakt." },
+          { "strong": "Ogromnych, nieskupionych zrzutów danych.", "text": " 200-stronicowy eksport wewnętrznej wiki z notatkami ze spotkań i niedokończonymi szkicami zmieszanymi razem utrudnia agentowi znalezienie faktycznie istotnej odpowiedzi. Uporządkuj przed przesłaniem." },
+          { "strong": "Wszystkiego, czego nie chciałbyś, aby odwiedzający potencjalnie zobaczył dosłownie.", "text": " Agent odpowiada, czerpiąc bezpośrednio z podłączonych treści — nie umieszczaj wewnętrznych cen negocjowanych dla konkretnych klientów, nieopublikowanych planów ani niczego poufnego." }
+        ]
+      },
+      {
+        "h2": "5. Uwaga na temat sposobu generowania odpowiedzi",
+        "body": "Widget wyświetla tylko zwykły tekst konwersacyjny — bez formatowania Markdown, bez tabel, bez list wypunktowanych renderowanych jako takie. Twoja treść źródłowa może być sformatowana w dowolny sposób (nagłówki, punkty, tabele — wszystko można pisać), ale swoje <em>własne</em> notatki \"Dodatkowe dokumenty\" pisz w miarę możliwości jako zwykłe zdania, ponieważ jest to najbliższe temu, co agent faktycznie wygeneruje dla odwiedzającego."
+      },
+      {
+        "h2": "6. Utrzymywanie aktualności",
+        "body": "Możesz w dowolnym momencie ponownie zindeksować swoją stronę internetową lub edytować swoje notatki i dokumenty ze strony konfiguracji — zmiany w notatkach i dokumentach wchodzą w życie natychmiast, a ponowne indeksowanie zmienionej strony trwa około minuty. Podczas aktualizacji nie ma przestojów."
+      }
+    ]
+  },
+  "guideSlackTeams": {
+    "eyebrow": "Przewodnik · Plan Business i wyższe",
+    "h1": "Przewodnik konfiguracji Slack &amp; Teams",
+    "sub": "Otrzymaj wiadomość, gdy tylko odwiedzający potrzebuje człowieka",
+    "intro": "WelcoChat powiadamia Twój zespół, publikując na podanym przez Ciebie adresie URL webhooka — nie ma żadnej aplikacji do zainstalowania ani uprawnień OAuth do przyznania po Twojej stronie. Tworzysz webhook w Slacku lub Teams, wklejasz adres URL w sekcji Powiadomienia na stronie konfiguracji WelcoChat i gotowe. Działa to tak samo w przypadku opcji ogólnego webhooka (Zapier, Make lub dowolne narzędzie, które może odbierać przychodzące webhooki).",
+    "slack": {
+      "h2": "Slack",
+      "steps": [
+        "Przejdź do <code>api.slack.com/apps</code> i zaloguj się do swojego obszaru roboczego.",
+        "Kliknij <strong>Create New App</strong> → <strong>From scratch</strong>. Nadaj mu nazwę (np. \"WelcoChat\") i wybierz swój obszar roboczy.",
+        "W ustawieniach aplikacji otwórz <strong>Incoming Webhooks</strong> w lewym pasku bocznym.",
+        "Włącz opcję <strong>Activate Incoming Webhooks</strong>.",
+        "Przewiń w dół i kliknij <strong>Add New Webhook to Workspace</strong>.",
+        "Wybierz kanał, który powinien otrzymywać powiadomienia o przekazaniu, i kliknij <strong>Allow</strong>.",
+        "Skopiuj wyświetlony adres URL webhooka (zaczynający się od <code>https://hooks.slack.com/services/...</code>).",
+        "W WelcoChat przejdź do strony konfiguracji swojej usługi → <strong>Powiadomienia</strong>, ustaw Kanał na <strong>Slack</strong> i wklej adres URL."
+      ]
+    },
+    "teams": {
+      "h2": "Microsoft Teams",
+      "intro": "Microsoft migruje kanały Teams ze starego systemu \"Connectors\" (Office 365 Connector) do <strong>Workflows</strong> — użyj Workflows, jeśli jest dostępny w Twoim dzierżawcy.",
+      "steps": [
+        "Otwórz kanał Teams, który powinien otrzymywać powiadomienia o przekazaniu.",
+        "Kliknij <strong>⋯</strong> (więcej opcji) obok nazwy kanału → <strong>Workflows</strong>.",
+        "Wyszukaj i wybierz szablon <strong>\"Post to a channel when a webhook request is received\"</strong>.",
+        "Postępuj zgodnie z instrukcjami, aby potwierdzić kanał, a następnie kliknij <strong>Create flow</strong> (lub Add workflow).",
+        "Skopiuj adres URL webhooka wygenerowany przez Teams.",
+        "W WelcoChat przejdź do strony konfiguracji swojej usługi → <strong>Powiadomienia</strong>, ustaw Kanał na <strong>Microsoft Teams</strong> i wklej adres URL."
+      ],
+      "note": "Jeśli Twój dzierżawca nadal ma tylko starszy konektor \"Incoming Webhook\" zamiast Workflows, to również działa w ten sam sposób — dodaj konektor Incoming Webhook do kanału, skopiuj jego adres URL i wklej go w tym samym miejscu."
+    },
+    "generic": {
+      "h2": "Ogólny webhook (Zapier, Make itp.)",
+      "body": "Wybierz <strong>Webhook</strong> jako kanał i wklej adres URL \"catch hook\" ze swojego narzędzia automatyzacji. WelcoChat wysyła ładunek JSON z typem zdarzenia, wiadomością i odpowiednimi identyfikatorami (instancja i rozmowa) — zbuduj swoją automatyzację wokół pól, których potrzebujesz z tego ładunku."
+    },
+    "testing": {
+      "h2": "Testowanie",
+      "body": "Po zapisaniu kanału i adresu URL webhooka, użyj przycisku <strong>Wyślij wiadomość testową</strong> na stronie konfiguracji — wysyła on jedno prawdziwe powiadomienie tą samą ścieżką, jaką wykorzystałoby rzeczywiste przekazanie, dzięki czemu możesz potwierdzić, że trafia we właściwe miejsce, zanim zaczniesz na nim polegać."
+    }
+  }
+}

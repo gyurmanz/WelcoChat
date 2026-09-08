@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNL159CW3Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNL159CW3Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to prepare content for your agent - WelcoChat</title>
+  <meta name="description" content="How to connect and write content so your WelcoChat agent gives accurate, useful answers — what to include, what to avoid, and how the additional notes field works." />
+  <meta property="og:title" content="How to prepare content for your agent - WelcoChat" />
+  <meta property="og:description" content="How to connect and write content so your WelcoChat agent gives accurate, useful answers." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <meta property="og:image" content="https://welcochat.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="canonical" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+  <link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/en/" class="brand">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+          <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+          <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        WelcoChat
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="/en/#features">Features</a>
+        <a href="/en/#how-it-works">How it works</a>
+        <a href="/en/#pricing">Pricing</a>
+        <a href="/en/#faq">FAQ</a>
+        <a href="/en/#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.3 2.5 3.6 5.6 3.6 9s-1.3 6.5-3.6 9c-2.3-2.5-3.6-5.6-3.6-9s1.3-6.5 3.6-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span class="lang-switch-code">EN</span>
+            <svg class="lang-switch-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-switch-menu" role="listbox">
+            <li class="is-current" role="option" aria-selected="true"><a href="https://welcochat.com/en/guides/prompt-and-content-guide/">English<svg class="lang-switch-check" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/de/guides/prompt-and-content-guide/">Deutsch</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/fr/guides/prompt-and-content-guide/">Français</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hu/guides/prompt-and-content-guide/">Magyar</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/pl/guides/prompt-and-content-guide/">Polski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/sk/guides/prompt-and-content-guide/">Slovenčina</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hr/guides/prompt-and-content-guide/">Hrvatski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/el/guides/prompt-and-content-guide/">Ελληνικά</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/es/guides/prompt-and-content-guide/">Español</a></li>
+          </ul>
+        </div>
+        <a href="/portal" class="btn btn-ghost">Sign in</a>
+        <a href="/portal/signup" class="btn btn-primary">Create account</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container legal-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Guide</div>
+      <h1 style="font-size:clamp(1.8rem,3vw,2.6rem);">How to prepare content for your agent</h1>
+      <p class="legal-updated">A practical guide to getting good answers out of WelcoChat</p>
+
+      <p>WelcoChat only answers from content you've explicitly connected — your website and anything you upload. It never invents facts, and if it doesn't have an answer in its content, it hands off to your team instead of guessing. That means the quality of your agent depends almost entirely on the quality of what you give it. This guide covers both sources: the automatic website crawl and the "Additional docs / FAQs" notes field.</p>
+
+      <h2>1. What the website crawl picks up well</h2>
+      <p>When you connect a website URL, WelcoChat crawls the public pages and extracts their text. It works best on pages written in plain language for humans:</p>
+      <ul>
+        <li>Product/service pages with clear descriptions</li>
+        <li>Pricing pages</li>
+        <li>An FAQ page, if you have one — this is usually the single highest-value page to have crawled</li>
+        <li>Shipping, returns, warranty and other policy pages</li>
+        <li>Contact and business-hours information</li>
+      </ul>
+      <p>It does <em>not</em> extract information trapped in images, PDFs linked but not embedded as text, or JavaScript-rendered content that never appears in the page's HTML. If key information lives in a brochure PDF or a scanned image, upload it as a document instead (see below) rather than assuming the crawl caught it.</p>
+
+      <h2>2. What to put in "Additional docs / FAQs"</h2>
+      <p>This free-text field is where you fill gaps the website doesn't cover, and where you can shape <em>how</em> the agent talks about your business. It's read the same way as crawled content — as source material to answer from — so treat it as a written brief, not a casual note. Good things to include:</p>
+      <ul>
+        <li>Answers to questions you get asked often that aren't clearly written anywhere on your site</li>
+        <li>Internal shorthand or product names spelled out ("when someone says 'the Pro plan' they mean...")</li>
+        <li>Tone guidance: "Keep answers short and friendly", "Never discuss competitors", "Always mention the free trial when relevant"</li>
+        <li>Anything that changes seasonally and won't be on the site yet (an upcoming sale, a temporary shipping delay)</li>
+      </ul>
+      <p>Keep it organized under short headings or as a Q&amp;A list — the agent handles structured, scannable text better than one long paragraph.</p>
+
+      <h2>3. Uploading documents</h2>
+      <p>PDF, DOCX and TXT files are supported, up to 10 MB each. The system extracts the text layer — a document has to actually contain selectable text, not just a scanned image of a page, for this to work. If you're not sure, try selecting text in the PDF with your cursor; if you can't, the agent won't be able to read it either.</p>
+      <p>Good candidates: product spec sheets, a detailed FAQ document, policy documents, price lists, onboarding guides.</p>
+
+      <h2>4. What to avoid</h2>
+      <ul>
+        <li><strong>Conflicting information.</strong> If your site says one price and an uploaded doc says another, the agent has no way to know which is current — it may pick either. Keep one source of truth per fact.</li>
+        <li><strong>Huge, unfocused dumps.</strong> A 200-page internal wiki export with meeting notes and half-finished drafts mixed in makes it harder for the agent to find the actually-relevant answer. Curate before you upload.</li>
+        <li><strong>Anything you wouldn't want a visitor to potentially see verbatim.</strong> The agent answers by drawing directly on connected content — don't include internal pricing negotiated for specific clients, unreleased plans, or anything confidential.</li>
+      </ul>
+
+      <h2>5. A note on how answers are generated</h2>
+      <p>The widget only displays plain conversational text — no Markdown formatting, no tables, no bullet lists render as such. Your source content can be formatted however you like (headings, bullet points, tables are all fine to write), but write your <em>own</em> "Additional docs" notes as plain sentences where possible, since that's closest to what the agent will actually produce back to a visitor.</p>
+
+      <h2>6. Keeping it current</h2>
+      <p>You can re-crawl your website or edit your notes and documents anytime from the setup page — changes to notes and documents take effect immediately, and re-crawling a changed website takes about a minute. There's no downtime while it updates.</p>
+
+      <p style="margin-top:2.5rem;"><a href="/portal">← Back to the portal</a></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/en/" class="brand" style="margin-bottom: 10px;">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+              <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+              <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            WelcoChat
+          </a>
+          <p>An AI agent for your website — answers from your content, captures leads, hands off to a human when it matters.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/en/#features">Features</a>
+          <a href="/en/#pricing">Pricing</a>
+          <a href="/en/#faq">FAQ</a>
+          <a href="/portal">Client portal</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/en/#contact">Contact</a>
+          <a href="/en/terms/">Terms of Service</a>
+          <a href="/en/privacy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 WelcoChat. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

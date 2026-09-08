@@ -6,16 +6,14 @@
           <div class="auth-logo">
             <div class="logo-circle">CP</div>
           </div>
-          <h1 class="auth-title">Forgot your password?</h1>
-          <p class="auth-subtitle">
-            Enter your email address and we will send you a link to reset your password.
-          </p>
+          <h1 class="auth-title">{{ t('forgotPassword.title') }}</h1>
+          <p class="auth-subtitle">{{ t('forgotPassword.subtitle') }}</p>
         </header>
 
         <form class="auth-form" @submit.prevent="handleSubmit">
           <!-- Email -->
           <div class="input-group">
-            <label for="email" class="input-label">Email address</label>
+            <label for="email" class="input-label">{{ t('login.emailLabel') }}</label>
             <input
               id="email"
               v-model="email"
@@ -41,17 +39,17 @@
             class="btn btn-primary btn-full"
             :disabled="loading"
           >
-            <span v-if="loading">Sending...</span>
-            <span v-else>Send reset link</span>
+            <span v-if="loading">{{ t('forgotPassword.sending') }}</span>
+            <span v-else>{{ t('forgotPassword.sendLink') }}</span>
           </button>
         </form>
 
         <footer class="auth-footer">
           <span class="auth-footer-text">
-            Remembered your password?
+            {{ t('forgotPassword.remembered') }}
           </span>
           <router-link to="/login" class="link-inline">
-            Back to sign in
+            {{ t('forgotPassword.backToSignIn') }}
           </router-link>
         </footer>
       </div>
@@ -61,7 +59,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { forgotPassword } from '@/services/auth'
+
+const { t } = useI18n()
 
 const email = ref('')
 const loading = ref(false)
@@ -76,13 +77,12 @@ async function handleSubmit() {
   try {
     await forgotPassword(email.value)
 
-    successMessage.value =
-      'If an account with this email exists, we have sent a password reset link.'
+    successMessage.value = t('forgotPassword.successMessage')
   } catch (err: unknown) {
     if (err instanceof Error) {
       errorMessage.value = err.message
     } else {
-      errorMessage.value = 'Failed to send password reset email.'
+      errorMessage.value = t('forgotPassword.errorGeneric')
     }
   } finally {
     loading.value = false

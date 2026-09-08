@@ -1,9 +1,9 @@
 <template>
   <div class="page">
-    <h1>Add subscription</h1>
+    <h1>{{ t('addSub.title') }}</h1>
 
     <!-- Stepper -->
-    <div class="stepper" aria-label="Order progress">
+    <div class="stepper" :aria-label="t('addSub.stepperAriaLabel')">
       <div
         v-for="(label, i) in stepLabels"
         :key="i"
@@ -20,19 +20,19 @@
     <!-- Returning from Stripe Checkout -->
     <section v-if="checkoutStatus === 'finalizing'" class="order-section">
       <div class="confirm-icon">⏳</div>
-      <h2 class="confirm-h2">Finalizing your subscription…</h2>
-      <p class="confirm-sub">Payment received — setting up your subscription. This only takes a few seconds.</p>
+      <h2 class="confirm-h2">{{ t('addSub.finalizingTitle') }}</h2>
+      <p class="confirm-sub">{{ t('addSub.finalizingSub') }}</p>
     </section>
     <section v-else-if="checkoutStatus === 'cancelled'" class="order-section">
-      <p class="step-subtitle">Checkout was cancelled — no charge was made. You can try again below.</p>
+      <p class="step-subtitle">{{ t('addSub.checkoutCancelled') }}</p>
       <div class="form-actions">
-        <button class="btn btn-primary" @click="checkoutStatus = null">Back to plans</button>
+        <button class="btn btn-primary" @click="checkoutStatus = null">{{ t('addSub.backToPlans') }}</button>
       </div>
     </section>
 
     <!-- STEP 1: Choose subscription -->
     <section v-if="checkoutStatus === null && step === 1" class="order-section">
-      <p class="step-subtitle">Choose a plan to get started.</p>
+      <p class="step-subtitle">{{ t('addSub.step1Subtitle') }}</p>
 
       <div class="service-cards">
         <div
@@ -46,35 +46,35 @@
         >
           <div class="sc-name">{{ svc.service_name }}</div>
           <div class="sc-desc">{{ svc.description }}</div>
-          <div class="sc-price">from €{{ fmt(svc.from_monthly) }}/mo</div>
-          <span class="sc-cta">Choose →</span>
+          <div class="sc-price">{{ t('addSub.fromPrice', { price: fmt(svc.from_monthly) }) }}</div>
+          <span class="sc-cta">{{ t('addSub.choose') }}</span>
         </div>
       </div>
     </section>
 
     <!-- STEP 2: Choose plan -->
     <section v-if="checkoutStatus === null && step === 2" class="order-section">
-      <button class="back-btn" @click="step = 1">← Back</button>
+      <button class="back-btn" @click="step = 1">{{ t('addSub.back') }}</button>
       <p class="step-subtitle">
-        Select a plan and billing period for <strong>{{ selectedService?.service_name }}</strong>.
+        {{ t('addSub.step2SubtitlePrefix') }} <strong>{{ selectedService?.service_name }}</strong>.
       </p>
 
       <div v-if="trialEligibleForSelected" class="trial-banner">
         <div class="trial-banner-text">
-          <strong>Try {{ selectedService?.service_name }} Business free for 14 days</strong>
-          <p>No credit card required. Cancel anytime before the trial ends.</p>
+          <strong>{{ t('addSub.trialBannerTitle', { name: selectedService?.service_name }) }}</strong>
+          <p>{{ t('addSub.trialBannerText') }}</p>
         </div>
-        <button class="btn btn-primary" @click="selectTrial">Start free trial</button>
+        <button class="btn btn-primary" @click="selectTrial">{{ t('addSub.startFreeTrial') }}</button>
       </div>
 
-      <p class="step-subtitle" style="margin-top: 1.5rem;">Or choose a plan to pay for now:</p>
+      <p class="step-subtitle" style="margin-top: 1.5rem;">{{ t('addSub.orChoosePlan') }}</p>
 
       <div class="billing-toggle">
-        <button class="billing-opt" :class="{ active: billing === 'monthly' }" @click="billing = 'monthly'">Monthly</button>
-        <button class="billing-opt" :class="{ active: billing === 'annual' }" @click="billing = 'annual'">Annual</button>
-        <span v-if="billing === 'annual'" class="save-badge">Save 20%</span>
+        <button class="billing-opt" :class="{ active: billing === 'monthly' }" @click="billing = 'monthly'">{{ t('addSub.monthly') }}</button>
+        <button class="billing-opt" :class="{ active: billing === 'annual' }" @click="billing = 'annual'">{{ t('addSub.annual') }}</button>
+        <span v-if="billing === 'annual'" class="save-badge">{{ t('addSub.save20') }}</span>
       </div>
-      <p v-if="billing === 'annual'" class="billing-note">Annual plans are billed upfront.</p>
+      <p v-if="billing === 'annual'" class="billing-note">{{ t('addSub.annualNote') }}</p>
 
       <div class="plan-cards">
         <div
@@ -89,117 +89,112 @@
         >
           <div class="pc-tier">{{ cap(plan.tier) }}</div>
           <div class="pc-price">
-            €{{ fmt(billing === 'annual' ? plan.annual_price : plan.monthly_price) }}/mo
+            {{ t('addSub.pricePerMo', { price: fmt(billing === 'annual' ? plan.annual_price : plan.monthly_price) }) }}
           </div>
           <div v-if="billing === 'annual'" class="pc-annual">
-            billed annually<br />€{{ fmt(plan.annual_price * 12) }} charged yearly
+            {{ t('addSub.billedAnnually') }}<br />{{ t('addSub.chargedYearly', { price: fmt(plan.annual_price * 12) }) }}
           </div>
-          <button class="btn btn-primary pc-btn" @click.stop="selectPlan(plan)">Select plan</button>
+          <button class="btn btn-primary pc-btn" @click.stop="selectPlan(plan)">{{ t('addSub.selectPlan') }}</button>
         </div>
       </div>
     </section>
 
     <!-- STEP 3: Billing details -->
     <section v-if="checkoutStatus === null && step === 3" class="order-section">
-      <button class="back-btn" @click="step = 2">← Back</button>
+      <button class="back-btn" @click="step = 2">{{ t('addSub.back') }}</button>
 
       <template v-if="loadingBilling">
-        <p class="step-subtitle">Loading your billing details…</p>
+        <p class="step-subtitle">{{ t('addSub.loadingBilling') }}</p>
       </template>
 
       <template v-else-if="!company || !company.name">
-        <p class="step-subtitle">Your company profile isn't set up yet. Add your company and billing details there before starting a subscription.</p>
+        <p class="step-subtitle">{{ t('addSub.noCompanyProfile') }}</p>
         <div class="form-actions">
-          <router-link to="/profile" class="btn btn-primary">Go to Profile</router-link>
-          <button class="btn btn-outline" @click="reloadBilling">I've updated it — check again</button>
+          <router-link to="/profile" class="btn btn-primary">{{ t('addSub.goToProfile') }}</router-link>
+          <button class="btn btn-outline" @click="reloadBilling">{{ t('addSub.checkAgain') }}</button>
         </div>
       </template>
 
       <template v-else>
-        <p class="step-subtitle">These billing details are taken from your company profile.</p>
+        <p class="step-subtitle">{{ t('addSub.billingFromProfile') }}</p>
 
         <div class="review-block">
-          <div class="review-row"><span>Company</span><b>{{ company.name }}</b></div>
-          <div class="review-row"><span>Country</span><b>{{ countryName(company.country_id) }}</b></div>
-          <div class="review-row" v-if="company.tax_number"><span>VAT number</span><b>{{ company.tax_number }}</b></div>
-          <div class="review-row"><span>Postal code</span><b>{{ company.postal_code || '-' }}</b></div>
-          <div class="review-row"><span>City</span><b>{{ company.city || '-' }}</b></div>
-          <div class="review-row"><span>Street</span><b>{{ company.address_line || '-' }}</b></div>
-          <div class="review-row"><span>Billing email</span><b>{{ authSession.user?.email }}</b></div>
-          <div class="review-row"><span>Contact person</span><b>{{ authSession.user?.display_name }}</b></div>
-          <div class="review-row" v-if="authSession.user?.phone"><span>Contact phone</span><b>{{ authSession.user?.phone }}</b></div>
+          <div class="review-row"><span>{{ t('addSub.company') }}</span><b>{{ company.name }}</b></div>
+          <div class="review-row"><span>{{ t('profile.countryLabel') }}</span><b>{{ countryName(company.country_id) }}</b></div>
+          <div class="review-row" v-if="company.tax_number"><span>{{ t('addSub.vatNumber') }}</span><b>{{ company.tax_number }}</b></div>
+          <div class="review-row"><span>{{ t('profile.postalCodeLabel') }}</span><b>{{ company.postal_code || '-' }}</b></div>
+          <div class="review-row"><span>{{ t('profile.cityLabel') }}</span><b>{{ company.city || '-' }}</b></div>
+          <div class="review-row"><span>{{ t('addSub.street') }}</span><b>{{ company.address_line || '-' }}</b></div>
+          <div class="review-row"><span>{{ t('addSub.billingEmail') }}</span><b>{{ authSession.user?.email }}</b></div>
+          <div class="review-row"><span>{{ t('addSub.contactPerson') }}</span><b>{{ authSession.user?.display_name }}</b></div>
+          <div class="review-row" v-if="authSession.user?.phone"><span>{{ t('addSub.contactPhone') }}</span><b>{{ authSession.user?.phone }}</b></div>
         </div>
         <p class="field-hint">
-          Need to change something? <router-link to="/profile">Edit your profile</router-link>.
+          {{ t('addSub.needToChange') }} <router-link to="/profile">{{ t('addSub.editProfile') }}</router-link>.
         </p>
 
         <div class="form-actions">
-          <button class="btn btn-primary" @click="goToReview">Continue to review</button>
+          <button class="btn btn-primary" @click="goToReview">{{ t('addSub.continueToReview') }}</button>
         </div>
       </template>
     </section>
 
     <!-- STEP 4: Review -->
     <section v-if="checkoutStatus === null && step === 4" class="order-section">
-      <button class="back-btn" @click="step = 3">← Back</button>
-      <h2 class="review-h2">Review your order</h2>
+      <button class="back-btn" @click="step = 3">{{ t('addSub.back') }}</button>
+      <h2 class="review-h2">{{ t('addSub.reviewOrder') }}</h2>
 
       <div class="review-block">
-        <div class="review-block-title">Subscription</div>
-        <div class="review-row"><span>Service</span><b>{{ selectedService?.service_name }}</b></div>
-        <div class="review-row"><span>Plan</span><b>{{ selectedPlan ? cap(selectedPlan.tier) : '-' }}</b></div>
-        <div class="review-row"><span>Billing</span><b>{{ cap(billing) }}</b></div>
+        <div class="review-block-title">{{ t('addSub.subscription') }}</div>
+        <div class="review-row"><span>{{ t('addSub.service') }}</span><b>{{ selectedService?.service_name }}</b></div>
+        <div class="review-row"><span>{{ t('addSub.plan') }}</span><b>{{ selectedPlan ? cap(selectedPlan.tier) : '-' }}</b></div>
+        <div class="review-row"><span>{{ t('addSub.billing') }}</span><b>{{ cap(billing) }}</b></div>
         <div class="review-row">
-          <span>{{ isTrial ? 'Price after trial' : 'Price' }}</span>
-          <b>€{{ fmt(billing === 'annual' ? (selectedPlan?.annual_price ?? 0) : (selectedPlan?.monthly_price ?? 0)) }}/mo</b>
+          <span>{{ isTrial ? t('addSub.priceAfterTrial') : t('addSub.price') }}</span>
+          <b>{{ t('addSub.pricePerMo', { price: fmt(billing === 'annual' ? (selectedPlan?.annual_price ?? 0) : (selectedPlan?.monthly_price ?? 0)) }) }}</b>
         </div>
-        <div class="review-row review-vat"><span>VAT</span><b>Not included — charged separately where applicable</b></div>
+        <div class="review-row review-vat"><span>{{ t('addSub.vat') }}</span><b>{{ t('addSub.vatNotIncluded') }}</b></div>
       </div>
 
       <div class="review-block">
-        <div class="review-block-title">{{ isTrial ? 'Free trial' : 'Payment' }}</div>
+        <div class="review-block-title">{{ isTrial ? t('addSub.freeTrial') : t('addSub.payment') }}</div>
         <p v-if="isTrial" class="review-next">
-          Your subscription starts with a 14-day free trial — no payment is taken now or during the
-          trial. You can cancel any time before it ends. You can add a payment method whenever you're
-          ready from Invoices → Manage billing.
+          {{ t('addSub.trialExplain') }}
         </p>
         <p v-else class="review-next">
-          You'll be redirected to Stripe to securely complete payment. Your subscription starts
-          immediately once payment is confirmed.
+          {{ t('addSub.paymentExplain') }}
         </p>
       </div>
 
       <div class="review-block">
-        <div class="review-block-title">Billing details</div>
-        <div class="review-row"><span>Company</span><b>{{ company?.name }}</b></div>
-        <div class="review-row"><span>Country</span><b>{{ countryName(company?.country_id ?? null) }}</b></div>
-        <div class="review-row" v-if="company?.tax_number"><span>VAT number</span><b>{{ company?.tax_number }}</b></div>
-        <div class="review-row"><span>Billing email</span><b>{{ authSession.user?.email }}</b></div>
+        <div class="review-block-title">{{ t('addSub.billingDetails') }}</div>
+        <div class="review-row"><span>{{ t('addSub.company') }}</span><b>{{ company?.name }}</b></div>
+        <div class="review-row"><span>{{ t('profile.countryLabel') }}</span><b>{{ countryName(company?.country_id ?? null) }}</b></div>
+        <div class="review-row" v-if="company?.tax_number"><span>{{ t('addSub.vatNumber') }}</span><b>{{ company?.tax_number }}</b></div>
+        <div class="review-row"><span>{{ t('addSub.billingEmail') }}</span><b>{{ authSession.user?.email }}</b></div>
       </div>
 
       <div class="review-block">
-        <div class="review-block-title">What happens next</div>
+        <div class="review-block-title">{{ t('addSub.whatHappensNext') }}</div>
         <p v-if="isTrial" class="review-next">
-          After you confirm, your free trial starts immediately. The service will appear on the
-          Subscriptions page, where you can configure it with a setup wizard.
+          {{ t('addSub.nextTrial') }}
         </p>
         <p v-else class="review-next">
-          After you confirm, you'll complete payment on Stripe's secure checkout page. Once paid, the
-          service appears on the Subscriptions page, where you can configure it with a setup wizard.
+          {{ t('addSub.nextPayment') }}
         </p>
       </div>
 
       <div class="review-checks">
         <label class="check-row">
           <input type="checkbox" v-model="confirm_details" />
-          I confirm that I have reviewed the subscription and billing details.
+          {{ t('addSub.confirmDetails') }}
         </label>
         <label class="check-row">
           <input type="checkbox" v-model="confirm_tos" />
-          I accept the
-          <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-          and
-          <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+          {{ t('addSub.acceptPrefix') }}
+          <a href="/terms" target="_blank" rel="noopener noreferrer">{{ t('addSub.termsOfService') }}</a>
+          {{ t('addSub.and') }}
+          <a href="/privacy" target="_blank" rel="noopener noreferrer">{{ t('addSub.privacyPolicy') }}</a>.
         </label>
       </div>
 
@@ -209,7 +204,7 @@
           :disabled="!confirm_details || !confirm_tos || submitting"
           @click="confirmOrder"
         >
-          {{ submitting ? (isTrial ? 'Starting trial…' : 'Redirecting to payment…') : (isTrial ? 'Confirm order' : 'Continue to payment') }}
+          {{ submitting ? (isTrial ? t('addSub.startingTrial') : t('addSub.redirectingToPayment')) : (isTrial ? t('addSub.confirmOrder') : t('addSub.continueToPayment')) }}
         </button>
       </div>
     </section>
@@ -217,31 +212,31 @@
     <!-- STEP 5: Confirmation -->
     <section v-if="checkoutStatus === null && step === 5" class="order-section">
       <div class="confirm-icon">✓</div>
-      <h2 class="confirm-h2">Your free trial has started</h2>
-      <p class="confirm-sub">Your WelcoChat subscription has been created.</p>
+      <h2 class="confirm-h2">{{ t('addSub.trialStartedTitle') }}</h2>
+      <p class="confirm-sub">{{ t('addSub.trialStartedSub') }}</p>
 
       <div class="review-block">
-        <div class="review-row"><span>Subscription</span><b>{{ createdSub?.service_name }}</b></div>
-        <div class="review-row"><span>Plan</span><b>{{ createdSub ? cap(createdSub.tier ?? '') : '-' }}</b></div>
-        <div class="review-row"><span>Billing</span><b>{{ createdSub ? cap(createdSub.billing_period ?? '') : '-' }}</b></div>
+        <div class="review-row"><span>{{ t('addSub.subscription') }}</span><b>{{ createdSub?.service_name }}</b></div>
+        <div class="review-row"><span>{{ t('addSub.plan') }}</span><b>{{ createdSub ? cap(createdSub.tier ?? '') : '-' }}</b></div>
+        <div class="review-row"><span>{{ t('addSub.billing') }}</span><b>{{ createdSub ? cap(createdSub.billing_period ?? '') : '-' }}</b></div>
         <div class="review-row">
-          <span>Status</span>
-          <b class="status-badge status-active">trial</b>
+          <span>{{ t('addSub.status') }}</span>
+          <b class="status-badge status-active">{{ t('addSub.trial') }}</b>
         </div>
         <div class="review-row" v-if="createdSub?.trial_ends_at">
-          <span>Trial ends</span>
+          <span>{{ t('addSub.trialEnds') }}</span>
           <b>{{ formatDate(createdSub.trial_ends_at) }}</b>
         </div>
       </div>
 
       <p class="confirm-next">
-        Your service now appears on the Services page, where you can set it up.
+        {{ t('addSub.confirmNext') }}
       </p>
 
       <div class="confirm-actions">
-        <router-link to="/subscriptions" class="btn btn-primary">Go to Services</router-link>
-        <router-link to="/dashboard" class="btn btn-outline">Go to Dashboard</router-link>
-        <button class="btn btn-ghost" @click="resetFlow">Add another subscription</button>
+        <router-link to="/subscriptions" class="btn btn-primary">{{ t('addSub.goToServices') }}</router-link>
+        <router-link to="/dashboard" class="btn btn-outline">{{ t('addSub.goToDashboard') }}</router-link>
+        <button class="btn btn-ghost" @click="resetFlow">{{ t('addSub.addAnother') }}</button>
       </div>
     </section>
   </div>
@@ -249,6 +244,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import {
   getServicePlans, getTrialEligibility, createTrialSubscription, createCheckoutSession, getSubscriptions,
@@ -257,15 +253,22 @@ import {
 import { getCountries, getCompany, type Country, type Company } from '@/services/billing'
 import { authSession } from '@/stores/authSession'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
-const SERVICE_DESCRIPTIONS: Record<string, string> = {
-  welco: 'An AI agent for your website. Answers visitors from your own content, captures leads, hands off to your team when needed.',
-}
+const SERVICE_DESCRIPTIONS = computed<Record<string, string>>(() => ({
+  welco: t('addSub.welcoDescription'),
+}))
 
 const step = ref(1)
-const stepLabels = ['Choose subscription', 'Choose plan', 'Billing details', 'Review order', 'Confirmation']
+const stepLabels = computed(() => [
+  t('addSub.step1Label'),
+  t('addSub.step2Label'),
+  t('addSub.step3Label'),
+  t('addSub.step4Label'),
+  t('addSub.step5Label'),
+])
 
 const plans = ref<ServicePlan[]>([])
 const error = ref('')
@@ -305,7 +308,7 @@ async function reloadBilling() {
     company.value = cmp
     countries.value = ctrs
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load billing details.'
+    error.value = err instanceof Error ? err.message : t('addSub.errorLoadBilling')
   } finally {
     loadingBilling.value = false
   }
@@ -333,7 +336,7 @@ const serviceGroups = computed<ServiceGroup[]>(() => {
       seen.set(key, {
         service_key: p.service_key,
         service_name: p.service_name,
-        description: SERVICE_DESCRIPTIONS[key] ?? '',
+        description: SERVICE_DESCRIPTIONS.value[key] ?? '',
         from_monthly: p.monthly_price,
       })
     } else {
@@ -396,7 +399,7 @@ async function confirmOrder() {
       window.location.href = checkoutUrl
     }
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to place order.'
+    error.value = err instanceof Error ? err.message : t('addSub.errorPlaceOrder')
   } finally {
     submitting.value = false
   }
@@ -450,7 +453,7 @@ onMounted(async () => {
     plans.value = svcPlans
     trialEligibility.value = eligibility
   } catch {
-    error.value = 'Failed to load service options. Please try again.'
+    error.value = t('addSub.errorLoadOptions')
   }
 })
 </script>

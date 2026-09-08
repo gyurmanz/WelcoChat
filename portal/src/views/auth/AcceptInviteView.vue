@@ -4,28 +4,28 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
 
         <template v-if="loadingInvite">
-          <h1 class="auth-title">Loading invite…</h1>
+          <h1 class="auth-title">{{ t('acceptInvite.loading') }}</h1>
         </template>
         <template v-else-if="loadError">
-          <h1 class="auth-title">Invite not found</h1>
+          <h1 class="auth-title">{{ t('acceptInvite.notFoundTitle') }}</h1>
           <p class="auth-subtitle">{{ loadError }}</p>
         </template>
         <template v-else>
-          <h1 class="auth-title">Join {{ invite?.owner_display_name }}'s WelcoChat account</h1>
+          <h1 class="auth-title">{{ t('acceptInvite.joinTitle', { company: invite?.owner_display_name }) }}</h1>
           <p class="auth-subtitle">
-            Set a password for {{ invite?.invite_email }} to get started.
+            {{ t('acceptInvite.setPassword', { email: invite?.invite_email }) }}
           </p>
         </template>
       </header>
 
       <form v-if="!loadingInvite && !loadError" class="auth-form" @submit.prevent="handleSubmit">
         <div class="input-group">
-          <label for="displayName" class="input-label">Your name</label>
+          <label for="displayName" class="input-label">{{ t('acceptInvite.yourNameLabel') }}</label>
           <input
             id="displayName"
             v-model="displayName"
@@ -38,7 +38,7 @@
         </div>
 
         <div class="input-group">
-          <label for="password" class="input-label">Password</label>
+          <label for="password" class="input-label">{{ t('login.passwordLabel') }}</label>
           <input
             id="password"
             v-model="password"
@@ -48,7 +48,7 @@
             autocomplete="new-password"
             required
           />
-          <p class="input-hint">Use at least 8 characters, including a number.</p>
+          <p class="input-hint">{{ t('signup.passwordHint') }}</p>
         </div>
 
         <div class="input-group" v-if="errorMessage">
@@ -56,13 +56,13 @@
         </div>
 
         <button type="submit" class="btn btn-primary btn-full" :disabled="submitting">
-          <span v-if="submitting">Joining…</span>
-          <span v-else>Accept invite</span>
+          <span v-if="submitting">{{ t('acceptInvite.joining') }}</span>
+          <span v-else>{{ t('acceptInvite.accept') }}</span>
         </button>
       </form>
 
       <footer class="auth-footer" v-if="loadError">
-        <router-link to="/login" class="link-inline">Go to sign in</router-link>
+        <router-link to="/login" class="link-inline">{{ t('acceptInvite.goToSignIn') }}</router-link>
       </footer>
     </div>
   </div>
@@ -70,11 +70,13 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { getInviteDetails, acceptInvite, type InviteDetails } from '@/services/team'
 import { initSession } from '@/stores/authSession'
 import { setAuthToken } from '@/services/tokenStorage'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const token = String(route.query.token || '')
@@ -90,14 +92,14 @@ const errorMessage = ref('')
 
 onMounted(async () => {
   if (!token) {
-    loadError.value = 'This invite link is missing its token.'
+    loadError.value = t('acceptInvite.errorMissingToken')
     loadingInvite.value = false
     return
   }
   try {
     invite.value = await getInviteDetails(token)
   } catch (err: unknown) {
-    loadError.value = err instanceof Error ? err.message : 'This invite link is invalid or has expired.'
+    loadError.value = err instanceof Error ? err.message : t('acceptInvite.errorInvalidInvite')
   } finally {
     loadingInvite.value = false
   }
@@ -112,7 +114,7 @@ async function handleSubmit() {
     await initSession()
     await router.push('/dashboard')
   } catch (err: unknown) {
-    errorMessage.value = err instanceof Error ? err.message : 'Failed to accept invite. Please try again.'
+    errorMessage.value = err instanceof Error ? err.message : t('acceptInvite.errorGeneric')
   } finally {
     submitting.value = false
   }

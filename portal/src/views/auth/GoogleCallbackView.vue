@@ -4,19 +4,19 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
-        <h1 class="auth-title">Signing you in…</h1>
+        <h1 class="auth-title">{{ t('googleCallback.title') }}</h1>
         <p class="auth-subtitle">
-          {{ errorMessage ? 'We could not complete Google sign-in.' : 'Please wait while we finish Google sign-in.' }}
+          {{ errorMessage ? t('googleCallback.subtitleError') : t('googleCallback.subtitleLoading') }}
         </p>
       </header>
 
       <p v-if="errorMessage" class="input-hint">{{ errorMessage }}</p>
 
       <router-link v-if="errorMessage" to="/login" class="btn btn-primary btn-full">
-        Back to sign in
+        {{ t('googleCallback.backToSignIn') }}
       </router-link>
     </div>
   </div>
@@ -24,11 +24,13 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { exchangeGoogleCode, googleRedirectUri } from '@/services/auth'
 import { initSession } from '@/stores/authSession'
 import { setAuthToken } from '@/services/tokenStorage'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const errorMessage = ref('')
@@ -43,13 +45,13 @@ onMounted(async () => {
 
   // The user denied consent, or Google returned an error.
   if (route.query.error) {
-    errorMessage.value = 'Google sign-in was cancelled. Please try again.'
+    errorMessage.value = t('googleCallback.errorCancelled')
     return
   }
 
   // CSRF: the returned state must match the one we stored before the redirect.
   if (!code || !state || !expectedState || state !== expectedState) {
-    errorMessage.value = 'Invalid sign-in response. Please try signing in again.'
+    errorMessage.value = t('googleCallback.errorInvalidResponse')
     return
   }
 
@@ -59,7 +61,7 @@ onMounted(async () => {
     await initSession()
     await router.replace('/dashboard')
   } catch (err: unknown) {
-    errorMessage.value = err instanceof Error ? err.message : 'Google sign-in failed.'
+    errorMessage.value = err instanceof Error ? err.message : t('googleCallback.errorGeneric')
   }
 })
 </script>

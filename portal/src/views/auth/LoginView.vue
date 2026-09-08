@@ -4,20 +4,18 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
 
-        <h1 class="auth-title">Sign in to your account</h1>
-        <p class="auth-subtitle">
-          Welcome back. Please enter your details to continue.
-        </p>
+        <h1 class="auth-title">{{ t('login.title') }}</h1>
+        <p class="auth-subtitle">{{ t('login.subtitle') }}</p>
       </header>
 
       <form class="auth-form" @submit.prevent="handleSubmit">
         <!-- Email -->
         <div class="input-group">
-          <label for="email" class="input-label">Email address</label>
+          <label for="email" class="input-label">{{ t('login.emailLabel') }}</label>
           <input
             id="email"
             v-model="email"
@@ -32,9 +30,9 @@
         <!-- Password -->
         <div class="input-group">
           <div class="input-label-row">
-            <label for="password" class="input-label">Password</label>
+            <label for="password" class="input-label">{{ t('login.passwordLabel') }}</label>
             <router-link to="/forgot-password" class="link-inline">
-              Forgot password?
+              {{ t('login.forgotPassword') }}
             </router-link>
           </div>
           <input
@@ -55,7 +53,7 @@
         <div class="auth-options-row">
           <label class="checkbox">
             <input v-model="rememberMe" type="checkbox" />
-            <span>Remember me</span>
+            <span>{{ t('login.rememberMe') }}</span>
           </label>
         </div>
 
@@ -65,31 +63,31 @@
           class="btn btn-primary btn-full"
           :disabled="loading"
         >
-          <span v-if="loading">Signing in...</span>
-          <span v-else>Sign in</span>
+          <span v-if="loading">{{ t('login.signingIn') }}</span>
+          <span v-else>{{ t('login.signIn') }}</span>
         </button>
       </form>
 
       <!-- Divider -->
       <div class="auth-divider">
-        <span>or continue with</span>
+        <span>{{ t('login.orContinueWith') }}</span>
       </div>
 
       <!-- Social login buttons -->
       <div class="social-buttons">
         <button type="button" class="btn btn-outline social-btn social-google" @click="startGoogleLogin">
           <span class="social-icon">G</span>
-          <span>Google</span>
+          <span>{{ t('login.google') }}</span>
         </button>
       </div>
 
       <!-- Footer text -->
       <footer class="auth-footer">
         <span class="auth-footer-text">
-          Don’t have an account?
+          {{ t('login.noAccount') }}
         </span>
         <router-link to="/signup" class="link-inline">
-          Create account
+          {{ t('login.createAccount') }}
         </router-link>
       </footer>
     </div>
@@ -98,10 +96,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { login, buildGoogleAuthUrl } from '@/services/auth'
 import { initSession } from '@/stores/authSession'
 import { setAuthToken } from '@/services/tokenStorage'
+
+const { t } = useI18n()
 
 const email = ref('')
 const password = ref('')
@@ -131,7 +132,7 @@ async function handleSubmit() {
     const redirect = (route.query.redirect as string) || '/dashboard'
     await router.push(redirect)
   } catch (err: unknown) {
-    errorMessage.value = err instanceof Error ? err.message : 'Login failed.'
+    errorMessage.value = err instanceof Error ? err.message : t('login.loginFailed')
   } finally {
     loading.value = false
   }

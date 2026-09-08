@@ -4,7 +4,7 @@
       <header class="auth-header">
         <img
           src="@/assets/logo-dark.svg"
-          alt="WelcoChat logo"
+          :alt="t('common.logoAlt')"
           class="auth-logo-img"
         />
 
@@ -26,7 +26,7 @@
           class="btn btn-primary btn-full"
           @click="goToLogin"
         >
-          Go to sign in
+          {{ t('verifyEmail.goToSignIn') }}
         </button>
 
         <button
@@ -34,16 +34,16 @@
           class="btn btn-outline btn-full"
           @click="goToSignup"
         >
-          Back to sign up
+          {{ t('verifyEmail.backToSignup') }}
         </button>
       </div>
 
       <footer class="auth-footer">
         <span class="auth-footer-text">
-          Already verified your email?
+          {{ t('verifyEmail.alreadyVerified') }}
         </span>
         <router-link to="/login" class="link-inline">
-          Sign in
+          {{ t('login.signIn') }}
         </router-link>
       </footer>
     </div>
@@ -52,11 +52,13 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { verifyEmail } from '@/services/auth'
 
 type Status = 'loading' | 'success' | 'error' | 'missing'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
@@ -64,44 +66,29 @@ const status = ref<Status>('loading')
 const errorMessage = ref('')
 
 const token = computed(() => {
-  const t = route.query.token
-  return typeof t === 'string' ? t : ''
+  const tok = route.query.token
+  return typeof tok === 'string' ? tok : ''
 })
 
 const title = computed(() => {
-  if (status.value === 'success') return 'Email verified'
-  if (status.value === 'missing') return 'Invalid link'
-  if (status.value === 'error') return 'Verification failed'
-  return 'Verifying your email'
+  if (status.value === 'success') return t('verifyEmail.titleSuccess')
+  if (status.value === 'missing') return t('verifyEmail.titleMissing')
+  if (status.value === 'error') return t('verifyEmail.titleError')
+  return t('verifyEmail.titleLoading')
 })
 
 const subtitle = computed(() => {
-  if (status.value === 'success') {
-    return 'Your email address has been confirmed. You can now sign in to your account.'
-  }
-  if (status.value === 'missing') {
-    return 'The verification link is missing or invalid.'
-  }
-  if (status.value === 'error') {
-    return 'We could not verify your email address.'
-  }
-  return 'Please wait while we verify your email address.'
+  if (status.value === 'success') return t('verifyEmail.subtitleSuccess')
+  if (status.value === 'missing') return t('verifyEmail.subtitleMissing')
+  if (status.value === 'error') return t('verifyEmail.subtitleError')
+  return t('verifyEmail.subtitleLoading')
 })
 
 const details = computed(() => {
-  if (status.value === 'success') {
-    return 'You will be able to access your client portal once you sign in with your verified email address.'
-  }
-  if (status.value === 'missing') {
-    return 'The verification URL did not contain a valid token. Please use the link from your email, or request a new one.'
-  }
-  if (status.value === 'error') {
-    return (
-      errorMessage.value ||
-      'The verification link may have expired or has already been used. Please request a new verification email or contact support if the problem persists.'
-    )
-  }
-  return 'This will only take a moment.'
+  if (status.value === 'success') return t('verifyEmail.detailsSuccess')
+  if (status.value === 'missing') return t('verifyEmail.detailsMissing')
+  if (status.value === 'error') return errorMessage.value || t('verifyEmail.detailsError')
+  return t('verifyEmail.detailsLoading')
 })
 
 function goToLogin() {

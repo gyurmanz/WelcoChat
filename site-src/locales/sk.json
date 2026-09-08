@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "home": {
+      "title": "WelcoChat — AI agent pre vašu webovú stránku",
+      "description": "WelcoChat je AI agent pre vašu webovú stránku — odpovedá na otázky návštevníkov na základe vášho vlastného obsahu, zbiera kontakty a v prípade potreby ich odovzdá človeku.",
+      "ogTitle": "WelcoChat — AI agent pre vašu webovú stránku",
+      "ogDescription": "Odpovedá na základe vášho vlastného obsahu. Zbiera kontakty. Odovzdáva ich človeku, keď na tom záleží. Spustený na vašej stránke za pár minút."
+    },
+    "terms": {
+      "title": "Obchodné podmienky - WelcoChat",
+      "description": "Obchodné podmienky WelcoChat.",
+      "ogTitle": "Obchodné podmienky - WelcoChat",
+      "ogDescription": "Obchodné podmienky WelcoChat."
+    },
+    "privacy": {
+      "title": "Zásady ochrany osobných údajov - WelcoChat",
+      "description": "Ako WelcoChat zhromažďuje, používa a chráni údaje prostredníctvom widgetu WelcoChat a klientskeho portálu.",
+      "ogTitle": "Zásady ochrany osobných údajov - WelcoChat",
+      "ogDescription": "Ako WelcoChat zhromažďuje, používa a chráni údaje prostredníctvom widgetu WelcoChat a klientskeho portálu."
+    },
+    "guidePromptContent": {
+      "title": "Ako pripraviť obsah pre svojho agenta - WelcoChat",
+      "description": "Ako pripojiť a napísať obsah, aby váš agent WelcoChat poskytoval presné a užitočné odpovede — čo zahrnúť, čomu sa vyhnúť a ako funguje pole dodatočných poznámok.",
+      "ogTitle": "Ako pripraviť obsah pre svojho agenta - WelcoChat",
+      "ogDescription": "Ako pripojiť a napísať obsah, aby váš agent WelcoChat poskytoval presné a užitočné odpovede."
+    },
+    "guideSlackTeams": {
+      "title": "Návod na nastavenie Slack a Teams - WelcoChat",
+      "description": "Krok za krokom: pripojte Slack alebo Microsoft Teams k WelcoChat, aby bol váš tím upozornený hneď, ako návštevník potrebuje človeka.",
+      "ogTitle": "Návod na nastavenie Slack a Teams - WelcoChat",
+      "ogDescription": "Krok za krokom: pripojte Slack alebo Microsoft Teams k notifikáciám o odovzdaní WelcoChat."
+    }
+  },
+  "common": {
+    "brand": "WelcoChat",
+    "nav": {
+      "features": "Funkcie",
+      "howItWorks": "Ako to funguje",
+      "pricing": "Cenník",
+      "faq": "FAQ",
+      "contact": "Kontakt"
+    },
+    "signIn": "Prihlásiť sa",
+    "createAccount": "Vytvoriť účet",
+    "toggleMenu": "Prepnúť menu",
+    "langSwitchLabel": "Jazyk",
+    "footer": {
+      "tagline": "AI agent pre vašu webovú stránku — odpovedá na základe vášho obsahu, zbiera kontakty, v prípade potreby ich odovzdá človeku.",
+      "productHeading": "Produkt",
+      "companyHeading": "Spoločnosť",
+      "contact": "Kontakt",
+      "terms": "Obchodné podmienky",
+      "privacy": "Zásady ochrany osobných údajov",
+      "portal": "Klientsky portál",
+      "copyright": "© 2026 WelcoChat. Všetky práva vyhradené."
+    },
+    "backToPortal": "← Späť na portál",
+    "legalUpdated": "Posledná aktualizácia: september 2026"
+  },
+  "home": {
+    "eyebrow": "AI chat agent pre vašu webovú stránku",
+    "h1": "AI agent pre vašu webovú stránku, spustený za pár minút.",
+    "heroSub": "WelcoChat odpovedá na otázky návštevníkov na základe vášho vlastného obsahu, zbiera kontakty, kým spíte, a odovzdáva ich vášmu tímu, kedykoľvek je potrebný človek.",
+    "contactUs": "Kontaktujte nás",
+    "heroNote": "Kreditná karta nie je potrebná. 14-dňová bezplatná skúšobná verzia pri každom pláne.",
+    "heroVisual": {
+      "bubbleVisitor1": "Posielate aj do Maďarska?",
+      "bubbleAgent1": "Áno — 2–4 pracovné dni, zadarmo nad 50 €. Mám overiť termín doručenia pre vaše smerovacie číslo?",
+      "bubbleVisitor2": "Vlastne mám otázku o záruke, o ktorej možno neviete.",
+      "bubbleHandoff": "Odovzdané vášmu tímu — čoskoro tu odpovedia."
+    },
+    "outputCards": [
+      { "title": "Odpovedané na základe vášho obsahu", "body": "Návštevník sa spýtal na ceny → odpovedané priamo z vašej cenovej stránky." },
+      { "title": "Odovzdané človeku", "body": "Návštevník sa spýtal na niečo, čo agent nevedel → váš tím upozornený e-mailom." },
+      { "title": "Kontakt zachytený", "body": "Meno, e-mail, spoločnosť a o čo majú záujem — automaticky uložené." }
+    ],
+    "problem": {
+      "h2": "Väčšina návštevníkov webových stránok odíde bez toho, aby položili otázku.",
+      "body": "Live chat funguje len vtedy, keď ho niekto sleduje. Kontaktné formuláre sú ignorované. Stránky FAQ sú preskočené. Medzitým návštevníci odchádzajú s nezodpovedanými otázkami bez možnosti kontaktovať vás mimo pracovnej doby. WelcoChat je na vašej stránke nepretržite, odpovedá na základe vášho vlastného obsahu a zapojí človeka len vtedy, keď to konverzácia skutočne vyžaduje."
+    },
+    "painItems": [
+      "Návštevníci odchádzajú bez odpovede",
+      "Podporné/predajné tímy nemôžu obsadiť live chat 24/7",
+      "Kontakty z formulárov prichádzajú bez kontextu",
+      "Stránky FAQ existujú, ale návštevníci si ich nečítajú",
+      "Dobré kontakty vychladnú pri čakaní na odpoveď"
+    ],
+    "howItWorks": {
+      "h2": "Ako funguje WelcoChat",
+      "steps": [
+        { "title": "Vytvorte si účet", "body": "Zaregistrujte sa a spustite si 14-dňovú bezplatnú skúšobnú dobu — kreditná karta nie je potrebná." },
+        { "title": "Pripojte svoj obsah", "body": "WelcoChat prehľadá vašu webovú stránku a/alebo nahráte dokumenty a FAQ na vytvorenie databázy znalostí." },
+        { "title": "Prispôsobte widget", "body": "Názov, avatar, farby, uvítacia správa — nech pôsobí ako súčasť vašej stránky." },
+        { "title": "Vložte jeden riadok kódu", "body": "Vložte úryvok kódu do svojej stránky. Hotovo." },
+        { "title": "Kontrolujte a zlepšujte", "body": "Prezerajte si konverzácie a nezodpovedané otázky vo svojom prehľade — databáza znalostí sa časom zlepšuje." },
+        { "title": "Odovzdanie človeku, vždy k dispozícii", "body": "Agent odovzdáva vždy, keď si nie je istý alebo keď návštevník požiada o osobu." }
+      ]
+    },
+    "features": {
+      "h2": "Všetko, čo potrebujete na umiestnenie AI agenta na svoju stránku",
+      "cards": [
+        { "title": "Databáza znalostí webovej stránky", "body": "Automaticky prehľadá vašu stránku, nahrajte PDF a dokumenty, udržujte ich aktuálne.", "tier": null },
+        { "title": "Widget na vloženie", "body": "Jeden skriptovací tag, plne prispôsobiteľný vzhľad.", "tier": null },
+        { "title": "Zber kontaktov", "body": "Štruktúrované meno, e-mail, spoločnosť a zámer pre každú kvalifikovanú konverzáciu.", "tier": null },
+        { "title": "Odovzdanie človeku naživo", "body": "Váš tím je upozornený a môže odpovedať naživo v tej istej konverzácii z portálu WelcoChat — nielen dostať notifikáciu.", "tier": null },
+        { "title": "Prehľad štatistík", "body": "Objem konverzácií, miera odovzdania, získané kontakty, stav databázy znalostí.", "tier": null },
+        { "title": "Notifikácie cez Slack, Teams a webhook", "body": "Dostávajte notifikáciu hneď, ako návštevník potrebuje človeka — všeobecný webhook pokrýva Zapier, Make alebo akýkoľvek iný nástroj.", "tier": "Business+" },
+        { "title": "Kanál WhatsApp", "body": "Pripojte vlastné číslo WhatsApp Business, aby ten istý agent odpovedal aj tam, s rovnakým odovzdaním naživo.", "tier": "Business+" },
+        { "title": "Tímové účty", "body": "Pozvite kolegov, aby spoločne spravovali agenta a vybavovali konverzácie naživo.", "tier": "Business+" },
+        { "title": "Vlastné logo a pozícia widgetu", "body": "Nahrajte vlastné logo a vyberte umiestnenie vľavo dole alebo vpravo dole.", "tier": "Business+" },
+        { "title": "Vlastné CSS", "body": "Prepísanie čistým CSS, bezpečne obmedzené na vlastný shadow DOM widgetu — nemôže ovplyvniť zvyšok vašej stránky.", "tier": "Enterprise" },
+        { "title": "Obrazové prílohy", "body": "Návštevníci môžu pripojiť fotografiu a agent odpovedá na základe obrázka aj obsahu vašej stránky pomocou skutočného AI videnia.", "tier": "Business+" },
+        { "title": "Viacjazyčnosť", "body": "Automaticky odpovedá návštevníkom v ich vlastnom jazyku.", "tier": null }
+      ]
+    },
+    "pricing": {
+      "h2": "Jednoduché, transparentné ceny",
+      "note": "Každý nový účet začína 14-dňovou bezplatnou skúšobnou dobou. Kreditná karta nie je potrebná.",
+      "monthly": "Mesačne",
+      "annual": "Ročne",
+      "save20": "Ušetrite 20 %",
+      "billedAnnually": "účtované ročne",
+      "recommended": "Odporúčané",
+      "perMo": "/mesiac",
+      "startFreeTrial": "Spustiť bezplatnú skúšobnú verziu",
+      "tiers": [
+        {
+          "name": "Basic",
+          "priceMonthly": "39 €",
+          "priceAnnual": "31 €",
+          "recommended": false,
+          "features": [
+            "Do 500 konverzácií/mesiac",
+            "Databáza znalostí webovej stránky",
+            "Widget na vloženie",
+            "Zber kontaktov",
+            "Odovzdanie naživo (e-mail)",
+            "Prehľad štatistík",
+            "Viacjazyčnosť"
+          ]
+        },
+        {
+          "name": "Business",
+          "priceMonthly": "99 €",
+          "priceAnnual": "79 €",
+          "recommended": true,
+          "features": [
+            "Do 3 000 konverzácií/mesiac",
+            "Všetko z Basic",
+            "Vlastné logo a pozícia widgetu",
+            "Notifikácie cez Slack / Teams / webhook",
+            "Tímové účty",
+            "Kanál WhatsApp",
+            "Obrazové prílohy"
+          ]
+        },
+        {
+          "name": "Enterprise",
+          "priceMonthly": "299 €",
+          "priceAnnual": "239 €",
+          "recommended": false,
+          "features": [
+            "Do 15 000 konverzácií/mesiac",
+            "Všetko z Business",
+            "Vlastné prepísanie CSS",
+            "Vlastné integrácie",
+            "Prioritná podpora",
+            "SLA"
+          ]
+        }
+      ],
+      "foot": "Všetky ceny sú bez DPH tam, kde je to relevantné. Ročné plány sa účtujú vopred."
+    },
+    "faq": {
+      "h2": "Často kladené otázky",
+      "items": [
+        { "q": "Ako rýchlo môžem mať WelcoChat spustený na svojej stránke?", "a": "Za pár minút — vytvorte účet, pripojte svoj obsah, vložte jeden úryvok kódu." },
+        { "q": "Vymýšľa si agent niekedy veci?", "a": "Nie. Odpovedá iba na základe obsahu, ktorý ste pripojili. Ak si nie je istý, odovzdá to človeku namiesto hádania." },
+        { "q": "Čo sa stane, keď agent nevie odpovedať?", "a": "Váš tím je okamžite upozornený e-mailom (alebo cez Slack/Teams/webhook v pláne Business+) a môže sa pripojiť ku konverzácii a odpovedať naživo z portálu." },
+        { "q": "Potrebujem na začiatok kreditnú kartu?", "a": "Nie — každý účet dostane 14-dňovú bezplatnú skúšobnú dobu bez potreby karty." },
+        { "q": "Môžem používať WelcoChat na viac ako jednej webovej stránke?", "a": "Každé predplatné pokrýva jednu webovú stránku. Pre ďalšie stránky vytvorte dodatočné predplatné — kontaktujte nás, ak nastavujete viacero." },
+        { "q": "Môžu návštevníci osloviť agenta aj cez WhatsApp?", "a": "Áno, od plánu Business — pripojte vlastné číslo WhatsApp Business a ten istý agent odpovedá aj tam, s rovnakým odovzdaním naživo." },
+        { "q": "Môže agenta spravovať viac ako jedna osoba v mojom tíme?", "a": "Áno, od plánu Business — pozvite kolegov do svojho účtu WelcoChat." },
+        { "q": "Môžem použiť vlastné logo a vybrať, na ktorej strane sa widget otvára?", "a": "Áno, od plánu Business. Enterprise navyše pridáva vlastné prepísanie CSS pre ďalšie doladenie." },
+        { "q": "Aké jazyky podporuje?", "a": "Agent automaticky rozpozná a odpovedá v jazyku návštevníka." },
+        { "q": "Môžem vidieť, na čo sa návštevníci pýtajú?", "a": "Áno — prehľad štatistík zobrazuje objem konverzácií, mieru odovzdania a kontakty a každá odovzdaná konverzácia je viditeľná v Live chate." },
+        { "q": "Čo sa stane, ak sa skončí moja skúšobná doba alebo vyprší predplatné?", "a": "Widget sa na vašej stránke pozastaví, kým sa nevyrieši fakturácia — návštevníci ho jednoducho neuvidia, nepôjde o nefunkčný chat. Váš prístup k portálu a všetko, čo ste nakonfigurovali, zostáva nedotknuté a všetko sa obnoví, akonáhle je vaše predplatné opäť aktívne." },
+        { "q": "Môžem neskôr zmeniť plán?", "a": "Áno — kedykoľvek môžete upgradovať alebo znížiť plán z portálu. Nič, čo ste nakonfigurovali, sa pri znížení plánu nikdy nevymaže; funkcie viazané na vyššiu úroveň sa len pozastavia, kým opäť neupgradujete." },
+        { "q": "Môžu návštevníci posielať obrázky?", "a": "Áno, od plánu Business — návštevníci môžu pripojiť fotografiu a agent sa na ňu skutočne pozrie pred odpoveďou, nielen na sprievodný text." },
+        { "q": "Môžem aktualizovať obsah svojej webovej stránky po jej spustení?", "a": "Áno — kedykoľvek zmeňte pripojenú URL webovej stránky alebo upravte nahrané dokumenty a poznámky z portálu; WelcoChat sa znova naučí nový obsah bez výpadku." },
+        { "q": "Spomaľuje widget moju stránku alebo funguje na mobile?", "a": "Načítava sa asynchrónne, takže nikdy neblokuje vašu stránku, a je plne použiteľný na telefónoch a tabletoch." }
+      ]
+    },
+    "contact": {
+      "h2": "Kontaktujte WelcoChat",
+      "sub": "Máte otázku pred vytvorením účtu? Pošlite nám správu.",
+      "emailLabel": "E-mail",
+      "email": "info@welcochat.com",
+      "responseLabel": "Doba odozvy",
+      "response": "Zvyčajne do jedného pracovného dňa",
+      "form": {
+        "name": "Meno",
+        "company": "Spoločnosť",
+        "email": "E-mail",
+        "website": "Webová stránka",
+        "topicLabel": "S čím vám môžeme pomôcť?",
+        "topics": [
+          { "value": "question_before_registering", "label": "Mám otázku pred registráciou" },
+          { "value": "choosing_plan", "label": "Potrebujem pomoc s výberom plánu" },
+          { "value": "billing", "label": "Mám otázku k fakturácii" },
+          { "value": "technical", "label": "Mám technickú otázku" },
+          { "value": "partnership", "label": "Partnerstvo" },
+          { "value": "other", "label": "Iné" }
+        ],
+        "message": "Správa",
+        "submit": "Odoslať správu",
+        "sending": "Odosiela sa...",
+        "success": "Ďakujeme. Vašu správu sme prijali a čoskoro sa vám ozveme.",
+        "errorGeneric": "Niečo sa pokazilo. Skúste to znova."
+      }
+    }
+  },
+  "terms": {
+    "eyebrow": "Právne informácie",
+    "h1": "Obchodné podmienky",
+    "intro": "Tieto Obchodné podmienky (\"Podmienky\") upravujú prístup k WelcoChat a klientskemu portálu WelcoChat na <code>/portal</code> (spolu \"Služby\") a ich používanie, ktoré poskytuje Mango Group, estónska spoločnosť, pod značkou WelcoChat (\"WelcoChat\", \"my\"). Vytvorením účtu WelcoChat alebo používaním Služieb súhlasíte s týmito Podmienkami vo svojom mene a, ak je to relevantné, v mene spoločnosti, ktorú zastupujete (\"vy\").",
+    "note": "Registrácia spoločnosti Mango Group v Estónsku prebieha. Po jej dokončení bude táto stránka aktualizovaná s našimi úplnými registrovanými obchodnými údajmi (názov právnickej osoby, registračné číslo a registrovaná adresa). Medzitým nás môžete kontaktovať na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>.",
+    "sections": [
+      { "h2": "1. Služba", "body": "WelcoChat je AI agent, ktorý vložíte na svoju vlastnú webovú stránku. Odpovedá na otázky návštevníkov pomocou obsahu prehľadaného z vašej stránky, zbiera kontakty a odovzdáva ich vášmu tímu e-mailom (alebo cez Slack/Teams/webhook v pláne Business+), keď nevie odpovedať s istotou." },
+      { "h2": "2. Účty", "body": "Pri vytváraní účtu WelcoChat musíte poskytnúť presné informácie a ste zodpovední za všetku aktivitu pod svojím účtom a za zachovanie dôvernosti svojich prihlasovacích údajov. Ak máte podozrenie na neoprávnené použitie svojho účtu, okamžite nás informujte na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." },
+      { "h2": "3. Bezplatná skúšobná verzia", "body": "Každé nové predplatné začína 14-dňovou bezplatnou skúšobnou dobou. Na spustenie skúšobnej doby sa nevyžaduje spôsob platby a počas skúšobnej doby sa nič neúčtuje. Ak pred koncom skúšobnej doby pridáte spôsob platby, fakturácia sa automaticky spustí na konci skúšobnej doby podľa vami zvoleného plánu a fakturačného obdobia. Ak na konci skúšobnej doby nie je uložený žiadny spôsob platby, fakturácia pre dané predplatné je pozastavená (nie zrušená), kým sa nepridá spôsob platby — vaše údaje a konfigurácia sa zachovajú." },
+      { "h2": "4. Predplatné a fakturácia", "body": "Platené predplatné sa účtuje mesačne alebo ročne vopred, podľa výberu pri platbe. Ročné plány sa účtujú vopred na celý rok. Predplatné sa automaticky obnovuje na nasledujúce obdobia, pokiaľ nie je zrušené pred dátumom obnovenia. Platby spracováva Stripe; WelcoChat neukladá údaje o vašej karte. Ceny sú zobrazené bez DPH tam, kde je to relevantné, ktorá môže byť pridaná pri platbe v závislosti od miesta fakturácie. Ceny pre budúce fakturačné obdobia môžeme meniť s minimálne 30-dňovým predstihom, oznámeným e-mailom." },
+      { "h2": "5. Zrušenie a vrátenie peňazí", "body": "Predplatné môžete kedykoľvek zrušiť z Fakturačného portálu, prístupného zo stránky Faktúry klientskeho portálu. Zrušenie nadobúda účinnosť na konci aktuálneho fakturačného obdobia; do vtedy si zachováte prístup. Poplatky už zaplatené za fakturačné obdobie sa nevracajú, s výnimkou prípadov, keď to vyžaduje platné právo." },
+      { "h2": "6. Prijateľné používanie", "body": "Súhlasíte, že nebudete Služby používať na: porušovanie akéhokoľvek platného zákona; prenos protiprávneho, porušujúceho práva alebo škodlivého obsahu; pokus o narušenie, spätné inžinierstvo alebo získanie neoprávneného prístupu k Službám alebo infraštruktúre WelcoChat; alebo používanie Služieb spôsobom, ktorý by mohol byť rozumne považovaný za zneužitie alebo preťaženie podkladových AI systémov. Účty, ktoré porušujú túto časť, môžeme pozastaviť." },
+      { "h2": "7. Výstup generovaný AI", "body": "WelcoChat používa jazykové modely AI na generovanie odpovedí. Výstup AI môže byť nepresný alebo neúplný. WelcoChat je navrhnutý tak, aby odpovedal iba na základe obsahu vašej vlastnej webovej stránky a odovzdal ho človeku, keď si nie je istý, ale vy zostávate zodpovední za kontrolu výstupov použitých pri dôležitých rozhodnutiach." },
+      { "h2": "8. Váš obsah", "body": "Zachovávate si vlastníctvo obsahu na svojej webovej stránke, ktorý WelcoChat prehľadáva, a akýchkoľvek údajov, ktoré vy alebo vaši koncoví používatelia odošlete prostredníctvom Služieb (\"Váš obsah\"). Udeľujete WelcoChat licenciu na spracovanie Vášho obsahu výlučne na poskytovanie a zlepšovanie Služieb pre vás. Ste zodpovední za to, že máte potrebné práva na Váš obsah a za údaje vašich vlastných koncových používateľov zhromaždené prostredníctvom widgetu v súlade s platným právom." },
+      { "h2": "9. Služby tretích strán", "body": "WelcoChat sa pri prevádzke Služieb spolieha na poskytovateľov tretích strán, vrátane Stripe (platby), Anthropic (spracovanie AI) a poskytovateľov infraštruktúry a e-mailu. Používaním Služieb súhlasíte s tým, že relevantné údaje spracúvajú títo poskytovatelia, ako je opísané v našich <a href=\"{{PRIVACY_URL}}\">Zásadách ochrany osobných údajov</a>." },
+      { "h2": "10. Duševné vlastníctvo", "body": "WelcoChat a jeho poskytovatelia licencií si zachovávajú všetky práva, tituly a podiely na Službách, vrátane podkladového softvéru, dizajnu a značky. Nič v týchto Podmienkach na vás neprevádza žiadne takéto práva nad rámec obmedzeného práva používať Služby podľa určenia." },
+      { "h2": "11. Obmedzenie zodpovednosti", "body": "V maximálnom rozsahu povolenom zákonom WelcoChat nezodpovedá za nepriame, náhodné alebo následné škody vyplývajúce z používania Služieb. Naša celková zodpovednosť za akýkoľvek nárok súvisiaci so Službami je obmedzená na sumu, ktorú ste nám zaplatili za dotknuté predplatné za 12 mesiacov predchádzajúcich nároku." },
+      { "h2": "12. Ukončenie", "body": "Váš prístup k Službám môžeme pozastaviť alebo ukončiť za porušenie týchto Podmienok, nezaplatenie, alebo ak to vyžaduje zákon, s upozornením tam, kde je to rozumne možné. Používanie Služieb môžete kedykoľvek ukončiť a predplatné zrušiť, ako je opísané v časti 5." },
+      { "h2": "13. Zmeny týchto Podmienok", "body": "Tieto Podmienky môžeme z času na čas aktualizovať. O podstatných zmenách vás upovedomíme e-mailom alebo prostredníctvom klientskeho portálu pred ich nadobudnutím účinnosti. Pokračovanie v používaní Služieb po nadobudnutí účinnosti zmeny predstavuje prijatie aktualizovaných Podmienok." },
+      { "h2": "14. Rozhodné právo", "body": "Tieto Podmienky sa riadia zákonmi Estónska, bez ohľadu na zásady kolízie právnych poriadkov, pokiaľ kogentné právo na ochranu spotrebiteľa vo vašej krajine pobytu nestanovuje inak." },
+      { "h2": "15. Kontakt", "body": "Otázky týkajúce sa týchto Podmienok je možné zaslať na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." }
+    ]
+  },
+  "privacy": {
+    "eyebrow": "Právne informácie",
+    "h1": "Zásady ochrany osobných údajov",
+    "intro": "Tieto Zásady ochrany osobných údajov vysvetľujú, aké údaje Mango Group, estónska spoločnosť pôsobiaca pod značkou WelcoChat (\"WelcoChat\", \"my\"), zhromažďuje prostredníctvom widgetu WelcoChat a klientskeho portálu na <code>/portal</code> (spolu \"Služby\") a ako ich používame.",
+    "note": "Registrácia spoločnosti Mango Group v Estónsku prebieha. Po jej dokončení bude táto stránka aktualizovaná s našimi úplnými registrovanými obchodnými údajmi ako prevádzkovateľa. Medzitým je možné otázky alebo žiadosti týkajúce sa ochrany osobných údajov zaslať na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>.",
+    "dataWeCollectIntro": "Zhromažďujeme rôzne údaje v závislosti od toho, ako komunikujete s WelcoChat:",
+    "dataWeCollectItems": [
+      { "strong": "Údaje o účte", "text": " — meno, e-mailová adresa, telefónne číslo, názov spoločnosti a fakturačná adresa, keď si zaregistrujete účet WelcoChat alebo si predplatíte službu." },
+      { "strong": "Fakturačné údaje", "text": " — história predplatného a faktúr. Údaje o karte zhromažďuje a uchováva náš spracovateľ platieb Stripe; WelcoChat nedostáva ani neuchováva celé číslo vašej karty." },
+      { "strong": "Obsah widgetu", "text": " — verejný obsah vašej webovej stránky, ktorý WelcoChat prehľadáva na vytvorenie svojej databázy znalostí, a správy vymieňané medzi návštevníkmi vašej webovej stránky a widgetom, vrátane akéhokoľvek mena, e-mailu alebo správy, ktorú návštevník odošle na kontaktovanie vášho tímu." },
+      { "strong": "Údaje o používaní a logy", "text": " — technické údaje ako IP adresa, typ prehliadača a navštívené stránky, zhromažďované automaticky pri používaní Služieb alebo verejnej webovej stránky." }
+    ],
+    "whoWeShareIntro": "Údaje zdieľame s nasledujúcimi kategóriami poskytovateľov tretích strán výlučne na prevádzku Služieb:",
+    "whoWeShareItems": [
+      { "strong": "Stripe", "text": " — spracovanie platieb a fakturácia." },
+      { "strong": "Anthropic", "text": " — poskytovateľ AI stojaci za WelcoChat. Keď WelcoChat odpovedá návštevníkovi, relevantný obsah sa odosiela do API Anthropic na vygenerovanie odpovede." },
+      { "strong": "Poskytovatelia doručovania e-mailov a hostingu", "text": " — na odosielanie e-mailov o účte a notifikáciách a na hostovanie Služieb." },
+      { "strong": "Google Analytics", "text": " — iba na našej verejnej webovej stránke (<code>welcochat.com</code>), na pochopenie agregovanej návštevnosti. Klientsky portál a samotný widget WelcoChat nepoužívajú Google Analytics." }
+    ],
+    "whoWeShareFoot": "Osobné údaje nepredávame. Niektorí z týchto poskytovateľov môžu spracúvať údaje mimo Európskeho hospodárskeho priestoru; v takom prípade tak robia na základe primeraných záruk, ako sú štandardné zmluvné doložky.",
+    "sections": [
+      { "h2": "2. Ako ich používame", "body": "Tieto údaje používame na: poskytovanie a udržiavanie Služieb; spracovanie platieb a odosielanie fakturačnej komunikácie; reagovanie na žiadosti o podporu; a odosielanie oznámení súvisiacich so službou (napr. koniec skúšobnej doby, stav nastavenia)." },
+      { "h2": "3. Právny základ spracúvania", "body": "Tam, kde sa uplatňuje Všeobecné nariadenie o ochrane údajov (GDPR), spracúvame osobné údaje na nasledujúcich základoch: plnenie zmluvy (poskytovanie Služieb, ktoré ste si predplatili), oprávnený záujem (zabezpečenie a zlepšovanie Služieb, reagovanie na otázky) a súhlas (tam, kde ste ho výslovne udelili, napríklad pri voliteľnej marketingovej komunikácii)." },
+      { "h2": "5. Ak používate WelcoChat na svojej vlastnej webovej stránke", "body": "Ak vložíte widget WelcoChat na svoju webovú stránku, ste prevádzkovateľom údajov pre svojich vlastných návštevníkov webovej stránky a WelcoChat koná vo vašom mene ako sprostredkovateľ pre konverzácie a kontakty, ktoré zhromažďuje. Ste zodpovední za to, že vaši vlastní návštevníci sú primerane informovaní (napr. vo vašich vlastných zásadách ochrany osobných údajov) o prítomnosti chat widgetu a o spôsobe spracovania ich správ." },
+      { "h2": "6. Uchovávanie údajov", "body": "Údaje o účte a fakturácii uchovávame, kým je váš účet aktívny, a následne podľa požiadaviek platného daňového a účtovného práva. Obsah databázy znalostí a údaje o konverzáciách/kontaktoch sa uchovávajú, kým je aktívne súvisiace predplatné, a sú vymazané alebo anonymizované v primeranej lehote po zrušení, pokiaľ nepožiadate o skoršie vymazanie." },
+      { "h2": "7. Vaše práva", "body": "V súlade s platným právom máte právo na: prístup k osobným údajom, ktoré o vás uchovávame; žiadosť o opravu nepresných údajov; žiadosť o vymazanie; namietanie proti alebo obmedzenie určitého spracúvania; a žiadosť o prenosnú kópiu vašich údajov. Na uplatnenie ktoréhokoľvek z týchto práv kontaktujte <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>. Ak sa nachádzate v EÚ/EHP a domnievate sa, že vaše práva neboli rešpektované, môžete tiež podať sťažnosť na vašom miestnom úrade na ochranu osobných údajov (v Estónsku Estónska inšpekcia ochrany osobných údajov — Andmekaitse Inspektsioon)." },
+      { "h2": "8. Súbory cookie", "body": "Klientsky portál na fungovanie používa iba nevyhnutne potrebné úložisko (ako vaša prihlasovacia relácia) — žiadne reklamné alebo sledovacie súbory cookie. Naša verejná marketingová webová stránka používa Google Analytics, ktorý nastavuje súbory cookie na meranie agregovaného využitia stránky." },
+      { "h2": "9. Ochrana súkromia detí", "body": "Služby sú určené na obchodné použitie a nie sú zamerané na deti. Vedome nezhromažďujeme osobné údaje od detí." },
+      { "h2": "10. Zmeny týchto zásad", "body": "Tieto Zásady ochrany osobných údajov môžeme z času na čas aktualizovať. O podstatných zmenách vás upovedomíme e-mailom alebo prostredníctvom klientskeho portálu pred ich nadobudnutím účinnosti." },
+      { "h2": "11. Kontakt", "body": "Otázky týkajúce sa týchto Zásad ochrany osobných údajov alebo spôsobu spracovania vašich údajov je možné zaslať na <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a>." }
+    ]
+  },
+  "guidePromptContent": {
+    "eyebrow": "Návod",
+    "h1": "Ako pripraviť obsah pre svojho agenta",
+    "sub": "Praktický návod na získanie dobrých odpovedí z WelcoChat",
+    "intro": "WelcoChat odpovedá iba na základe obsahu, ktorý ste výslovne pripojili — vašej webovej stránky a všetkého, čo nahráte. Nikdy si nevymýšľa fakty, a ak nemá odpoveď vo svojom obsahu, odovzdá ju vášmu tímu namiesto hádania. To znamená, že kvalita vášho agenta závisí takmer výlučne od kvality toho, čo mu poskytnete. Tento návod pokrýva oba zdroje: automatické prehľadávanie webovej stránky a pole poznámok \"Ďalšie dokumenty / FAQ\".",
+    "sections": [
+      {
+        "h2": "1. Čo prehľadávanie webovej stránky dobre zachytí",
+        "body": "Keď pripojíte URL webovej stránky, WelcoChat prehľadá verejné stránky a extrahuje ich text. Najlepšie funguje na stránkach napísaných jednoduchým jazykom pre ľudí:",
+        "list": [
+          "Stránky produktov/služieb s jasnými popismi",
+          "Cenové stránky",
+          "Stránka FAQ, ak ju máte — zvyčajne ide o jednu z najhodnotnejších stránok na prehľadanie",
+          "Stránky o doprave, vrátení, záruke a iných zásadách",
+          "Kontaktné informácie a otváracie hodiny"
+        ],
+        "after": "<em>Nevyťahuje</em> informácie zachytené v obrázkoch, prepojených, ale nie ako text vložených PDF, ani obsah vykresľovaný cez JavaScript, ktorý sa nikdy neobjaví v HTML stránky. Ak sa kľúčové informácie nachádzajú v brožúre vo formáte PDF alebo naskenovanom obrázku, nahrajte ich radšej ako dokument (pozri nižšie), namiesto predpokladu, že ich zachytilo prehľadávanie."
+      },
+      {
+        "h2": "2. Čo uviesť v \"Ďalších dokumentoch / FAQ\"",
+        "body": "Toto voľné textové pole je miesto, kde vyplníte medzery, ktoré webová stránka nepokrýva, a kde môžete formovať <em>ako</em> agent hovorí o vašej firme. Číta sa rovnakým spôsobom ako prehľadaný obsah — ako zdrojový materiál na odpovedanie — takže s ním zaobchádzajte ako s písomným zadaním, nie neformálnou poznámkou. Dobré veci na zahrnutie:",
+        "list": [
+          "Odpovede na otázky, ktoré vám často kladú, a ktoré nie sú jasne napísané nikde na vašej stránke",
+          "Vysvetlené interné skratky alebo názvy produktov (\"keď niekto povie 'Pro plán', myslí tým...\")",
+          "Pokyny pre tón: \"Odpovede držte krátke a priateľské\", \"Nikdy nediskutujte o konkurencii\", \"Vždy zmiente bezplatnú skúšobnú verziu, ak je to relevantné\"",
+          "Čokoľvek, čo sa mení sezónne a ešte nebude na stránke (blížiaca sa akcia, dočasné oneskorenie dodania)"
+        ],
+        "after": "Udržujte to usporiadané pod krátkymi nadpismi alebo ako zoznam otázok a odpovedí — agent lepšie spracúva štruktúrovaný, prehľadný text ako jeden dlhý odsek."
+      },
+      {
+        "h2": "3. Nahrávanie dokumentov",
+        "body": "Podporované sú súbory PDF, DOCX a TXT, do 10 MB každý. Systém extrahuje textovú vrstvu — dokument musí skutočne obsahovať vyberateľný text, nie len naskenovaný obrázok stránky, aby to fungovalo. Ak si nie ste istí, skúste vybrať text v PDF kurzorom; ak sa vám to nedarí, agent to tiež nedokáže prečítať.",
+        "after": "Dobrí kandidáti: technické listy produktov, podrobný dokument FAQ, dokumenty o zásadách, cenníky, sprievodné materiály pre onboarding."
+      },
+      {
+        "h2": "4. Čomu sa vyhnúť",
+        "list_strong": [
+          { "strong": "Protichodné informácie.", "text": " Ak vaša stránka uvádza jednu cenu a nahraný dokument inú, agent nemá spôsob, ako zistiť, ktorá je aktuálna — môže vybrať ktorúkoľvek z nich. Udržujte jeden zdroj pravdy na fakt." },
+          { "strong": "Obrovské, nezamerané dávky dát.", "text": " 200-stranový export interného wiki so zmiešanými poznámkami zo stretnutí a nedokončenými návrhmi sťažuje agentovi nájsť skutočne relevantnú odpoveď. Pred nahraním obsah zoraďte." },
+          { "strong": "Čokoľvek, čo by ste nechceli, aby návštevník potenciálne videl doslovne.", "text": " Agent odpovedá priamym čerpaním z pripojeného obsahu — nezahŕňajte interné ceny dohodnuté pre konkrétnych klientov, nezverejnené plány ani nič dôverné." }
+        ]
+      },
+      {
+        "h2": "5. Poznámka o tom, ako sa generujú odpovede",
+        "body": "Widget zobrazuje iba jednoduchý konverzačný text — žiadne formátovanie Markdown, žiadne tabuľky, žiadne zoznamy s odrážkami sa nevykresľujú ako také. Váš zdrojový obsah môžete formátovať, ako chcete (nadpisy, odrážky, tabuľky sú v poriadku), ale svoje <em>vlastné</em> poznámky \"Ďalšie dokumenty\" píšte podľa možnosti ako jednoduché vety, keďže to je najbližšie tomu, čo agent skutočne vytvorí pre návštevníka."
+      },
+      {
+        "h2": "6. Udržiavanie aktuálnosti",
+        "body": "Svoju webovú stránku môžete kedykoľvek znova prehľadať alebo upraviť svoje poznámky a dokumenty zo stránky nastavenia — zmeny v poznámkach a dokumentoch nadobúdajú účinnosť okamžite a opätovné prehľadanie zmenenej webovej stránky trvá približne minútu. Počas aktualizácie nedochádza k výpadku."
+      }
+    ]
+  },
+  "guideSlackTeams": {
+    "eyebrow": "Návod · Plán Business a vyššie",
+    "h1": "Návod na nastavenie Slack &amp; Teams",
+    "sub": "Dostaňte správu hneď, ako návštevník potrebuje človeka",
+    "intro": "WelcoChat upozorňuje váš tím zverejnením na URL webhooku, ktorú poskytnete — na vašej strane nie je potrebné inštalovať žiadnu aplikáciu ani udeľovať OAuth povolenie. Webhook vytvoríte v Slacku alebo Teams, vložíte URL do sekcie Notifikácie na stránke nastavenia WelcoChat a je hotovo. Funguje to rovnako pre všeobecnú webhook možnosť (Zapier, Make alebo akýkoľvek nástroj, ktorý dokáže prijímať prichádzajúce webhooky).",
+    "slack": {
+      "h2": "Slack",
+      "steps": [
+        "Prejdite na <code>api.slack.com/apps</code> a prihláste sa do svojho pracovného priestoru.",
+        "Kliknite na <strong>Create New App</strong> → <strong>From scratch</strong>. Zadajte mu názov (napr. \"WelcoChat\") a vyberte svoj pracovný priestor.",
+        "V nastaveniach aplikácie otvorte <strong>Incoming Webhooks</strong> v ľavom bočnom paneli.",
+        "Zapnite prepínač <strong>Activate Incoming Webhooks</strong>.",
+        "Posuňte sa nadol a kliknite na <strong>Add New Webhook to Workspace</strong>.",
+        "Vyberte kanál, ktorý má prijímať notifikácie o odovzdaní, a kliknite na <strong>Allow</strong>.",
+        "Skopírujte zobrazenú Webhook URL (začína sa na <code>https://hooks.slack.com/services/...</code>).",
+        "Vo WelcoChat prejdite na stránku nastavenia svojej služby → <strong>Notifikácie</strong>, nastavte Kanál na <strong>Slack</strong> a vložte URL."
+      ]
+    },
+    "teams": {
+      "h2": "Microsoft Teams",
+      "intro": "Microsoft postupne migruje kanály Teams zo starého systému \"Connectors\" (Office 365 Connector) na <strong>Workflows</strong> — ak sú vo vašom tenante k dispozícii, použite Workflows.",
+      "steps": [
+        "Otvorte kanál Teams, ktorý má prijímať notifikácie o odovzdaní.",
+        "Kliknite na <strong>⋯</strong> (ďalšie možnosti) vedľa názvu kanála → <strong>Workflows</strong>.",
+        "Vyhľadajte a vyberte šablónu <strong>\"Post to a channel when a webhook request is received\"</strong>.",
+        "Postupujte podľa pokynov na potvrdenie kanála a potom kliknite na <strong>Create flow</strong> (alebo Add workflow).",
+        "Skopírujte webhook URL vygenerovanú Teams.",
+        "Vo WelcoChat prejdite na stránku nastavenia svojej služby → <strong>Notifikácie</strong>, nastavte Kanál na <strong>Microsoft Teams</strong> a vložte URL."
+      ],
+      "note": "Ak váš tenant stále má k dispozícii iba starší konektor \"Incoming Webhook\" namiesto Workflows, funguje to rovnakým spôsobom — pridajte konektor Incoming Webhook do kanála, skopírujte jeho URL a vložte ju na to isté miesto."
+    },
+    "generic": {
+      "h2": "Všeobecný webhook (Zapier, Make atď.)",
+      "body": "Vyberte <strong>Webhook</strong> ako kanál a vložte URL \"catch hook\" z vášho automatizačného nástroja. WelcoChat odosiela JSON payload s typom udalosti, správou a relevantnými ID (inštancia a konverzácia) — svoju automatizáciu vybudujte okolo polí, ktoré z tohto payloadu potrebujete."
+    },
+    "testing": {
+      "h2": "Testovanie",
+      "body": "Po uložení kanála a webhook URL použite tlačidlo <strong>Odoslať testovaciu správu</strong> na stránke nastavenia — odošle jednu skutočnú notifikáciu rovnakou cestou, akú by použilo aj live odovzdanie, takže si môžete potvrdiť, že prichádza na správne miesto, skôr než sa na to začnete spoliehať."
+    }
+  }
+}

@@ -1,10 +1,7 @@
 <template>
   <div class="page">
-    <h1>Dashboard</h1>
-    <p class="dash-intro">
-      Welcome to your WelcoChat portal. Manage your subscriptions, services, invoices and
-      workflow setup from here.
-    </p>
+    <h1>{{ t('dashboard.title') }}</h1>
+    <p class="dash-intro">{{ t('dashboard.intro') }}</p>
 
     <p v-if="error" class="input-hint">{{ error }}</p>
 
@@ -12,33 +9,33 @@
     <div class="summary-cards" v-if="!loading">
       <div class="summary-card">
         <div class="sc-value">{{ activeSubscriptions }}</div>
-        <div class="sc-label">Active subscriptions</div>
+        <div class="sc-label">{{ t('dashboard.activeSubscriptions') }}</div>
       </div>
       <div class="summary-card">
         <div class="sc-value">{{ servicesToSetUp }}</div>
-        <div class="sc-label">Services to set up</div>
+        <div class="sc-label">{{ t('dashboard.servicesToSetUp') }}</div>
       </div>
       <div class="summary-card">
         <div class="sc-value">{{ runningServices }}</div>
-        <div class="sc-label">Running services</div>
+        <div class="sc-label">{{ t('dashboard.runningServices') }}</div>
       </div>
       <div class="summary-card">
         <div class="sc-value">{{ openInvoices > 0 ? openInvoices : '—' }}</div>
-        <div class="sc-label">{{ openInvoices > 0 ? 'Open invoices' : 'No open invoices' }}</div>
+        <div class="sc-label">{{ openInvoices > 0 ? t('dashboard.openInvoices') : t('dashboard.noOpenInvoices') }}</div>
       </div>
     </div>
 
     <!-- Your services -->
     <section class="dash-section">
-      <h2 class="dash-h2">Your services</h2>
+      <h2 class="dash-h2">{{ t('dashboard.yourServices') }}</h2>
 
-      <div v-if="loading" class="input-hint">Loading…</div>
+      <div v-if="loading" class="input-hint">{{ t('common.loading') }}</div>
 
       <!-- No subscription -->
       <div v-else-if="instances.length === 0" class="empty-state">
-        <p class="empty-text">You do not have any active WelcoChat subscriptions yet.</p>
+        <p class="empty-text">{{ t('dashboard.noSubscriptions') }}</p>
         <div class="empty-actions">
-          <router-link to="/subscriptions/add" class="btn btn-primary">Add subscription</router-link>
+          <router-link to="/subscriptions/add" class="btn btn-primary">{{ t('dashboard.addSubscription') }}</router-link>
         </div>
       </div>
 
@@ -51,7 +48,7 @@
               {{ statusLabel(inst.setup_status) }}
             </span>
           </div>
-          <div class="svc-meta">Included in: {{ subscriptionLabel(inst.subscription_id) }}</div>
+          <div class="svc-meta">{{ t('dashboard.includedIn', { name: subscriptionLabel(inst.subscription_id) }) }}</div>
           <button class="btn" :class="ctaClass(inst.setup_status)" @click="router.push(`/setup/${inst.service_key}/${inst.id}`)">
             {{ ctaLabel(inst.setup_status) }}
           </button>
@@ -63,9 +60,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { getSubscriptions, getServiceInstances, getInvoices, type Subscription, type ServiceInstance } from '@/services/subscriptions'
 
+const { t } = useI18n()
 const router = useRouter()
 const subscriptions = ref<Subscription[]>([])
 const instances = ref<ServiceInstance[]>([])
@@ -80,7 +79,7 @@ const openInvoices = computed(() => invoiceCount.value)
 
 function subscriptionLabel(subId: number): string {
   const sub = subscriptions.value.find((s) => s.id === subId)
-  if (!sub) return 'your subscription'
+  if (!sub) return t('dashboard.yourSubscription')
   const name = sub.service_name ?? 'WelcoChat'
   const tier = sub.tier ? ` ${sub.tier.charAt(0).toUpperCase() + sub.tier.slice(1)}` : ''
   return `${name}${tier}`
@@ -88,13 +87,13 @@ function subscriptionLabel(subId: number): string {
 
 function statusLabel(status: string): string {
   const map: Record<string, string> = {
-    not_configured: 'Not configured',
-    setup_in_progress: 'Setup in progress',
-    pending_review: 'Pending review',
-    running: 'Running',
-    paused: 'Paused',
-    error: 'Needs attention',
-    cancelled: 'Cancelled',
+    not_configured: t('serviceStatus.notConfigured'),
+    setup_in_progress: t('serviceStatus.setupInProgress'),
+    pending_review: t('serviceStatus.pendingReview'),
+    running: t('serviceStatus.running'),
+    paused: t('serviceStatus.paused'),
+    error: t('serviceStatus.error'),
+    cancelled: t('serviceStatus.cancelled'),
   }
   return map[status] ?? status
 }
@@ -107,11 +106,11 @@ function badgeClass(status: string): string {
 }
 
 function ctaLabel(status: string): string {
-  if (status === 'not_configured') return 'Set up'
-  if (status === 'setup_in_progress') return 'Continue setup'
-  if (status === 'running') return 'Manage'
-  if (status === 'error') return 'Fix issue'
-  return 'View details'
+  if (status === 'not_configured') return t('dashboard.ctaSetUp')
+  if (status === 'setup_in_progress') return t('dashboard.ctaContinueSetup')
+  if (status === 'running') return t('dashboard.ctaManage')
+  if (status === 'error') return t('dashboard.ctaFixIssue')
+  return t('dashboard.ctaViewDetails')
 }
 
 function ctaClass(status: string): string {
@@ -132,7 +131,7 @@ async function load() {
     instances.value = inst
     invoiceCount.value = inv.filter((i) => i.status && ['unpaid', 'overdue'].includes(i.status)).length
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load dashboard.'
+    error.value = err instanceof Error ? err.message : t('dashboard.errorGeneric')
   } finally {
     loading.value = false
   }

@@ -1,32 +1,677 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://welcochat.com/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://welcochat.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://welcochat.com/terms</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://welcochat.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hu/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/sk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/el/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/en/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://welcochat.com/privacy</loc>
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://welcochat.com/de/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://welcochat.com/guides/prompt-and-content-guide/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://welcochat.com/fr/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hu/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/pl/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/sk/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hr/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/el/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/es/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/terms/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/terms/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/terms/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/terms/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/terms/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/terms/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/terms/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/terms/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/terms/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/terms/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/de/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/fr/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hu/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/pl/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/sk/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hr/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/el/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/es/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/privacy/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/privacy/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/privacy/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/privacy/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/privacy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/privacy/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/en/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://welcochat.com/guides/slack-teams-setup/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://welcochat.com/de/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/fr/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hu/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/pl/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/sk/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hr/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/el/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/es/guides/prompt-and-content-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/prompt-and-content-guide/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/prompt-and-content-guide/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/en/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/de/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/fr/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hu/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/pl/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/sk/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hr/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/el/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/es/guides/slack-teams-setup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/slack-teams-setup/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/slack-teams-setup/" />
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

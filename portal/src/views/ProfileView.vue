@@ -1,46 +1,46 @@
 <template>
   <div class="page">
-    <h1>Profile</h1>
+    <h1>{{ t('profile.title') }}</h1>
 
-    <p v-if="loadingData" class="input-hint">Loading…</p>
+    <p v-if="loadingData" class="input-hint">{{ t('common.loading') }}</p>
 
     <form v-else class="profile-form" @submit.prevent="save" novalidate>
 
       <section class="profile-section">
-        <h2 class="section-h2">Company details</h2>
+        <h2 class="section-h2">{{ t('profile.companyDetails') }}</h2>
         <div class="form-row">
-          <label class="form-label" for="company_name">Company name</label>
+          <label class="form-label" for="company_name">{{ t('profile.companyNameLabel') }}</label>
           <input id="company_name" v-model="form.name" class="input" :class="{ 'is-err': ve.name }" />
           <span v-if="ve.name" class="field-err">{{ ve.name }}</span>
         </div>
       </section>
 
       <section class="profile-section">
-        <h2 class="section-h2">Billing address</h2>
+        <h2 class="section-h2">{{ t('profile.billingAddress') }}</h2>
         <div class="form-row">
-          <label class="form-label" for="country">Country</label>
+          <label class="form-label" for="country">{{ t('profile.countryLabel') }}</label>
           <CountrySelect v-model="form.country_id" :countries="countries" />
         </div>
         <div class="form-row two-col">
           <div>
-            <label class="form-label" for="postal_code">Postal code</label>
+            <label class="form-label" for="postal_code">{{ t('profile.postalCodeLabel') }}</label>
             <input id="postal_code" v-model="form.postal_code" class="input" />
           </div>
           <div>
-            <label class="form-label" for="city">City</label>
+            <label class="form-label" for="city">{{ t('profile.cityLabel') }}</label>
             <input id="city" v-model="form.city" class="input" />
           </div>
         </div>
         <div class="form-row">
-          <label class="form-label" for="address_line">Street and house number</label>
+          <label class="form-label" for="address_line">{{ t('profile.streetLabel') }}</label>
           <input id="address_line" v-model="form.address_line" class="input" />
         </div>
       </section>
 
       <section class="profile-section">
-        <h2 class="section-h2">Tax details</h2>
+        <h2 class="section-h2">{{ t('profile.taxDetails') }}</h2>
         <div class="form-row">
-          <label class="form-label" for="tax_number">VAT / tax number</label>
+          <label class="form-label" for="tax_number">{{ t('profile.taxNumberLabel') }}</label>
           <input id="tax_number" v-model="form.tax_number" class="input" />
         </div>
       </section>
@@ -50,7 +50,7 @@
 
       <div class="form-actions">
         <button type="submit" class="btn btn-primary" :disabled="saving">
-          {{ saving ? 'Saving…' : 'Save changes' }}
+          {{ saving ? t('profile.saving') : t('profile.saveChanges') }}
         </button>
       </div>
     </form>
@@ -59,8 +59,11 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { getCountries, getCompany, saveCompany, type Country } from '@/services/billing'
 import CountrySelect from '@/components/CountrySelect.vue'
+
+const { t } = useI18n()
 
 const countries = ref<Country[]>([])
 const loadingData = ref(true)
@@ -91,7 +94,7 @@ onMounted(async () => {
       form.tax_number = company.tax_number ?? ''
     }
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to load profile.'
+    error.value = err instanceof Error ? err.message : t('profile.errorLoad')
   } finally {
     loadingData.value = false
   }
@@ -102,7 +105,7 @@ async function save() {
   success.value = ''
   Object.keys(ve).forEach((k) => delete ve[k])
 
-  if (!form.name.trim()) ve.name = 'Company name is required.'
+  if (!form.name.trim()) ve.name = t('profile.errorNameRequired')
   if (Object.keys(ve).length) return
 
   saving.value = true
@@ -115,9 +118,9 @@ async function save() {
       address_line: form.address_line || null,
       tax_number: form.tax_number || null,
     })
-    success.value = 'Profile updated successfully.'
+    success.value = t('profile.successSave')
   } catch (err: unknown) {
-    error.value = err instanceof Error ? err.message : 'Failed to save profile.'
+    error.value = err instanceof Error ? err.message : t('profile.errorSave')
   } finally {
     saving.value = false
   }

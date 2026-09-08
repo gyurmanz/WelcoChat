@@ -1,14 +1,14 @@
 <template>
   <div class="page">
-    <h1>Account</h1>
-    <p>Manage your profile and password.</p>
+    <h1>{{ t('account.title') }}</h1>
+    <p>{{ t('account.intro') }}</p>
 
     <!-- Profile -->
     <form class="auth-form account-form" @submit.prevent="saveProfile">
-      <h2>Profile</h2>
+      <h2>{{ t('account.profileHeading') }}</h2>
 
       <div class="input-group">
-        <label for="display_name" class="input-label">Display name</label>
+        <label for="display_name" class="input-label">{{ t('account.displayNameLabel') }}</label>
         <input
           id="display_name"
           v-model="displayName"
@@ -20,7 +20,7 @@
       </div>
 
       <div class="input-group">
-        <label for="email" class="input-label">Email address</label>
+        <label for="email" class="input-label">{{ t('login.emailLabel') }}</label>
         <input
           id="email"
           v-model="email"
@@ -30,12 +30,12 @@
           :disabled="isGoogle"
         />
         <p class="input-hint" v-if="isGoogle">
-          Your email is managed by Google and cannot be changed here.
+          {{ t('account.emailGoogleManaged') }}
         </p>
       </div>
 
       <div class="input-group">
-        <label for="phone" class="input-label">Phone number</label>
+        <label for="phone" class="input-label">{{ t('account.phoneLabel') }}</label>
         <input
           id="phone"
           v-model="phone"
@@ -46,7 +46,7 @@
           pattern="\+[0-9]{7,15}"
           placeholder="+36301234567"
         />
-        <p class="input-hint">International format, e.g. +36301234567.</p>
+        <p class="input-hint">{{ t('account.phoneHint') }}</p>
       </div>
 
       <div class="input-group" v-if="profileError || profileSuccess">
@@ -57,8 +57,8 @@
       </div>
 
       <button type="submit" class="btn btn-primary btn-full" :disabled="profileLoading">
-        <span v-if="profileLoading">Saving...</span>
-        <span v-else>Save profile</span>
+        <span v-if="profileLoading">{{ t('account.savingProfile') }}</span>
+        <span v-else>{{ t('account.saveProfile') }}</span>
       </button>
     </form>
 
@@ -68,10 +68,10 @@
       class="auth-form account-form"
       @submit.prevent="savePassword"
     >
-      <h2>Change password</h2>
+      <h2>{{ t('account.changePasswordHeading') }}</h2>
 
       <div class="input-group">
-        <label for="current_password" class="input-label">Current password</label>
+        <label for="current_password" class="input-label">{{ t('account.currentPasswordLabel') }}</label>
         <input
           id="current_password"
           v-model="currentPassword"
@@ -83,7 +83,7 @@
       </div>
 
       <div class="input-group">
-        <label for="new_password" class="input-label">New password</label>
+        <label for="new_password" class="input-label">{{ t('resetPassword.newPasswordLabel') }}</label>
         <input
           id="new_password"
           v-model="newPassword"
@@ -96,7 +96,7 @@
       </div>
 
       <div class="input-group">
-        <label for="confirm_password" class="input-label">Confirm new password</label>
+        <label for="confirm_password" class="input-label">{{ t('resetPassword.confirmNewPasswordLabel') }}</label>
         <input
           id="confirm_password"
           v-model="confirmPassword"
@@ -115,22 +115,25 @@
       </div>
 
       <button type="submit" class="btn btn-primary btn-full" :disabled="passwordLoading">
-        <span v-if="passwordLoading">Changing...</span>
-        <span v-else>Change password</span>
+        <span v-if="passwordLoading">{{ t('account.changingPassword') }}</span>
+        <span v-else>{{ t('account.changePassword') }}</span>
       </button>
     </form>
 
     <p v-else class="input-hint account-form">
-      You sign in with Google, so there is no password to change here.
+      {{ t('account.googleNoPassword') }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { authSession, initSession } from '@/stores/authSession'
 import { updateProfile, changePassword } from '@/services/auth'
 import { setAuthToken, isRemembered } from '@/services/tokenStorage'
+
+const { t } = useI18n()
 
 const user = computed(() => authSession.user)
 const hasPassword = computed(() => user.value?.has_password ?? false)
@@ -156,7 +159,7 @@ async function saveProfile() {
   profileSuccess.value = ''
   const phoneVal = phone.value.trim()
   if (phoneVal && !/^\+[0-9]{7,15}$/.test(phoneVal)) {
-    profileError.value = 'Phone number must be in international format, e.g. +36301234567'
+    profileError.value = t('account.errorPhoneFormat')
     return
   }
   profileLoading.value = true
@@ -174,14 +177,13 @@ async function saveProfile() {
     if (result.email_change_pending) {
       // Az email csak megerosites utan valtozik; a mezot visszaallitjuk a jelenlegire.
       email.value = user.value?.email ?? email.value
-      profileSuccess.value =
-        'Profile saved. A confirmation link was sent to your new email address. Your email will change only after you confirm it.'
+      profileSuccess.value = t('account.emailChangePending')
     } else {
-      profileSuccess.value = 'Profile updated.'
+      profileSuccess.value = t('account.profileUpdated')
     }
   } catch (err: unknown) {
     profileError.value =
-      err instanceof Error ? err.message : 'Failed to update profile.'
+      err instanceof Error ? err.message : t('account.errorProfileUpdate')
   } finally {
     profileLoading.value = false
   }
@@ -191,19 +193,19 @@ async function savePassword() {
   passwordError.value = ''
   passwordSuccess.value = ''
   if (newPassword.value !== confirmPassword.value) {
-    passwordError.value = 'The new passwords do not match.'
+    passwordError.value = t('account.errorPasswordMismatch')
     return
   }
   passwordLoading.value = true
   try {
     await changePassword(currentPassword.value, newPassword.value)
-    passwordSuccess.value = 'Password changed.'
+    passwordSuccess.value = t('account.passwordChanged')
     currentPassword.value = ''
     newPassword.value = ''
     confirmPassword.value = ''
   } catch (err: unknown) {
     passwordError.value =
-      err instanceof Error ? err.message : 'Failed to change password.'
+      err instanceof Error ? err.message : t('account.errorPasswordChange')
   } finally {
     passwordLoading.value = false
   }

@@ -27,20 +27,26 @@ def _client():
     return stripe
 
 
-def get_or_create_customer(db: Session, user: models.User) -> str:
-    if user.StripeCustomerId:
-        return user.StripeCustomerId
+def get_or_create_customer(db: Session, company: models.Company, contact_email: str, contact_name: str) -> str:
+    """One Stripe customer per Company — its identity shouldn't shift
+    depending on which team member happens to click checkout, so the
+    contact email/name passed in should be the company's designated owner,
+    not necessarily whoever is making this particular request."""
+    if company.StripeCustomerId:
+        return company.StripeCustomerId
 
     stripe = _client()
-    customer = stripe.Customer.create(email=user.Email, name=user.DisplayName)
-    user.StripeCustomerId = customer.id
+    customer = stripe.Customer.create(email=contact_email, name=company.Name or contact_name)
+    company.StripeCustomerId = customer.id
     db.commit()
     return customer.id
 
 
 def create_trial_subscription(
     db: Session,
-    user: models.User,
+    company: models.Company,
+    contact_email: str,
+    contact_name: str,
     service: models.Service,
     billing_period: str,
     trial_end: datetime,
@@ -51,7 +57,7 @@ def create_trial_subscription(
     if not price_id:
         raise RuntimeError(f"No Stripe price configured for service {service.ServiceKey}/{service.Tier}/{billing_period}")
 
-    customer_id = get_or_create_customer(db, user)
+    customer_id = get_or_create_customer(db, company, contact_email, contact_name)
 
     trial_end_ts = int(trial_end.replace(tzinfo=timezone.utc).timestamp())
 

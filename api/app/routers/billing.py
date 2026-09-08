@@ -11,7 +11,7 @@ from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from .. import models, schemas, stripe_service
-from ..deps import get_db, get_current_user, resolve_account_owner
+from ..deps import get_db, get_current_user, resolve_account_company
 
 load_dotenv()
 
@@ -34,14 +34,7 @@ def get_company(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    owner = resolve_account_owner(db, current_user)
-    if not owner.CompanyId:
-        return None
-    return (
-        db.query(models.Company)
-        .filter(models.Company.Id == owner.CompanyId)
-        .first()
-    )
+    return resolve_account_company(db, current_user)
 
 
 @router.put("/company", response_model=schemas.CompanyRead)
@@ -50,20 +43,7 @@ def upsert_company(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ):
-    owner = resolve_account_owner(db, current_user)
-    company = None
-    if owner.CompanyId:
-        company = (
-            db.query(models.Company)
-            .filter(models.Company.Id == owner.CompanyId)
-            .first()
-        )
-
-    if company is None:
-        company = models.Company(Name=req.name)
-        db.add(company)
-        db.flush()  # Id-hoz
-        owner.CompanyId = company.Id
+    company = resolve_account_company(db, current_user)
 
     company.Name = req.name
     company.CountryId = req.country_id
@@ -82,12 +62,12 @@ def create_portal_session(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    if not owner.StripeCustomerId:
+    company = resolve_account_company(db, current_user)
+    if not company.StripeCustomerId:
         raise HTTPException(400, "No billing account yet — start a subscription first")
     try:
         url = stripe_service.create_portal_session(
-            owner.StripeCustomerId, return_url=f"{FRONTEND_BASE_URL}/invoices"
+            company.StripeCustomerId, return_url=f"{FRONTEND_BASE_URL}/invoices"
         )
     except RuntimeError as exc:
         raise HTTPException(503, str(exc))
@@ -155,18 +135,19 @@ def _handle_checkout_completed(db: Session, session: dict) -> None:
         return  # already processed — Stripe may retry webhook delivery
 
     try:
-        owner_id = int(session["client_reference_id"])
+        company_id = int(session["client_reference_id"])
         service_id = int(session["metadata"]["service_id"])
         billing_period = session["metadata"]["billing_period"]
+        created_by_user_id = int(session["metadata"]["user_id"])
     except (KeyError, TypeError, ValueError):
         logger.error("checkout.session.completed missing expected fields (session=%s)", session.get("id"))
         return
 
-    owner = db.query(models.User).filter(models.User.Id == owner_id).first()
+    company = db.query(models.Company).filter(models.Company.Id == company_id).first()
     service = db.query(models.Service).filter(models.Service.Id == service_id).first()
-    if owner is None or service is None:
+    if company is None or service is None:
         logger.error(
-            "checkout.session.completed: owner or service not found (owner_id=%s, service_id=%s)", owner_id, service_id
+            "checkout.session.completed: company or service not found (company_id=%s, service_id=%s)", company_id, service_id
         )
         return
 
@@ -183,7 +164,8 @@ def _handle_checkout_completed(db: Session, session: dict) -> None:
     )
 
     sub = models.Subscription(
-        UserId=owner.Id,
+        CompanyId=company.Id,
+        UserId=created_by_user_id,
         Type=service.ServiceKey,
         Status=stripe_sub["status"],
         ServiceId=service.Id,

@@ -6,7 +6,7 @@ from sqlalchemy import func, cast, Date
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
-from ..deps import get_db, get_current_user, resolve_account_owner
+from ..deps import get_db, get_current_user, resolve_account_company
 
 router = APIRouter()
 
@@ -93,11 +93,11 @@ def get_stats(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     instances = (
         db.query(models.ServiceInstance)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
-        .filter(models.Subscription.UserId == owner.Id)
+        .filter(models.Subscription.CompanyId == company.Id)
         .order_by(models.ServiceInstance.Created.asc())
         .all()
     )

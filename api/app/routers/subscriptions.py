@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from .. import models, schemas, stripe_service
-from ..deps import get_db, get_current_user, resolve_account_owner, instance_tier, instance_has_tier, _TIER_RANK
+from ..deps import get_db, get_current_user, resolve_account_company, instance_tier, instance_has_tier, _TIER_RANK
 
 load_dotenv()
 
@@ -101,12 +101,22 @@ def _subscription_out(db: Session, sub: models.Subscription, service: "models.Se
     )
 
 
-def _has_had_trial(db: Session, owner_id: int, service_key: str) -> bool:
+def _has_had_trial(db: Session, company_id: int, service_key: str) -> bool:
     return db.query(models.Subscription).filter(
-        models.Subscription.UserId == owner_id,
+        models.Subscription.CompanyId == company_id,
         models.Subscription.Type == service_key,
         models.Subscription.TrialEndsAt.isnot(None),
     ).first() is not None
+
+
+def _company_contact(db: Session, company: models.Company) -> tuple[str, str]:
+    """(email, display_name) of the company's designated billing contact —
+    used for the Stripe customer record so it stays stable regardless of
+    which team member happens to be checking out."""
+    owner_user = db.query(models.User).filter(models.User.Id == company.OwnerUserId).first()
+    if owner_user is None:
+        raise HTTPException(500, "This company has no owner on record — contact support.")
+    return owner_user.Email, owner_user.DisplayName
 
 
 @router.get("/services", response_model=list[schemas.ServicePlanRead])
@@ -125,10 +135,10 @@ def list_subscriptions(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     subs = (
         db.query(models.Subscription)
-        .filter(models.Subscription.UserId == owner.Id)
+        .filter(models.Subscription.CompanyId == company.Id)
         .order_by(models.Subscription.Created.desc())
         .all()
     )
@@ -145,9 +155,9 @@ def trial_eligibility(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     return schemas.TrialEligibilityRead(
-        welco=not _has_had_trial(db, owner.Id, "welco"),
+        welco=not _has_had_trial(db, company.Id, "welco"),
     )
 
 
@@ -157,9 +167,9 @@ def create_trial_subscription(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
 
-    if _has_had_trial(db, owner.Id, body.service_key):
+    if _has_had_trial(db, company.Id, body.service_key):
         raise HTTPException(409, "A free trial has already been used for this product.")
 
     service = (
@@ -183,7 +193,8 @@ def create_trial_subscription(
     trial_ends_at = today + timedelta(days=_TRIAL_DAYS)
 
     sub = models.Subscription(
-        UserId=owner.Id,
+        CompanyId=company.Id,
+        UserId=current_user.Id,
         Type=service.ServiceKey,
         Status="trialing",
         ServiceId=service.Id,
@@ -207,8 +218,9 @@ def create_trial_subscription(
     db.refresh(sub)
 
     try:
+        contact_email, contact_name = _company_contact(db, company)
         stripe_sub_id = stripe_service.create_trial_subscription(
-            db, owner, service, billing_period, trial_ends_at
+            db, company, contact_email, contact_name, service, billing_period, trial_ends_at
         )
         sub.StripeSubscriptionId = stripe_sub_id
         db.commit()
@@ -228,7 +240,7 @@ def create_checkout(
     if body.billing_period not in _VALID_BILLING:
         raise HTTPException(400, "Invalid billing_period")
 
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
 
     service = (
         db.query(models.Service)
@@ -243,12 +255,17 @@ def create_checkout(
         raise HTTPException(400, f"No Stripe price configured for {service.ServiceKey}/{service.Tier}/{body.billing_period}")
 
     try:
-        customer_id = stripe_service.get_or_create_customer(db, owner)
+        contact_email, contact_name = _company_contact(db, company)
+        customer_id = stripe_service.get_or_create_customer(db, company, contact_email, contact_name)
         checkout_url = stripe_service.create_checkout_session(
             customer_id=customer_id,
             price_id=price_id,
-            client_reference_id=str(owner.Id),
-            metadata={"service_id": str(service.Id), "billing_period": body.billing_period},
+            client_reference_id=str(company.Id),
+            metadata={
+                "service_id": str(service.Id),
+                "billing_period": body.billing_period,
+                "user_id": str(current_user.Id),
+            },
             success_url=f"{FRONTEND_BASE_URL}/subscriptions/add?checkout=success&service_key={service.ServiceKey}",
             cancel_url=f"{FRONTEND_BASE_URL}/subscriptions/add?checkout=cancelled",
         )
@@ -257,7 +274,7 @@ def create_checkout(
     except HTTPException:
         raise
     except Exception:
-        logger.exception("Failed to create Stripe Checkout Session for owner %s", owner.Id)
+        logger.exception("Failed to create Stripe Checkout Session for company %s", company.Id)
         raise HTTPException(502, "Failed to start checkout — please try again.")
 
     return schemas.CheckoutSessionRead(checkout_url=checkout_url)
@@ -270,10 +287,10 @@ def change_plan(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     sub = (
         db.query(models.Subscription)
-        .filter(models.Subscription.Id == subscription_id, models.Subscription.UserId == owner.Id)
+        .filter(models.Subscription.Id == subscription_id, models.Subscription.CompanyId == company.Id)
         .first()
     )
     if sub is None:
@@ -375,11 +392,11 @@ def list_service_instances(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     instances = (
         db.query(models.ServiceInstance)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
-        .filter(models.Subscription.UserId == owner.Id)
+        .filter(models.Subscription.CompanyId == company.Id)
         .order_by(models.ServiceInstance.Created.asc())
         .all()
     )
@@ -396,13 +413,13 @@ def update_service_instance_setup(
     if body.setup_status is not None and body.setup_status not in _VALID_SETUP_STATUSES:
         raise HTTPException(400, "Invalid setup_status")
 
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     instance = (
         db.query(models.ServiceInstance)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
         .filter(
             models.ServiceInstance.Id == instance_id,
-            models.Subscription.UserId == owner.Id,
+            models.Subscription.CompanyId == company.Id,
         )
         .first()
     )
@@ -427,11 +444,11 @@ def list_invoices(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    if not owner.StripeCustomerId:
+    company = resolve_account_company(db, current_user)
+    if not company.StripeCustomerId:
         return []
     try:
-        return stripe_service.list_invoices(owner.StripeCustomerId)
+        return stripe_service.list_invoices(company.StripeCustomerId)
     except Exception:
-        logger.exception("Failed to list Stripe invoices for user %s", owner.Id)
+        logger.exception("Failed to list Stripe invoices for company %s", company.Id)
         return []

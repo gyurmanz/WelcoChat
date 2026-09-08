@@ -57,14 +57,43 @@ def get_current_user(
 _TIER_RANK = {"Basic": 0, "Business": 1, "Enterprise": 2}
 
 
-def owner_has_tier(db: Session, owner: models.User, min_tier: str, service_key: str | None = None) -> bool:
-    """Account-wide check (used for Team accounts): true if the owner has at
+def ensure_company(db: Session, user: models.User) -> models.Company:
+    """Every User belongs to exactly one Company — their own (created here,
+    the first time it's needed) or one they joined via a team invite (set at
+    accept-invite time). This is the self-healing fallback; the normal path
+    is auth.py creating it immediately at signup."""
+    if user.CompanyId:
+        company = db.query(models.Company).filter(models.Company.Id == user.CompanyId).first()
+        if company:
+            return company
+    # Name intentionally blank, not user.DisplayName — the billing-details
+    # flow (AddSubscriptionView) gates on `!company.name` to ask for a real
+    # company name before checkout; a placeholder here would silently skip
+    # that step.
+    company = models.Company(Name="", OwnerUserId=user.Id)
+    db.add(company)
+    db.flush()
+    user.CompanyId = company.Id
+    db.commit()
+    db.refresh(company)
+    return company
+
+
+def resolve_account_company(db: Session, current_user: models.User) -> models.Company:
+    """The Company whose subscriptions/billing/services current_user should
+    see — their own, or the one they joined as a team member (both cases are
+    just current_user.CompanyId, set at signup or at accept-invite time)."""
+    return ensure_company(db, current_user)
+
+
+def owner_has_tier(db: Session, company: models.Company, min_tier: str, service_key: str | None = None) -> bool:
+    """Account-wide check (used for Team accounts): true if the company has at
     least one subscription — optionally scoped to one product — whose plan
     tier meets or exceeds min_tier."""
     query = (
         db.query(models.Service.Tier)
         .join(models.Subscription, models.Subscription.ServiceId == models.Service.Id)
-        .filter(models.Subscription.UserId == owner.Id)
+        .filter(models.Subscription.CompanyId == company.Id)
     )
     if service_key is not None:
         query = query.filter(models.Service.ServiceKey == service_key)
@@ -102,22 +131,3 @@ def instance_subscription_active(db: Session, instance: models.ServiceInstance) 
             return False
         return True
     return False  # past_due, canceled, unpaid, paused, incomplete, incomplete_expired, etc.
-
-
-def resolve_account_owner(db: Session, current_user: models.User) -> models.User:
-    """Team members share the owner's subscriptions/billing/services — this
-    resolves who that owner actually is. For an owner (or anyone with no
-    active membership), that's just themselves."""
-    membership = (
-        db.query(models.AccountMember)
-        .filter(
-            models.AccountMember.MemberUserId == current_user.Id,
-            models.AccountMember.Status == "active",
-        )
-        .first()
-    )
-    if membership:
-        owner = db.query(models.User).filter(models.User.Id == membership.OwnerUserId).first()
-        if owner:
-            return owner
-    return current_user

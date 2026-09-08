@@ -37,6 +37,10 @@ class Country(Base):
 
 
 class Company(Base):
+    """The billing/subscription root. A User always belongs to exactly one
+    Company (their own, created at signup, or one they joined via a team
+    invite) — Subscriptions, the Stripe customer identity, and team
+    membership all key off Company.Id, not any individual User.Id."""
     __tablename__ = "Company"
 
     Id = Column(Integer, primary_key=True, index=True)
@@ -46,6 +50,8 @@ class Company(Base):
     City = Column(String(100), nullable=True)
     AddressLine = Column(String(200), nullable=True)
     TaxNumber = Column(String(50), nullable=True)
+    OwnerUserId = Column(Integer, ForeignKey("User.Id"), nullable=True)
+    StripeCustomerId = Column(String(60), nullable=True)
     Created = Column(
         DateTime,
         nullable=False,
@@ -69,7 +75,6 @@ class User(Base):
     RoleId = Column(Integer, ForeignKey("Role.Id"), nullable=True)
     CompanyId = Column(Integer, ForeignKey("Company.Id"), nullable=True)
     Phone = Column(String(50), nullable=True)
-    StripeCustomerId = Column(String(60), nullable=True)
 
     @property
     def has_password(self) -> bool:
@@ -95,6 +100,9 @@ class Subscription(Base):
     __tablename__ = "Subscription"
 
     Id = Column(Integer, primary_key=True, index=True)
+    CompanyId = Column(Integer, ForeignKey("Company.Id"), nullable=False, index=True)
+    # Audit only — who actually clicked "start trial"/checkout. Ownership and
+    # access control always go through CompanyId, never this.
     UserId = Column(Integer, ForeignKey("User.Id"), nullable=False, index=True)
     Type = Column(String(50), nullable=False)
     Status = Column(String(20), nullable=False, default="active")
@@ -232,7 +240,7 @@ class AccountMember(Base):
     __tablename__ = "AccountMember"
 
     Id = Column(Integer, primary_key=True, index=True)
-    OwnerUserId = Column(Integer, ForeignKey("User.Id"), nullable=False, index=True)
+    CompanyId = Column(Integer, ForeignKey("Company.Id"), nullable=False, index=True)
     MemberUserId = Column(Integer, ForeignKey("User.Id"), nullable=True, index=True)
     InviteEmail = Column(String(100), nullable=False)
     InviteToken = Column(String(32), nullable=True)

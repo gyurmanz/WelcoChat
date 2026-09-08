@@ -6,21 +6,21 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from .. import models, schemas, whatsapp
-from ..deps import get_db, get_current_user, resolve_account_owner, instance_has_tier
+from ..deps import get_db, get_current_user, resolve_account_company, instance_has_tier
 
 router = APIRouter()
 
 _STATUS_SORT_ORDER = {"waiting": 0, "active": 1, "resolved_by_email": 2, "closed": 3}
 
 
-def _get_owned_conversation(db: Session, conversation_id: int, owner_id: int) -> models.WelcoConversation:
+def _get_owned_conversation(db: Session, conversation_id: int, company_id: int) -> models.WelcoConversation:
     conversation = (
         db.query(models.WelcoConversation)
         .join(models.ServiceInstance, models.WelcoConversation.ServiceInstanceId == models.ServiceInstance.Id)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
         .filter(
             models.WelcoConversation.Id == conversation_id,
-            models.Subscription.UserId == owner_id,
+            models.Subscription.CompanyId == company_id,
         )
         .first()
     )
@@ -42,13 +42,13 @@ def _instance_name(instance: models.ServiceInstance | None) -> str:
     return config.get("widget_name") or "Welco Assistant"
 
 
-def _instance_names(db: Session, owner_id: int) -> dict[int, str]:
+def _instance_names(db: Session, company_id: int) -> dict[int, str]:
     """One query for every Welco instance the owner has — avoids an N+1 lookup
     per conversation when building the list."""
     instances = (
         db.query(models.ServiceInstance)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
-        .filter(models.Subscription.UserId == owner_id, models.ServiceInstance.ServiceKey == "welco")
+        .filter(models.Subscription.CompanyId == company_id, models.ServiceInstance.ServiceKey == "welco")
         .all()
     )
     return {i.Id: _instance_name(i) for i in instances}
@@ -69,15 +69,15 @@ def list_conversations(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
+    company = resolve_account_company(db, current_user)
     conversations = (
         db.query(models.WelcoConversation)
         .join(models.ServiceInstance, models.WelcoConversation.ServiceInstanceId == models.ServiceInstance.Id)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
-        .filter(models.Subscription.UserId == owner.Id, models.WelcoConversation.Status != "bot")
+        .filter(models.Subscription.CompanyId == company.Id, models.WelcoConversation.Status != "bot")
         .all()
     )
-    instance_names = _instance_names(db, owner.Id)
+    instance_names = _instance_names(db, company.Id)
 
     summaries = []
     for c in conversations:
@@ -116,8 +116,8 @@ def get_conversation(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    conversation = _get_owned_conversation(db, conversation_id, owner.Id)
+    company = resolve_account_company(db, current_user)
+    conversation = _get_owned_conversation(db, conversation_id, company.Id)
     messages = (
         db.query(models.WelcoConversationMessage)
         .filter(models.WelcoConversationMessage.ConversationId == conversation.Id)
@@ -135,8 +135,8 @@ def reply(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    conversation = _get_owned_conversation(db, conversation_id, owner.Id)
+    company = resolve_account_company(db, current_user)
+    conversation = _get_owned_conversation(db, conversation_id, company.Id)
     if conversation.Status == "closed":
         raise HTTPException(400, "This conversation has ended")
 
@@ -172,8 +172,8 @@ def close_conversation(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    conversation = _get_owned_conversation(db, conversation_id, owner.Id)
+    company = resolve_account_company(db, current_user)
+    conversation = _get_owned_conversation(db, conversation_id, company.Id)
     conversation.Status = "closed"
     db.commit()
 

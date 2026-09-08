@@ -1,16 +1,18 @@
 # app/routers/welco.py
 import json
+import os
 import time
 import uuid
 from collections import defaultdict, deque
 from datetime import datetime
 from pathlib import Path
 
+from dotenv import load_dotenv
 from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, Request, Response, UploadFile
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
-from ..deps import get_db, get_current_user, resolve_account_owner, instance_has_tier, instance_subscription_active
+from ..deps import get_db, get_current_user, resolve_account_company, instance_has_tier, instance_subscription_active
 from ..database import SessionLocal
 from ..email.service import send_email, send_live_handoff_email, FRONTEND_BASE_URL
 from ..welco_crawler import crawl_site
@@ -19,9 +21,11 @@ from .. import welco_documents
 from .. import notifications
 from .. import whatsapp
 
+load_dotenv()
+
 router = APIRouter()
 
-WIDGET_BASE_URL = "https://portal.kaptila.com/api"
+WIDGET_BASE_URL = os.getenv("API_BASE_URL", "https://welcochat.com/api")
 
 LOGO_UPLOAD_DIR = Path(__file__).resolve().parent.parent / "static" / "uploads" / "logos"
 MAX_LOGO_BYTES = 2 * 1024 * 1024
@@ -52,20 +56,20 @@ def _rate_limited(client_ip: str, public_id: str) -> bool:
     return False
 
 
-def _get_owned_instance(db: Session, instance_id: int, user_id: int) -> models.ServiceInstance:
+def _get_owned_instance(db: Session, instance_id: int, company_id: int) -> models.ServiceInstance:
     instance = (
         db.query(models.ServiceInstance)
         .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
         .filter(
             models.ServiceInstance.Id == instance_id,
-            models.Subscription.UserId == user_id,
+            models.Subscription.CompanyId == company_id,
         )
         .first()
     )
     if instance is None:
         raise HTTPException(404, "Service instance not found")
     if instance.ServiceKey != "welco":
-        raise HTTPException(400, "This endpoint is for Kaptila Welco instances only")
+        raise HTTPException(400, "This endpoint is for WelcoChat instances only")
     return instance
 
 
@@ -145,7 +149,7 @@ def activate_welco(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     config = json.loads(instance.ConfigurationData) if instance.ConfigurationData else {}
     website_url = config.get("website_url")
     if not website_url:
@@ -187,7 +191,7 @@ def welco_status(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     kb = (
         db.query(models.WelcoKnowledgeBase)
         .filter(models.WelcoKnowledgeBase.ServiceInstanceId == instance.Id)
@@ -213,14 +217,14 @@ def test_notification(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     if not instance_has_tier(db, instance, "Business"):
         raise HTTPException(403, "Slack/Teams/webhook notifications are available on the Business plan and up.")
     if body.channel_type not in ("slack", "teams", "generic"):
         raise HTTPException(400, "channel_type must be 'slack', 'teams' or 'generic'")
     try:
         notifications.send_notification(
-            body.channel_type, body.webhook_url, "This is a test notification from Kaptila Welco.",
+            body.channel_type, body.webhook_url, "This is a test notification from WelcoChat.",
             event="test", data={"instance_id": instance_id},
         )
     except Exception:
@@ -235,7 +239,7 @@ def upload_logo(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     if not instance_has_tier(db, instance, "Business"):
         raise HTTPException(403, "Custom widget branding is available on the Business plan and up.")
 
@@ -268,7 +272,7 @@ def delete_logo(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     if LOGO_UPLOAD_DIR.exists():
         for existing in LOGO_UPLOAD_DIR.glob(f"logo_{instance_id}.*"):
             existing.unlink()
@@ -290,7 +294,7 @@ def list_documents(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     docs = (
         db.query(models.WelcoDocument)
         .filter(models.WelcoDocument.ServiceInstanceId == instance.Id)
@@ -307,7 +311,7 @@ def upload_documents(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
 
     existing_count = (
         db.query(models.WelcoDocument)
@@ -362,7 +366,7 @@ def delete_document(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    instance = _get_owned_instance(db, instance_id, resolve_account_owner(db, current_user).Id)
+    instance = _get_owned_instance(db, instance_id, resolve_account_company(db, current_user).Id)
     doc = (
         db.query(models.WelcoDocument)
         .filter(models.WelcoDocument.Id == doc_id, models.WelcoDocument.ServiceInstanceId == instance.Id)
@@ -474,15 +478,16 @@ def widget_message(public_id: str, body: schemas.WelcoMessageRequest, request: R
     return schemas.WelcoMessageResponse(reply=reply, handoff=handoff)
 
 
-def _instance_owner_email(db: Session, service_instance_id: int) -> str | None:
+def _instance_notification_email(db: Session, service_instance_id: int) -> str | None:
+    """The handoff notification recipient is a per-instance setting (not the
+    account's own email) — empty/unset means the customer opted out of email
+    notifications entirely (they may still have Slack/Teams/webhook configured)."""
     instance = db.query(models.ServiceInstance).filter(models.ServiceInstance.Id == service_instance_id).first()
-    if instance is None:
+    if instance is None or not instance.ConfigurationData:
         return None
-    subscription = db.query(models.Subscription).filter(models.Subscription.Id == instance.SubscriptionId).first()
-    if subscription is None:
-        return None
-    user = db.query(models.User).filter(models.User.Id == subscription.UserId).first()
-    return user.Email if user else None
+    config = json.loads(instance.ConfigurationData)
+    email = (config.get("notification_email") or "").strip()
+    return email or None
 
 
 def _conv_message_out(m: models.WelcoConversationMessage) -> schemas.WelcoConvMessageRead:
@@ -498,10 +503,10 @@ def _notify_handoff(
     both need the exact same email + Slack/Teams/webhook notification on handoff."""
     live_chat_message = f"A visitor needs help on {widget_name} — open Live Chat: {FRONTEND_BASE_URL}/live-chat"
 
-    owner_email = _instance_owner_email(db, service_instance_id)
-    if owner_email:
+    notification_email = _instance_notification_email(db, service_instance_id)
+    if notification_email:
         try:
-            send_live_handoff_email(owner_email)
+            send_live_handoff_email(notification_email)
         except Exception:
             pass  # best-effort — a notification failure must not block the handoff itself
 
@@ -677,15 +682,9 @@ def widget_lead(public_id: str, body: schemas.WelcoLeadRequest, db: Session = De
                 },
             )
 
-    instance = db.query(models.ServiceInstance).filter(models.ServiceInstance.Id == kb.ServiceInstanceId).first()
-    owner_email = None
-    if instance is not None:
-        subscription = db.query(models.Subscription).filter(models.Subscription.Id == instance.SubscriptionId).first()
-        if subscription is not None:
-            user = db.query(models.User).filter(models.User.Id == subscription.UserId).first()
-            owner_email = user.Email if user else None
+    notification_email = _instance_notification_email(db, kb.ServiceInstanceId)
 
-    if owner_email:
+    if notification_email:
         contact_lines = []
         if body.email:
             contact_lines.append(f"<b>Email:</b> {body.email}")
@@ -694,15 +693,15 @@ def widget_lead(public_id: str, body: schemas.WelcoLeadRequest, db: Session = De
         contact_text = " / ".join([body.email or "", body.whatsapp or ""]).strip(" /")
 
         html_body = (
-            f"<p>A visitor asked to be contacted via your Kaptila Welco widget:</p>"
+            f"<p>A visitor asked to be contacted via your WelcoChat widget:</p>"
             f"<p><b>Name:</b> {body.name or '-'}<br>"
             f"{'<br>'.join(contact_lines)}</p>"
             f"<p><b>Chat history:</b><br>{(body.message or '-').replace(chr(10), '<br>')}</p>"
         )
-        text_body = f"New Welco contact request — {body.name or '-'} ({contact_text}): {body.message or '-'}"
+        text_body = f"New WelcoChat contact request — {body.name or '-'} ({contact_text}): {body.message or '-'}"
         send_email(
-            subject="A visitor wants to be contacted — Kaptila Welco",
-            email_to=owner_email,
+            subject="A visitor wants to be contacted — WelcoChat",
+            email_to=notification_email,
             html_body=html_body,
             text_body=text_body,
         )

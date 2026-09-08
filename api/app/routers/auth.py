@@ -11,7 +11,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from .. import models, schemas, google_oauth
-from ..deps import get_db, get_current_user
+from ..deps import get_db, get_current_user, ensure_company
 from ..security import (
     verify_password,
     get_password_hash,
@@ -128,11 +128,13 @@ def confirm_registration(token: str, db: Session = Depends(get_db)):
     )
 
     db.add(user)
+    db.flush()
 
     # előző request törlése
     db.delete(req)
-
     db.commit()
+
+    ensure_company(db, user)
 
     return {"message": "Registration confirmed. You can now log in."}
 
@@ -211,6 +213,7 @@ def google_login(
         db.add(user)
         db.commit()
         db.refresh(user)
+        ensure_company(db, user)
 
     _log_login(db, user.Id)
 

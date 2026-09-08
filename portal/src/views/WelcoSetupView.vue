@@ -60,7 +60,10 @@
       <!-- STEP 2: Connect content -->
       <section v-if="wizardStep === 2" class="order-section">
         <button class="back-btn" @click="wizardStep = 1">← Back</button>
-        <p class="step-subtitle">Tell Welco where to find your content.</p>
+        <p class="step-subtitle">
+          Tell Welco where to find your content.
+          <a href="/guides/prompt-and-content-guide/" target="_blank" rel="noopener">How to prepare good content for your agent</a>.
+        </p>
 
         <form class="billing-form" @submit.prevent="wizardStep = 3" novalidate>
           <div class="form-row">
@@ -339,7 +342,10 @@
 
           <div class="manage-section">
             <h3 class="manage-h3">Additional notes</h3>
-            <p class="field-hint">Changes here take effect immediately — no need to reactivate.</p>
+            <p class="field-hint">
+              Changes here take effect immediately — no need to reactivate.
+              <a href="/guides/prompt-and-content-guide/" target="_blank" rel="noopener">How to prepare good content for your agent</a>.
+            </p>
             <textarea v-model="form.additional_docs_note" class="input textarea textarea-lg" rows="6" placeholder="Optional — any extra context, FAQs or notes you want Welco to know about"></textarea>
             <div class="form-actions">
               <button class="btn btn-outline btn-sm" :disabled="savingNote" @click="saveNote">
@@ -351,8 +357,19 @@
 
           <div class="manage-section">
             <h3 class="manage-h3">Notifications</h3>
+
+            <div class="form-row">
+              <label class="form-label">Handoff email</label>
+              <input v-model="form.notification_email" type="email" class="input" placeholder="team@yourcompany.com" />
+              <span class="field-hint">Where handoff emails are sent. Leave empty to turn off email notifications — Slack/Teams/webhook below still work independently.</span>
+            </div>
+
+            <h4 class="manage-h4">Slack &amp; Teams</h4>
             <template v-if="hasBusinessTier">
-              <p class="field-hint">Get a Slack or Teams message when a visitor needs a human, in addition to email.</p>
+              <p class="field-hint">
+                Get a Slack or Teams message when a visitor needs a human.
+                <a href="/guides/slack-teams-setup/" target="_blank" rel="noopener">Step-by-step setup guide</a>.
+              </p>
               <div class="form-row">
                 <label class="form-label">Channel</label>
                 <select v-model="form.notification_channel_type" class="input">
@@ -366,27 +383,28 @@
                 <label class="form-label">Webhook URL</label>
                 <input v-model="form.notification_webhook_url" class="input" placeholder="https://hooks.slack.com/services/…" />
               </div>
-              <div class="form-actions">
-                <button
-                  v-if="form.notification_channel_type"
-                  type="button"
-                  class="btn btn-outline btn-sm"
-                  :disabled="testingNotification || !form.notification_webhook_url"
-                  @click="sendTestNotification"
-                >
-                  {{ testingNotification ? 'Sending…' : 'Send test message' }}
-                </button>
-                <button class="btn btn-outline btn-sm" :disabled="savingNotification" @click="saveNotificationSettings">
-                  {{ savingNotification ? 'Saving…' : 'Save notification settings' }}
-                </button>
-                <span v-if="notificationSaved" class="draft-saved">Saved.</span>
-              </div>
-              <p v-if="notificationTestResult" class="field-hint">{{ notificationTestResult }}</p>
             </template>
             <div v-else class="locked-feature">
               <p class="field-hint">Slack, Teams and webhook notifications are available on the Business plan and up.</p>
               <router-link v-if="subscriptionId" :to="`/subscriptions/${subscriptionId}/change-plan`" class="btn btn-outline btn-sm">Upgrade plan</router-link>
             </div>
+
+            <div class="form-actions">
+              <button
+                v-if="hasBusinessTier && form.notification_channel_type"
+                type="button"
+                class="btn btn-outline btn-sm"
+                :disabled="testingNotification || !form.notification_webhook_url"
+                @click="sendTestNotification"
+              >
+                {{ testingNotification ? 'Sending…' : 'Send test message' }}
+              </button>
+              <button class="btn btn-outline btn-sm" :disabled="savingNotification" @click="saveNotificationSettings">
+                {{ savingNotification ? 'Saving…' : 'Save notification settings' }}
+              </button>
+              <span v-if="notificationSaved" class="draft-saved">Saved.</span>
+            </div>
+            <p v-if="notificationTestResult" class="field-hint">{{ notificationTestResult }}</p>
           </div>
 
           <div class="manage-section">
@@ -539,6 +557,7 @@ const form = ref({
   widget_bg_color: '#ffffff',
   widget_theme: 'light',
   greeting_message: '',
+  notification_email: '',
   notification_channel_type: '',
   notification_webhook_url: '',
   whatsapp_account_sid: '',
@@ -742,6 +761,7 @@ function applyConfiguration(config: ServiceConfiguration | null) {
   const theme = config.widget_theme as string
   form.value.widget_theme = theme === 'dark' || theme === 'custom' ? theme : 'light'
   form.value.greeting_message = (config.greeting_message as string) ?? ''
+  form.value.notification_email = (config.notification_email as string) ?? ''
   form.value.notification_channel_type = (config.notification_channel_type as string) ?? ''
   form.value.notification_webhook_url = (config.notification_webhook_url as string) ?? ''
   form.value.whatsapp_account_sid = (config.whatsapp_account_sid as string) ?? ''

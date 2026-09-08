@@ -8,7 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
-from ..deps import get_db, get_current_user, resolve_account_owner, owner_has_tier
+from ..deps import get_db, get_current_user, resolve_account_company, owner_has_tier
 from ..security import get_password_hash, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 from ..email.service import send_email, render_template
 
@@ -29,12 +29,13 @@ def list_members(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    is_owner = owner.Id == current_user.Id
+    company = resolve_account_company(db, current_user)
+    is_owner = company.OwnerUserId == current_user.Id
+    owner_user = db.query(models.User).filter(models.User.Id == company.OwnerUserId).first()
 
     rows = (
         db.query(models.AccountMember)
-        .filter(models.AccountMember.OwnerUserId == owner.Id, models.AccountMember.Status != "revoked")
+        .filter(models.AccountMember.CompanyId == company.Id, models.AccountMember.Status != "revoked")
         .order_by(models.AccountMember.Created.asc())
         .all()
     )
@@ -51,9 +52,13 @@ def list_members(
 
     # Show the owner themselves as an implicit first row.
     owner_row = schemas.TeamMemberRead(
-        id=0, email=owner.Email, display_name=f"{owner.DisplayName} (Owner)", status="active", created=owner.Created,
+        id=0,
+        email=owner_user.Email if owner_user else "",
+        display_name=f"{owner_user.DisplayName} (Owner)" if owner_user else "Owner",
+        status="active",
+        created=owner_user.Created if owner_user else company.Created,
     )
-    tier_eligible = owner_has_tier(db, owner, "Business")
+    tier_eligible = owner_has_tier(db, company, "Business")
     return schemas.TeamListResponse(is_owner=is_owner, tier_eligible=tier_eligible, members=[owner_row] + members)
 
 
@@ -63,20 +68,20 @@ def invite_member(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    if owner.Id != current_user.Id:
+    company = resolve_account_company(db, current_user)
+    if company.OwnerUserId != current_user.Id:
         raise HTTPException(403, "Only the account owner can invite team members")
 
-    if not owner_has_tier(db, owner, "Business"):
+    if not owner_has_tier(db, company, "Business"):
         raise HTTPException(403, "Upgrade to Business to invite team members.")
 
-    if req.email.lower() == owner.Email.lower():
+    if req.email.lower() == current_user.Email.lower():
         raise HTTPException(400, "You can't invite yourself")
 
     existing_invite = (
         db.query(models.AccountMember)
         .filter(
-            models.AccountMember.OwnerUserId == owner.Id,
+            models.AccountMember.CompanyId == company.Id,
             models.AccountMember.InviteEmail == req.email,
             models.AccountMember.Status != "revoked",
         )
@@ -86,6 +91,7 @@ def invite_member(
         raise HTTPException(400, "This email is already part of your team")
 
     existing_user = db.query(models.User).filter(models.User.Email == req.email).first()
+    company_name = company.Name or "their company"
 
     if existing_user:
         already_member_elsewhere = (
@@ -94,32 +100,34 @@ def invite_member(
             .first()
         )
         if already_member_elsewhere:
-            raise HTTPException(400, "This email is already a team member of another Kaptila account")
+            raise HTTPException(400, "This email is already a team member of another WelcoChat account")
 
-        owns_subscription = (
-            db.query(models.Subscription)
-            .filter(models.Subscription.UserId == existing_user.Id)
-            .first()
-        )
-        if owns_subscription:
-            raise HTTPException(400, "This email already has its own Kaptila subscriptions — it can't also join as a team member")
+        if existing_user.CompanyId and existing_user.CompanyId != company.Id:
+            owns_subscription = (
+                db.query(models.Subscription)
+                .filter(models.Subscription.CompanyId == existing_user.CompanyId)
+                .first()
+            )
+            if owns_subscription:
+                raise HTTPException(400, "This email already has its own WelcoChat subscriptions — it can't also join as a team member")
 
         member = models.AccountMember(
-            OwnerUserId=owner.Id,
+            CompanyId=company.Id,
             MemberUserId=existing_user.Id,
             InviteEmail=req.email,
             Status="active",
         )
         db.add(member)
+        existing_user.CompanyId = company.Id
         db.commit()
         db.refresh(member)
 
-        html_body = f"<p>{owner.DisplayName} added you to their Kaptila account. Log in as usual at {FRONTEND_BASE_URL} to see their subscriptions.</p>"
+        html_body = f"<p>You've been added to {company_name}'s WelcoChat account. Log in as usual at {FRONTEND_BASE_URL} to see their subscriptions.</p>"
         send_email(
-            subject="You've been added to a Kaptila team",
+            subject="You've been added to a WelcoChat team",
             email_to=existing_user.Email,
             html_body=html_body,
-            text_body=f"{owner.DisplayName} added you to their Kaptila account. Log in at {FRONTEND_BASE_URL}.",
+            text_body=f"You've been added to {company_name}'s WelcoChat account. Log in at {FRONTEND_BASE_URL}.",
         )
         return schemas.TeamMemberRead(
             id=member.Id, email=member.InviteEmail, display_name=existing_user.DisplayName,
@@ -128,7 +136,7 @@ def invite_member(
 
     token = secrets.token_hex(16)
     member = models.AccountMember(
-        OwnerUserId=owner.Id,
+        CompanyId=company.Id,
         InviteEmail=req.email,
         InviteToken=token,
         Status="invited",
@@ -138,12 +146,12 @@ def invite_member(
     db.refresh(member)
 
     accept_url = f"{FRONTEND_BASE_URL}/accept-invite?token={token}"
-    html_body = render_template("team_invite.html", owner_display_name=owner.DisplayName, accept_url=accept_url)
+    html_body = render_template("team_invite.html", company_name=company_name, accept_url=accept_url)
     send_email(
-        subject=f"{owner.DisplayName} invited you to Kaptila",
+        subject=f"You're invited to join {company_name} on WelcoChat",
         email_to=req.email,
         html_body=html_body,
-        text_body=f"{owner.DisplayName} invited you to join their Kaptila account: {accept_url}",
+        text_body=f"You've been invited to join {company_name}'s WelcoChat account: {accept_url}",
     )
 
     return schemas.TeamMemberRead(
@@ -157,13 +165,13 @@ def remove_member(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    owner = resolve_account_owner(db, current_user)
-    if owner.Id != current_user.Id:
+    company = resolve_account_company(db, current_user)
+    if company.OwnerUserId != current_user.Id:
         raise HTTPException(403, "Only the account owner can remove team members")
 
     member = (
         db.query(models.AccountMember)
-        .filter(models.AccountMember.Id == member_id, models.AccountMember.OwnerUserId == owner.Id)
+        .filter(models.AccountMember.Id == member_id, models.AccountMember.CompanyId == company.Id)
         .first()
     )
     if member is None:
@@ -183,10 +191,13 @@ def get_invite_details(token: str, db: Session = Depends(get_db)):
     if member is None:
         raise HTTPException(404, "Invalid or expired invite")
 
-    owner = db.query(models.User).filter(models.User.Id == member.OwnerUserId).first()
+    company = db.query(models.Company).filter(models.Company.Id == member.CompanyId).first()
+    # Field name kept as owner_display_name for API/frontend compatibility —
+    # it now carries the company's name, not a person's, which still reads
+    # correctly in "Join {name}'s WelcoChat account".
     return schemas.InviteDetailsRead(
         invite_email=member.InviteEmail,
-        owner_display_name=owner.DisplayName if owner else "A Kaptila user",
+        owner_display_name=company.Name if company and company.Name else "This team",
     )
 
 
@@ -210,6 +221,10 @@ def accept_invite(req: schemas.AcceptInviteRequest, db: Session = Depends(get_db
         HashedPassword=get_password_hash(req.password),
         IsActive=True,
         RoleId=_client_role_id(db),
+        # Joins the inviting company directly — they do not get their own
+        # new Company (that's what ensure_company is for, on the signup
+        # paths that don't come through an invite).
+        CompanyId=member.CompanyId,
     )
     db.add(user)
     db.flush()

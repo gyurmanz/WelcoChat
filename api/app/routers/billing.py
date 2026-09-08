@@ -94,6 +94,17 @@ def create_portal_session(
     return schemas.PortalSessionRead(url=url)
 
 
+def _current_period_end(stripe_sub: dict):
+    """Newer Stripe API versions moved current_period_end off the
+    subscription object onto its first item; fall back to the old
+    top-level field for older responses."""
+    items = (stripe_sub.get("items") or {}).get("data") or []
+    ts = stripe_sub.get("current_period_end")
+    if ts is None and items:
+        ts = items[0].get("current_period_end")
+    return datetime.fromtimestamp(ts, tz=timezone.utc).replace(tzinfo=None) if ts else None
+
+
 def _sync_subscription_from_stripe(db: Session, stripe_sub) -> None:
     sub = (
         db.query(models.Subscription)
@@ -106,8 +117,9 @@ def _sync_subscription_from_stripe(db: Session, stripe_sub) -> None:
     sub.Status = stripe_sub["status"]
     if stripe_sub.get("trial_end"):
         sub.TrialEndsAt = datetime.fromtimestamp(stripe_sub["trial_end"], tz=timezone.utc).replace(tzinfo=None)
-    if stripe_sub.get("current_period_end"):
-        sub.EndDate = datetime.fromtimestamp(stripe_sub["current_period_end"], tz=timezone.utc).replace(tzinfo=None)
+    end = _current_period_end(stripe_sub)
+    if end:
+        sub.EndDate = end
 
     # A Subscription Schedule phase transition (a deferred downgrade taking
     # effect) changes the underlying Stripe subscription's price directly —
@@ -164,10 +176,7 @@ def _handle_checkout_completed(db: Session, session: dict) -> None:
         logger.exception("Failed to retrieve Stripe subscription %s after checkout", stripe_sub_id)
         return
 
-    end = (
-        datetime.fromtimestamp(stripe_sub["current_period_end"], tz=timezone.utc).replace(tzinfo=None)
-        if stripe_sub.get("current_period_end") else None
-    )
+    end = _current_period_end(stripe_sub)
     paid_price = (
         Decimal(str(round(float(service.AnnualPrice) * 12, 2)))
         if billing_period == "annual" else Decimal(str(service.MonthlyPrice))

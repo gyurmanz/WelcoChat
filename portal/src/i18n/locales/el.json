@@ -461,6 +461,8 @@
     "crawledPagesOne": "Ανιχνεύσαμε {count} σελίδα του ιστότοπού σας.",
     "crawledPagesMany": "Ανιχνεύσαμε {count} σελίδες του ιστότοπού σας.",
     "pasteSnippet": "Επικολλήστε αυτό το απόσπασμα κώδικα στο HTML του ιστότοπού σας για να προσθέσετε το widget:",
+    "installGuideHint": "Δεν ξέρετε πώς να το προσθέσετε στο WordPress, το Wix, το GoDaddy ή άλλον κατασκευαστή;",
+    "installGuideLink": "Δείτε τον αναλυτικό οδηγό",
     "copied": "Αντιγράφηκε!",
     "copy": "Αντιγραφή",
     "subscription": "Συνδρομή",

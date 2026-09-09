@@ -461,6 +461,8 @@
     "crawledPagesOne": "{count} oldalt térképeztünk fel a weboldaláról.",
     "crawledPagesMany": "{count} oldalt térképeztünk fel a weboldaláról.",
     "pasteSnippet": "Illessze be ezt a kódrészletet a weboldala HTML-jébe a widget hozzáadásához:",
+    "installGuideHint": "Nem tudod, hogyan add hozzá WordPresshez, Wixhez, GoDaddyhoz vagy más szerkesztőhöz?",
+    "installGuideLink": "Nézd meg a lépésről lépésre útmutatót",
     "copied": "Másolva!",
     "copy": "Másolás",
     "subscription": "Előfizetés",

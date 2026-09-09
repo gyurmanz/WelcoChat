@@ -675,4 +675,139 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://welcochat.com/en/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/de/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/fr/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hu/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/pl/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/sk/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/hr/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/el/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://welcochat.com/es/guides/add-to-your-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

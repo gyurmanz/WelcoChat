@@ -29,6 +29,12 @@
       "description": "Lépésről lépésre: kapcsolja össze a Slacket vagy a Microsoft Teamst a WelcoChattal, hogy csapata azonnal értesüljön, amint egy látogatónak emberre van szüksége.",
       "ogTitle": "Slack és Teams beállítási útmutató - WelcoChat",
       "ogDescription": "Lépésről lépésre: kapcsolja össze a Slacket vagy a Microsoft Teamst a WelcoChat átadási értesítéseivel."
+    },
+    "guideInstall": {
+      "title": "Widget hozzáadása a weboldaladhoz - WelcoChat",
+      "description": "Lépésről lépésre: a WelcoChat widget hozzáadása WordPresshez, Wixhez, GoDaddyhoz, Squarespace-hez, Shopify-hoz vagy bármely más weboldalszerkesztőhöz.",
+      "ogTitle": "Widget hozzáadása a weboldaladhoz - WelcoChat",
+      "ogDescription": "Lépésről lépésre: a WelcoChat widget hozzáadása WordPresshez, Wixhez, GoDaddyhoz, Squarespace-hez, Shopify-hoz vagy bármely más weboldalszerkesztőhöz."
     }
   },
   "common": {
@@ -70,9 +76,18 @@
       "bubbleHandoff": "Átadva a csapatának — hamarosan válaszolnak itt."
     },
     "outputCards": [
-      { "title": "Válasz a saját tartalma alapján", "body": "A látogató az árakról kérdezett → közvetlenül az árazási oldaláról válaszolva." },
-      { "title": "Átadva egy embernek", "body": "A látogató olyat kérdezett, amit az ügynök nem tudott → csapatát e-mailben értesítettük." },
-      { "title": "Érdeklődő rögzítve", "body": "Név, e-mail, cég és érdeklődési kör — automatikusan mentve." }
+      {
+        "title": "Válasz a saját tartalma alapján",
+        "body": "A látogató az árakról kérdezett → közvetlenül az árazási oldaláról válaszolva."
+      },
+      {
+        "title": "Átadva egy embernek",
+        "body": "A látogató olyat kérdezett, amit az ügynök nem tudott → csapatát e-mailben értesítettük."
+      },
+      {
+        "title": "Érdeklődő rögzítve",
+        "body": "Név, e-mail, cég és érdeklődési kör — automatikusan mentve."
+      }
     ],
     "problem": {
       "h2": "A legtöbb weboldal-látogató úgy távozik, hogy soha nem tesz fel kérdést.",
@@ -88,29 +103,95 @@
     "howItWorks": {
       "h2": "Hogyan működik a WelcoChat",
       "steps": [
-        { "title": "Fiók létrehozása", "body": "Regisztráljon, és indítsa el 14 napos ingyenes próbaidőszakát — bankkártya nem szükséges." },
-        { "title": "Tartalom csatlakoztatása", "body": "A WelcoChat feltérképezi weboldalát, és/vagy dokumentumokat és GYIK-eket tölthet fel a tudásbázis felépítéséhez." },
-        { "title": "Widget testreszabása", "body": "Név, avatár, színek, üdvözlő üzenet — tegye a weboldala részévé." },
-        { "title": "Egy kódsor beágyazása", "body": "Illessze be a kódrészletet a weboldalára. Kész." },
-        { "title": "Áttekintés és fejlesztés", "body": "Tekintse meg az irányítópulton a beszélgetéseket és a megválaszolatlan kérdéseket — a tudásbázis idővel egyre jobb lesz." },
-        { "title": "Emberi átadás, mindig elérhető", "body": "Az ügynök átad, amikor bizonytalan, vagy ha egy látogató embert kér." }
+        {
+          "title": "Fiók létrehozása",
+          "body": "Regisztráljon, és indítsa el 14 napos ingyenes próbaidőszakát — bankkártya nem szükséges."
+        },
+        {
+          "title": "Tartalom csatlakoztatása",
+          "body": "A WelcoChat feltérképezi weboldalát, és/vagy dokumentumokat és GYIK-eket tölthet fel a tudásbázis felépítéséhez."
+        },
+        {
+          "title": "Widget testreszabása",
+          "body": "Név, avatár, színek, üdvözlő üzenet — tegye a weboldala részévé."
+        },
+        {
+          "title": "Egy kódsor beágyazása",
+          "body": "Illessze be a kódrészletet a weboldalára. Kész."
+        },
+        {
+          "title": "Áttekintés és fejlesztés",
+          "body": "Tekintse meg az irányítópulton a beszélgetéseket és a megválaszolatlan kérdéseket — a tudásbázis idővel egyre jobb lesz."
+        },
+        {
+          "title": "Emberi átadás, mindig elérhető",
+          "body": "Az ügynök átad, amikor bizonytalan, vagy ha egy látogató embert kér."
+        }
       ]
     },
     "features": {
       "h2": "Minden, amire szüksége van egy AI ügynök weboldalára helyezéséhez",
       "cards": [
-        { "title": "Weboldal tudásbázis", "body": "Automatikus feltérképezés, PDF-ek és dokumentumok feltöltése, folyamatos frissítés.", "tier": null },
-        { "title": "Beágyazható widget", "body": "Egyetlen szkript tag, teljesen testreszabható megjelenés.", "tier": null },
-        { "title": "Érdeklődőgyűjtés", "body": "Strukturált név, e-mail, cég és szándék minden minősített beszélgetéshez.", "tier": null },
-        { "title": "Élő emberi átadás", "body": "Csapata értesítést kap, és élőben válaszolhat ugyanabban a beszélgetésben a WelcoChat portálról — nem csak egy értesítést kap.", "tier": null },
-        { "title": "Statisztikai irányítópult", "body": "Beszélgetési volumen, átadási arány, gyűjtött érdeklődők, tudásbázis állapota.", "tier": null },
-        { "title": "Slack, Teams és webhook értesítések", "body": "Kapjon értesítést, amint egy látogatónak emberre van szüksége — az általános webhook lefedi a Zapiert, Make-et vagy bármely más eszközt.", "tier": "Business+" },
-        { "title": "WhatsApp csatorna", "body": "Csatlakoztassa saját WhatsApp Business számát, hogy ugyanaz az ügynök ott is válaszoljon, ugyanazzal az élő átadással.", "tier": "Business+" },
-        { "title": "Csapatfiókok", "body": "Hívjon meg csapattagokat az ügynök közös kezelésére és az élő beszélgetések közös lebonyolítására.", "tier": "Business+" },
-        { "title": "Egyedi logó és widget-pozíció", "body": "Töltse fel saját logóját, és válasszon bal alsó vagy jobb alsó elhelyezést.", "tier": "Business+" },
-        { "title": "Egyedi CSS", "body": "Nyers CSS felülírás, biztonságosan a widget saját shadow DOM-jára korlátozva — nem befolyásolhatja oldala többi részét.", "tier": "Enterprise" },
-        { "title": "Kép csatolása", "body": "A látogatók fotót csatolhatnak, és az ügynök valódi AI-látás segítségével válaszol a kép és a weboldal tartalma alapján.", "tier": "Business+" },
-        { "title": "Többnyelvű", "body": "Automatikusan a látogató saját nyelvén válaszol.", "tier": null }
+        {
+          "title": "Weboldal tudásbázis",
+          "body": "Automatikus feltérképezés, PDF-ek és dokumentumok feltöltése, folyamatos frissítés.",
+          "tier": null
+        },
+        {
+          "title": "Beágyazható widget",
+          "body": "Egyetlen szkript tag, teljesen testreszabható megjelenés.",
+          "tier": null
+        },
+        {
+          "title": "Érdeklődőgyűjtés",
+          "body": "Strukturált név, e-mail, cég és szándék minden minősített beszélgetéshez.",
+          "tier": null
+        },
+        {
+          "title": "Élő emberi átadás",
+          "body": "Csapata értesítést kap, és élőben válaszolhat ugyanabban a beszélgetésben a WelcoChat portálról — nem csak egy értesítést kap.",
+          "tier": null
+        },
+        {
+          "title": "Statisztikai irányítópult",
+          "body": "Beszélgetési volumen, átadási arány, gyűjtött érdeklődők, tudásbázis állapota.",
+          "tier": null
+        },
+        {
+          "title": "Slack, Teams és webhook értesítések",
+          "body": "Kapjon értesítést, amint egy látogatónak emberre van szüksége — az általános webhook lefedi a Zapiert, Make-et vagy bármely más eszközt.",
+          "tier": "Business+"
+        },
+        {
+          "title": "WhatsApp csatorna",
+          "body": "Csatlakoztassa saját WhatsApp Business számát, hogy ugyanaz az ügynök ott is válaszoljon, ugyanazzal az élő átadással.",
+          "tier": "Business+"
+        },
+        {
+          "title": "Csapatfiókok",
+          "body": "Hívjon meg csapattagokat az ügynök közös kezelésére és az élő beszélgetések közös lebonyolítására.",
+          "tier": "Business+"
+        },
+        {
+          "title": "Egyedi logó és widget-pozíció",
+          "body": "Töltse fel saját logóját, és válasszon bal alsó vagy jobb alsó elhelyezést.",
+          "tier": "Business+"
+        },
+        {
+          "title": "Egyedi CSS",
+          "body": "Nyers CSS felülírás, biztonságosan a widget saját shadow DOM-jára korlátozva — nem befolyásolhatja oldala többi részét.",
+          "tier": "Enterprise"
+        },
+        {
+          "title": "Kép csatolása",
+          "body": "A látogatók fotót csatolhatnak, és az ügynök valódi AI-látás segítségével válaszol a kép és a weboldal tartalma alapján.",
+          "tier": "Business+"
+        },
+        {
+          "title": "Többnyelvű",
+          "body": "Automatikusan a látogató saját nyelvén válaszol.",
+          "tier": null
+        }
       ]
     },
     "pricing": {
@@ -174,21 +255,66 @@
     "faq": {
       "h2": "Gyakran ismételt kérdések",
       "items": [
-        { "q": "Milyen gyorsan élesíthetem a WelcoChatot a weboldalamon?", "a": "Percek alatt — hozzon létre fiókot, csatlakoztassa tartalmát, illesszen be egy kódrészletet." },
-        { "q": "Kitalál-e néha dolgokat az ügynök?", "a": "Nem. Csak az Ön által csatlakoztatott tartalom alapján válaszol. Ha nem biztos benne, átadja egy embernek, nem találgat." },
-        { "q": "Mi történik, ha az ügynök nem tud válaszolni?", "a": "Csapata azonnal e-mailben (vagy Slack/Teams/webhookon Business+ csomagnál) értesül, és csatlakozhat a beszélgetéshez, élőben válaszolva a portálról." },
-        { "q": "Szükségem van bankkártyára az induláshoz?", "a": "Nem — minden fiók 14 napos ingyenes próbát kap, bankkártya nélkül." },
-        { "q": "Használhatom a WelcoChatot több weboldalon is?", "a": "Minden előfizetés egy weboldalra vonatkozik. További weboldalakhoz hozzon létre újabb előfizetést — vegye fel velünk a kapcsolatot, ha többet állítana be." },
-        { "q": "Elérhetik a látogatók az ügynököt WhatsAppon is?", "a": "Igen, a Business csomagtól kezdve — csatlakoztassa saját WhatsApp Business számát, és ugyanaz az ügynök ott is válaszol, ugyanazzal az élő átadással." },
-        { "q": "Kezelheti-e az ügynököt egynél több személy a csapatomból?", "a": "Igen, a Business csomagtól kezdve — hívjon meg csapattagokat WelcoChat fiókjához." },
-        { "q": "Használhatom saját logómat, és kiválaszthatom, melyik oldalon nyíljon a widget?", "a": "Igen, a Business csomagtól kezdve. Az Enterprise ráadásul egyedi CSS felülírást is tartalmaz a finomhangoláshoz." },
-        { "q": "Milyen nyelveket támogat?", "a": "Az ügynök automatikusan felismeri és a látogató nyelvén válaszol." },
-        { "q": "Láthatom, mit kérdeznek a látogatók?", "a": "Igen — a statisztikai irányítópult mutatja a beszélgetési volument, az átadási arányt és az érdeklődőket, és minden átadott beszélgetés látható az Élő chatben." },
-        { "q": "Mi történik, ha lejár a próbaidőszakom vagy megszűnik az előfizetésem?", "a": "A widget szünetel a weboldalán, amíg a számlázás nem rendeződik — a látogatók egyszerűen nem látják majd, nem egy hibás chatet. Portál-hozzáférése és minden beállítása érintetlen marad, és minden folytatódik, amint előfizetése ismét aktív lesz." },
-        { "q": "Válthatok később csomagot?", "a": "Igen — a portálról bármikor válthat magasabb vagy alacsonyabb csomagra. Visszafokozáskor semmi, amit beállított, nem törlődik; a magasabb szinthez kötött funkciók csak szünetelnek, amíg ismét nem frissít." },
-        { "q": "Küldhetnek képeket a látogatók?", "a": "Igen, a Business csomagtól kezdve — a látogatók csatolhatnak egy fotót, és az ügynök valóban megnézi válasz előtt, nem csak a hozzá tartozó szöveget." },
-        { "q": "Frissíthetem weboldalam tartalmát az élesítés után is?", "a": "Igen — bármikor módosíthatja a csatlakoztatott weboldal URL-jét, vagy szerkesztheti a feltöltött dokumentumokat és megjegyzéseket a portálról; a WelcoChat leállás nélkül tanulja meg az új tartalmat." },
-        { "q": "Lassítja a widget a weboldalamat, vagy működik mobilon?", "a": "Aszinkron módon töltődik be, így soha nem blokkolja az oldalát, és teljes mértékben használható telefonon és tableten." }
+        {
+          "q": "Milyen gyorsan élesíthetem a WelcoChatot a weboldalamon?",
+          "a": "Percek alatt — hozzon létre fiókot, csatlakoztassa tartalmát, illesszen be egy kódrészletet."
+        },
+        {
+          "q": "Kitalál-e néha dolgokat az ügynök?",
+          "a": "Nem. Csak az Ön által csatlakoztatott tartalom alapján válaszol. Ha nem biztos benne, átadja egy embernek, nem találgat."
+        },
+        {
+          "q": "Mi történik, ha az ügynök nem tud válaszolni?",
+          "a": "Csapata azonnal e-mailben (vagy Slack/Teams/webhookon Business+ csomagnál) értesül, és csatlakozhat a beszélgetéshez, élőben válaszolva a portálról."
+        },
+        {
+          "q": "Szükségem van bankkártyára az induláshoz?",
+          "a": "Nem — minden fiók 14 napos ingyenes próbát kap, bankkártya nélkül."
+        },
+        {
+          "q": "Használhatom a WelcoChatot több weboldalon is?",
+          "a": "Minden előfizetés egy weboldalra vonatkozik. További weboldalakhoz hozzon létre újabb előfizetést — vegye fel velünk a kapcsolatot, ha többet állítana be."
+        },
+        {
+          "q": "Elérhetik a látogatók az ügynököt WhatsAppon is?",
+          "a": "Igen, a Business csomagtól kezdve — csatlakoztassa saját WhatsApp Business számát, és ugyanaz az ügynök ott is válaszol, ugyanazzal az élő átadással."
+        },
+        {
+          "q": "Kezelheti-e az ügynököt egynél több személy a csapatomból?",
+          "a": "Igen, a Business csomagtól kezdve — hívjon meg csapattagokat WelcoChat fiókjához."
+        },
+        {
+          "q": "Használhatom saját logómat, és kiválaszthatom, melyik oldalon nyíljon a widget?",
+          "a": "Igen, a Business csomagtól kezdve. Az Enterprise ráadásul egyedi CSS felülírást is tartalmaz a finomhangoláshoz."
+        },
+        {
+          "q": "Milyen nyelveket támogat?",
+          "a": "Az ügynök automatikusan felismeri és a látogató nyelvén válaszol."
+        },
+        {
+          "q": "Láthatom, mit kérdeznek a látogatók?",
+          "a": "Igen — a statisztikai irányítópult mutatja a beszélgetési volument, az átadási arányt és az érdeklődőket, és minden átadott beszélgetés látható az Élő chatben."
+        },
+        {
+          "q": "Mi történik, ha lejár a próbaidőszakom vagy megszűnik az előfizetésem?",
+          "a": "A widget szünetel a weboldalán, amíg a számlázás nem rendeződik — a látogatók egyszerűen nem látják majd, nem egy hibás chatet. Portál-hozzáférése és minden beállítása érintetlen marad, és minden folytatódik, amint előfizetése ismét aktív lesz."
+        },
+        {
+          "q": "Válthatok később csomagot?",
+          "a": "Igen — a portálról bármikor válthat magasabb vagy alacsonyabb csomagra. Visszafokozáskor semmi, amit beállított, nem törlődik; a magasabb szinthez kötött funkciók csak szünetelnek, amíg ismét nem frissít."
+        },
+        {
+          "q": "Küldhetnek képeket a látogatók?",
+          "a": "Igen, a Business csomagtól kezdve — a látogatók csatolhatnak egy fotót, és az ügynök valóban megnézi válasz előtt, nem csak a hozzá tartozó szöveget."
+        },
+        {
+          "q": "Frissíthetem weboldalam tartalmát az élesítés után is?",
+          "a": "Igen — bármikor módosíthatja a csatlakoztatott weboldal URL-jét, vagy szerkesztheti a feltöltött dokumentumokat és megjegyzéseket a portálról; a WelcoChat leállás nélkül tanulja meg az új tartalmat."
+        },
+        {
+          "q": "Lassítja a widget a weboldalamat, vagy működik mobilon?",
+          "a": "Aszinkron módon töltődik be, így soha nem blokkolja az oldalát, és teljes mértékben használható telefonon és tableten."
+        }
       ]
     },
     "contact": {
@@ -205,12 +331,30 @@
         "website": "Weboldal",
         "topicLabel": "Miben segíthetünk?",
         "topics": [
-          { "value": "question_before_registering", "label": "Kérdésem van a regisztráció előtt" },
-          { "value": "choosing_plan", "label": "Segítségre van szükségem a csomagválasztásban" },
-          { "value": "billing", "label": "Számlázási kérdésem van" },
-          { "value": "technical", "label": "Technikai kérdésem van" },
-          { "value": "partnership", "label": "Partnerség" },
-          { "value": "other", "label": "Egyéb" }
+          {
+            "value": "question_before_registering",
+            "label": "Kérdésem van a regisztráció előtt"
+          },
+          {
+            "value": "choosing_plan",
+            "label": "Segítségre van szükségem a csomagválasztásban"
+          },
+          {
+            "value": "billing",
+            "label": "Számlázási kérdésem van"
+          },
+          {
+            "value": "technical",
+            "label": "Technikai kérdésem van"
+          },
+          {
+            "value": "partnership",
+            "label": "Partnerség"
+          },
+          {
+            "value": "other",
+            "label": "Egyéb"
+          }
         ],
         "message": "Üzenet",
         "submit": "Üzenet küldése",
@@ -226,21 +370,66 @@
     "intro": "Jelen Általános Szerződési Feltételek (\"Feltételek\") szabályozzák a WelcoChathoz és a WelcoChat ügyfélportálhoz (<code>/portal</code>) (együttesen: \"Szolgáltatások\") való hozzáférést és azok használatát, amelyeket a Mango Group, egy észt vállalat nyújt a WelcoChat márkanév alatt (\"WelcoChat\", \"mi\"). WelcoChat fiók létrehozásával vagy a Szolgáltatások használatával Ön elfogadja ezeket a Feltételeket saját maga, illetve — ha alkalmazandó — az Ön által képviselt cég nevében (\"Ön\").",
     "note": "A Mango Group észtországi cégbejegyzése folyamatban van. A folyamat lezárultával ez az oldal frissül teljes, bejegyzett üzleti adatainkkal (a jogi személy neve, cégjegyzékszám és bejegyzett cím). Addig is elérhet minket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címen.",
     "sections": [
-      { "h2": "1. A Szolgáltatás", "body": "A WelcoChat egy AI ügynök, amelyet a saját weboldalára ágyaz be. Weboldaláról feltérképezett tartalom alapján válaszol a látogatók kérdéseire, érdeklődőket gyűjt, és e-mailben (vagy Slack/Teams/webhookon Business+ csomagnál) átadja csapatának, ha nem tud magabiztosan válaszolni." },
-      { "h2": "2. Fiókok", "body": "WelcoChat fiók létrehozásakor pontos információkat kell megadnia, és felelős a fiókja alatt zajló minden tevékenységért, valamint bejelentkezési adatai bizalmas kezeléséért. Kérjük, azonnal értesítsen minket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címen, ha fiókjának jogosulatlan használatát gyanítja." },
-      { "h2": "3. Ingyenes próbaidőszak", "body": "Minden új előfizetés 14 napos ingyenes próbaidőszakkal indul. A próba megkezdéséhez nincs szükség fizetési mód megadására, és a próbaidőszak alatt semmit sem számítunk fel. Ha a próbaidőszak vége előtt hozzáad egy fizetési módot, a számlázás automatikusan megkezdődik a próbaidőszak végén, az Ön által kiválasztott csomag és számlázási időszak szerint. Ha a próbaidőszak végén nincs rögzített fizetési mód, az adott előfizetés számlázása szünetel (nem törlődik), amíg fizetési módot nem ad meg — adatai és beállításai megmaradnak." },
-      { "h2": "4. Előfizetések és számlázás", "body": "A fizetős előfizetéseket havi vagy éves gyakorisággal, előre számlázzuk, a fizetéskor kiválasztottak szerint. Az éves csomagok a teljes évre előre kerülnek számlázásra. Az előfizetések automatikusan megújulnak az egymást követő időszakokra, hacsak nem mondja le a megújulás dátuma előtt. A fizetéseket a Stripe dolgozza fel; a WelcoChat nem tárolja kártyaadatait. Az árak adott esetben ÁFA nélkül jelennek meg, amelyet a fizetés helye szerint hozzáadhatunk a fizetéskor. A jövőbeli számlázási időszakok árait legalább 30 napos, e-mailes előzetes értesítéssel módosíthatjuk." },
-      { "h2": "5. Lemondás és visszatérítés", "body": "Előfizetését bármikor lemondhatja a Számlázási Portálon, amely az ügyfélportál Számlák oldaláról érhető el. A lemondás a jelenlegi számlázási időszak végén lép hatályba; addig megtartja a hozzáférést. A már kifizetett díjak nem téríthetők vissza, kivéve, ha az alkalmazandó jog ezt előírja." },
-      { "h2": "6. Elfogadható használat", "body": "Ön vállalja, hogy nem használja a Szolgáltatásokat a következőkre: bármely alkalmazandó jog megsértése; jogellenes, jogsértő vagy káros tartalom továbbítása; a Szolgáltatások vagy a WelcoChat infrastruktúrájának megzavarására, visszafejtésére vagy jogosulatlan hozzáférésre irányuló kísérlet; vagy a Szolgáltatások olyan módon történő használata, amely ésszerűen visszaélésnek vagy az alapul szolgáló AI-rendszerek túlterhelésének minősülhet. Az ezt a szakaszt megsértő fiókokat felfüggeszthetjük." },
-      { "h2": "7. AI által generált eredmény", "body": "A WelcoChat AI nyelvi modelleket használ a válaszok generálásához. Az AI eredménye pontatlan vagy hiányos lehet. A WelcoChat úgy lett kialakítva, hogy csak saját weboldalának tartalma alapján válaszoljon, és bizonytalanság esetén átadjon egy embernek, de Ön felelős marad a fontos döntésekben felhasznált eredmények ellenőrzéséért." },
-      { "h2": "8. Az Ön tartalma", "body": "Ön megtartja a WelcoChat által feltérképezett weboldal-tartalom, valamint bármely, Ön vagy végfelhasználói által a Szolgáltatásokon keresztül megadott adat (\"Az Ön Tartalma\") tulajdonjogát. Ön licencet ad a WelcoChatnak Az Ön Tartalmának feldolgozására, kizárólag a Szolgáltatások nyújtása és fejlesztése céljából. Ön felelős azért, hogy rendelkezzen a szükséges jogokkal Az Ön Tartalmára vonatkozóan, valamint saját végfelhasználóinak a widgeten keresztül gyűjtött adataiért, az alkalmazandó jognak megfelelően." },
-      { "h2": "9. Harmadik féltől származó szolgáltatások", "body": "A WelcoChat harmadik féltől származó szolgáltatókra támaszkodik a Szolgáltatások működtetéséhez, beleértve a Stripe-ot (fizetések), az Anthropicot (AI-feldolgozás), valamint infrastruktúra- és e-mail-szolgáltatókat. A Szolgáltatások használata elfogadását jelenti annak, hogy a releváns adatokat e szolgáltatók dolgozzák fel, ahogy azt <a href=\"{{PRIVACY_URL}}\">Adatvédelmi Szabályzatunk</a> ismerteti." },
-      { "h2": "10. Szellemi tulajdon", "body": "A WelcoChat és licencadói megtartanak minden jogot, jogcímet és érdekeltséget a Szolgáltatásokban, beleértve az alapul szolgáló szoftvert, a dizájnt és a márkanevet. Jelen Feltételek semmilyen ilyen jogot nem ruháznak Önre a Szolgáltatások rendeltetésszerű használatára vonatkozó korlátozott jogon túl." },
-      { "h2": "11. Felelősség korlátozása", "body": "A jog által megengedett legnagyobb mértékben a WelcoChat nem felel a Szolgáltatások használatából eredő közvetett, véletlen vagy következményes károkért. Bármely, a Szolgáltatásokkal kapcsolatos igényünkkel kapcsolatos teljes felelősségünk az érintett előfizetésért az igényt megelőző 12 hónapban Ön által fizetett összegre korlátozódik." },
-      { "h2": "12. Megszüntetés", "body": "Felfüggeszthetjük vagy megszüntethetjük hozzáférését a Szolgáltatásokhoz jelen Feltételek megsértése, nemfizetés, vagy jogszabályi előírás esetén, lehetőség szerint értesítéssel. Ön bármikor abbahagyhatja a Szolgáltatások használatát, és lemondhatja előfizetését az 5. szakaszban leírtak szerint." },
-      { "h2": "13. A Feltételek módosításai", "body": "Ezeket a Feltételeket időről időre frissíthetjük. A lényeges változásokról hatálybalépésük előtt e-mailben vagy az ügyfélportálon keresztül értesítjük. A Szolgáltatások folyamatos használata egy változás hatálybalépése után a frissített Feltételek elfogadását jelenti." },
-      { "h2": "14. Irányadó jog", "body": "Jelen Feltételekre Észtország joga irányadó, a kollíziós jogi elvek figyelembevétele nélkül, hacsak lakóhelye szerinti ország kötelező fogyasztóvédelmi joga másként nem rendelkezik." },
-      { "h2": "15. Kapcsolat", "body": "A jelen Feltételekkel kapcsolatos kérdéseket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címre küldheti." }
+      {
+        "h2": "1. A Szolgáltatás",
+        "body": "A WelcoChat egy AI ügynök, amelyet a saját weboldalára ágyaz be. Weboldaláról feltérképezett tartalom alapján válaszol a látogatók kérdéseire, érdeklődőket gyűjt, és e-mailben (vagy Slack/Teams/webhookon Business+ csomagnál) átadja csapatának, ha nem tud magabiztosan válaszolni."
+      },
+      {
+        "h2": "2. Fiókok",
+        "body": "WelcoChat fiók létrehozásakor pontos információkat kell megadnia, és felelős a fiókja alatt zajló minden tevékenységért, valamint bejelentkezési adatai bizalmas kezeléséért. Kérjük, azonnal értesítsen minket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címen, ha fiókjának jogosulatlan használatát gyanítja."
+      },
+      {
+        "h2": "3. Ingyenes próbaidőszak",
+        "body": "Minden új előfizetés 14 napos ingyenes próbaidőszakkal indul. A próba megkezdéséhez nincs szükség fizetési mód megadására, és a próbaidőszak alatt semmit sem számítunk fel. Ha a próbaidőszak vége előtt hozzáad egy fizetési módot, a számlázás automatikusan megkezdődik a próbaidőszak végén, az Ön által kiválasztott csomag és számlázási időszak szerint. Ha a próbaidőszak végén nincs rögzített fizetési mód, az adott előfizetés számlázása szünetel (nem törlődik), amíg fizetési módot nem ad meg — adatai és beállításai megmaradnak."
+      },
+      {
+        "h2": "4. Előfizetések és számlázás",
+        "body": "A fizetős előfizetéseket havi vagy éves gyakorisággal, előre számlázzuk, a fizetéskor kiválasztottak szerint. Az éves csomagok a teljes évre előre kerülnek számlázásra. Az előfizetések automatikusan megújulnak az egymást követő időszakokra, hacsak nem mondja le a megújulás dátuma előtt. A fizetéseket a Stripe dolgozza fel; a WelcoChat nem tárolja kártyaadatait. Az árak adott esetben ÁFA nélkül jelennek meg, amelyet a fizetés helye szerint hozzáadhatunk a fizetéskor. A jövőbeli számlázási időszakok árait legalább 30 napos, e-mailes előzetes értesítéssel módosíthatjuk."
+      },
+      {
+        "h2": "5. Lemondás és visszatérítés",
+        "body": "Előfizetését bármikor lemondhatja a Számlázási Portálon, amely az ügyfélportál Számlák oldaláról érhető el. A lemondás a jelenlegi számlázási időszak végén lép hatályba; addig megtartja a hozzáférést. A már kifizetett díjak nem téríthetők vissza, kivéve, ha az alkalmazandó jog ezt előírja."
+      },
+      {
+        "h2": "6. Elfogadható használat",
+        "body": "Ön vállalja, hogy nem használja a Szolgáltatásokat a következőkre: bármely alkalmazandó jog megsértése; jogellenes, jogsértő vagy káros tartalom továbbítása; a Szolgáltatások vagy a WelcoChat infrastruktúrájának megzavarására, visszafejtésére vagy jogosulatlan hozzáférésre irányuló kísérlet; vagy a Szolgáltatások olyan módon történő használata, amely ésszerűen visszaélésnek vagy az alapul szolgáló AI-rendszerek túlterhelésének minősülhet. Az ezt a szakaszt megsértő fiókokat felfüggeszthetjük."
+      },
+      {
+        "h2": "7. AI által generált eredmény",
+        "body": "A WelcoChat AI nyelvi modelleket használ a válaszok generálásához. Az AI eredménye pontatlan vagy hiányos lehet. A WelcoChat úgy lett kialakítva, hogy csak saját weboldalának tartalma alapján válaszoljon, és bizonytalanság esetén átadjon egy embernek, de Ön felelős marad a fontos döntésekben felhasznált eredmények ellenőrzéséért."
+      },
+      {
+        "h2": "8. Az Ön tartalma",
+        "body": "Ön megtartja a WelcoChat által feltérképezett weboldal-tartalom, valamint bármely, Ön vagy végfelhasználói által a Szolgáltatásokon keresztül megadott adat (\"Az Ön Tartalma\") tulajdonjogát. Ön licencet ad a WelcoChatnak Az Ön Tartalmának feldolgozására, kizárólag a Szolgáltatások nyújtása és fejlesztése céljából. Ön felelős azért, hogy rendelkezzen a szükséges jogokkal Az Ön Tartalmára vonatkozóan, valamint saját végfelhasználóinak a widgeten keresztül gyűjtött adataiért, az alkalmazandó jognak megfelelően."
+      },
+      {
+        "h2": "9. Harmadik féltől származó szolgáltatások",
+        "body": "A WelcoChat harmadik féltől származó szolgáltatókra támaszkodik a Szolgáltatások működtetéséhez, beleértve a Stripe-ot (fizetések), az Anthropicot (AI-feldolgozás), valamint infrastruktúra- és e-mail-szolgáltatókat. A Szolgáltatások használata elfogadását jelenti annak, hogy a releváns adatokat e szolgáltatók dolgozzák fel, ahogy azt <a href=\"{{PRIVACY_URL}}\">Adatvédelmi Szabályzatunk</a> ismerteti."
+      },
+      {
+        "h2": "10. Szellemi tulajdon",
+        "body": "A WelcoChat és licencadói megtartanak minden jogot, jogcímet és érdekeltséget a Szolgáltatásokban, beleértve az alapul szolgáló szoftvert, a dizájnt és a márkanevet. Jelen Feltételek semmilyen ilyen jogot nem ruháznak Önre a Szolgáltatások rendeltetésszerű használatára vonatkozó korlátozott jogon túl."
+      },
+      {
+        "h2": "11. Felelősség korlátozása",
+        "body": "A jog által megengedett legnagyobb mértékben a WelcoChat nem felel a Szolgáltatások használatából eredő közvetett, véletlen vagy következményes károkért. Bármely, a Szolgáltatásokkal kapcsolatos igényünkkel kapcsolatos teljes felelősségünk az érintett előfizetésért az igényt megelőző 12 hónapban Ön által fizetett összegre korlátozódik."
+      },
+      {
+        "h2": "12. Megszüntetés",
+        "body": "Felfüggeszthetjük vagy megszüntethetjük hozzáférését a Szolgáltatásokhoz jelen Feltételek megsértése, nemfizetés, vagy jogszabályi előírás esetén, lehetőség szerint értesítéssel. Ön bármikor abbahagyhatja a Szolgáltatások használatát, és lemondhatja előfizetését az 5. szakaszban leírtak szerint."
+      },
+      {
+        "h2": "13. A Feltételek módosításai",
+        "body": "Ezeket a Feltételeket időről időre frissíthetjük. A lényeges változásokról hatálybalépésük előtt e-mailben vagy az ügyfélportálon keresztül értesítjük. A Szolgáltatások folyamatos használata egy változás hatálybalépése után a frissített Feltételek elfogadását jelenti."
+      },
+      {
+        "h2": "14. Irányadó jog",
+        "body": "Jelen Feltételekre Észtország joga irányadó, a kollíziós jogi elvek figyelembevétele nélkül, hacsak lakóhelye szerinti ország kötelező fogyasztóvédelmi joga másként nem rendelkezik."
+      },
+      {
+        "h2": "15. Kapcsolat",
+        "body": "A jelen Feltételekkel kapcsolatos kérdéseket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címre küldheti."
+      }
     ]
   },
   "privacy": {
@@ -250,29 +439,80 @@
     "note": "A Mango Group észtországi cégbejegyzése folyamatban van. A folyamat lezárultával ez az oldal frissül teljes, bejegyzett üzleti adatainkkal mint adatkezelővel. Addig is az adatvédelmi kérdéseket vagy kérelmeket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címre küldheti.",
     "dataWeCollectIntro": "Az Ön WelcoChattal való interakciójától függően különböző adatokat gyűjtünk:",
     "dataWeCollectItems": [
-      { "strong": "Fiókadatok", "text": " — név, e-mail cím, telefonszám, cégnév és számlázási cím, amikor WelcoChat fiókot regisztrál vagy előfizet." },
-      { "strong": "Számlázási adatok", "text": " — előfizetési és számlaelőzmények. A kártyaadatokat fizetési szolgáltatónk, a Stripe gyűjti és tárolja; a WelcoChat nem kapja meg vagy tárolja teljes kártyaszámát." },
-      { "strong": "Widget tartalom", "text": " — weboldala nyilvános tartalma, amelyet a WelcoChat feltérképez a tudásbázisa felépítéséhez, valamint a weboldala látogatói és a widget között váltott üzenetek, beleértve minden nevet, e-mail címet vagy üzenetet, amelyet egy látogató a csapata eléréséhez küld." },
-      { "strong": "Használati és naplóadatok", "text": " — technikai adatok, mint IP-cím, böngészőtípus és meglátogatott oldalak, automatikusan gyűjtve, amikor a Szolgáltatásokat vagy a nyilvános weboldalt használja." }
+      {
+        "strong": "Fiókadatok",
+        "text": " — név, e-mail cím, telefonszám, cégnév és számlázási cím, amikor WelcoChat fiókot regisztrál vagy előfizet."
+      },
+      {
+        "strong": "Számlázási adatok",
+        "text": " — előfizetési és számlaelőzmények. A kártyaadatokat fizetési szolgáltatónk, a Stripe gyűjti és tárolja; a WelcoChat nem kapja meg vagy tárolja teljes kártyaszámát."
+      },
+      {
+        "strong": "Widget tartalom",
+        "text": " — weboldala nyilvános tartalma, amelyet a WelcoChat feltérképez a tudásbázisa felépítéséhez, valamint a weboldala látogatói és a widget között váltott üzenetek, beleértve minden nevet, e-mail címet vagy üzenetet, amelyet egy látogató a csapata eléréséhez küld."
+      },
+      {
+        "strong": "Használati és naplóadatok",
+        "text": " — technikai adatok, mint IP-cím, böngészőtípus és meglátogatott oldalak, automatikusan gyűjtve, amikor a Szolgáltatásokat vagy a nyilvános weboldalt használja."
+      }
     ],
     "whoWeShareIntro": "Adatokat kizárólag a Szolgáltatások működtetése céljából osztunk meg az alábbi harmadik fél szolgáltatói kategóriákkal:",
     "whoWeShareItems": [
-      { "strong": "Stripe", "text": " — fizetésfeldolgozás és számlázás." },
-      { "strong": "Anthropic", "text": " — a WelcoChat mögötti AI szolgáltató. Amikor a WelcoChat válaszol egy látogatónak, a releváns tartalmat elküldjük az Anthropic API-jának válasz generálásához." },
-      { "strong": "E-mail-kézbesítési és tárhelyszolgáltatók", "text": " — fiók- és értesítési e-mailek küldéséhez, valamint a Szolgáltatások tárhelyszolgáltatásához." },
-      { "strong": "Google Analytics", "text": " — kizárólag nyilvános weboldalunkon (<code>welcochat.com</code>), az összesített látogatói forgalom megértéséhez. Az ügyfélportál és maga a WelcoChat widget nem használ Google Analyticset." }
+      {
+        "strong": "Stripe",
+        "text": " — fizetésfeldolgozás és számlázás."
+      },
+      {
+        "strong": "Anthropic",
+        "text": " — a WelcoChat mögötti AI szolgáltató. Amikor a WelcoChat válaszol egy látogatónak, a releváns tartalmat elküldjük az Anthropic API-jának válasz generálásához."
+      },
+      {
+        "strong": "E-mail-kézbesítési és tárhelyszolgáltatók",
+        "text": " — fiók- és értesítési e-mailek küldéséhez, valamint a Szolgáltatások tárhelyszolgáltatásához."
+      },
+      {
+        "strong": "Google Analytics",
+        "text": " — kizárólag nyilvános weboldalunkon (<code>welcochat.com</code>), az összesített látogatói forgalom megértéséhez. Az ügyfélportál és maga a WelcoChat widget nem használ Google Analyticset."
+      }
     ],
     "whoWeShareFoot": "Nem adunk el személyes adatokat. Egyes szolgáltatók az Európai Gazdasági Térségen kívül is feldolgozhatnak adatokat; ilyen esetben ezt megfelelő garanciák, például Általános Szerződési Feltételek keretében teszik.",
     "sections": [
-      { "h2": "2. Hogyan használjuk fel", "body": "Ezeket az adatokat a következőkre használjuk: a Szolgáltatások nyújtása és fenntartása; fizetések feldolgozása és számlázási közlemények küldése; támogatási kérésekre válaszadás; és szolgáltatással kapcsolatos értesítések küldése (pl. próbaidőszak vége, beállítási állapot)." },
-      { "h2": "3. Az adatkezelés jogalapja", "body": "Ahol az Általános Adatvédelmi Rendelet (GDPR) alkalmazandó, a személyes adatokat az alábbi jogalapokon kezeljük: szerződés teljesítése (az Ön által előfizetett Szolgáltatások nyújtása), jogos érdek (a Szolgáltatások biztonságának és fejlesztésének biztosítása, megkeresésekre válaszadás), és hozzájárulás (ahol Ön kifejezetten megadta, például opcionális marketing közlemények esetén)." },
-      { "h2": "5. Ha a WelcoChatot saját weboldalán használja", "body": "Ha a WelcoChat widgetet weboldalán ágyazza be, Ön saját weboldala látogatói tekintetében adatkezelő, és a WelcoChat az Ön nevében adatfeldolgozóként jár el az általa gyűjtött beszélgetések és érdeklődők vonatkozásában. Ön felelős azért, hogy saját látogatóit megfelelően tájékoztassa (pl. saját adatvédelmi szabályzatában) egy chat widget jelenlétéről és üzeneteik kezeléséről." },
-      { "h2": "6. Adatmegőrzés", "body": "A fiók- és számlázási adatokat addig őrizzük meg, amíg fiókja aktív, azt követően pedig az alkalmazandó adó- és számviteli jog által megkövetelt ideig. A tudásbázis-tartalmat és a beszélgetési/érdeklődői adatokat addig őrizzük meg, amíg a kapcsolódó előfizetés aktív, majd a lemondást követően ésszerű időn belül töröljük vagy anonimizáljuk, hacsak Ön korábbi törlést nem kér." },
-      { "h2": "7. Az Ön jogai", "body": "Az alkalmazandó jog függvényében joga van: hozzáférni az Önről tárolt személyes adatokhoz; a pontatlan adatok helyesbítését kérni; törlést kérni; bizonyos adatkezelést kifogásolni vagy korlátozni; és adatai hordozható másolatát kérni. E jogok bármelyikének gyakorlásához vegye fel a kapcsolatot a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címen. Ha Ön az EU/EGT területén él, és úgy véli, hogy jogait nem tartották tiszteletben, panaszt nyújthat be a helyi adatvédelmi hatóságnál is (Észtországban az Észt Adatvédelmi Felügyelet — Andmekaitse Inspektsioon)." },
-      { "h2": "8. Sütik", "body": "Az ügyfélportál kizárólag feltétlenül szükséges tárolást (mint a bejelentkezési munkamenet) használ a működéshez — nincsenek hirdetési vagy nyomkövető sütik. Nyilvános marketing weboldalunk a Google Analyticset használja, amely sütiket helyez el az összesített oldalhasználat méréséhez." },
-      { "h2": "9. Gyermekek adatvédelme", "body": "A Szolgáltatások üzleti felhasználásra szolgálnak, és nem gyermekeknek szólnak. Nem gyűjtünk tudatosan személyes adatokat gyermekektől." },
-      { "h2": "10. A szabályzat módosításai", "body": "Ezt az Adatvédelmi Szabályzatot időről időre frissíthetjük. A lényeges változásokról hatálybalépésük előtt e-mailben vagy az ügyfélportálon keresztül értesítjük." },
-      { "h2": "11. Kapcsolat", "body": "A jelen Adatvédelmi Szabályzattal vagy adatai kezelésével kapcsolatos kérdéseket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címre küldheti." }
+      {
+        "h2": "2. Hogyan használjuk fel",
+        "body": "Ezeket az adatokat a következőkre használjuk: a Szolgáltatások nyújtása és fenntartása; fizetések feldolgozása és számlázási közlemények küldése; támogatási kérésekre válaszadás; és szolgáltatással kapcsolatos értesítések küldése (pl. próbaidőszak vége, beállítási állapot)."
+      },
+      {
+        "h2": "3. Az adatkezelés jogalapja",
+        "body": "Ahol az Általános Adatvédelmi Rendelet (GDPR) alkalmazandó, a személyes adatokat az alábbi jogalapokon kezeljük: szerződés teljesítése (az Ön által előfizetett Szolgáltatások nyújtása), jogos érdek (a Szolgáltatások biztonságának és fejlesztésének biztosítása, megkeresésekre válaszadás), és hozzájárulás (ahol Ön kifejezetten megadta, például opcionális marketing közlemények esetén)."
+      },
+      {
+        "h2": "5. Ha a WelcoChatot saját weboldalán használja",
+        "body": "Ha a WelcoChat widgetet weboldalán ágyazza be, Ön saját weboldala látogatói tekintetében adatkezelő, és a WelcoChat az Ön nevében adatfeldolgozóként jár el az általa gyűjtött beszélgetések és érdeklődők vonatkozásában. Ön felelős azért, hogy saját látogatóit megfelelően tájékoztassa (pl. saját adatvédelmi szabályzatában) egy chat widget jelenlétéről és üzeneteik kezeléséről."
+      },
+      {
+        "h2": "6. Adatmegőrzés",
+        "body": "A fiók- és számlázási adatokat addig őrizzük meg, amíg fiókja aktív, azt követően pedig az alkalmazandó adó- és számviteli jog által megkövetelt ideig. A tudásbázis-tartalmat és a beszélgetési/érdeklődői adatokat addig őrizzük meg, amíg a kapcsolódó előfizetés aktív, majd a lemondást követően ésszerű időn belül töröljük vagy anonimizáljuk, hacsak Ön korábbi törlést nem kér."
+      },
+      {
+        "h2": "7. Az Ön jogai",
+        "body": "Az alkalmazandó jog függvényében joga van: hozzáférni az Önről tárolt személyes adatokhoz; a pontatlan adatok helyesbítését kérni; törlést kérni; bizonyos adatkezelést kifogásolni vagy korlátozni; és adatai hordozható másolatát kérni. E jogok bármelyikének gyakorlásához vegye fel a kapcsolatot a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címen. Ha Ön az EU/EGT területén él, és úgy véli, hogy jogait nem tartották tiszteletben, panaszt nyújthat be a helyi adatvédelmi hatóságnál is (Észtországban az Észt Adatvédelmi Felügyelet — Andmekaitse Inspektsioon)."
+      },
+      {
+        "h2": "8. Sütik",
+        "body": "Az ügyfélportál kizárólag feltétlenül szükséges tárolást (mint a bejelentkezési munkamenet) használ a működéshez — nincsenek hirdetési vagy nyomkövető sütik. Nyilvános marketing weboldalunk a Google Analyticset használja, amely sütiket helyez el az összesített oldalhasználat méréséhez."
+      },
+      {
+        "h2": "9. Gyermekek adatvédelme",
+        "body": "A Szolgáltatások üzleti felhasználásra szolgálnak, és nem gyermekeknek szólnak. Nem gyűjtünk tudatosan személyes adatokat gyermekektől."
+      },
+      {
+        "h2": "10. A szabályzat módosításai",
+        "body": "Ezt az Adatvédelmi Szabályzatot időről időre frissíthetjük. A lényeges változásokról hatálybalépésük előtt e-mailben vagy az ügyfélportálon keresztül értesítjük."
+      },
+      {
+        "h2": "11. Kapcsolat",
+        "body": "A jelen Adatvédelmi Szabályzattal vagy adatai kezelésével kapcsolatos kérdéseket a <a href=\"mailto:info@welcochat.com\">info@welcochat.com</a> címre küldheti."
+      }
     ]
   },
   "guidePromptContent": {
@@ -312,9 +552,18 @@
       {
         "h2": "4. Mit kerüljön",
         "list_strong": [
-          { "strong": "Ellentmondó információk.", "text": " Ha weboldala egy árat mond, egy feltöltött dokumentum pedig egy másikat, az ügynöknek nincs módja tudni, melyik aktuális — bármelyiket választhatja. Tartson fenn egy hiteles forrást tényenként." },
-          { "strong": "Hatalmas, fókuszálatlan adathalmazok.", "text": " Egy 200 oldalas belső wiki-export, tárgyalási jegyzetekkel és félkész vázlatokkal keverve megnehezíti, hogy az ügynök megtalálja a valóban releváns választ. Válogasson, mielőtt feltölt." },
-          { "strong": "Bármi, amit nem szeretne, ha egy látogató szó szerint látna.", "text": " Az ügynök közvetlenül a csatlakoztatott tartalomból merítve válaszol — ne foglaljon bele meghatározott ügyfelekkel egyeztetett belső árakat, kiadatlan terveket vagy bármi bizalmasat." }
+          {
+            "strong": "Ellentmondó információk.",
+            "text": " Ha weboldala egy árat mond, egy feltöltött dokumentum pedig egy másikat, az ügynöknek nincs módja tudni, melyik aktuális — bármelyiket választhatja. Tartson fenn egy hiteles forrást tényenként."
+          },
+          {
+            "strong": "Hatalmas, fókuszálatlan adathalmazok.",
+            "text": " Egy 200 oldalas belső wiki-export, tárgyalási jegyzetekkel és félkész vázlatokkal keverve megnehezíti, hogy az ügynök megtalálja a valóban releváns választ. Válogasson, mielőtt feltölt."
+          },
+          {
+            "strong": "Bármi, amit nem szeretne, ha egy látogató szó szerint látna.",
+            "text": " Az ügynök közvetlenül a csatlakoztatott tartalomból merítve válaszol — ne foglaljon bele meghatározott ügyfelekkel egyeztetett belső árakat, kiadatlan terveket vagy bármi bizalmasat."
+          }
         ]
       },
       {
@@ -365,6 +614,69 @@
     "testing": {
       "h2": "Tesztelés",
       "body": "Csatorna és webhook URL mentése után használja a <strong>Teszt üzenet küldése</strong> gombot a beállítási oldalon — ez egy valódi értesítést küld ugyanazon az úton, amelyet egy élő átadás is használna, így megerősítheti, hogy jó helyre érkezik, mielőtt hagyatkozna rá."
+    }
+  },
+  "guideInstall": {
+    "eyebrow": "Útmutató · Minden csomaghoz",
+    "h1": "Widget hozzáadása a weboldaladhoz",
+    "sub": "Működik WordPresszel, Wixszel, GoDaddyvel, Squarespace-szel, Shopify-jal és bármely oldallal, ahová egyéni kódot lehet illeszteni",
+    "intro": "A WelcoChat widget mindössze egyetlen sornyi kód — egy &lt;script&gt; tag a saját agent-azonosítóddal. Amint az agented élesben fut, másold ki a kódot a portálban a szolgáltatásod beállítási oldaláról, majd illeszd be a weboldaladba az alábbi, a te platformodra vonatkozó útmutató szerint. A widget ezután automatikusan megjelenik minden oldalon — nincs szükség dizájnmunkára, sem oldalankénti telepítésre.",
+    "platforms": [
+      {
+        "h2": "WordPress",
+        "steps": [
+          "A WordPress irányítópulton menj a <strong>Bővítmények → Új hozzáadása</strong> menüpontra, keresd meg a <strong>\"WPCode\"</strong> (vagy \"Insert Headers and Footers\") bővítményt, majd telepítsd és aktiváld.",
+          "Nyisd meg a bővítményt — általában a <strong>Code Snippets → Header &amp; Footer</strong> menüpont alatt található az oldalsávban.",
+          "Illeszd be a WelcoChat kódját a <strong>Footer</strong> mezőbe, hogy az oldal tartalma után töltődjön be.",
+          "Kattints a <strong>Mentés</strong> gombra. A widget ezután megjelenik a weboldalad minden oldalán.",
+          "Tipp: ha a témád már eleve rendelkezik \"Custom Code\" vagy \"Header/Footer Scripts\" beállítással — sok Elementor és Astra témánál ez így van —, oda is beillesztheted a kódot közvetlenül, bővítmény telepítése nélkül."
+        ]
+      },
+      {
+        "h2": "Wix",
+        "steps": [
+          "Nyisd meg a weboldaladat a Wix szerkesztőben, és menj a <strong>Beállítások → Egyéni kód</strong> menüpontra (vagy keress rá a \"Custom Code\" kifejezésre a felső keresősávban).",
+          "Kattints a <strong>+ Kód hozzáadása</strong> gombra.",
+          "Illeszd be a WelcoChat kódját a kódmezőbe.",
+          "Az <strong>Oldalak, ahol megjelenjen a kód</strong> résznél válaszd az <strong>Összes oldal</strong> lehetőséget. A <strong>Kód elhelyezése</strong> résznél válaszd a <strong>Body – végén</strong> opciót.",
+          "Kattints az <strong>Alkalmaz</strong> gombra, majd publikáld a weboldalad."
+        ]
+      },
+      {
+        "h2": "GoDaddy Website Builder",
+        "steps": [
+          "A GoDaddy Website Builder (Websites + Marketing) irányítópultján menj a <strong>Beállítások → Oldal egészére vonatkozó kód</strong> menüpontra (egyes csomagoknál a <strong>Beállítások → Speciális eszközök → Egyéni kód</strong> alatt található; a Commerce csomagtól kezdve érhető el).",
+          "Illeszd be a WelcoChat kódját a <strong>Footer</strong> vagy <strong>Body</strong> kódmezőbe.",
+          "Kattints a <strong>Mentés</strong> gombra, majd publikáld újra a weboldalad.",
+          "Ha a GoDaddy csomagod nem tartalmaz kódbeillesztési lehetőséget, vagy az oldalad valójában GoDaddy-nál tárolt WordPress, akkor inkább a fenti WordPress-lépéseket kövesd."
+        ]
+      },
+      {
+        "h2": "Squarespace",
+        "steps": [
+          "A Squarespace irányítópulton menj a <strong>Beállítások → Speciális → Kódbeillesztés</strong> menüpontra (Business csomagtól vagy magasabbtól elérhető).",
+          "Illeszd be a WelcoChat kódját a <strong>Footer</strong> mezőbe, hogy minden oldalon betöltődjön.",
+          "Kattints a <strong>Mentés</strong> gombra."
+        ]
+      },
+      {
+        "h2": "Shopify",
+        "steps": [
+          "A Shopify admin felületén menj az <strong>Online áruház → Témák</strong> menüpontra.",
+          "Az aktuális témádnál kattints a <strong>Kód szerkesztése</strong> gombra.",
+          "Nyisd meg a <strong>theme.liquid</strong> fájlt a Layout mappában.",
+          "Illeszd be a WelcoChat kódját közvetlenül a záró <code>&lt;/body&gt;</code> tag elé.",
+          "Kattints a <strong>Mentés</strong> gombra."
+        ]
+      }
+    ],
+    "generic": {
+      "h2": "Bármely más weboldalszerkesztő",
+      "body": "Minden más platform, amivel eddig találkoztunk — Webflow, Weebly, Jimdo, Carrd, Framer, kézzel kódolt oldal vagy saját CMS — ugyanígy működik: keress egy <strong>\"Custom Code\"</strong>, <strong>\"Header &amp; Footer Scripts\"</strong>, <strong>\"Code Injection\"</strong> vagy <strong>\"Tracking Codes\"</strong> nevű beállítást — általában ide szokás beilleszteni az élő chat eszközöket és az analitikai szkripteket is —, és illeszd be oda a kódot, hogy minden oldalon betöltődjön. Ha az oldalad tisztán kézzel írt HTML, akkor illeszd be a kódot közvetlenül minden oldalsablon záró <code>&lt;/body&gt;</code> tagja elé."
+    },
+    "verify": {
+      "h2": "Ellenőrizd, hogy működik-e",
+      "body": "Publikálás után nyisd meg az élő weboldaladat egy új böngészőlapon — ne a szerkesztő előnézetét —, és a WelcoChat buboréknak meg kell jelennie az alsó sarokban. Ha egy percen belül nem jelenik meg, ellenőrizd, hogy a kódot pontosan úgy illesztetted-e be, ahogy másoltad (mindkét idézőjellel együtt), és hogy a platformod vagy egy bővítmény (pl. WP Rocket) által használt oldalgyorsítótár ürítve lett-e."
     }
   }
 }

@@ -205,6 +205,10 @@
               {{ copied ? t('welcoSetup.copied') : t('welcoSetup.copy') }}
             </button>
           </div>
+          <p class="field-hint">
+            {{ t('welcoSetup.installGuideHint') }}
+            <a href="/guides/add-to-your-website/" target="_blank" rel="noopener">{{ t('welcoSetup.installGuideLink') }}</a>.
+          </p>
 
           <div class="manage-section">
             <h3 class="manage-h3">{{ t('welcoSetup.subscription') }}</h3>

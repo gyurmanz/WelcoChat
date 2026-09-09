@@ -461,6 +461,8 @@
     "crawledPagesOne": "Zindeksowaliśmy {count} stronę Twojej witryny.",
     "crawledPagesMany": "Zindeksowaliśmy {count} stron Twojej witryny.",
     "pasteSnippet": "Wklej ten fragment kodu do HTML swojej witryny, aby dodać widget:",
+    "installGuideHint": "Nie wiesz, jak dodać to w WordPressie, Wix, GoDaddy lub innym kreatorze?",
+    "installGuideLink": "Zobacz instrukcję krok po kroku",
     "copied": "Skopiowano!",
     "copy": "Kopiuj",
     "subscription": "Subskrypcja",

@@ -461,6 +461,8 @@
     "crawledPagesOne": "Pretražili smo {count} stranicu vaše web stranice.",
     "crawledPagesMany": "Pretražili smo {count} stranica vaše web stranice.",
     "pasteSnippet": "Zalijepite ovaj isječak koda u HTML svoje web stranice kako biste dodali widget:",
+    "installGuideHint": "Ne znate kako ovo dodati u WordPress, Wix, GoDaddy ili drugi alat za izradu stranica?",
+    "installGuideLink": "Pogledajte vodič korak po korak",
     "copied": "Kopirano!",
     "copy": "Kopiraj",
     "subscription": "Pretplata",

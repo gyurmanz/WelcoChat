@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNL159CW3Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BNL159CW3Q');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Widget hozzáadása a weboldaladhoz - WelcoChat</title>
+  <meta name="description" content="Lépésről lépésre: a WelcoChat widget hozzáadása WordPresshez, Wixhez, GoDaddyhoz, Squarespace-hez, Shopify-hoz vagy bármely más weboldalszerkesztőhöz." />
+  <meta property="og:title" content="Widget hozzáadása a weboldaladhoz - WelcoChat" />
+  <meta property="og:description" content="Lépésről lépésre: a WelcoChat widget hozzáadása WordPresshez, Wixhez, GoDaddyhoz, Squarespace-hez, Shopify-hoz vagy bármely más weboldalszerkesztőhöz." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://welcochat.com/hu/guides/add-to-your-website/" />
+  <meta property="og:image" content="https://welcochat.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="canonical" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="en" href="https://welcochat.com/en/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="de" href="https://welcochat.com/de/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="fr" href="https://welcochat.com/fr/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="hu" href="https://welcochat.com/hu/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="pl" href="https://welcochat.com/pl/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="sk" href="https://welcochat.com/sk/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="hr" href="https://welcochat.com/hr/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="el" href="https://welcochat.com/el/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="es" href="https://welcochat.com/es/guides/add-to-your-website/" />
+  <link rel="alternate" hreflang="x-default" href="https://welcochat.com/en/guides/add-to-your-website/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/hu/" class="brand">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+          <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+          <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        WelcoChat
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="/hu/#features">Funkciók</a>
+        <a href="/hu/#how-it-works">Hogyan működik</a>
+        <a href="/hu/#pricing">Árak</a>
+        <a href="/hu/#faq">GYIK</a>
+        <a href="/hu/#contact">Kapcsolat</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Nyelv">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.3 2.5 3.6 5.6 3.6 9s-1.3 6.5-3.6 9c-2.3-2.5-3.6-5.6-3.6-9s1.3-6.5 3.6-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span class="lang-switch-code">HU</span>
+            <svg class="lang-switch-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-switch-menu" role="listbox">
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/en/guides/add-to-your-website/">English</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/de/guides/add-to-your-website/">Deutsch</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/fr/guides/add-to-your-website/">Français</a></li>
+            <li class="is-current" role="option" aria-selected="true"><a href="https://welcochat.com/hu/guides/add-to-your-website/">Magyar<svg class="lang-switch-check" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/pl/guides/add-to-your-website/">Polski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/sk/guides/add-to-your-website/">Slovenčina</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/hr/guides/add-to-your-website/">Hrvatski</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/el/guides/add-to-your-website/">Ελληνικά</a></li>
+            <li role="option" aria-selected="false"><a href="https://welcochat.com/es/guides/add-to-your-website/">Español</a></li>
+          </ul>
+        </div>
+        <a href="/portal" class="btn btn-ghost">Bejelentkezés</a>
+        <a href="/portal/signup" class="btn btn-primary">Fiók létrehozása</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü megnyitása"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container legal-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Útmutató · Minden csomaghoz</div>
+      <h1 style="font-size:clamp(1.8rem,3vw,2.6rem);">Widget hozzáadása a weboldaladhoz</h1>
+      <p class="legal-updated">Működik WordPresszel, Wixszel, GoDaddyvel, Squarespace-szel, Shopify-jal és bármely oldallal, ahová egyéni kódot lehet illeszteni</p>
+
+      <p>A WelcoChat widget mindössze egyetlen sornyi kód — egy &lt;script&gt; tag a saját agent-azonosítóddal. Amint az agented élesben fut, másold ki a kódot a portálban a szolgáltatásod beállítási oldaláról, majd illeszd be a weboldaladba az alábbi, a te platformodra vonatkozó útmutató szerint. A widget ezután automatikusan megjelenik minden oldalon — nincs szükség dizájnmunkára, sem oldalankénti telepítésre.</p>
+
+      <h2>WordPress</h2>
+      <ol>
+        <li>A WordPress irányítópulton menj a <strong>Bővítmények → Új hozzáadása</strong> menüpontra, keresd meg a <strong>"WPCode"</strong> (vagy "Insert Headers and Footers") bővítményt, majd telepítsd és aktiváld.</li>
+        <li>Nyisd meg a bővítményt — általában a <strong>Code Snippets → Header &amp; Footer</strong> menüpont alatt található az oldalsávban.</li>
+        <li>Illeszd be a WelcoChat kódját a <strong>Footer</strong> mezőbe, hogy az oldal tartalma után töltődjön be.</li>
+        <li>Kattints a <strong>Mentés</strong> gombra. A widget ezután megjelenik a weboldalad minden oldalán.</li>
+        <li>Tipp: ha a témád már eleve rendelkezik "Custom Code" vagy "Header/Footer Scripts" beállítással — sok Elementor és Astra témánál ez így van —, oda is beillesztheted a kódot közvetlenül, bővítmény telepítése nélkül.</li>
+      </ol>
+
+      <h2>Wix</h2>
+      <ol>
+        <li>Nyisd meg a weboldaladat a Wix szerkesztőben, és menj a <strong>Beállítások → Egyéni kód</strong> menüpontra (vagy keress rá a "Custom Code" kifejezésre a felső keresősávban).</li>
+        <li>Kattints a <strong>+ Kód hozzáadása</strong> gombra.</li>
+        <li>Illeszd be a WelcoChat kódját a kódmezőbe.</li>
+        <li>Az <strong>Oldalak, ahol megjelenjen a kód</strong> résznél válaszd az <strong>Összes oldal</strong> lehetőséget. A <strong>Kód elhelyezése</strong> résznél válaszd a <strong>Body – végén</strong> opciót.</li>
+        <li>Kattints az <strong>Alkalmaz</strong> gombra, majd publikáld a weboldalad.</li>
+      </ol>
+
+      <h2>GoDaddy Website Builder</h2>
+      <ol>
+        <li>A GoDaddy Website Builder (Websites + Marketing) irányítópultján menj a <strong>Beállítások → Oldal egészére vonatkozó kód</strong> menüpontra (egyes csomagoknál a <strong>Beállítások → Speciális eszközök → Egyéni kód</strong> alatt található; a Commerce csomagtól kezdve érhető el).</li>
+        <li>Illeszd be a WelcoChat kódját a <strong>Footer</strong> vagy <strong>Body</strong> kódmezőbe.</li>
+        <li>Kattints a <strong>Mentés</strong> gombra, majd publikáld újra a weboldalad.</li>
+        <li>Ha a GoDaddy csomagod nem tartalmaz kódbeillesztési lehetőséget, vagy az oldalad valójában GoDaddy-nál tárolt WordPress, akkor inkább a fenti WordPress-lépéseket kövesd.</li>
+      </ol>
+
+      <h2>Squarespace</h2>
+      <ol>
+        <li>A Squarespace irányítópulton menj a <strong>Beállítások → Speciális → Kódbeillesztés</strong> menüpontra (Business csomagtól vagy magasabbtól elérhető).</li>
+        <li>Illeszd be a WelcoChat kódját a <strong>Footer</strong> mezőbe, hogy minden oldalon betöltődjön.</li>
+        <li>Kattints a <strong>Mentés</strong> gombra.</li>
+      </ol>
+
+      <h2>Shopify</h2>
+      <ol>
+        <li>A Shopify admin felületén menj az <strong>Online áruház → Témák</strong> menüpontra.</li>
+        <li>Az aktuális témádnál kattints a <strong>Kód szerkesztése</strong> gombra.</li>
+        <li>Nyisd meg a <strong>theme.liquid</strong> fájlt a Layout mappában.</li>
+        <li>Illeszd be a WelcoChat kódját közvetlenül a záró <code>&lt;/body&gt;</code> tag elé.</li>
+        <li>Kattints a <strong>Mentés</strong> gombra.</li>
+      </ol>
+
+      <h2>Bármely más weboldalszerkesztő</h2>
+      <p>Minden más platform, amivel eddig találkoztunk — Webflow, Weebly, Jimdo, Carrd, Framer, kézzel kódolt oldal vagy saját CMS — ugyanígy működik: keress egy <strong>"Custom Code"</strong>, <strong>"Header &amp; Footer Scripts"</strong>, <strong>"Code Injection"</strong> vagy <strong>"Tracking Codes"</strong> nevű beállítást — általában ide szokás beilleszteni az élő chat eszközöket és az analitikai szkripteket is —, és illeszd be oda a kódot, hogy minden oldalon betöltődjön. Ha az oldalad tisztán kézzel írt HTML, akkor illeszd be a kódot közvetlenül minden oldalsablon záró <code>&lt;/body&gt;</code> tagja elé.</p>
+
+      <h2>Ellenőrizd, hogy működik-e</h2>
+      <p>Publikálás után nyisd meg az élő weboldaladat egy új böngészőlapon — ne a szerkesztő előnézetét —, és a WelcoChat buboréknak meg kell jelennie az alsó sarokban. Ha egy percen belül nem jelenik meg, ellenőrizd, hogy a kódot pontosan úgy illesztetted-e be, ahogy másoltad (mindkét idézőjellel együtt), és hogy a platformod vagy egy bővítmény (pl. WP Rocket) által használt oldalgyorsítótár ürítve lett-e.</p>
+
+      <p style="margin-top:2.5rem;"><a href="/portal">← Vissza a portálhoz</a></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/hu/" class="brand" style="margin-bottom: 10px;">
+            <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="52" height="40" rx="16" fill="#004A9C"/>
+              <path d="M18 46 L14 59 L29 46 Z" fill="#004A9C"/>
+              <path d="M21 27 L29 35 L44 18" stroke="#F68C36" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            WelcoChat
+          </a>
+          <p>AI ügynök a weboldalához — a tartalma alapján válaszol, érdeklődőket gyűjt, szükség esetén átadja egy embernek.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Termék</h4>
+          <a href="/hu/#features">Funkciók</a>
+          <a href="/hu/#pricing">Árak</a>
+          <a href="/hu/#faq">GYIK</a>
+          <a href="/portal">Ügyfélportál</a>
+        </div>
+        <div class="footer-col">
+          <h4>Cég</h4>
+          <a href="/hu/#contact">Kapcsolat</a>
+          <a href="/hu/terms/">Általános Szerződési Feltételek</a>
+          <a href="/hu/privacy/">Adatvédelmi Szabályzat</a>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 WelcoChat. Minden jog fenntartva.</div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

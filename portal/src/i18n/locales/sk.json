@@ -461,6 +461,8 @@
     "crawledPagesOne": "Prehľadali sme {count} stránku vašej webovej stránky.",
     "crawledPagesMany": "Prehľadali sme {count} stránok vašej webovej stránky.",
     "pasteSnippet": "Vložte tento úryvok kódu do HTML svojej webovej stránky, aby ste pridali widget:",
+    "installGuideHint": "Neviete, ako to pridať do WordPressu, Wix, GoDaddy alebo iného tvorcu webu?",
+    "installGuideLink": "Pozrite si podrobný návod",
     "copied": "Skopírované!",
     "copy": "Kopírovať",
     "subscription": "Predplatné",

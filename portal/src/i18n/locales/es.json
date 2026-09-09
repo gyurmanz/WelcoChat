@@ -461,6 +461,8 @@
     "crawledPagesOne": "Rastreamos {count} página de tu sitio.",
     "crawledPagesMany": "Rastreamos {count} páginas de tu sitio.",
     "pasteSnippet": "Pega este fragmento de código en el HTML de tu sitio web para añadir el widget:",
+    "installGuideHint": "¿No sabes cómo añadirlo en WordPress, Wix, GoDaddy u otro creador de sitios?",
+    "installGuideLink": "Consulta la guía paso a paso",
     "copied": "¡Copiado!",
     "copy": "Copiar",
     "subscription": "Suscripción",

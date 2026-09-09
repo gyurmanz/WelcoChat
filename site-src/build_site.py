@@ -40,6 +40,7 @@ PAGES = [
     ("privacy", "privacy/", "monthly", "0.3"),
     ("guidePromptContent", "guides/prompt-and-content-guide/", "monthly", "0.5"),
     ("guideSlackTeams", "guides/slack-teams-setup/", "monthly", "0.5"),
+    ("guideInstall", "guides/add-to-your-website/", "monthly", "0.5"),
 ]
 
 
@@ -476,6 +477,30 @@ def render_guide_slack_teams(t, lang):
 """
 
 
+def render_guide_install(t, lang):
+    g = t["guideInstall"]
+    platforms_html = ""
+    for p in g["platforms"]:
+        steps = "".join(f'        <li>{s}</li>\n' for s in p["steps"])
+        platforms_html += f'      <h2>{p["h2"]}</h2>\n      <ol>\n{steps}      </ol>\n\n'
+    return f"""    <div class="container legal-content">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> {g["eyebrow"]}</div>
+      <h1 style="font-size:clamp(1.8rem,3vw,2.6rem);">{g["h1"]}</h1>
+      <p class="legal-updated">{g["sub"]}</p>
+
+      <p>{g["intro"]}</p>
+
+{platforms_html}      <h2>{g["generic"]["h2"]}</h2>
+      <p>{g["generic"]["body"]}</p>
+
+      <h2>{g["verify"]["h2"]}</h2>
+      <p>{g["verify"]["body"]}</p>
+
+      <p style="margin-top:2.5rem;"><a href="/portal">{t["common"]["backToPortal"]}</a></p>
+    </div>
+"""
+
+
 def render_page(page_key, lang, t):
     path = dict((p[0], p[1]) for p in PAGES)[page_key]
     section_prefix = "" if page_key == "home" else f"/{lang}/"
@@ -494,6 +519,8 @@ def render_page(page_key, lang, t):
         content = render_guide_prompt_content(t, lang)
     elif page_key == "guideSlackTeams":
         content = render_guide_slack_teams(t, lang)
+    elif page_key == "guideInstall":
+        content = render_guide_install(t, lang)
     else:
         raise ValueError(page_key)
 
@@ -637,6 +664,8 @@ def build():
           REDIRECT_STUB.format(target="/en/guides/prompt-and-content-guide/"))
     write(os.path.join(OUT, "guides", "slack-teams-setup", "index.html"),
           REDIRECT_STUB.format(target="/en/guides/slack-teams-setup/"))
+    write(os.path.join(OUT, "guides", "add-to-your-website", "index.html"),
+          REDIRECT_STUB.format(target="/en/guides/add-to-your-website/"))
 
     # robots.txt
     write(os.path.join(OUT, "robots.txt"),

@@ -172,6 +172,17 @@ def create_trial_subscription(
     if _has_had_trial(db, company.Id, body.service_key):
         raise HTTPException(409, "A free trial has already been used for this product.")
 
+    promo_code = (body.promo_code or "").strip() or None
+    promotion_code_id = None
+    if promo_code:
+        try:
+            promotion_code_id = stripe_service.resolve_promo_code(promo_code)
+        except ValueError:
+            raise HTTPException(400, "Invalid or expired promo code")
+        except RuntimeError:
+            # Stripe not configured (e.g. local dev) — don't block trial creation over it.
+            promotion_code_id = None
+
     service = (
         db.query(models.Service)
         .filter(
@@ -205,6 +216,7 @@ def create_trial_subscription(
         StartDate=today,
         EndDate=end,
         TrialEndsAt=trial_ends_at,
+        PromoCode=promo_code,
     )
     db.add(sub)
     db.flush()
@@ -222,7 +234,8 @@ def create_trial_subscription(
     try:
         contact_email, contact_name = _company_contact(db, company)
         stripe_sub_id = stripe_service.create_trial_subscription(
-            db, company, contact_email, contact_name, service, billing_period, trial_ends_at
+            db, company, contact_email, contact_name, service, billing_period, trial_ends_at,
+            promotion_code_id=promotion_code_id,
         )
         sub.StripeSubscriptionId = stripe_sub_id
         db.commit()

@@ -79,11 +79,11 @@ export async function getTrialEligibility(): Promise<TrialEligibility> {
   return d as TrialEligibility
 }
 
-export async function createTrialSubscription(serviceKey: string): Promise<Subscription> {
+export async function createTrialSubscription(serviceKey: string, promoCode?: string): Promise<Subscription> {
   const r = await apiFetch(`${API_BASE_URL}/subscriptions/trial`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ service_key: serviceKey }),
+    body: JSON.stringify({ service_key: serviceKey, promo_code: promoCode?.trim() || undefined }),
   })
   const d = await r.json().catch(() => ({}))
   if (!r.ok) throw new Error(extractErrorMessage(d, 'Failed to start trial'))

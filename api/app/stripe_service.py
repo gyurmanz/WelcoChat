@@ -42,6 +42,18 @@ def get_or_create_customer(db: Session, company: models.Company, contact_email: 
     return customer.id
 
 
+def resolve_promo_code(code: str) -> str:
+    """Looks up an active Stripe Promotion Code by its customer-facing code
+    (e.g. "PRODUCTHUNT") and returns its id. Raises ValueError if the code
+    doesn't exist or isn't active — callers should surface that to the user
+    rather than silently dropping the discount."""
+    stripe = _client()
+    matches = stripe.PromotionCode.list(code=code.strip(), active=True, limit=1)
+    if not matches.data:
+        raise ValueError("Invalid or expired promo code")
+    return matches.data[0].id
+
+
 def create_trial_subscription(
     db: Session,
     company: models.Company,
@@ -50,6 +62,7 @@ def create_trial_subscription(
     service: models.Service,
     billing_period: str,
     trial_end: datetime,
+    promotion_code_id: str | None = None,
 ) -> str:
     stripe = _client()
 
@@ -61,12 +74,19 @@ def create_trial_subscription(
 
     trial_end_ts = int(trial_end.replace(tzinfo=timezone.utc).timestamp())
 
+    kwargs = {}
+    if promotion_code_id:
+        # Attached now so it's already on the subscription once the trial ends
+        # and Stripe starts actually billing it — nothing to do at conversion time.
+        kwargs["discounts"] = [{"promotion_code": promotion_code_id}]
+
     subscription = stripe.Subscription.create(
         customer=customer_id,
         items=[{"price": price_id}],
         trial_end=trial_end_ts,
         trial_settings={"end_behavior": {"missing_payment_method": "pause"}},
         payment_settings={"save_default_payment_method": "on_subscription"},
+        **kwargs,
     )
     return subscription.id
 
@@ -139,6 +159,9 @@ def create_checkout_session(
         metadata=metadata,
         success_url=success_url,
         cancel_url=cancel_url,
+        # Lets Stripe show its own "Add promotion code" field on the hosted
+        # checkout page — no separate UI needed on our side for this path.
+        allow_promotion_codes=True,
     )
     return session.url
 

@@ -166,6 +166,15 @@
         </p>
       </div>
 
+      <div v-if="isTrial" class="review-block">
+        <div class="review-block-title">{{ t('addSub.promoCodeTitle') }}</div>
+        <div class="form-row">
+          <label class="form-label" for="promoCode">{{ t('addSub.promoCodeLabel') }}</label>
+          <input id="promoCode" v-model="promoCode" class="input" :placeholder="t('addSub.promoCodePlaceholder')" autocomplete="off" />
+          <span class="field-hint">{{ t('addSub.promoCodeHint') }}</span>
+        </div>
+      </div>
+
       <div class="review-block">
         <div class="review-block-title">{{ t('addSub.billingDetails') }}</div>
         <div class="review-row"><span>{{ t('addSub.company') }}</span><b>{{ company?.name }}</b></div>
@@ -317,6 +326,7 @@ async function reloadBilling() {
 // Step 4
 const confirm_details = ref(false)
 const confirm_tos = ref(false)
+const promoCode = ref('')
 
 // Step 5
 const createdSub = ref<Subscription | null>(null)
@@ -387,7 +397,7 @@ async function confirmOrder() {
   error.value = ''
   try {
     if (isTrial.value) {
-      const sub = await createTrialSubscription(selectedService.value.service_key)
+      const sub = await createTrialSubscription(selectedService.value.service_key, promoCode.value)
       createdSub.value = sub
       step.value = 5
     } else {
@@ -413,6 +423,7 @@ function resetFlow() {
   isTrial.value = false
   confirm_details.value = false
   confirm_tos.value = false
+  promoCode.value = ''
   createdSub.value = null
   error.value = ''
   checkoutStatus.value = null
@@ -574,6 +585,13 @@ onMounted(async () => {
 .field-hint { font-size: 0.82rem; color: rgba(148, 163, 184, 0.75); margin: 0.5rem 0 0; }
 .field-hint a { color: var(--blue-2, #60a5fa); }
 .form-actions { margin-top: 0.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.form-row { display: flex; flex-direction: column; gap: 0.3rem; }
+.form-label { font-size: 0.85rem; font-weight: 600; }
+.input {
+  width: 100%; max-width: 260px; box-sizing: border-box;
+  padding: 0.55rem 0.75rem; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(30, 41, 59, 0.6); color: inherit; font: inherit; font-size: 0.9rem;
+}
 
 /* Step 4 – review */
 .review-h2 { font-size: 1.1rem; margin: 0 0 1rem; }

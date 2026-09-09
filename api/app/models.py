@@ -120,6 +120,10 @@ class Subscription(Base):
     StripeSubscriptionId = Column(String(60), nullable=True)
     PendingServiceId = Column(Integer, ForeignKey("Service.Id"), nullable=True)
     PendingBillingPeriod = Column(String(20), nullable=True)
+    # Promo code entered at trial signup (e.g. a launch-campaign code) — kept
+    # for reporting on which channel/campaign drove the signup. The actual
+    # discount lives on the Stripe subscription itself, not here.
+    PromoCode = Column(String(50), nullable=True)
 
 
 class ServiceInstance(Base):

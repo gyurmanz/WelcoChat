@@ -184,6 +184,7 @@ class TrialEligibilityRead(BaseModel):
 
 class TrialSubscriptionCreate(BaseModel):
     service_key: str  # welco — trial is always the Business tier
+    promo_code: Optional[str] = None
 
 
 class CheckoutSessionCreate(BaseModel):

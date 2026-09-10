@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Szállítanak Magyarországra?",
       "bubbleAgent1": "Igen — 2–4 munkanap, 50 € felett ingyenes. Ellenőrizzem az irányítószámához tartozó szállítási időt?",
-      "bubbleVisitor2": "Igazából van egy garanciális kérdésem, amit talán nem tud.",
+      "bubbleVisitor2": "Igazából a rendelésem sérülten érkezett a múlt héten — tud valaki segíteni egy garanciális reklamációban?",
       "bubbleHandoff": "Átadva a csapatának — hamarosan válaszolnak itt."
     },
     "outputCards": [

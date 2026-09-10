@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Liefern Sie nach Ungarn?",
       "bubbleAgent1": "Ja — 2–4 Werktage, kostenlos ab 50 €. Soll ich ein Lieferdatum für Ihre Postleitzahl prüfen?",
-      "bubbleVisitor2": "Ich habe eigentlich eine Garantiefrage, die Sie vielleicht nicht kennen.",
+      "bubbleVisitor2": "Mein Paket kam letzte Woche beschädigt an — kann mir jemand bei einer Garantiereklamation helfen?",
       "bubbleHandoff": "An Ihr Team übergeben — sie werden hier in Kürze antworten."
     },
     "outputCards": [

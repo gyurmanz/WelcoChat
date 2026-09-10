@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Posielate aj do Maďarska?",
       "bubbleAgent1": "Áno — 2–4 pracovné dni, zadarmo nad 50 €. Mám overiť termín doručenia pre vaše smerovacie číslo?",
-      "bubbleVisitor2": "Vlastne mám otázku o záruke, o ktorej možno neviete.",
+      "bubbleVisitor2": "Vlastne mi minulý týždeň prišla poškodená objednávka — môže mi niekto pomôcť s reklamáciou v rámci záruky?",
       "bubbleHandoff": "Odovzdané vášmu tímu — čoskoro tu odpovedia."
     },
     "outputCards": [

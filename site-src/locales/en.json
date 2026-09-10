@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Do you ship to Hungary?",
       "bubbleAgent1": "Yes — 2–4 business days, free over €50. Want me to check a delivery date for your postcode?",
-      "bubbleVisitor2": "Actually I have a warranty question you might not know.",
+      "bubbleVisitor2": "Actually, my order arrived damaged last week — can someone help me with a warranty claim?",
       "bubbleHandoff": "Handed off to your team — they'll reply here shortly."
     },
     "outputCards": [

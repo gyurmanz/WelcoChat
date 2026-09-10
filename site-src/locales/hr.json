@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Dostavljate li u Mađarsku?",
       "bubbleAgent1": "Da — 2 do 4 radna dana, besplatno za narudžbe iznad 50 €. Želite da provjerim datum dostave za vaš poštanski broj?",
-      "bubbleVisitor2": "Zapravo imam pitanje o jamstvu koje možda ne znate.",
+      "bubbleVisitor2": "Zapravo, moja narudžba stigla je oštećena prošli tjedan — može li mi netko pomoći s jamstvenim zahtjevom?",
       "bubbleHandoff": "Proslijeđeno vašem timu — uskoro će odgovoriti ovdje."
     },
     "outputCards": [

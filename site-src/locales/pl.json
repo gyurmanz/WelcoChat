@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Czy wysyłacie do Węgier?",
       "bubbleAgent1": "Tak — 2–4 dni robocze, bezpłatnie od 50 €. Chcesz, żebym sprawdził termin dostawy dla Twojego kodu pocztowego?",
-      "bubbleVisitor2": "Właściwie mam pytanie o gwarancję, o którym możesz nie wiedzieć.",
+      "bubbleVisitor2": "Właściwie moje zamówienie dotarło uszkodzone w zeszłym tygodniu — czy ktoś może pomóc mi ze zgłoszeniem gwarancyjnym?",
       "bubbleHandoff": "Przekazano Twojemu zespołowi — wkrótce tu odpowiedzą."
     },
     "outputCards": [

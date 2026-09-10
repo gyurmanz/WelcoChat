@@ -72,7 +72,7 @@
     "heroVisual": {
       "bubbleVisitor1": "Livrez-vous en Hongrie ?",
       "bubbleAgent1": "Oui — 2 à 4 jours ouvrés, gratuit au-delà de 50 €. Voulez-vous que je vérifie une date de livraison pour votre code postal ?",
-      "bubbleVisitor2": "En fait, j'ai une question sur la garantie que vous ne connaissez peut-être pas.",
+      "bubbleVisitor2": "En fait, ma commande est arrivée endommagée la semaine dernière — quelqu'un peut-il m'aider pour une réclamation sous garantie ?",
       "bubbleHandoff": "Transféré à votre équipe — ils répondront ici sous peu."
     },
     "outputCards": [

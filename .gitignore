@@ -16,3 +16,6 @@ api/.env
 # OS / editor
 .DS_Store
 *.log
+
+# Claude Code local/personal settings (not team-shared)
+.claude/settings.local.json

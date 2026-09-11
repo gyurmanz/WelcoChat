@@ -326,6 +326,10 @@ def render_home_content(t, lang, section_prefix, terms_href, privacy_href):
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="#004a9c" stroke-width="2"/><circle cx="12" cy="9" r="2.4" stroke="#004a9c" stroke-width="2"/></svg>
             <div><b>{contact["responseLabel"]}</b><span>{contact["response"]}</span></div>
           </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18" stroke="#004a9c" stroke-width="2" stroke-linecap="round"/><path d="M5 21V7l7-4 7 4v14" stroke="#004a9c" stroke-width="2" stroke-linejoin="round"/><path d="M9 21v-6h6v6" stroke="#004a9c" stroke-width="2" stroke-linejoin="round"/></svg>
+            <div><b>{contact["companyLabel"]}</b><span>Mango Group &middot; <a href="https://mangogroup.eu" target="_blank" rel="noopener">mangogroup.eu</a></span></div>
+          </div>
         </div>
       </div>
 
@@ -568,6 +572,7 @@ def render_page(page_key, lang, t):
         "TERMS_HREF": terms_href,
         "PRIVACY_HREF": privacy_href,
         "FOOTER_COPYRIGHT": t["common"]["footer"]["copyright"],
+        "FOOTER_OPERATED_BY": t["common"]["footer"]["operatedBy"],
     }
     return fill(base, values)
 

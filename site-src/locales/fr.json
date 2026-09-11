@@ -58,7 +58,8 @@
       "terms": "Conditions d'utilisation",
       "privacy": "Politique de confidentialité",
       "portal": "Portail client",
-      "copyright": "© 2026 WelcoChat. Tous droits réservés."
+      "copyright": "© 2026 WelcoChat. Tous droits réservés.",
+      "operatedBy": "WelcoChat est un produit de <a href=\"https://mangogroup.eu\" target=\"_blank\" rel=\"noopener\">Mango Group</a>."
     },
     "backToPortal": "← Retour au portail",
     "legalUpdated": "Dernière mise à jour : septembre 2026"
@@ -361,7 +362,8 @@
         "sending": "Envoi en cours...",
         "success": "Merci. Nous avons bien reçu votre message et vous répondrons bientôt.",
         "errorGeneric": "Une erreur s'est produite. Veuillez réessayer."
-      }
+      },
+      "companyLabel": "Société"
     }
   },
   "terms": {
@@ -550,7 +552,17 @@
         "after": "Bons candidats : fiches techniques produit, un document FAQ détaillé, documents de politique, listes de prix, guides d'intégration."
       },
       {
-        "h2": "4. À éviter",
+        "h2": "4. Les conversations passées comptent parmi vos meilleures ressources",
+        "body": "Si vous avez déjà traité des questions de clients — sur WhatsApp, un ancien outil de chat en direct ou d'assistance, ou même par e-mail —, exportez cet historique et téléversez-le comme document. Les vraies questions que vos clients ont posées, dans leurs propres mots, enseignent bien plus à l'agent qu'une page marketing soignée.",
+        "list": [
+          "Exportez l'historique de discussion de WhatsApp Business, Instagram/Facebook Messenger ou de votre ancien outil de chat en direct/assistance — la plupart proposent un export CSV ou texte — et téléversez-le comme document.",
+          "Si l'export n'est pas possible, collez directement les questions récurrentes les plus fréquentes et leurs bonnes réponses dans \"Documents supplémentaires / FAQ\".",
+          "Inutile de trop nettoyer la mise en forme — l'agent peut exploiter des exports de conversation bruts. Retirez simplement tout élément confidentiel au préalable (noms de clients, numéros de commande, informations de paiement)."
+        ],
+        "after": "C'est souvent plus précieux que le simple parcours du site, car cela capture les formulations exactes et les cas particuliers que posent vraiment les visiteurs — pas seulement ce que votre texte marketing avait anticipé."
+      },
+      {
+        "h2": "5. À éviter",
         "list_strong": [
           {
             "strong": "Informations contradictoires.",
@@ -567,11 +579,11 @@
         ]
       },
       {
-        "h2": "5. Une note sur la façon dont les réponses sont générées",
+        "h2": "6. Une note sur la façon dont les réponses sont générées",
         "body": "Le widget affiche uniquement du texte conversationnel simple — pas de formatage Markdown, pas de tableaux, pas de listes à puces rendues comme telles. Votre contenu source peut être formaté comme vous le souhaitez (titres, puces, tableaux sont tous acceptables à écrire), mais rédigez vos <em>propres</em> notes « Documents supplémentaires » sous forme de phrases simples autant que possible, car c'est ce qui se rapproche le plus de ce que l'agent produira réellement à un visiteur."
       },
       {
-        "h2": "6. Le maintenir à jour",
+        "h2": "7. Le maintenir à jour",
         "body": "Vous pouvez ré-explorer votre site web ou modifier vos notes et documents à tout moment depuis la page de configuration — les modifications des notes et documents prennent effet immédiatement, et ré-explorer un site modifié prend environ une minute. Il n'y a aucune interruption de service pendant la mise à jour."
       }
     ]

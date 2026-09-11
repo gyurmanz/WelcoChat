@@ -297,6 +297,8 @@ section.tight { padding: 56px 0; }
 .footer-col h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 12px; }
 .footer-col a { display: block; color: var(--text); font-size: 0.9rem; margin-bottom: 9px; }
 .footer-bottom { color: var(--muted); font-size: 0.82rem; border-top: 1px solid var(--border); padding-top: 20px; }
+.footer-operated-by { margin-top: 4px; }
+.footer-operated-by a { color: var(--primary); }
 
 @media (max-width: 860px) {
   .hero-grid, .contact-grid { grid-template-columns: 1fr; }

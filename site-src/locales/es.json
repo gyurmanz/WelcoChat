@@ -58,7 +58,8 @@
       "terms": "Términos del Servicio",
       "privacy": "Política de Privacidad",
       "portal": "Portal de cliente",
-      "copyright": "© 2026 WelcoChat. Todos los derechos reservados."
+      "copyright": "© 2026 WelcoChat. Todos los derechos reservados.",
+      "operatedBy": "WelcoChat es un producto de <a href=\"https://mangogroup.eu\" target=\"_blank\" rel=\"noopener\">Mango Group</a>."
     },
     "backToPortal": "← Volver al portal",
     "legalUpdated": "Última actualización: septiembre de 2026"
@@ -361,7 +362,8 @@
         "sending": "Enviando...",
         "success": "Gracias. Hemos recibido tu mensaje y te responderemos pronto.",
         "errorGeneric": "Algo salió mal. Inténtalo de nuevo."
-      }
+      },
+      "companyLabel": "Empresa"
     }
   },
   "terms": {
@@ -550,7 +552,17 @@
         "after": "Buenos candidatos: fichas técnicas de producto, un documento detallado de preguntas frecuentes, documentos de políticas, listas de precios, guías de incorporación."
       },
       {
-        "h2": "4. Qué evitar",
+        "h2": "4. Las conversaciones anteriores son parte de tu mejor material",
+        "body": "Si ya has gestionado preguntas de clientes antes —por WhatsApp, una herramienta de chat en vivo o helpdesk anterior, o incluso por correo electrónico—, exporta ese historial y súbelo como documento. Las preguntas reales que tus clientes han hecho, con sus propias palabras, enseñan al agente mucho más que una página de marketing pulida.",
+        "list": [
+          "Exporta el historial de chat de WhatsApp Business, Instagram/Facebook Messenger o tu anterior herramienta de chat en vivo/helpdesk —la mayoría ofrece exportación en CSV o texto— y súbelo como documento.",
+          "Si no es posible exportarlo, pega las preguntas recurrentes más comunes y sus respuestas correctas directamente en \"Documentos adicionales / Preguntas frecuentes\".",
+          "No hace falta limpiar mucho el formato: el agente puede trabajar con exportaciones de conversaciones en bruto. Solo elimina antes cualquier dato confidencial (nombres de clientes, números de pedido, datos de pago)."
+        ],
+        "after": "Esto suele ser más valioso que el rastreo del sitio web por sí solo, porque captura la formulación exacta y los casos particulares que realmente preguntan los visitantes, no solo lo que anticipaba tu texto de marketing."
+      },
+      {
+        "h2": "5. Qué evitar",
         "list_strong": [
           {
             "strong": "Información contradictoria.",
@@ -567,11 +579,11 @@
         ]
       },
       {
-        "h2": "5. Una nota sobre cómo se generan las respuestas",
+        "h2": "6. Una nota sobre cómo se generan las respuestas",
         "body": "El widget solo muestra texto conversacional sencillo — sin formato Markdown, sin tablas, sin listas con viñetas renderizadas como tales. Tu contenido fuente se puede formatear como quieras (encabezados, viñetas y tablas están bien para escribir), pero escribe tus <em>propias</em> notas de \"Documentos adicionales\" como frases simples siempre que sea posible, ya que eso es lo más cercano a lo que el agente realmente producirá para un visitante."
       },
       {
-        "h2": "6. Mantenerlo actualizado",
+        "h2": "7. Mantenerlo actualizado",
         "body": "Puedes volver a rastrear tu sitio web o editar tus notas y documentos en cualquier momento desde la página de configuración — los cambios en notas y documentos surten efecto inmediatamente, y volver a rastrear un sitio web modificado toma aproximadamente un minuto. No hay tiempo de inactividad mientras se actualiza."
       }
     ]

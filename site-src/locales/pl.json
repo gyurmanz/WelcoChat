@@ -58,7 +58,8 @@
       "terms": "Regulamin",
       "privacy": "Polityka prywatności",
       "portal": "Portal klienta",
-      "copyright": "© 2026 WelcoChat. Wszelkie prawa zastrzeżone."
+      "copyright": "© 2026 WelcoChat. Wszelkie prawa zastrzeżone.",
+      "operatedBy": "WelcoChat to produkt firmy <a href=\"https://mangogroup.eu\" target=\"_blank\" rel=\"noopener\">Mango Group</a>."
     },
     "backToPortal": "← Powrót do portalu",
     "legalUpdated": "Ostatnia aktualizacja: wrzesień 2026"
@@ -361,7 +362,8 @@
         "sending": "Wysyłanie...",
         "success": "Dziękujemy. Otrzymaliśmy Twoją wiadomość i wkrótce się z Tobą skontaktujemy.",
         "errorGeneric": "Coś poszło nie tak. Spróbuj ponownie."
-      }
+      },
+      "companyLabel": "Firma"
     }
   },
   "terms": {
@@ -550,7 +552,17 @@
         "after": "Dobrzy kandydaci: karty specyfikacji produktu, szczegółowy dokument FAQ, dokumenty dotyczące zasad, cenniki, przewodniki wdrożeniowe."
       },
       {
-        "h2": "4. Czego unikać",
+        "h2": "4. Wcześniejsze rozmowy to jeden z najlepszych materiałów, jakie masz",
+        "body": "Jeśli wcześniej obsługiwałeś pytania klientów — przez WhatsApp, poprzednie narzędzie do czatu na żywo lub helpdesk, a nawet e-mail — wyeksportuj tę historię i prześlij ją jako dokument. Prawdziwe pytania, które zadawali Twoi klienci, w ich własnych słowach, uczą agenta znacznie więcej niż dopracowana strona marketingowa.",
+        "list": [
+          "Wyeksportuj historię czatu z WhatsApp Business, Instagram/Facebook Messenger lub poprzedniego narzędzia do czatu na żywo/helpdesku — większość oferuje eksport CSV lub tekstowy — i prześlij ją jako dokument.",
+          "Jeśli eksport nie jest możliwy, wklej najczęściej powtarzające się pytania i ich poprawne odpowiedzi bezpośrednio w polu \"Dodatkowe dokumenty / FAQ\".",
+          "Nie musisz zbytnio porządkować formatowania — agent poradzi sobie z surowymi eksportami rozmów. Wystarczy wcześniej usunąć wszystko, co poufne (imiona i nazwiska klientów, numery zamówień, dane płatności)."
+        ],
+        "after": "To często cenniejsze niż samo przeszukanie strony, ponieważ uchwytuje dokładne sformułowania i przypadki brzegowe, o które faktycznie pytają odwiedzający — a nie tylko to, co przewidział Twój tekst marketingowy."
+      },
+      {
+        "h2": "5. Czego unikać",
         "list_strong": [
           {
             "strong": "Sprzecznych informacji.",
@@ -567,11 +579,11 @@
         ]
       },
       {
-        "h2": "5. Uwaga na temat sposobu generowania odpowiedzi",
+        "h2": "6. Uwaga na temat sposobu generowania odpowiedzi",
         "body": "Widget wyświetla tylko zwykły tekst konwersacyjny — bez formatowania Markdown, bez tabel, bez list wypunktowanych renderowanych jako takie. Twoja treść źródłowa może być sformatowana w dowolny sposób (nagłówki, punkty, tabele — wszystko można pisać), ale swoje <em>własne</em> notatki \"Dodatkowe dokumenty\" pisz w miarę możliwości jako zwykłe zdania, ponieważ jest to najbliższe temu, co agent faktycznie wygeneruje dla odwiedzającego."
       },
       {
-        "h2": "6. Utrzymywanie aktualności",
+        "h2": "7. Utrzymywanie aktualności",
         "body": "Możesz w dowolnym momencie ponownie zindeksować swoją stronę internetową lub edytować swoje notatki i dokumenty ze strony konfiguracji — zmiany w notatkach i dokumentach wchodzą w życie natychmiast, a ponowne indeksowanie zmienionej strony trwa około minuty. Podczas aktualizacji nie ma przestojów."
       }
     ]

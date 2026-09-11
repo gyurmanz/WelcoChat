@@ -58,7 +58,8 @@
       "terms": "Terms of Service",
       "privacy": "Privacy Policy",
       "portal": "Client portal",
-      "copyright": "© 2026 WelcoChat. All rights reserved."
+      "copyright": "© 2026 WelcoChat. All rights reserved.",
+      "operatedBy": "WelcoChat is a product by <a href=\"https://mangogroup.eu\" target=\"_blank\" rel=\"noopener\">Mango Group</a>."
     },
     "backToPortal": "← Back to the portal",
     "legalUpdated": "Last updated: September 2026"
@@ -361,7 +362,8 @@
         "sending": "Sending...",
         "success": "Thank you. We received your message and will get back to you soon.",
         "errorGeneric": "Something went wrong. Please try again."
-      }
+      },
+      "companyLabel": "Company"
     }
   },
   "terms": {
@@ -550,7 +552,17 @@
         "after": "Good candidates: product spec sheets, a detailed FAQ document, policy documents, price lists, onboarding guides."
       },
       {
-        "h2": "4. What to avoid",
+        "h2": "4. Past conversations are some of the best material you have",
+        "body": "If you've handled customer questions before — on WhatsApp, a previous live-chat or helpdesk tool, or even email — export that history and upload it as a document. Real questions your customers actually asked, in their own words, teach the agent far more than a polished marketing page does.",
+        "list": [
+          "Export chat history from WhatsApp Business, Instagram/Facebook Messenger, or your previous live-chat/helpdesk tool — most offer a CSV or text export — and upload it as a document",
+          "If exporting isn't possible, paste the most common recurring questions and their correct answers directly into \"Additional docs / FAQs\"",
+          "You don't need to clean up the formatting much — the agent can work with raw conversation exports. Just remove anything confidential first (customer names, order numbers, payment details)"
+        ],
+        "after": "This is often more valuable than the website crawl alone, since it captures the exact phrasing and edge cases real visitors ask about — not just what your marketing copy anticipated."
+      },
+      {
+        "h2": "5. What to avoid",
         "list_strong": [
           {
             "strong": "Conflicting information.",
@@ -567,11 +579,11 @@
         ]
       },
       {
-        "h2": "5. A note on how answers are generated",
+        "h2": "6. A note on how answers are generated",
         "body": "The widget only displays plain conversational text — no Markdown formatting, no tables, no bullet lists render as such. Your source content can be formatted however you like (headings, bullet points, tables are all fine to write), but write your <em>own</em> \"Additional docs\" notes as plain sentences where possible, since that's closest to what the agent will actually produce back to a visitor."
       },
       {
-        "h2": "6. Keeping it current",
+        "h2": "7. Keeping it current",
         "body": "You can re-crawl your website or edit your notes and documents anytime from the setup page — changes to notes and documents take effect immediately, and re-crawling a changed website takes about a minute. There's no downtime while it updates."
       }
     ]

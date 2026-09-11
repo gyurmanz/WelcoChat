@@ -58,7 +58,8 @@
       "terms": "Nutzungsbedingungen",
       "privacy": "Datenschutzerklärung",
       "portal": "Kundenportal",
-      "copyright": "© 2026 WelcoChat. Alle Rechte vorbehalten."
+      "copyright": "© 2026 WelcoChat. Alle Rechte vorbehalten.",
+      "operatedBy": "WelcoChat ist ein Produkt von <a href=\"https://mangogroup.eu\" target=\"_blank\" rel=\"noopener\">Mango Group</a>."
     },
     "backToPortal": "← Zurück zum Portal",
     "legalUpdated": "Zuletzt aktualisiert: September 2026"
@@ -361,7 +362,8 @@
         "sending": "Wird gesendet...",
         "success": "Vielen Dank. Wir haben Ihre Nachricht erhalten und melden uns bald bei Ihnen.",
         "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
-      }
+      },
+      "companyLabel": "Unternehmen"
     }
   },
   "terms": {
@@ -550,7 +552,17 @@
         "after": "Gute Kandidaten: Produktdatenblätter, ein detailliertes FAQ-Dokument, Richtliniendokumente, Preislisten, Onboarding-Leitfäden."
       },
       {
-        "h2": "4. Was zu vermeiden ist",
+        "h2": "4. Vergangene Gespräche gehören zum besten Material, das Sie haben",
+        "body": "Wenn Sie zuvor schon Kundenanfragen bearbeitet haben — über WhatsApp, ein früheres Live-Chat- oder Helpdesk-Tool oder sogar per E-Mail —, exportieren Sie diesen Verlauf und laden Sie ihn als Dokument hoch. Echte Fragen, die Ihre Kunden tatsächlich gestellt haben, in ihren eigenen Worten, bringen dem Agenten weit mehr bei als eine polierte Marketingseite.",
+        "list": [
+          "Exportieren Sie den Chatverlauf aus WhatsApp Business, Instagram/Facebook Messenger oder Ihrem früheren Live-Chat-/Helpdesk-Tool — die meisten bieten einen CSV- oder Textexport — und laden Sie ihn als Dokument hoch.",
+          "Falls kein Export möglich ist, fügen Sie die häufigsten wiederkehrenden Fragen samt korrekter Antworten direkt in \"Zusätzliche Dokumente / FAQs\" ein.",
+          "Sie müssen die Formatierung nicht groß bereinigen — der Agent kommt mit rohen Gesprächsexporten zurecht. Entfernen Sie vorher nur alles Vertrauliche (Kundennamen, Bestellnummern, Zahlungsdaten)."
+        ],
+        "after": "Das ist oft wertvoller als der reine Website-Crawl, weil es die genaue Formulierung und die Grenzfälle erfasst, nach denen echte Besucher fragen — nicht nur das, was Ihr Marketingtext vorausgesehen hat."
+      },
+      {
+        "h2": "5. Was zu vermeiden ist",
         "list_strong": [
           {
             "strong": "Widersprüchliche Informationen.",
@@ -567,11 +579,11 @@
         ]
       },
       {
-        "h2": "5. Ein Hinweis dazu, wie Antworten generiert werden",
+        "h2": "6. Ein Hinweis dazu, wie Antworten generiert werden",
         "body": "Das Widget zeigt nur einfachen Gesprächstext an — keine Markdown-Formatierung, keine Tabellen, keine Aufzählungslisten als solche. Ihre Quellinhalte können beliebig formatiert werden (Überschriften, Aufzählungspunkte, Tabellen sind alle in Ordnung), aber schreiben Sie Ihre <em>eigenen</em> \"Zusätzliche Dokumente\"-Hinweise wenn möglich als einfache Sätze, da dies dem am nächsten kommt, was der Agent einem Besucher tatsächlich zurückgeben wird."
       },
       {
-        "h2": "6. Aktuell halten",
+        "h2": "7. Aktuell halten",
         "body": "Sie können Ihre Website jederzeit über die Einrichtungsseite erneut crawlen lassen oder Ihre Hinweise und Dokumente bearbeiten — Änderungen an Hinweisen und Dokumenten werden sofort wirksam, und das erneute Crawlen einer geänderten Website dauert etwa eine Minute. Während des Updates gibt es keine Ausfallzeit."
       }
     ]

@@ -58,7 +58,8 @@
       "terms": "Obchodné podmienky",
       "privacy": "Zásady ochrany osobných údajov",
       "portal": "Klientsky portál",
-      "copyright": "© 2026 WelcoChat. Všetky práva vyhradené."
+      "copyright": "© 2026 WelcoChat. Všetky práva vyhradené.",
+      "operatedBy": "WelcoChat je produkt spoločnosti <a href=\"https://mangogroup.eu\" target=\"_blank\" rel=\"noopener\">Mango Group</a>."
     },
     "backToPortal": "← Späť na portál",
     "legalUpdated": "Posledná aktualizácia: september 2026"
@@ -361,7 +362,8 @@
         "sending": "Odosiela sa...",
         "success": "Ďakujeme. Vašu správu sme prijali a čoskoro sa vám ozveme.",
         "errorGeneric": "Niečo sa pokazilo. Skúste to znova."
-      }
+      },
+      "companyLabel": "Spoločnosť"
     }
   },
   "terms": {
@@ -550,7 +552,17 @@
         "after": "Dobrí kandidáti: technické listy produktov, podrobný dokument FAQ, dokumenty o zásadách, cenníky, sprievodné materiály pre onboarding."
       },
       {
-        "h2": "4. Čomu sa vyhnúť",
+        "h2": "4. Predchádzajúce konverzácie patria medzi najlepšie materiály, aké máte",
+        "body": "Ak ste už predtým riešili otázky zákazníkov — cez WhatsApp, predchádzajúci nástroj na živý chat či helpdesk, alebo aj e-mailom —, exportujte túto históriu a nahrajte ju ako dokument. Skutočné otázky, ktoré vaši zákazníci naozaj kládli, vo vlastných slovách, naučia agenta oveľa viac než vyladená marketingová stránka.",
+        "list": [
+          "Exportujte históriu chatu z WhatsApp Business, Instagramu/Facebook Messengeru alebo predchádzajúceho nástroja na živý chat/helpdesk — väčšina ponúka export do CSV alebo textu — a nahrajte ju ako dokument.",
+          "Ak export nie je možný, vložte najčastejšie opakujúce sa otázky a ich správne odpovede priamo do poľa \"Ďalšie dokumenty / FAQ\".",
+          "Formátovanie nemusíte príliš čistiť — agent zvládne aj surové exporty konverzácií. Vopred z nich len odstráňte všetko dôverné (mená zákazníkov, čísla objednávok, platobné údaje)."
+        ],
+        "after": "Toto je často cennejšie než samotné prehľadávanie webu, pretože zachytáva presné formulácie a hraničné prípady, na ktoré sa skutoční návštevníci pýtajú — nielen to, čo predpokladal váš marketingový text."
+      },
+      {
+        "h2": "5. Čomu sa vyhnúť",
         "list_strong": [
           {
             "strong": "Protichodné informácie.",
@@ -567,11 +579,11 @@
         ]
       },
       {
-        "h2": "5. Poznámka o tom, ako sa generujú odpovede",
+        "h2": "6. Poznámka o tom, ako sa generujú odpovede",
         "body": "Widget zobrazuje iba jednoduchý konverzačný text — žiadne formátovanie Markdown, žiadne tabuľky, žiadne zoznamy s odrážkami sa nevykresľujú ako také. Váš zdrojový obsah môžete formátovať, ako chcete (nadpisy, odrážky, tabuľky sú v poriadku), ale svoje <em>vlastné</em> poznámky \"Ďalšie dokumenty\" píšte podľa možnosti ako jednoduché vety, keďže to je najbližšie tomu, čo agent skutočne vytvorí pre návštevníka."
       },
       {
-        "h2": "6. Udržiavanie aktuálnosti",
+        "h2": "7. Udržiavanie aktuálnosti",
         "body": "Svoju webovú stránku môžete kedykoľvek znova prehľadať alebo upraviť svoje poznámky a dokumenty zo stránky nastavenia — zmeny v poznámkach a dokumentoch nadobúdajú účinnosť okamžite a opätovné prehľadanie zmenenej webovej stránky trvá približne minútu. Počas aktualizácie nedochádza k výpadku."
       }
     ]

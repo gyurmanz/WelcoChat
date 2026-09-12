@@ -34,11 +34,15 @@ def render_template(template_name: str, **context) -> str:
     return rendered
 
 
-def send_email(subject: str, email_to: str, html_body: str, text_body: str = None):
+def send_email(subject: str, email_to: str, html_body: str, text_body: str = None, reply_to: str = None):
     msg = EmailMessage()
     msg["Subject"] = subject
     msg["From"] = EMAIL_FROM
     msg["To"] = email_to
+    # Support mail is only useful if hitting reply reaches the customer rather
+    # than our own From address.
+    if reply_to:
+        msg["Reply-To"] = reply_to
 
     if not text_body:
         text_body = "HTML email only."

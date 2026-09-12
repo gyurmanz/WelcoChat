@@ -155,6 +155,15 @@
             <span class="dash-nav-icon">👤</span>
             <span class="dash-nav-label">{{ t('nav.companyProfile') }}</span>
           </router-link>
+
+          <router-link
+            to="/support"
+            class="dash-nav-item"
+            active-class="dash-nav-item--active"
+          >
+            <span class="dash-nav-icon">💡</span>
+            <span class="dash-nav-label">{{ t('nav.support') }}</span>
+          </router-link>
         </nav>
       </aside>
 
@@ -262,6 +271,16 @@
           >
             <span class="dash-nav-icon">👤</span>
             <span class="dash-nav-label">{{ t('nav.companyProfile') }}</span>
+          </router-link>
+
+          <router-link
+            to="/support"
+            class="dash-nav-item"
+            active-class="dash-nav-item--active"
+            @click="handleNavClick"
+          >
+            <span class="dash-nav-icon">💡</span>
+            <span class="dash-nav-label">{{ t('nav.support') }}</span>
           </router-link>
         </nav>
       </div>

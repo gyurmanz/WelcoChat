@@ -236,6 +236,13 @@ class ContactRequest(BaseModel):
     pilot_type: Optional[str] = None
 
 
+class SupportRequest(BaseModel):
+    # bug | idea | question
+    topic: str
+    subject: Annotated[str, StringConstraints(min_length=3, max_length=150)]
+    message: Annotated[str, StringConstraints(min_length=10, max_length=5000)]
+
+
 # -------------------------------------------------------------------
 # ServiceInstance schemas
 # -------------------------------------------------------------------

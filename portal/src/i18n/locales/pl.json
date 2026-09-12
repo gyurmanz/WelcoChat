@@ -581,7 +581,8 @@
     "pushOff": "Włącz powiadomienia o przekazaniach na żywo",
     "handoffToast": "Odwiedzający potrzebuje człowieka — czeka nowa rozmowa.",
     "handoffToastView": "Zobacz",
-    "dismiss": "Zamknij"
+    "dismiss": "Zamknij",
+    "support": "Pomoc i opinie"
   },
   "leads": {
     "title": "Kontakty",
@@ -593,5 +594,27 @@
     "contact": "Kontakt",
     "message": "Wiadomość",
     "errorLoad": "Nie udało się wczytać kontaktów."
+  },
+  "support": {
+    "title": "Pomoc i opinie",
+    "intro": "Napotkałeś błąd albo masz pomysł, co WelcoChat powinien umieć? Napisz do nas — każdą wiadomość czyta prawdziwa osoba.",
+    "topicLabel": "Czego dotyczy?",
+    "topicBug": "Coś nie działa",
+    "topicBugNote": "Błąd lub usterka",
+    "topicIdea": "Pomysł",
+    "topicIdeaNote": "Coś, co powinniśmy zbudować",
+    "topicQuestion": "Pytanie",
+    "topicQuestionNote": "Cokolwiek innego",
+    "subjectLabel": "Temat",
+    "subjectPlaceholder": "Krótkie podsumowanie",
+    "messageLabel": "Wiadomość",
+    "messagePlaceholder": "Co się stało i czego oczekiwałeś?",
+    "contextHint": "Twoje konto, plan i dane kontaktowe są dołączane automatycznie.",
+    "send": "Wyślij wiadomość",
+    "sending": "Wysyłanie…",
+    "sentTitle": "Wiadomość wysłana",
+    "sentBody": "Dziękujemy — odpowiemy na adres e-mail konta, zwykle w ciągu jednego dnia roboczego.",
+    "sendAnother": "Wyślij kolejną",
+    "errorSend": "Nie udało się wysłać wiadomości."
   }
 }

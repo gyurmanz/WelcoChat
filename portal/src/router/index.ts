@@ -24,6 +24,7 @@ const WelcoSetupView = () => import('@/views/WelcoSetupView.vue')
 const TeamView = () => import('@/views/TeamView.vue')
 const StatisticsView = () => import('@/views/StatisticsView.vue')
 const LeadsView = () => import('@/views/LeadsView.vue')
+const SupportView = () => import('@/views/SupportView.vue')
 const LiveChatView = () => import('@/views/LiveChatView.vue')
 
 const routes: RouteRecordRaw[] = [
@@ -188,6 +189,15 @@ const routes: RouteRecordRaw[] = [
     path: '/leads',
     name: 'leads',
     component: LeadsView,
+    meta: {
+      requiresAuth: true,
+      layout: 'dashboard',
+    },
+  },
+  {
+    path: '/support',
+    name: 'support',
+    component: SupportView,
     meta: {
       requiresAuth: true,
       layout: 'dashboard',

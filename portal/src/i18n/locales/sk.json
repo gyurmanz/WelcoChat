@@ -581,7 +581,8 @@
     "pushOff": "Zapnúť upozornenia na živé odovzdania",
     "handoffToast": "Návštevník potrebuje človeka — čaká nová konverzácia.",
     "handoffToastView": "Zobraziť",
-    "dismiss": "Zavrieť"
+    "dismiss": "Zavrieť",
+    "support": "Pomoc a spätná väzba"
   },
   "leads": {
     "title": "Kontakty",
@@ -593,5 +594,27 @@
     "contact": "Kontakt",
     "message": "Správa",
     "errorLoad": "Kontakty sa nepodarilo načítať."
+  },
+  "support": {
+    "title": "Pomoc a spätná väzba",
+    "intro": "Narazili ste na chybu alebo vás napadlo, čo by WelcoChat mal vedieť? Napíšte nám — každú správu číta skutočný človek.",
+    "topicLabel": "Čoho sa to týka?",
+    "topicBug": "Niečo nefunguje",
+    "topicBugNote": "Chyba alebo problém",
+    "topicIdea": "Nápad",
+    "topicIdeaNote": "Niečo, čo by sme mali vytvoriť",
+    "topicQuestion": "Otázka",
+    "topicQuestionNote": "Čokoľvek iné",
+    "subjectLabel": "Predmet",
+    "subjectPlaceholder": "Krátke zhrnutie",
+    "messageLabel": "Správa",
+    "messagePlaceholder": "Čo sa stalo a čo ste očakávali?",
+    "contextHint": "Váš účet, plán a kontaktné údaje sa priložia automaticky.",
+    "send": "Odoslať správu",
+    "sending": "Odosielanie…",
+    "sentTitle": "Správa odoslaná",
+    "sentBody": "Ďakujeme — odpovieme na e-mail vášho účtu, zvyčajne do jedného pracovného dňa.",
+    "sendAnother": "Odoslať ďalšiu",
+    "errorSend": "Správu sa nepodarilo odoslať."
   }
 }

@@ -581,7 +581,8 @@
     "pushOff": "Uključi obavijesti za prosljeđivanja uživo",
     "handoffToast": "Posjetitelju treba djelatnik — čeka novi razgovor.",
     "handoffToastView": "Prikaži",
-    "dismiss": "Odbaci"
+    "dismiss": "Odbaci",
+    "support": "Pomoć i povratne informacije"
   },
   "leads": {
     "title": "Kontakti",
@@ -593,5 +594,27 @@
     "contact": "Kontakt",
     "message": "Poruka",
     "errorLoad": "Učitavanje kontakata nije uspjelo."
+  },
+  "support": {
+    "title": "Pomoć i povratne informacije",
+    "intro": "Naišli ste na grešku ili imate ideju što bi WelcoChat trebao znati? Pišite nam — svaku poruku čita prava osoba.",
+    "topicLabel": "O čemu se radi?",
+    "topicBug": "Nešto ne radi",
+    "topicBugNote": "Greška ili problem",
+    "topicIdea": "Ideja",
+    "topicIdeaNote": "Nešto što bismo trebali napraviti",
+    "topicQuestion": "Pitanje",
+    "topicQuestionNote": "Bilo što drugo",
+    "subjectLabel": "Predmet",
+    "subjectPlaceholder": "Kratak sažetak",
+    "messageLabel": "Poruka",
+    "messagePlaceholder": "Što se dogodilo i što ste očekivali?",
+    "contextHint": "Vaš račun, paket i kontaktni podaci automatski se prilažu.",
+    "send": "Pošalji poruku",
+    "sending": "Slanje…",
+    "sentTitle": "Poruka poslana",
+    "sentBody": "Hvala — odgovorit ćemo na e-poštu vašeg računa, obično unutar jednog radnog dana.",
+    "sendAnother": "Pošalji još jednu",
+    "errorSend": "Slanje poruke nije uspjelo."
   }
 }

@@ -581,7 +581,8 @@
     "pushOff": "Activer les notifications pour les transferts en direct",
     "handoffToast": "Un visiteur a besoin d'une personne — une nouvelle conversation attend.",
     "handoffToastView": "Voir",
-    "dismiss": "Ignorer"
+    "dismiss": "Ignorer",
+    "support": "Aide et retours"
   },
   "leads": {
     "title": "Prospects",
@@ -593,5 +594,27 @@
     "contact": "Contact",
     "message": "Message",
     "errorLoad": "Échec du chargement des prospects."
+  },
+  "support": {
+    "title": "Aide et retours",
+    "intro": "Un bug, ou une idée de ce que WelcoChat devrait faire ? Écrivez-nous — une vraie personne lit chaque message.",
+    "topicLabel": "De quoi s'agit-il ?",
+    "topicBug": "Quelque chose ne marche pas",
+    "topicBugNote": "Un bug ou un problème",
+    "topicIdea": "Une idée",
+    "topicIdeaNote": "Quelque chose à construire",
+    "topicQuestion": "Une question",
+    "topicQuestionNote": "Autre chose",
+    "subjectLabel": "Objet",
+    "subjectPlaceholder": "Résumé court",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Que s'est-il passé, et à quoi vous attendiez-vous ?",
+    "contextHint": "Votre compte, votre forfait et vos coordonnées sont joints automatiquement.",
+    "send": "Envoyer",
+    "sending": "Envoi…",
+    "sentTitle": "Message envoyé",
+    "sentBody": "Merci — nous répondrons à l'e-mail de votre compte, généralement sous un jour ouvré.",
+    "sendAnother": "Envoyer un autre",
+    "errorSend": "Échec de l'envoi du message."
   }
 }

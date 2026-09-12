@@ -581,7 +581,8 @@
     "pushOff": "Turn on notifications for live handoffs",
     "handoffToast": "A visitor needs a human — a new conversation is waiting.",
     "handoffToastView": "View",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "support": "Help & feedback"
   },
   "leads": {
     "title": "Leads",
@@ -593,5 +594,27 @@
     "contact": "Contact",
     "message": "Message",
     "errorLoad": "Failed to load leads."
+  },
+  "support": {
+    "title": "Help & feedback",
+    "intro": "Hit a bug, or thought of something WelcoChat should do? Write to us here — a real person reads every message.",
+    "topicLabel": "What's this about?",
+    "topicBug": "Something's broken",
+    "topicBugNote": "A bug or something not working",
+    "topicIdea": "An idea",
+    "topicIdeaNote": "Something we should build",
+    "topicQuestion": "A question",
+    "topicQuestionNote": "Anything else",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Short summary",
+    "messageLabel": "Message",
+    "messagePlaceholder": "What happened, and what did you expect instead?",
+    "contextHint": "Your account, plan and contact details are attached automatically — no need to repeat them.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sentTitle": "Message sent",
+    "sentBody": "Thanks — we'll reply to your account email, usually within one business day.",
+    "sendAnother": "Send another",
+    "errorSend": "Failed to send your message."
   }
 }

@@ -581,7 +581,8 @@
     "pushOff": "Értesítések bekapcsolása élő átadásokhoz",
     "handoffToast": "Egy látogatónak emberre van szüksége — új beszélgetés vár.",
     "handoffToastView": "Megnézem",
-    "dismiss": "Bezárás"
+    "dismiss": "Bezárás",
+    "support": "Segítség és visszajelzés"
   },
   "leads": {
     "title": "Érdeklődők",
@@ -593,5 +594,27 @@
     "contact": "Elérhetőség",
     "message": "Üzenet",
     "errorLoad": "Az érdeklődők betöltése nem sikerült."
+  },
+  "support": {
+    "title": "Segítség és visszajelzés",
+    "intro": "Hibába futottál, vagy eszedbe jutott valami, amit a WelcoChatnak tudnia kellene? Írd meg itt — minden üzenetet ember olvas el.",
+    "topicLabel": "Miről van szó?",
+    "topicBug": "Valami nem működik",
+    "topicBugNote": "Hiba vagy hibás működés",
+    "topicIdea": "Ötlet",
+    "topicIdeaNote": "Valami, amit meg kellene csinálnunk",
+    "topicQuestion": "Kérdés",
+    "topicQuestionNote": "Bármi egyéb",
+    "subjectLabel": "Tárgy",
+    "subjectPlaceholder": "Rövid összefoglaló",
+    "messageLabel": "Üzenet",
+    "messagePlaceholder": "Mi történt, és mire számítottál helyette?",
+    "contextHint": "A fiókod, a csomagod és az elérhetőséged automatikusan csatolódik — nem kell leírnod.",
+    "send": "Üzenet küldése",
+    "sending": "Küldés…",
+    "sentTitle": "Üzenet elküldve",
+    "sentBody": "Köszönjük — a fiókod e-mail címére válaszolunk, jellemzően egy munkanapon belül.",
+    "sendAnother": "Új üzenet",
+    "errorSend": "Az üzenet küldése nem sikerült."
   }
 }

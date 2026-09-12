@@ -581,7 +581,8 @@
     "pushOff": "Benachrichtigungen für Live-Übergaben aktivieren",
     "handoffToast": "Ein Besucher braucht einen Menschen — eine neue Unterhaltung wartet.",
     "handoffToastView": "Ansehen",
-    "dismiss": "Schließen"
+    "dismiss": "Schließen",
+    "support": "Hilfe & Feedback"
   },
   "leads": {
     "title": "Leads",
@@ -593,5 +594,27 @@
     "contact": "Kontakt",
     "message": "Nachricht",
     "errorLoad": "Leads konnten nicht geladen werden."
+  },
+  "support": {
+    "title": "Hilfe & Feedback",
+    "intro": "Fehler entdeckt oder eine Idee, was WelcoChat können sollte? Schreiben Sie uns — jede Nachricht wird von einem Menschen gelesen.",
+    "topicLabel": "Worum geht es?",
+    "topicBug": "Etwas funktioniert nicht",
+    "topicBugNote": "Ein Fehler oder Problem",
+    "topicIdea": "Eine Idee",
+    "topicIdeaNote": "Etwas, das wir bauen sollten",
+    "topicQuestion": "Eine Frage",
+    "topicQuestionNote": "Alles andere",
+    "subjectLabel": "Betreff",
+    "subjectPlaceholder": "Kurze Zusammenfassung",
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Was ist passiert, und was hatten Sie erwartet?",
+    "contextHint": "Ihr Konto, Tarif und Ihre Kontaktdaten werden automatisch mitgesendet.",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "sentTitle": "Nachricht gesendet",
+    "sentBody": "Danke — wir antworten an Ihre Konto-E-Mail, in der Regel innerhalb eines Werktags.",
+    "sendAnother": "Weitere senden",
+    "errorSend": "Nachricht konnte nicht gesendet werden."
   }
 }

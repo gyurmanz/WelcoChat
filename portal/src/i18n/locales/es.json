@@ -581,7 +581,8 @@
     "pushOff": "Activar notificaciones para transferencias en vivo",
     "handoffToast": "Un visitante necesita una persona — hay una nueva conversación esperando.",
     "handoffToastView": "Ver",
-    "dismiss": "Descartar"
+    "dismiss": "Descartar",
+    "support": "Ayuda y comentarios"
   },
   "leads": {
     "title": "Clientes potenciales",
@@ -593,5 +594,27 @@
     "contact": "Contacto",
     "message": "Mensaje",
     "errorLoad": "No se pudieron cargar los contactos."
+  },
+  "support": {
+    "title": "Ayuda y comentarios",
+    "intro": "¿Has encontrado un fallo o se te ha ocurrido algo que WelcoChat debería hacer? Escríbenos — una persona real lee cada mensaje.",
+    "topicLabel": "¿De qué se trata?",
+    "topicBug": "Algo no funciona",
+    "topicBugNote": "Un fallo o problema",
+    "topicIdea": "Una idea",
+    "topicIdeaNote": "Algo que deberíamos construir",
+    "topicQuestion": "Una pregunta",
+    "topicQuestionNote": "Cualquier otra cosa",
+    "subjectLabel": "Asunto",
+    "subjectPlaceholder": "Resumen breve",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "¿Qué ocurrió y qué esperabas en su lugar?",
+    "contextHint": "Tu cuenta, plan y datos de contacto se adjuntan automáticamente.",
+    "send": "Enviar mensaje",
+    "sending": "Enviando…",
+    "sentTitle": "Mensaje enviado",
+    "sentBody": "Gracias — responderemos al correo de tu cuenta, normalmente en un día laborable.",
+    "sendAnother": "Enviar otro",
+    "errorSend": "No se pudo enviar el mensaje."
   }
 }

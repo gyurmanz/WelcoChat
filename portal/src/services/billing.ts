@@ -62,3 +62,15 @@ export async function getPortalSessionUrl(): Promise<string> {
   }
   return (data as { url: string }).url
 }
+
+export async function deleteAccount(confirmEmail: string): Promise<void> {
+  const r = await apiFetch(`${API_BASE_URL}/billing/account`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ confirm_email: confirmEmail }),
+  })
+  if (!r.ok) {
+    const data = await r.json().catch(() => ({}))
+    throw new Error(extractErrorMessage(data, 'Failed to delete the account'))
+  }
+}

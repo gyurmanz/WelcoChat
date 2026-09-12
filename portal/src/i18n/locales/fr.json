@@ -4,7 +4,8 @@
     "language": "Langue",
     "loading": "Chargement…",
     "searchCountry": "Rechercher un pays…",
-    "noMatchingCountry": "Aucun pays correspondant"
+    "noMatchingCountry": "Aucun pays correspondant",
+    "cancel": "Annuler"
   },
   "login": {
     "title": "Connectez-vous à votre compte",
@@ -143,7 +144,10 @@
     "ctaManage": "Gérer",
     "ctaFixIssue": "Résoudre le problème",
     "ctaViewDetails": "Voir les détails",
-    "errorGeneric": "Échec du chargement du tableau de bord."
+    "errorGeneric": "Échec du chargement du tableau de bord.",
+    "widgetStoppedTitle": "Votre widget ne répond plus",
+    "widgetStoppedBody": "Cet abonnement n'est plus actif, l'agent de votre site ne répond donc plus aux visiteurs. Ajouter un moyen de paiement le réactive immédiatement.",
+    "widgetStoppedCta": "Régler la facturation"
   },
   "serviceStatus": {
     "notConfigured": "Non configuré",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Échec de la mise à jour du profil.",
     "errorPasswordMismatch": "Les nouveaux mots de passe ne correspondent pas.",
     "passwordChanged": "Mot de passe modifié.",
-    "errorPasswordChange": "Échec de la modification du mot de passe."
+    "errorPasswordChange": "Échec de la modification du mot de passe.",
+    "deleteTitle": "Supprimer le compte",
+    "deleteBody": "Supprime définitivement votre société, tous les agents et toutes les données de conversation et de prospects. Tout abonnement actif est résilié. Action irréversible.",
+    "deleteCta": "Supprimer mon compte",
+    "deleteConfirmPrompt": "Saisissez {email} pour confirmer.",
+    "deleteConfirmCta": "Supprimer définitivement",
+    "deleting": "Suppression…",
+    "deleteError": "Échec de la suppression du compte."
   },
   "profile": {
     "title": "Profil de l'entreprise",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "ex. Welco Assistant",
     "greetingLabel": "Message d'accueil",
     "greetingPlaceholder": "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
+    "widgetLanguageLabel": "Langue du widget",
+    "widgetLanguageAuto": "Suivre le navigateur du visiteur",
+    "widgetLanguageHint": "L'agent répond toujours dans la langue du visiteur — ceci définit la langue des boutons et libellés du widget.",
     "appearance": "Apparence",
     "themeLabel": "Thème",
     "themeLight": "Clair",
@@ -559,6 +573,7 @@
     "subscriptions": "Abonnements",
     "liveChat": "Chat en direct",
     "statistics": "Statistiques",
+    "leads": "Prospects",
     "invoices": "Factures",
     "team": "Équipe",
     "companyProfile": "Profil de l'entreprise",
@@ -567,5 +582,16 @@
     "handoffToast": "Un visiteur a besoin d'une personne — une nouvelle conversation attend.",
     "handoffToastView": "Voir",
     "dismiss": "Ignorer"
+  },
+  "leads": {
+    "title": "Prospects",
+    "intro": "Coordonnées que votre agent a recueillies auprès des visiteurs souhaitant être recontactés.",
+    "empty": "Aucun prospect pour le moment. Ils apparaîtront ici dès que votre agent en recueillera un.",
+    "exportCsv": "Exporter en CSV",
+    "received": "Reçu",
+    "name": "Nom",
+    "contact": "Contact",
+    "message": "Message",
+    "errorLoad": "Échec du chargement des prospects."
   }
 }

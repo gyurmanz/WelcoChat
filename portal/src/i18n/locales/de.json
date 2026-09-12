@@ -4,7 +4,8 @@
     "language": "Sprache",
     "loading": "Wird geladen…",
     "searchCountry": "Land suchen…",
-    "noMatchingCountry": "Kein passendes Land"
+    "noMatchingCountry": "Kein passendes Land",
+    "cancel": "Abbrechen"
   },
   "login": {
     "title": "Bei Ihrem Konto anmelden",
@@ -143,7 +144,10 @@
     "ctaManage": "Verwalten",
     "ctaFixIssue": "Problem beheben",
     "ctaViewDetails": "Details ansehen",
-    "errorGeneric": "Dashboard konnte nicht geladen werden."
+    "errorGeneric": "Dashboard konnte nicht geladen werden.",
+    "widgetStoppedTitle": "Ihr Widget antwortet nicht mehr",
+    "widgetStoppedBody": "Dieses Abo ist nicht mehr aktiv, daher antwortet der Agent auf Ihrer Website den Besuchern nicht. Eine Zahlungsmethode hinzuzufügen bringt ihn sofort zurück.",
+    "widgetStoppedCta": "Zahlung korrigieren"
   },
   "serviceStatus": {
     "notConfigured": "Nicht konfiguriert",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Profil konnte nicht aktualisiert werden.",
     "errorPasswordMismatch": "Die neuen Passwörter stimmen nicht überein.",
     "passwordChanged": "Passwort geändert.",
-    "errorPasswordChange": "Passwort konnte nicht geändert werden."
+    "errorPasswordChange": "Passwort konnte nicht geändert werden.",
+    "deleteTitle": "Konto löschen",
+    "deleteBody": "Löscht Ihr Unternehmen, alle Agenten sowie sämtliche Gesprächs- und Lead-Daten endgültig. Ein aktives Abo wird gekündigt. Dies kann nicht rückgängig gemacht werden.",
+    "deleteCta": "Mein Konto löschen",
+    "deleteConfirmPrompt": "Geben Sie zur Bestätigung {email} ein.",
+    "deleteConfirmCta": "Endgültig löschen",
+    "deleting": "Wird gelöscht…",
+    "deleteError": "Konto konnte nicht gelöscht werden."
   },
   "profile": {
     "title": "Firmenprofil",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "z. B. Welco Assistant",
     "greetingLabel": "Begrüßungsnachricht",
     "greetingPlaceholder": "Hallo! Wie kann ich Ihnen heute helfen?",
+    "widgetLanguageLabel": "Widget-Sprache",
+    "widgetLanguageAuto": "Browsersprache des Besuchers folgen",
+    "widgetLanguageHint": "Der Agent antwortet immer in der Sprache des Besuchers — das hier legt die Sprache der Schaltflächen und Beschriftungen des Widgets fest.",
     "appearance": "Erscheinungsbild",
     "themeLabel": "Design",
     "themeLight": "Hell",
@@ -559,6 +573,7 @@
     "subscriptions": "Abonnements",
     "liveChat": "Live-Chat",
     "statistics": "Statistiken",
+    "leads": "Leads",
     "invoices": "Rechnungen",
     "team": "Team",
     "companyProfile": "Firmenprofil",
@@ -567,5 +582,16 @@
     "handoffToast": "Ein Besucher braucht einen Menschen — eine neue Unterhaltung wartet.",
     "handoffToastView": "Ansehen",
     "dismiss": "Schließen"
+  },
+  "leads": {
+    "title": "Leads",
+    "intro": "Kontaktdaten, die Ihr Agent von Besuchern erfasst hat, die kontaktiert werden möchten.",
+    "empty": "Noch keine Leads. Sie erscheinen hier, sobald Ihr Agent einen erfasst.",
+    "exportCsv": "CSV exportieren",
+    "received": "Erhalten",
+    "name": "Name",
+    "contact": "Kontakt",
+    "message": "Nachricht",
+    "errorLoad": "Leads konnten nicht geladen werden."
   }
 }

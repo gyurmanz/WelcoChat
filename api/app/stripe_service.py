@@ -147,6 +147,14 @@ def cancel_scheduled_downgrade(stripe_sub_id: str) -> None:
         stripe.SubscriptionSchedule.release(schedule_id)
 
 
+def cancel_subscription(stripe_sub_id: str) -> None:
+    """Ends a subscription immediately. Used when a customer deletes their
+    account — leaving a live subscription behind would keep charging a card for
+    a product whose data we just erased."""
+    stripe = _client()
+    stripe.Subscription.cancel(stripe_sub_id)
+
+
 def create_checkout_session(
     customer_id: str, price_id: str, client_reference_id: str, metadata: dict, success_url: str, cancel_url: str,
 ) -> str:

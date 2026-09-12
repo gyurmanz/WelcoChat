@@ -297,6 +297,38 @@ def _document_out(doc: models.WelcoDocument) -> schemas.WelcoDocumentRead:
     )
 
 
+@router.get("/leads", response_model=list[schemas.WelcoLeadRead])
+def list_leads(
+    current_user: models.User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Every lead the company's agents have captured, newest first. The widget
+    writes these; until this existed they were write-only and the customer had
+    no way to reach the contact details they were paying to collect."""
+    company = resolve_account_company(db, current_user)
+    rows = (
+        db.query(models.WelcoLead, models.ServiceInstance.ServiceName)
+        .join(models.ServiceInstance, models.WelcoLead.ServiceInstanceId == models.ServiceInstance.Id)
+        .join(models.Subscription, models.ServiceInstance.SubscriptionId == models.Subscription.Id)
+        .filter(models.Subscription.CompanyId == company.Id)
+        .order_by(models.WelcoLead.Created.desc())
+        .all()
+    )
+    return [
+        schemas.WelcoLeadRead(
+            id=lead.Id,
+            instance_id=lead.ServiceInstanceId,
+            instance_name=instance_name,
+            name=lead.VisitorName,
+            email=lead.VisitorEmail,
+            whatsapp=lead.VisitorWhatsapp,
+            message=lead.Message,
+            created=lead.Created,
+        )
+        for lead, instance_name in rows
+    ]
+
+
 @router.get("/instances/{instance_id}/documents", response_model=list[schemas.WelcoDocumentRead])
 def list_documents(
     instance_id: int,
@@ -441,6 +473,7 @@ def widget_config(public_id: str, db: Session = Depends(get_db)):
         widget_position=(config.get("widget_position") or "bottom-right") if has_business else "bottom-right",
         widget_custom_css=config.get("widget_custom_css") if has_enterprise else None,
         image_upload_enabled=has_business,
+        widget_language=config.get("widget_language") or "",
     )
 
 
@@ -500,6 +533,46 @@ def widget_message(public_id: str, body: schemas.WelcoMessageRequest, request: R
     db.commit()
 
     return schemas.WelcoMessageResponse(reply=reply, handoff=handoff)
+
+
+def _notify_new_lead(db: Session, instance: models.ServiceInstance, body: schemas.WelcoLeadRequest) -> None:
+    """Emails the captured contact details to whoever the customer set as the
+    notification recipient. Best-effort: a mail failure must never turn into a
+    failed lead capture for the visitor."""
+    if instance is None:
+        return
+    contact_lines = []
+    if body.name:
+        contact_lines.append(f"<li><strong>Name:</strong> {body.name}</li>")
+    if body.email:
+        contact_lines.append(f"<li><strong>Email:</strong> {body.email}</li>")
+    if body.whatsapp:
+        contact_lines.append(f"<li><strong>WhatsApp:</strong> {body.whatsapp}</li>")
+    if body.message:
+        contact_lines.append(f"<li><strong>Message:</strong> {body.message}</li>")
+
+    try:
+        recipient = _instance_notification_email(db, instance.Id)
+        if recipient:
+            send_email(
+                subject=f"New lead from {instance.ServiceName}",
+                email_to=recipient,
+                html_body=(
+                    "<p>Your WelcoChat agent captured a new lead:</p>"
+                    f"<ul>{''.join(contact_lines)}</ul>"
+                    f'<p><a href="{FRONTEND_BASE_URL}/leads">See all leads in the portal</a></p>'
+                ),
+            )
+    except Exception:
+        logger.exception("Failed to email new lead for ServiceInstance %s", instance.Id)
+
+    notifications.notify_instance(
+        db, instance,
+        message=f"New lead from {instance.ServiceName}: " + ", ".join(
+            v for v in (body.name, body.email, body.whatsapp) if v
+        ),
+        event="lead",
+    )
 
 
 def _instance_notification_email(db: Session, service_instance_id: int) -> str | None:
@@ -730,6 +803,8 @@ def widget_lead(public_id: str, body: schemas.WelcoLeadRequest, request: Request
             conversation.Status = "resolved_by_email"
 
     db.commit()
+
+    _notify_new_lead(db, lead_instance, body)
 
     if body.conversation_id is None:
         # No conversation ever got created for this handoff (the widget's own

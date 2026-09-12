@@ -5,6 +5,17 @@
 
     <p v-if="error" class="input-hint">{{ error }}</p>
 
+    <!-- A stopped subscription means the customer's widget is dead on their
+         site. A status badge further down is too quiet for that. -->
+    <div v-if="!loading && stoppedSubscription" class="dash-alert" role="alert">
+      <span class="dash-alert-icon" aria-hidden="true">⚠️</span>
+      <div>
+        <strong>{{ t('dashboard.widgetStoppedTitle') }}</strong>
+        <p>{{ t('dashboard.widgetStoppedBody') }}</p>
+      </div>
+      <router-link to="/invoices" class="btn btn-primary btn-sm">{{ t('dashboard.widgetStoppedCta') }}</router-link>
+    </div>
+
     <!-- Summary cards -->
     <div class="summary-cards" v-if="!loading">
       <div class="summary-card">
@@ -71,6 +82,10 @@ const instances = ref<ServiceInstance[]>([])
 const invoiceCount = ref(0)
 const loading = ref(true)
 const error = ref('')
+
+const stoppedSubscription = computed(() =>
+  subscriptions.value.find((s) => ['paused', 'past_due', 'unpaid', 'canceled', 'cancelled'].includes(s.status)),
+)
 
 const activeSubscriptions = computed(() => subscriptions.value.filter((s) => s.status === 'active' || s.status === 'trialing').length)
 const servicesToSetUp = computed(() => instances.value.filter((i) => i.setup_status === 'not_configured' || i.setup_status === 'setup_in_progress').length)
@@ -141,6 +156,21 @@ onMounted(load)
 </script>
 
 <style scoped>
+.dash-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(234, 179, 8, 0.45);
+  background: rgba(234, 179, 8, 0.08);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+.dash-alert-icon { font-size: 1.1rem; }
+.dash-alert p { margin: 0.15rem 0 0; font-size: 0.85rem; color: rgba(203, 213, 225, 0.9); }
+.dash-alert .btn { margin-left: auto; }
+
 .dash-intro {
   color: rgba(148, 163, 184, 0.85);
   margin: 0.25rem 0 1.5rem;

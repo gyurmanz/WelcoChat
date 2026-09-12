@@ -61,6 +61,93 @@
           assistantBubbleText: "#1e293b", formWrapBg: "#f8fafc", labelText: "#334155", statusMuted: "#64748b" };
   }
 
+
+  // The agent answers in the visitor's own language, so the widget's own chrome
+  // has to as well — an English "Type a message…" under a Hungarian answer is
+  // the tell that this is a bolted-on tool. Falls back to English for any
+  // language not listed, and the customer can force one via widget_language.
+  var STRINGS = {
+    en: { open: "Open chat", attach: "Attach an image", type: "Type a message…", send: "Send",
+          removeImage: "Remove image", imageTooLarge: "That image is too large (max 5 MB). Please pick a smaller one.",
+          email: "Email address", whatsapp: "WhatsApp number",
+          needContact: "Please enter an email or WhatsApp number.", sending: "Sending…",
+          thanks: "Thanks! We'll be in touch with you shortly.",
+          error: "Something went wrong. Please try again.",
+          ended: "This conversation has ended. You can keep chatting with the assistant." },
+    hu: { open: "Csevegés megnyitása", attach: "Kép csatolása", type: "Írj egy üzenetet…", send: "Küldés",
+          removeImage: "Kép eltávolítása", imageTooLarge: "Ez a kép túl nagy (max. 5 MB). Válassz kisebbet.",
+          email: "E-mail cím", whatsapp: "WhatsApp szám",
+          needContact: "Adj meg egy e-mail címet vagy WhatsApp számot.", sending: "Küldés…",
+          thanks: "Köszönjük! Hamarosan keresünk.",
+          error: "Valami hiba történt. Kérjük, próbáld újra.",
+          ended: "Ez a beszélgetés véget ért. Az asszisztenssel tovább cseveghetsz." },
+    de: { open: "Chat öffnen", attach: "Bild anhängen", type: "Nachricht schreiben…", send: "Senden",
+          removeImage: "Bild entfernen", imageTooLarge: "Das Bild ist zu groß (max. 5 MB). Bitte wählen Sie ein kleineres.",
+          email: "E-Mail-Adresse", whatsapp: "WhatsApp-Nummer",
+          needContact: "Bitte geben Sie eine E-Mail-Adresse oder WhatsApp-Nummer ein.", sending: "Wird gesendet…",
+          thanks: "Danke! Wir melden uns in Kürze bei Ihnen.",
+          error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+          ended: "Dieses Gespräch ist beendet. Sie können weiter mit dem Assistenten chatten." },
+    fr: { open: "Ouvrir le chat", attach: "Joindre une image", type: "Écrivez un message…", send: "Envoyer",
+          removeImage: "Retirer l'image", imageTooLarge: "Cette image est trop volumineuse (max. 5 Mo). Choisissez-en une plus petite.",
+          email: "Adresse e-mail", whatsapp: "Numéro WhatsApp",
+          needContact: "Veuillez saisir une adresse e-mail ou un numéro WhatsApp.", sending: "Envoi…",
+          thanks: "Merci ! Nous vous recontactons très vite.",
+          error: "Une erreur s'est produite. Veuillez réessayer.",
+          ended: "Cette conversation est terminée. Vous pouvez continuer avec l'assistant." },
+    es: { open: "Abrir chat", attach: "Adjuntar una imagen", type: "Escribe un mensaje…", send: "Enviar",
+          removeImage: "Quitar imagen", imageTooLarge: "Esa imagen es demasiado grande (máx. 5 MB). Elige una más pequeña.",
+          email: "Correo electrónico", whatsapp: "Número de WhatsApp",
+          needContact: "Introduce un correo electrónico o un número de WhatsApp.", sending: "Enviando…",
+          thanks: "¡Gracias! Nos pondremos en contacto contigo en breve.",
+          error: "Algo salió mal. Inténtalo de nuevo.",
+          ended: "Esta conversación ha terminado. Puedes seguir chateando con el asistente." },
+    pl: { open: "Otwórz czat", attach: "Dołącz obraz", type: "Napisz wiadomość…", send: "Wyślij",
+          removeImage: "Usuń obraz", imageTooLarge: "Ten obraz jest za duży (maks. 5 MB). Wybierz mniejszy.",
+          email: "Adres e-mail", whatsapp: "Numer WhatsApp",
+          needContact: "Podaj adres e-mail lub numer WhatsApp.", sending: "Wysyłanie…",
+          thanks: "Dziękujemy! Wkrótce się odezwiemy.",
+          error: "Coś poszło nie tak. Spróbuj ponownie.",
+          ended: "Ta rozmowa została zakończona. Możesz dalej rozmawiać z asystentem." },
+    sk: { open: "Otvoriť chat", attach: "Priložiť obrázok", type: "Napíšte správu…", send: "Odoslať",
+          removeImage: "Odstrániť obrázok", imageTooLarge: "Tento obrázok je príliš veľký (max. 5 MB). Vyberte menší.",
+          email: "E-mailová adresa", whatsapp: "Číslo WhatsApp",
+          needContact: "Zadajte e-mailovú adresu alebo číslo WhatsApp.", sending: "Odosielanie…",
+          thanks: "Ďakujeme! Čoskoro sa vám ozveme.",
+          error: "Niečo sa pokazilo. Skúste to znova.",
+          ended: "Táto konverzácia sa skončila. S asistentom môžete pokračovať." },
+    hr: { open: "Otvori razgovor", attach: "Priloži sliku", type: "Napišite poruku…", send: "Pošalji",
+          removeImage: "Ukloni sliku", imageTooLarge: "Ova je slika prevelika (najviše 5 MB). Odaberite manju.",
+          email: "Adresa e-pošte", whatsapp: "WhatsApp broj",
+          needContact: "Unesite adresu e-pošte ili WhatsApp broj.", sending: "Slanje…",
+          thanks: "Hvala! Javit ćemo vam se uskoro.",
+          error: "Nešto je pošlo po zlu. Pokušajte ponovno.",
+          ended: "Ovaj je razgovor završen. Možete nastaviti razgovor s asistentom." },
+    el: { open: "Άνοιγμα συνομιλίας", attach: "Επισύναψη εικόνας", type: "Γράψτε ένα μήνυμα…", send: "Αποστολή",
+          removeImage: "Αφαίρεση εικόνας", imageTooLarge: "Η εικόνα είναι πολύ μεγάλη (έως 5 MB). Επιλέξτε μικρότερη.",
+          email: "Διεύθυνση email", whatsapp: "Αριθμός WhatsApp",
+          needContact: "Εισαγάγετε ένα email ή έναν αριθμό WhatsApp.", sending: "Αποστολή…",
+          thanks: "Ευχαριστούμε! Θα επικοινωνήσουμε μαζί σας σύντομα.",
+          error: "Κάτι πήγε στραβά. Δοκιμάστε ξανά.",
+          ended: "Αυτή η συνομιλία ολοκληρώθηκε. Μπορείτε να συνεχίσετε με τον βοηθό." },
+  };
+
+  var lang = "en";
+  function t(key) {
+    return (STRINGS[lang] && STRINGS[lang][key]) || STRINGS.en[key];
+  }
+
+  function resolveLang(configured) {
+    if (configured && STRINGS[configured]) return configured;
+    var candidates = (navigator.languages && navigator.languages.length)
+      ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < candidates.length; i++) {
+      var code = (candidates[i] || "").slice(0, 2).toLowerCase();
+      if (STRINGS[code]) return code;
+    }
+    return "en";
+  }
+
   var history = [];
   var widgetName = "Assistant";
   var widgetColor = "#2563eb";
@@ -131,7 +218,7 @@
   }
 
   var bubble = document.createElement("button");
-  bubble.setAttribute("aria-label", "Open chat");
+  bubble.setAttribute("aria-label", t("open"));
   bubble.style.cssText =
     "position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;" +
     "border:none;cursor:pointer;z-index:2147483000;box-shadow:0 4px 14px rgba(0,0,0,0.25);" +
@@ -164,7 +251,7 @@
   var attachBtn = document.createElement("button");
   attachBtn.type = "button";
   attachBtn.textContent = "📎";
-  attachBtn.setAttribute("aria-label", "Attach an image");
+  attachBtn.setAttribute("aria-label", t("attach"));
   attachBtn.style.cssText =
     "flex:none;border:none;background:none;cursor:pointer;font-size:1.15rem;padding:4px 2px;display:none;";
   var fileInput = document.createElement("input");
@@ -173,12 +260,12 @@
   fileInput.style.display = "none";
   var input = document.createElement("input");
   input.type = "text";
-  input.placeholder = "Type a message…";
+  input.placeholder = t("type");
   input.style.cssText =
     "flex:1;min-width:0;border-width:1px;border-style:solid;border-radius:6px;padding:8px 10px;font-size:0.85rem;box-sizing:border-box;";
   var sendBtn = document.createElement("button");
   sendBtn.type = "submit";
-  sendBtn.textContent = "Send";
+  sendBtn.textContent = t("send");
   sendBtn.style.cssText =
     "flex:none;border:none;border-radius:6px;color:#fff;padding:8px 14px;font-size:0.85rem;cursor:pointer;";
   inputRow.appendChild(attachBtn);
@@ -216,7 +303,7 @@
     var removeBtn = document.createElement("button");
     removeBtn.type = "button";
     removeBtn.textContent = "×";
-    removeBtn.setAttribute("aria-label", "Remove image");
+    removeBtn.setAttribute("aria-label", t("removeImage"));
     removeBtn.style.cssText =
       "border:none;background:none;cursor:pointer;font-size:1rem;color:" + theme.statusMuted + ";";
     removeBtn.addEventListener("click", clearPendingImage);
@@ -232,7 +319,7 @@
     var file = fileInput.files && fileInput.files[0];
     if (!file) return;
     if (file.size > MAX_IMAGE_BYTES) {
-      addMessage("assistant", "That image is too large (max 5 MB). Please pick a smaller one.");
+      addMessage("assistant", t("imageTooLarge"));
       fileInput.value = "";
       return;
     }
@@ -320,12 +407,12 @@
       return el;
     }
 
-    var emailInput = makeContactInput("email", "Email address");
-    var whatsappInput = makeContactInput("tel", "WhatsApp number");
+    var emailInput = makeContactInput("email", t("email"));
+    var whatsappInput = makeContactInput("tel", t("whatsapp"));
 
     var submitBtn = document.createElement("button");
     submitBtn.type = "submit";
-    submitBtn.textContent = "Send";
+    submitBtn.textContent = t("send");
     submitBtn.style.cssText =
       "border:none;border-radius:6px;color:#fff;padding:7px 12px;font-size:0.82rem;cursor:pointer;background:" +
       widgetColor + ";align-self:flex-start;";
@@ -346,12 +433,12 @@
       var email = emailInput.value.trim();
       var whatsapp = whatsappInput.value.trim();
       if (!email && !whatsapp) {
-        statusMsg.textContent = "Please enter an email or WhatsApp number.";
+        statusMsg.textContent = t("needContact");
         return;
       }
       submitBtn.disabled = true;
       statusMsg.style.color = theme.statusMuted;
-      statusMsg.textContent = "Sending…";
+      statusMsg.textContent = t("sending");
 
       fetch(apiBase + "/widget/" + publicId + "/lead", {
         method: "POST",
@@ -364,12 +451,12 @@
         .then(function (r) {
           if (!r.ok) throw new Error("lead failed");
           wrap.remove();
-          addMessage("assistant", "Thanks! We'll be in touch with you shortly.");
+          addMessage("assistant", t("thanks"));
         })
         .catch(function () {
           submitBtn.disabled = false;
           statusMsg.style.color = "#dc2626";
-          statusMsg.textContent = "Something went wrong. Please try again.";
+          statusMsg.textContent = t("error");
         });
     });
   }
@@ -385,7 +472,7 @@
     activeConversationToken = null;
     sessionId = newSessionId();
     clearSavedState();
-    addMessage("assistant", "This conversation has ended. You can keep chatting with the assistant.");
+    addMessage("assistant", t("ended"));
   }
 
   function startPolling() {
@@ -495,6 +582,14 @@
       widgetName = cfg.widget_name || widgetName;
       widgetColor = cfg.widget_color || widgetColor;
       greeting = cfg.greeting_message || greeting;
+
+      // Config can pin a language; otherwise follow the visitor's browser.
+      // Elements built before the config arrived need their text refreshed.
+      lang = resolveLang(cfg.widget_language);
+      bubble.setAttribute("aria-label", t("open"));
+      attachBtn.setAttribute("aria-label", t("attach"));
+      input.placeholder = t("type");
+      sendBtn.textContent = t("send");
       if (cfg.widget_theme === "custom") {
         theme = buildCustomTheme(cfg.widget_bg_color);
       } else {
@@ -569,7 +664,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: text }),
       }).catch(function () {
-        addMessage("assistant", "Sorry, something went wrong. Please try again shortly.");
+        addMessage("assistant", t("error"));
       });
       return;
     }
@@ -601,7 +696,7 @@
         }
       })
       .catch(function () {
-        addMessage("assistant", "Sorry, something went wrong. Please try again shortly.");
+        addMessage("assistant", t("error"));
       });
   });
 })();

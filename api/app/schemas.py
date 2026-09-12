@@ -212,6 +212,10 @@ class InvoiceRead(BaseModel):
     pdf_url: Optional[str] = None
 
 
+class AccountDeleteRequest(BaseModel):
+    confirm_email: str
+
+
 class PortalSessionRead(BaseModel):
     url: str
 
@@ -293,6 +297,8 @@ class WelcoWidgetConfig(BaseModel):
     widget_position: str = "bottom-right"
     widget_custom_css: Optional[str] = None
     image_upload_enabled: bool = False
+    # "" = follow the visitor's browser language
+    widget_language: str = ""
 
 
 class WelcoLogoUploadResult(BaseModel):
@@ -426,6 +432,17 @@ class AcceptInviteRequest(BaseModel):
 class DailyCount(BaseModel):
     date: str
     count: int
+
+
+class WelcoLeadRead(BaseModel):
+    id: int
+    instance_id: int
+    instance_name: str
+    name: Optional[str] = None
+    email: Optional[str] = None
+    whatsapp: Optional[str] = None
+    message: Optional[str] = None
+    created: datetime
 
 
 class WelcoStatsRead(BaseModel):

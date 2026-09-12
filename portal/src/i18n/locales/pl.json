@@ -4,7 +4,8 @@
     "language": "Język",
     "loading": "Ładowanie…",
     "searchCountry": "Szukaj kraju…",
-    "noMatchingCountry": "Brak pasującego kraju"
+    "noMatchingCountry": "Brak pasującego kraju",
+    "cancel": "Anuluj"
   },
   "login": {
     "title": "Zaloguj się do konta",
@@ -143,7 +144,10 @@
     "ctaManage": "Zarządzaj",
     "ctaFixIssue": "Napraw problem",
     "ctaViewDetails": "Zobacz szczegóły",
-    "errorGeneric": "Nie udało się załadować panelu."
+    "errorGeneric": "Nie udało się załadować panelu.",
+    "widgetStoppedTitle": "Twój widget przestał odpowiadać",
+    "widgetStoppedBody": "Ta subskrypcja nie jest już aktywna, więc agent na Twojej stronie nie odpowiada odwiedzającym. Dodanie metody płatności natychmiast go przywróci.",
+    "widgetStoppedCta": "Napraw płatności"
   },
   "serviceStatus": {
     "notConfigured": "Nieskonfigurowana",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Nie udało się zaktualizować profilu.",
     "errorPasswordMismatch": "Nowe hasła nie są zgodne.",
     "passwordChanged": "Hasło zmienione.",
-    "errorPasswordChange": "Nie udało się zmienić hasła."
+    "errorPasswordChange": "Nie udało się zmienić hasła.",
+    "deleteTitle": "Usuń konto",
+    "deleteBody": "Trwale usuwa Twoją firmę, wszystkich agentów oraz wszystkie dane rozmów i kontaktów. Aktywna subskrypcja zostanie anulowana. Tej operacji nie można cofnąć.",
+    "deleteCta": "Usuń moje konto",
+    "deleteConfirmPrompt": "Wpisz {email}, aby potwierdzić.",
+    "deleteConfirmCta": "Usuń trwale",
+    "deleting": "Usuwanie…",
+    "deleteError": "Nie udało się usunąć konta."
   },
   "profile": {
     "title": "Profil firmy",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "np. Welco Assistant",
     "greetingLabel": "Wiadomość powitalna",
     "greetingPlaceholder": "Cześć! Jak mogę Ci dziś pomóc?",
+    "widgetLanguageLabel": "Język widgetu",
+    "widgetLanguageAuto": "Zgodnie z przeglądarką odwiedzającego",
+    "widgetLanguageHint": "Agent zawsze odpowiada w języku odwiedzającego — to ustawia język przycisków i etykiet samego widgetu.",
     "appearance": "Wygląd",
     "themeLabel": "Motyw",
     "themeLight": "Jasny",
@@ -559,6 +573,7 @@
     "subscriptions": "Subskrypcje",
     "liveChat": "Czat na żywo",
     "statistics": "Statystyki",
+    "leads": "Kontakty",
     "invoices": "Faktury",
     "team": "Zespół",
     "companyProfile": "Profil firmy",
@@ -567,5 +582,16 @@
     "handoffToast": "Odwiedzający potrzebuje człowieka — czeka nowa rozmowa.",
     "handoffToastView": "Zobacz",
     "dismiss": "Zamknij"
+  },
+  "leads": {
+    "title": "Kontakty",
+    "intro": "Dane kontaktowe zebrane przez agenta od odwiedzających, którzy poprosili o kontakt.",
+    "empty": "Brak kontaktów. Pojawią się tutaj, gdy tylko agent jakiś zbierze.",
+    "exportCsv": "Eksportuj CSV",
+    "received": "Otrzymano",
+    "name": "Imię i nazwisko",
+    "contact": "Kontakt",
+    "message": "Wiadomość",
+    "errorLoad": "Nie udało się wczytać kontaktów."
   }
 }

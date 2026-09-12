@@ -4,7 +4,8 @@
     "language": "Idioma",
     "loading": "Cargando…",
     "searchCountry": "Buscar país…",
-    "noMatchingCountry": "No hay ningún país coincidente"
+    "noMatchingCountry": "No hay ningún país coincidente",
+    "cancel": "Cancelar"
   },
   "login": {
     "title": "Inicia sesión en tu cuenta",
@@ -143,7 +144,10 @@
     "ctaManage": "Gestionar",
     "ctaFixIssue": "Solucionar problema",
     "ctaViewDetails": "Ver detalles",
-    "errorGeneric": "No se pudo cargar el panel."
+    "errorGeneric": "No se pudo cargar el panel.",
+    "widgetStoppedTitle": "Tu widget ha dejado de responder",
+    "widgetStoppedBody": "Esta suscripción ya no está activa, por lo que el agente de tu sitio no responde a los visitantes. Añadir un método de pago lo reactiva de inmediato.",
+    "widgetStoppedCta": "Arreglar facturación"
   },
   "serviceStatus": {
     "notConfigured": "No configurado",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "No se pudo actualizar el perfil.",
     "errorPasswordMismatch": "Las nuevas contraseñas no coinciden.",
     "passwordChanged": "Contraseña cambiada.",
-    "errorPasswordChange": "No se pudo cambiar la contraseña."
+    "errorPasswordChange": "No se pudo cambiar la contraseña.",
+    "deleteTitle": "Eliminar cuenta",
+    "deleteBody": "Elimina permanentemente tu empresa, todos los agentes y todos los datos de conversaciones y contactos. Se cancelará cualquier suscripción activa. Esto no se puede deshacer.",
+    "deleteCta": "Eliminar mi cuenta",
+    "deleteConfirmPrompt": "Escribe {email} para confirmar.",
+    "deleteConfirmCta": "Eliminar permanentemente",
+    "deleting": "Eliminando…",
+    "deleteError": "No se pudo eliminar la cuenta."
   },
   "profile": {
     "title": "Perfil de la empresa",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "p. ej. Welco Assistant",
     "greetingLabel": "Mensaje de bienvenida",
     "greetingPlaceholder": "¡Hola! ¿Cómo puedo ayudarte hoy?",
+    "widgetLanguageLabel": "Idioma del widget",
+    "widgetLanguageAuto": "Seguir el navegador del visitante",
+    "widgetLanguageHint": "El agente siempre responde en el idioma del visitante — esto define el idioma de los botones y etiquetas del propio widget.",
     "appearance": "Apariencia",
     "themeLabel": "Tema",
     "themeLight": "Claro",
@@ -559,6 +573,7 @@
     "subscriptions": "Suscripciones",
     "liveChat": "Chat en vivo",
     "statistics": "Estadísticas",
+    "leads": "Clientes potenciales",
     "invoices": "Facturas",
     "team": "Equipo",
     "companyProfile": "Perfil de la empresa",
@@ -567,5 +582,16 @@
     "handoffToast": "Un visitante necesita una persona — hay una nueva conversación esperando.",
     "handoffToastView": "Ver",
     "dismiss": "Descartar"
+  },
+  "leads": {
+    "title": "Clientes potenciales",
+    "intro": "Datos de contacto que tu agente recogió de visitantes que pidieron que les contactaras.",
+    "empty": "Aún no hay contactos. Aparecerán aquí en cuanto tu agente capture alguno.",
+    "exportCsv": "Exportar CSV",
+    "received": "Recibido",
+    "name": "Nombre",
+    "contact": "Contacto",
+    "message": "Mensaje",
+    "errorLoad": "No se pudieron cargar los contactos."
   }
 }

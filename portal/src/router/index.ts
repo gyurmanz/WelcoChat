@@ -23,6 +23,7 @@ const InvoicesView = () => import('@/views/InvoicesView.vue')
 const WelcoSetupView = () => import('@/views/WelcoSetupView.vue')
 const TeamView = () => import('@/views/TeamView.vue')
 const StatisticsView = () => import('@/views/StatisticsView.vue')
+const LeadsView = () => import('@/views/LeadsView.vue')
 const LiveChatView = () => import('@/views/LiveChatView.vue')
 
 const routes: RouteRecordRaw[] = [
@@ -178,6 +179,15 @@ const routes: RouteRecordRaw[] = [
     path: '/statistics',
     name: 'statistics',
     component: StatisticsView,
+    meta: {
+      requiresAuth: true,
+      layout: 'dashboard',
+    },
+  },
+  {
+    path: '/leads',
+    name: 'leads',
+    component: LeadsView,
     meta: {
       requiresAuth: true,
       layout: 'dashboard',

@@ -4,7 +4,8 @@
     "language": "Jazyk",
     "loading": "Načítava sa…",
     "searchCountry": "Hľadať krajinu…",
-    "noMatchingCountry": "Žiadna zodpovedajúca krajina"
+    "noMatchingCountry": "Žiadna zodpovedajúca krajina",
+    "cancel": "Zrušiť"
   },
   "login": {
     "title": "Prihláste sa do svojho účtu",
@@ -143,7 +144,10 @@
     "ctaManage": "Spravovať",
     "ctaFixIssue": "Opraviť problém",
     "ctaViewDetails": "Zobraziť podrobnosti",
-    "errorGeneric": "Nepodarilo sa načítať prehľad."
+    "errorGeneric": "Nepodarilo sa načítať prehľad.",
+    "widgetStoppedTitle": "Váš widget prestal odpovedať",
+    "widgetStoppedBody": "Toto predplatné už nie je aktívne, takže agent na vašom webe neodpovedá návštevníkom. Pridanie platobnej metódy ho okamžite obnoví.",
+    "widgetStoppedCta": "Vyriešiť platbu"
   },
   "serviceStatus": {
     "notConfigured": "Nenakonfigurované",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Nepodarilo sa aktualizovať profil.",
     "errorPasswordMismatch": "Nové heslá sa nezhodujú.",
     "passwordChanged": "Heslo zmenené.",
-    "errorPasswordChange": "Nepodarilo sa zmeniť heslo."
+    "errorPasswordChange": "Nepodarilo sa zmeniť heslo.",
+    "deleteTitle": "Zmazať účet",
+    "deleteBody": "Natrvalo zmaže vašu spoločnosť, všetkých agentov a všetky údaje o konverzáciách a kontaktoch. Aktívne predplatné bude zrušené. Túto akciu nemožno vrátiť späť.",
+    "deleteCta": "Zmazať môj účet",
+    "deleteConfirmPrompt": "Na potvrdenie napíšte {email}.",
+    "deleteConfirmCta": "Natrvalo zmazať",
+    "deleting": "Mazanie…",
+    "deleteError": "Účet sa nepodarilo zmazať."
   },
   "profile": {
     "title": "Profil spoločnosti",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "napr. Welco Assistant",
     "greetingLabel": "Uvítacia správa",
     "greetingPlaceholder": "Ahoj! Ako vám dnes môžem pomôcť?",
+    "widgetLanguageLabel": "Jazyk widgetu",
+    "widgetLanguageAuto": "Podľa prehliadača návštevníka",
+    "widgetLanguageHint": "Agent vždy odpovedá v jazyku návštevníka — toto nastavuje jazyk tlačidiel a popiskov samotného widgetu.",
     "appearance": "Vzhľad",
     "themeLabel": "Téma",
     "themeLight": "Svetlá",
@@ -559,6 +573,7 @@
     "subscriptions": "Predplatné",
     "liveChat": "Live chat",
     "statistics": "Štatistiky",
+    "leads": "Kontakty",
     "invoices": "Faktúry",
     "team": "Tím",
     "companyProfile": "Profil spoločnosti",
@@ -567,5 +582,16 @@
     "handoffToast": "Návštevník potrebuje človeka — čaká nová konverzácia.",
     "handoffToastView": "Zobraziť",
     "dismiss": "Zavrieť"
+  },
+  "leads": {
+    "title": "Kontakty",
+    "intro": "Kontaktné údaje, ktoré váš agent získal od návštevníkov, ktorí požiadali o kontakt.",
+    "empty": "Zatiaľ žiadne kontakty. Objavia sa tu, hneď ako agent nejaký získa.",
+    "exportCsv": "Exportovať CSV",
+    "received": "Prijaté",
+    "name": "Meno",
+    "contact": "Kontakt",
+    "message": "Správa",
+    "errorLoad": "Kontakty sa nepodarilo načítať."
   }
 }

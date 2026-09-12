@@ -120,6 +120,23 @@
             <textarea v-model="form.greeting_message" class="input textarea" rows="2" :placeholder="t('welcoSetup.greetingPlaceholder')"></textarea>
           </div>
 
+          <div class="form-row">
+            <label class="form-label">{{ t('welcoSetup.widgetLanguageLabel') }}</label>
+            <select v-model="form.widget_language" class="input">
+              <option value="">{{ t('welcoSetup.widgetLanguageAuto') }}</option>
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+              <option value="fr">Français</option>
+              <option value="hu">Magyar</option>
+              <option value="pl">Polski</option>
+              <option value="sk">Slovenčina</option>
+              <option value="hr">Hrvatski</option>
+              <option value="el">Ελληνικά</option>
+              <option value="es">Español</option>
+            </select>
+            <span class="field-hint">{{ t('welcoSetup.widgetLanguageHint') }}</span>
+          </div>
+
           <h3 class="section-h3">{{ t('welcoSetup.appearance') }}</h3>
           <div class="form-row">
             <label class="form-label">{{ t('welcoSetup.themeLabel') }}</label>
@@ -564,6 +581,7 @@ const form = ref({
   widget_color: '#2563eb',
   widget_bg_color: '#ffffff',
   widget_theme: 'light',
+  widget_language: '',
   greeting_message: '',
   notification_email: '',
   notification_channel_type: '',

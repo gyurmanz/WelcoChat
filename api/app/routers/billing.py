@@ -6,7 +6,7 @@ from decimal import Decimal
 from typing import Optional
 
 from dotenv import load_dotenv
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
@@ -55,6 +55,84 @@ def upsert_company(
     db.commit()
     db.refresh(company)
     return company
+
+
+@router.delete("/account", status_code=204)
+def delete_account(
+    body: schemas.AccountDeleteRequest,
+    current_user: models.User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Erases the company and everything under it. This is the self-serve half
+    of the privacy policy's deletion right — before it existed the only route
+    was emailing support.
+
+    Guarded three ways: only the company owner may do it, they must retype
+    their own email address, and any live Stripe subscription is cancelled
+    first so a deleted account can't keep being charged."""
+    company = resolve_account_company(db, current_user)
+
+    if company.OwnerUserId != current_user.Id:
+        raise HTTPException(403, "Only the account owner can delete the account.")
+    if (body.confirm_email or "").strip().lower() != (current_user.Email or "").lower():
+        raise HTTPException(400, "Type your own email address exactly to confirm.")
+
+    subscriptions = db.query(models.Subscription).filter(models.Subscription.CompanyId == company.Id).all()
+    for sub in subscriptions:
+        if sub.StripeSubscriptionId:
+            try:
+                stripe_service.cancel_subscription(sub.StripeSubscriptionId)
+            except Exception:
+                # Never block erasure on Stripe being unreachable — but leave a
+                # loud trace, because a stranded live subscription bills a card
+                # for an account that no longer exists.
+                logger.exception(
+                    "Could not cancel Stripe subscription %s while deleting company %s — CHECK STRIPE MANUALLY",
+                    sub.StripeSubscriptionId, company.Id,
+                )
+
+    instance_ids = [
+        i.Id for i in db.query(models.ServiceInstance)
+        .filter(models.ServiceInstance.SubscriptionId.in_([s.Id for s in subscriptions] or [0]))
+        .all()
+    ]
+    if instance_ids:
+        conv_ids = [
+            c.Id for c in db.query(models.WelcoConversation)
+            .filter(models.WelcoConversation.ServiceInstanceId.in_(instance_ids)).all()
+        ]
+        if conv_ids:
+            db.query(models.WelcoConversationMessage).filter(
+                models.WelcoConversationMessage.ConversationId.in_(conv_ids)
+            ).delete(synchronize_session=False)
+            db.query(models.WelcoConversation).filter(
+                models.WelcoConversation.Id.in_(conv_ids)
+            ).delete(synchronize_session=False)
+        for model in (models.WelcoLead, models.WelcoInteraction, models.WelcoDocument, models.WelcoKnowledgeBase):
+            db.query(model).filter(model.ServiceInstanceId.in_(instance_ids)).delete(synchronize_session=False)
+        db.query(models.ServiceInstance).filter(
+            models.ServiceInstance.Id.in_(instance_ids)
+        ).delete(synchronize_session=False)
+
+    db.query(models.Subscription).filter(models.Subscription.CompanyId == company.Id).delete(synchronize_session=False)
+    db.query(models.AccountMember).filter(models.AccountMember.CompanyId == company.Id).delete(synchronize_session=False)
+
+    user_ids = [u.Id for u in db.query(models.User).filter(models.User.CompanyId == company.Id).all()]
+    if user_ids:
+        db.query(models.PushSubscription).filter(
+            models.PushSubscription.UserId.in_(user_ids)
+        ).delete(synchronize_session=False)
+
+    # The company points at its owner and the users point back at the company,
+    # so the FK has to be broken before either side can go.
+    company.OwnerUserId = None
+    db.flush()
+    db.query(models.User).filter(models.User.CompanyId == company.Id).delete(synchronize_session=False)
+    db.query(models.Company).filter(models.Company.Id == company.Id).delete(synchronize_session=False)
+    db.commit()
+
+    logger.info("Deleted company %s and %s user(s) at the owner's request", company.Id, len(user_ids))
+    return Response(status_code=204)
 
 
 @router.post("/portal-session", response_model=schemas.PortalSessionRead)

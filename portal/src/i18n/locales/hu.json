@@ -4,7 +4,8 @@
     "language": "Nyelv",
     "loading": "Betöltés…",
     "searchCountry": "Ország keresése…",
-    "noMatchingCountry": "Nincs egyező ország"
+    "noMatchingCountry": "Nincs egyező ország",
+    "cancel": "Mégse"
   },
   "login": {
     "title": "Jelentkezzen be a fiókjába",
@@ -143,7 +144,10 @@
     "ctaManage": "Kezelés",
     "ctaFixIssue": "Probléma javítása",
     "ctaViewDetails": "Részletek megtekintése",
-    "errorGeneric": "Nem sikerült betölteni az irányítópultot."
+    "errorGeneric": "Nem sikerült betölteni az irányítópultot.",
+    "widgetStoppedTitle": "A widgeted nem válaszol",
+    "widgetStoppedBody": "Ez az előfizetés már nem aktív, ezért a weboldaladon lévő ügynök nem válaszol a látogatóknak. Egy fizetési mód megadásával azonnal újraindul.",
+    "widgetStoppedCta": "Számlázás rendezése"
   },
   "serviceStatus": {
     "notConfigured": "Nincs beállítva",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Nem sikerült frissíteni a profilt.",
     "errorPasswordMismatch": "Az új jelszavak nem egyeznek.",
     "passwordChanged": "Jelszó módosítva.",
-    "errorPasswordChange": "Nem sikerült módosítani a jelszót."
+    "errorPasswordChange": "Nem sikerült módosítani a jelszót.",
+    "deleteTitle": "Fiók törlése",
+    "deleteBody": "Véglegesen törli a cégedet, az összes ügynököt, valamint minden beszélgetés- és érdeklődő-adatot. Az aktív előfizetés lemondásra kerül. Ez nem vonható vissza.",
+    "deleteCta": "Fiókom törlése",
+    "deleteConfirmPrompt": "A megerősítéshez írd be: {email}",
+    "deleteConfirmCta": "Végleges törlés",
+    "deleting": "Törlés…",
+    "deleteError": "A fiók törlése nem sikerült."
   },
   "profile": {
     "title": "Cégprofil",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "pl. Welco Asszisztens",
     "greetingLabel": "Üdvözlő üzenet",
     "greetingPlaceholder": "Üdv! Miben segíthetek ma?",
+    "widgetLanguageLabel": "Widget nyelve",
+    "widgetLanguageAuto": "A látogató böngészője szerint",
+    "widgetLanguageHint": "Az ügynök mindig a látogató nyelvén válaszol — ez a widget saját gombjainak és feliratainak nyelvét állítja be.",
     "appearance": "Megjelenés",
     "themeLabel": "Téma",
     "themeLight": "Világos",
@@ -559,6 +573,7 @@
     "subscriptions": "Előfizetések",
     "liveChat": "Élő chat",
     "statistics": "Statisztikák",
+    "leads": "Érdeklődők",
     "invoices": "Számlák",
     "team": "Csapat",
     "companyProfile": "Cégprofil",
@@ -567,5 +582,16 @@
     "handoffToast": "Egy látogatónak emberre van szüksége — új beszélgetés vár.",
     "handoffToastView": "Megnézem",
     "dismiss": "Bezárás"
+  },
+  "leads": {
+    "title": "Érdeklődők",
+    "intro": "Az ügynök által rögzített elérhetőségek azoktól a látogatóktól, akik kérték, hogy keressétek őket.",
+    "empty": "Még nincs érdeklődő. Amint az ügynök rögzít egyet, itt fog megjelenni.",
+    "exportCsv": "CSV letöltése",
+    "received": "Beérkezett",
+    "name": "Név",
+    "contact": "Elérhetőség",
+    "message": "Üzenet",
+    "errorLoad": "Az érdeklődők betöltése nem sikerült."
   }
 }

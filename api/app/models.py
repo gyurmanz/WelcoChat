@@ -127,6 +127,9 @@ class Subscription(Base):
     # for reporting on which channel/campaign drove the signup. The actual
     # discount lives on the Stripe subscription itself, not here.
     PromoCode = Column(String(50), nullable=True)
+    # Which trial-ending reminder has already gone out ("trial-3d"/"trial-1d"),
+    # so a cron that runs twice doesn't email the customer twice.
+    TrialReminderSent = Column(String(20), nullable=True)
 
 
 class ServiceInstance(Base):

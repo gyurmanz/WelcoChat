@@ -4,7 +4,8 @@
     "language": "Language",
     "loading": "Loading…",
     "searchCountry": "Search country…",
-    "noMatchingCountry": "No matching country"
+    "noMatchingCountry": "No matching country",
+    "cancel": "Cancel"
   },
   "login": {
     "title": "Sign in to your account",
@@ -143,7 +144,10 @@
     "ctaManage": "Manage",
     "ctaFixIssue": "Fix issue",
     "ctaViewDetails": "View details",
-    "errorGeneric": "Failed to load dashboard."
+    "errorGeneric": "Failed to load dashboard.",
+    "widgetStoppedTitle": "Your widget has stopped answering",
+    "widgetStoppedBody": "This subscription is no longer active, so the agent on your website isn't responding to visitors. Adding a payment method brings it straight back.",
+    "widgetStoppedCta": "Fix billing"
   },
   "serviceStatus": {
     "notConfigured": "Not configured",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Failed to update profile.",
     "errorPasswordMismatch": "The new passwords do not match.",
     "passwordChanged": "Password changed.",
-    "errorPasswordChange": "Failed to change password."
+    "errorPasswordChange": "Failed to change password.",
+    "deleteTitle": "Delete account",
+    "deleteBody": "Permanently deletes your company, every agent, and all conversation and lead data. Any active subscription is cancelled. This cannot be undone.",
+    "deleteCta": "Delete my account",
+    "deleteConfirmPrompt": "Type {email} to confirm.",
+    "deleteConfirmCta": "Permanently delete",
+    "deleting": "Deleting…",
+    "deleteError": "Failed to delete the account."
   },
   "profile": {
     "title": "Company profile",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "e.g. Welco Assistant",
     "greetingLabel": "Greeting message",
     "greetingPlaceholder": "Hi! How can I help you today?",
+    "widgetLanguageLabel": "Widget language",
+    "widgetLanguageAuto": "Follow the visitor's browser",
+    "widgetLanguageHint": "The agent always answers in the visitor's language — this sets the language of the widget's own buttons and labels.",
     "appearance": "Appearance",
     "themeLabel": "Theme",
     "themeLight": "Light",
@@ -559,6 +573,7 @@
     "subscriptions": "Subscriptions",
     "liveChat": "Live Chat",
     "statistics": "Statistics",
+    "leads": "Leads",
     "invoices": "Invoices",
     "team": "Team",
     "companyProfile": "Company profile",
@@ -567,5 +582,16 @@
     "handoffToast": "A visitor needs a human — a new conversation is waiting.",
     "handoffToastView": "View",
     "dismiss": "Dismiss"
+  },
+  "leads": {
+    "title": "Leads",
+    "intro": "Contact details your agent captured from visitors who asked to be contacted.",
+    "empty": "No leads yet. They'll appear here as soon as your agent captures one.",
+    "exportCsv": "Export CSV",
+    "received": "Received",
+    "name": "Name",
+    "contact": "Contact",
+    "message": "Message",
+    "errorLoad": "Failed to load leads."
   }
 }

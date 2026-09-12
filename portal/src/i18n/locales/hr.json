@@ -4,7 +4,8 @@
     "language": "Jezik",
     "loading": "Učitavanje…",
     "searchCountry": "Pretraži državu…",
-    "noMatchingCountry": "Nema odgovarajuće države"
+    "noMatchingCountry": "Nema odgovarajuće države",
+    "cancel": "Odustani"
   },
   "login": {
     "title": "Prijavite se na svoj račun",
@@ -143,7 +144,10 @@
     "ctaManage": "Upravljaj",
     "ctaFixIssue": "Riješi problem",
     "ctaViewDetails": "Prikaži detalje",
-    "errorGeneric": "Učitavanje nadzorne ploče nije uspjelo."
+    "errorGeneric": "Učitavanje nadzorne ploče nije uspjelo.",
+    "widgetStoppedTitle": "Vaš widget je prestao odgovarati",
+    "widgetStoppedBody": "Ova pretplata više nije aktivna pa agent na vašoj stranici ne odgovara posjetiteljima. Dodavanje načina plaćanja odmah ga vraća.",
+    "widgetStoppedCta": "Riješi naplatu"
   },
   "serviceStatus": {
     "notConfigured": "Nije konfigurirano",
@@ -175,7 +179,14 @@
     "errorProfileUpdate": "Ažuriranje profila nije uspjelo.",
     "errorPasswordMismatch": "Nove lozinke se ne podudaraju.",
     "passwordChanged": "Lozinka promijenjena.",
-    "errorPasswordChange": "Promjena lozinke nije uspjela."
+    "errorPasswordChange": "Promjena lozinke nije uspjela.",
+    "deleteTitle": "Izbriši račun",
+    "deleteBody": "Trajno briše vašu tvrtku, sve agente te sve podatke o razgovorima i kontaktima. Aktivna pretplata bit će otkazana. Ovo se ne može poništiti.",
+    "deleteCta": "Izbriši moj račun",
+    "deleteConfirmPrompt": "Upišite {email} za potvrdu.",
+    "deleteConfirmCta": "Trajno izbriši",
+    "deleting": "Brisanje…",
+    "deleteError": "Brisanje računa nije uspjelo."
   },
   "profile": {
     "title": "Profil tvrtke",
@@ -442,6 +453,9 @@
     "widgetNamePlaceholder": "npr. Welco Assistant",
     "greetingLabel": "Poruka dobrodošlice",
     "greetingPlaceholder": "Bok! Kako vam mogu pomoći danas?",
+    "widgetLanguageLabel": "Jezik widgeta",
+    "widgetLanguageAuto": "Prema pregledniku posjetitelja",
+    "widgetLanguageHint": "Agent uvijek odgovara na jeziku posjetitelja — ovo postavlja jezik gumba i oznaka samog widgeta.",
     "appearance": "Izgled",
     "themeLabel": "Tema",
     "themeLight": "Svijetla",
@@ -559,6 +573,7 @@
     "subscriptions": "Pretplate",
     "liveChat": "Chat uživo",
     "statistics": "Statistika",
+    "leads": "Kontakti",
     "invoices": "Računi",
     "team": "Tim",
     "companyProfile": "Profil tvrtke",
@@ -567,5 +582,16 @@
     "handoffToast": "Posjetitelju treba djelatnik — čeka novi razgovor.",
     "handoffToastView": "Prikaži",
     "dismiss": "Odbaci"
+  },
+  "leads": {
+    "title": "Kontakti",
+    "intro": "Kontaktni podaci koje je vaš agent prikupio od posjetitelja koji su zatražili kontakt.",
+    "empty": "Još nema kontakata. Pojavit će se ovdje čim ih agent prikupi.",
+    "exportCsv": "Izvezi CSV",
+    "received": "Primljeno",
+    "name": "Ime",
+    "contact": "Kontakt",
+    "message": "Poruka",
+    "errorLoad": "Učitavanje kontakata nije uspjelo."
   }
 }

@@ -121,6 +121,15 @@
           </router-link>
 
           <router-link
+            to="/leads"
+            class="dash-nav-item"
+            active-class="dash-nav-item--active"
+          >
+            <span class="dash-nav-icon">🎯</span>
+            <span class="dash-nav-label">{{ t('nav.leads') }}</span>
+          </router-link>
+
+          <router-link
             to="/invoices"
             class="dash-nav-item"
             active-class="dash-nav-item--active"
@@ -213,6 +222,16 @@
           >
             <span class="dash-nav-icon">📊</span>
             <span class="dash-nav-label">{{ t('nav.statistics') }}</span>
+          </router-link>
+
+          <router-link
+            to="/leads"
+            class="dash-nav-item"
+            active-class="dash-nav-item--active"
+            @click="handleNavClick"
+          >
+            <span class="dash-nav-icon">🎯</span>
+            <span class="dash-nav-label">{{ t('nav.leads') }}</span>
           </router-link>
 
           <router-link

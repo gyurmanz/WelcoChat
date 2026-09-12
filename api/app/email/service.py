@@ -109,6 +109,33 @@ def send_live_handoff_email(email_to: str):
     )
 
 
+def send_trial_ending_email(email_to: str, display_name: str, days_left: int, trial_end_date: str):
+    """Sent by the daily maintenance job a few days before a trial lapses. Without
+    it a trial just stops answering on day 14 with no warning, which is the
+    easiest possible way to lose a customer who meant to pay."""
+    billing_url = f"{FRONTEND_BASE_URL}/invoices"
+    when = "tomorrow" if days_left <= 1 else f"in {days_left} days"
+
+    html_body = render_template(
+        "trial_ending.html",
+        display_name=display_name or "there",
+        when=when,
+        trial_end_date=trial_end_date,
+        billing_url=billing_url,
+    )
+    text_body = (
+        f"Your WelcoChat trial ends {when} ({trial_end_date}). "
+        f"Add a payment method to keep your agent running: {billing_url}"
+    )
+
+    send_email(
+        subject=f"Your WelcoChat trial ends {when}",
+        email_to=email_to,
+        html_body=html_body,
+        text_body=text_body,
+    )
+
+
 def send_email_change_email(email_to: str, token: str, display_name: str = None):
     confirm_url = f"{FRONTEND_BASE_URL}/confirm-email-change?token={token}"
 

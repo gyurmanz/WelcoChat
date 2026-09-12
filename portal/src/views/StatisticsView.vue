@@ -33,6 +33,13 @@
             <div class="tile-label">{{ t('statistics.leadsCaptured') }}</div>
             <div class="tile-sub">{{ t('statistics.inLast30Days', { count: w.leads_last_30d }) }}</div>
           </div>
+          <div v-if="w.conversation_limit" class="tile" :class="{ 'tile--warn': isOverQuota(w) }">
+            <div class="tile-value">{{ w.conversations_this_month }} / {{ w.conversation_limit }}</div>
+            <div class="tile-label">{{ t('statistics.conversationsThisMonth') }}</div>
+            <div class="tile-sub">
+              {{ isOverQuota(w) ? t('statistics.quotaExceeded') : t('statistics.includedInPlan') }}
+            </div>
+          </div>
         </div>
 
         <div v-if="w.total_messages > 0" class="trend">
@@ -72,6 +79,10 @@ const { t } = useI18n()
 const loading = ref(true)
 const error = ref('')
 const welco = ref<WelcoStats[]>([])
+
+function isOverQuota(w: WelcoStats): boolean {
+  return w.conversation_limit !== null && w.conversations_this_month >= w.conversation_limit
+}
 
 function maxCount(series: DailyCount[]): number {
   return Math.max(...series.map((d) => d.count), 1)
@@ -138,6 +149,7 @@ onMounted(load)
   border-radius: 10px;
   padding: 0.9rem 1rem;
 }
+.tile--warn { border-color: rgba(234, 179, 8, 0.5); background: rgba(234, 179, 8, 0.06); }
 .tile-value { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
 .tile-label { font-size: 0.82rem; font-weight: 600; margin-top: 0.2rem; }
 .tile-sub { font-size: 0.75rem; color: rgba(148, 163, 184, 0.75); margin-top: 0.15rem; }

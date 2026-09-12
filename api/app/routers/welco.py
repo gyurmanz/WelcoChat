@@ -14,6 +14,10 @@ from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, Re
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
+from ..welco_quota import (
+    QUOTA_GRACE, conversation_limit_for_instance, conversations_this_month,
+    notify_quota_reached, session_already_counted,
+)
 from ..deps import get_db, get_current_user, resolve_account_company, instance_has_tier, instance_subscription_active
 from ..database import SessionLocal
 from ..email.service import send_email, send_live_handoff_email, FRONTEND_BASE_URL
@@ -463,6 +467,19 @@ def widget_message(public_id: str, body: schemas.WelcoMessageRequest, request: R
         if len(body.image_data) > MAX_CHAT_IMAGE_BASE64_CHARS:
             raise HTTPException(400, "Image is too large (max 5 MB).")
 
+    limit = conversation_limit_for_instance(db, instance) if instance else None
+    if limit:
+        used = conversations_this_month(db, kb.ServiceInstanceId)
+        if used >= limit and instance is not None:
+            notify_quota_reached(db, instance, used, limit)
+        # Only new conversations are turned away — one already counted this
+        # month runs to its end.
+        if used >= int(limit * QUOTA_GRACE) and not session_already_counted(db, kb.ServiceInstanceId, body.session_id):
+            return schemas.WelcoMessageResponse(
+                reply="I can't answer right now, but I can put you in touch with the team — they'll get back to you.",
+                handoff=True,
+            )
+
     kb_content = _build_kb_content(db, kb, config)
 
     try:
@@ -477,7 +494,9 @@ def widget_message(public_id: str, body: schemas.WelcoMessageRequest, request: R
     except RuntimeError as exc:
         raise HTTPException(503, str(exc))
 
-    db.add(models.WelcoInteraction(ServiceInstanceId=kb.ServiceInstanceId, Handoff=handoff))
+    db.add(models.WelcoInteraction(
+        ServiceInstanceId=kb.ServiceInstanceId, Handoff=handoff, SessionId=body.session_id or None,
+    ))
     db.commit()
 
     return schemas.WelcoMessageResponse(reply=reply, handoff=handoff)
@@ -667,9 +686,15 @@ def add_visitor_message(
 
 
 @widget_router.post("/{public_id}/lead", status_code=201)
-def widget_lead(public_id: str, body: schemas.WelcoLeadRequest, db: Session = Depends(get_db)):
+def widget_lead(public_id: str, body: schemas.WelcoLeadRequest, request: Request, db: Session = Depends(get_db)):
     if not body.email and not body.whatsapp:
         raise HTTPException(400, "Provide an email address or a WhatsApp number")
+
+    # Public, unauthenticated, and it writes a row plus notifies the customer —
+    # rate limited like every other visitor-facing write.
+    client_ip = request.client.host if request.client else "unknown"
+    if _rate_limited(client_ip, public_id):
+        raise HTTPException(429, "Too many requests, please try again later")
 
     kb = (
         db.query(models.WelcoKnowledgeBase)

@@ -169,6 +169,12 @@ def create_trial_subscription(
 ):
     company = resolve_account_company(db, current_user)
 
+    # Serialize trial creation per company. Without the row lock, a double
+    # submit (or a double-clicked button) lets two requests both pass the
+    # already-had-a-trial check and create two subscriptions — which means two
+    # Stripe subscriptions and, once the trials end, two charges.
+    db.query(models.Company).filter(models.Company.Id == company.Id).with_for_update().first()
+
     if _has_had_trial(db, company.Id, body.service_key):
         raise HTTPException(409, "A free trial has already been used for this product.")
 

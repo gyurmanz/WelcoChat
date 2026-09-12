@@ -19,6 +19,8 @@ export interface WelcoStats {
   kb_status: string
   crawled_at: string | null
   daily_messages: DailyCount[]
+  conversations_this_month: number
+  conversation_limit: number | null
 }
 
 export interface StatsResponse {

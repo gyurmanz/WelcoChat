@@ -73,6 +73,17 @@
   // are picked up by polling.
   var activeConversationId = null;
   var activeConversationToken = null;
+  // Identifies this chat so the backend can group its messages into one
+  // conversation (plans are sold per conversation). Opaque and local — it
+  // identifies the chat, not the person.
+  var sessionId = null;
+
+  function newSessionId() {
+    try {
+      if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+    } catch (e) { /* fall through */ }
+    return "s-" + Date.now() + "-" + Math.random().toString(36).slice(2, 12);
+  }
   var lastSeenMessageId = 0;
   var pollTimer = null;
   var fallbackTimer = null;
@@ -109,6 +120,7 @@
         history: activeConversationId ? [] : history,
         activeConversationId: activeConversationId,
         activeConversationToken: activeConversationToken,
+        sessionId: sessionId,
         savedAt: Date.now(),
       }));
     } catch (e) { /* private browsing / quota — degrade silently */ }
@@ -371,6 +383,7 @@
     stopPolling();
     activeConversationId = null;
     activeConversationToken = null;
+    sessionId = newSessionId();
     clearSavedState();
     addMessage("assistant", "This conversation has ended. You can keep chatting with the assistant.");
   }
@@ -515,6 +528,9 @@
       applyTheme();
 
       var saved = loadSavedState();
+      // One visitor chat keeps one session id across reloads, so a refresh
+      // doesn't bill the customer for a second conversation.
+      sessionId = (saved && saved.sessionId) || newSessionId();
       if (saved && saved.activeConversationId && saved.activeConversationToken) {
         resumeConversation(saved.activeConversationId, saved.activeConversationToken);
       } else if (saved && saved.history && saved.history.length) {
@@ -566,6 +582,7 @@
         message: text,
         image_data: image ? image.base64 : null,
         image_media_type: image ? image.mediaType : null,
+        session_id: sessionId,
       }),
     })
       .then(function (r) {

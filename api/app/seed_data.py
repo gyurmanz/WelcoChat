@@ -254,9 +254,11 @@ COUNTRIES = [
 
 
 # Service price catalog (welcochat.com pricing). One row per (service, tier).
-# (service_key, service_name, tier, monthly_price, annual_price_monthly_equiv, sort_order)
+# (service_key, service_name, tier, monthly_price, annual_price_monthly_equiv,
+#  sort_order, monthly_conversation_limit) — the limit is what the pricing page
+# advertises as "conversations/month".
 SERVICE_PLANS = [
-    ("welco", "WelcoChat", "Basic", 39, 31, 11),
-    ("welco", "WelcoChat", "Business", 99, 79, 12),
-    ("welco", "WelcoChat", "Enterprise", 299, 239, 13),
+    ("welco", "WelcoChat", "Basic", 39, 31, 11, 500),
+    ("welco", "WelcoChat", "Business", 99, 79, 12, 3000),
+    ("welco", "WelcoChat", "Enterprise", 299, 239, 13, 15000),
 ]

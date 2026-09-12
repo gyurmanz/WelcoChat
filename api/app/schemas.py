@@ -273,6 +273,9 @@ class WelcoMessageRequest(BaseModel):
     message: Annotated[str, StringConstraints(min_length=0, max_length=2000)] = ""
     image_data: Optional[str] = None  # base64, no data: URI prefix
     image_media_type: Optional[str] = None  # image/png | image/jpeg | image/webp | image/gif
+    # Opaque id the widget generates per visitor chat, so messages can be
+    # grouped into conversations for the plan's monthly allowance.
+    session_id: Annotated[str, StringConstraints(max_length=64)] = ""
 
 
 class WelcoMessageResponse(BaseModel):
@@ -437,6 +440,8 @@ class WelcoStatsRead(BaseModel):
     kb_status: str
     crawled_at: Optional[datetime] = None
     daily_messages: list[DailyCount]
+    conversations_this_month: int = 0
+    conversation_limit: Optional[int] = None  # None = unmetered plan
 
 
 class StatsResponse(BaseModel):

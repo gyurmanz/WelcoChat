@@ -94,6 +94,9 @@ class Service(Base):
     IsActive = Column(Boolean, nullable=False, default=True)
     StripePriceIdMonthly = Column(String(60), nullable=True)
     StripePriceIdAnnual = Column(String(60), nullable=True)
+    # Conversations/month included in the plan, as advertised on the pricing
+    # page. NULL means unmetered.
+    MonthlyConversationLimit = Column(Integer, nullable=True)
 
 
 class Subscription(Base):
@@ -136,6 +139,9 @@ class ServiceInstance(Base):
     ServiceName = Column(String(100), nullable=False)
     SetupStatus = Column(String(30), nullable=False, default="not_configured")
     ConfigurationData = Column(Text, nullable=True)
+    # "YYYY-MM" of the month whose quota warning has already been emailed, so
+    # crossing the line notifies the customer once instead of per message.
+    QuotaNoticeMonth = Column(String(7), nullable=True)
     Created = Column(
         DateTime,
         nullable=False,
@@ -200,6 +206,10 @@ class WelcoInteraction(Base):
     Id = Column(Integer, primary_key=True, index=True)
     ServiceInstanceId = Column(Integer, ForeignKey("ServiceInstance.Id"), nullable=False, index=True)
     Handoff = Column(Boolean, nullable=False, default=False)
+    # Groups the messages of one visitor chat together. Plans are sold per
+    # conversation, not per message, so the quota counts distinct values of
+    # this per calendar month. Opaque and visitor-generated — not an identity.
+    SessionId = Column(String(64), nullable=True, index=True)
     Created = Column(
         DateTime,
         nullable=False,

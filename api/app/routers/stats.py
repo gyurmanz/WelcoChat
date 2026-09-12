@@ -6,6 +6,7 @@ from sqlalchemy import func, cast, Date
 from sqlalchemy.orm import Session
 
 from .. import models, schemas
+from ..welco_quota import conversation_limit_for_instance, conversations_this_month
 from ..deps import get_db, get_current_user, resolve_account_company
 
 router = APIRouter()
@@ -85,6 +86,10 @@ def _welco_stats(db: Session, instance: models.ServiceInstance) -> schemas.Welco
         kb_status=kb.Status if kb else "pending",
         crawled_at=kb.CrawledAt if kb else None,
         daily_messages=_daily_series(db, models.WelcoInteraction, instance.Id, since),
+        # Same source of truth the widget's quota check uses, so what the
+        # customer sees here is exactly what gets enforced.
+        conversations_this_month=conversations_this_month(db, instance.Id),
+        conversation_limit=conversation_limit_for_instance(db, instance),
     )
 
 

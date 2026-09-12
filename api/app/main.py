@@ -59,9 +59,9 @@ def _seed_services():
                 models.Service(
                     ServiceKey=key, ServiceName=name, Tier=tier,
                     MonthlyPrice=monthly, AnnualPrice=annual, SortOrder=order,
-                    IsActive=True,
+                    IsActive=True, MonthlyConversationLimit=limit,
                 )
-                for key, name, tier, monthly, annual, order in SERVICE_PLANS
+                for key, name, tier, monthly, annual, order, limit in SERVICE_PLANS
             ])
             db.commit()
     finally:

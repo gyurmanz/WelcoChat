@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+import secrets
 import time
 import uuid
 from collections import defaultdict, deque
@@ -554,7 +555,9 @@ def create_conversation(public_id: str, body: schemas.WelcoConversationCreate, r
     if _rate_limited(client_ip, public_id):
         raise HTTPException(429, "Too many messages, please try again later")
 
-    conversation = models.WelcoConversation(ServiceInstanceId=kb.ServiceInstanceId, Status="waiting")
+    conversation = models.WelcoConversation(
+        ServiceInstanceId=kb.ServiceInstanceId, Status="waiting", Token=secrets.token_urlsafe(32),
+    )
     db.add(conversation)
     db.flush()
 
@@ -573,10 +576,20 @@ def create_conversation(public_id: str, body: schemas.WelcoConversationCreate, r
     widget_name = config.get("widget_name") or "Welco Assistant"
     _notify_handoff(db, instance, kb.ServiceInstanceId, conversation.Id, widget_name)
 
-    return schemas.WelcoConversationCreateResponse(conversation_id=conversation.Id, last_message_id=last_message_id)
+    return schemas.WelcoConversationCreateResponse(
+        conversation_id=conversation.Id,
+        conversation_token=conversation.Token,
+        last_message_id=last_message_id,
+    )
 
 
-def _get_conversation_for_public_id(db: Session, public_id: str, conversation_id: int) -> models.WelcoConversation:
+def _get_conversation_for_public_id(
+    db: Session, public_id: str, conversation_id: int, token: str
+) -> models.WelcoConversation:
+    """Visitor-facing lookup. The Id alone is a sequential integer any visitor
+    can guess, so the caller must also present the token handed out when the
+    conversation was created — otherwise this is an open read/write door onto
+    every other visitor's thread on the same widget."""
     kb = _get_ready_kb(db, public_id)
     conversation = (
         db.query(models.WelcoConversation)
@@ -588,16 +601,21 @@ def _get_conversation_for_public_id(db: Session, public_id: str, conversation_id
     )
     if conversation is None:
         raise HTTPException(404, "Conversation not found")
+    # Fail closed: a conversation with no token (only possible for rows created
+    # before tokens existed, or the server-side WhatsApp path) is not reachable
+    # from the widget at all.
+    if not conversation.Token or not secrets.compare_digest(conversation.Token, token or ""):
+        raise HTTPException(404, "Conversation not found")
     return conversation
 
 
 @widget_router.get("/{public_id}/conversations/{conversation_id}", response_model=schemas.WelcoConversationFullResponse)
-def get_full_conversation(public_id: str, conversation_id: int, db: Session = Depends(get_db)):
+def get_full_conversation(public_id: str, conversation_id: int, token: str = "", db: Session = Depends(get_db)):
     """Lets the widget rebuild the whole visible thread after a page reload —
     unlike poll_conversation below (which only returns new human replies), this
     returns every message (visitor/agent/human) since the server-stored
     conversation is the single source of truth once a handoff has happened."""
-    conversation = _get_conversation_for_public_id(db, public_id, conversation_id)
+    conversation = _get_conversation_for_public_id(db, public_id, conversation_id, token)
     messages = (
         db.query(models.WelcoConversationMessage)
         .filter(models.WelcoConversationMessage.ConversationId == conversation.Id)
@@ -610,8 +628,10 @@ def get_full_conversation(public_id: str, conversation_id: int, db: Session = De
 
 
 @widget_router.get("/{public_id}/conversations/{conversation_id}/messages", response_model=schemas.WelcoConversationPollResponse)
-def poll_conversation(public_id: str, conversation_id: int, after_id: int = 0, db: Session = Depends(get_db)):
-    conversation = _get_conversation_for_public_id(db, public_id, conversation_id)
+def poll_conversation(
+    public_id: str, conversation_id: int, after_id: int = 0, token: str = "", db: Session = Depends(get_db)
+):
+    conversation = _get_conversation_for_public_id(db, public_id, conversation_id, token)
     messages = (
         db.query(models.WelcoConversationMessage)
         .filter(
@@ -629,9 +649,10 @@ def poll_conversation(public_id: str, conversation_id: int, after_id: int = 0, d
 
 @widget_router.post("/{public_id}/conversations/{conversation_id}/messages", status_code=201)
 def add_visitor_message(
-    public_id: str, conversation_id: int, body: schemas.WelcoConvMessageCreate, request: Request, db: Session = Depends(get_db)
+    public_id: str, conversation_id: int, body: schemas.WelcoConvMessageCreate, request: Request,
+    token: str = "", db: Session = Depends(get_db),
 ):
-    conversation = _get_conversation_for_public_id(db, public_id, conversation_id)
+    conversation = _get_conversation_for_public_id(db, public_id, conversation_id, token)
     if conversation.Status == "closed":
         raise HTTPException(400, "This conversation has ended")
 

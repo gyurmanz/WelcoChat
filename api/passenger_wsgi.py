@@ -51,8 +51,14 @@ def _build_scope(environ):
         "http_version": environ.get("SERVER_PROTOCOL", "HTTP/1.1").rsplit("/", 1)[-1],
         "method": environ["REQUEST_METHOD"],
         "scheme": environ.get("wsgi.url_scheme", "http"),
-        "path": environ.get("PATH_INFO", ""),
-        "raw_path": environ.get("PATH_INFO", "").encode("utf-8"),
+        # ASGI wants the FULL path here, root_path included — root_path is only
+        # the mount prefix, not something to subtract from path. Starlette
+        # re-derives each route's path by stripping root_path off this, so
+        # passing the already-stripped PATH_INFO makes plain routes work by
+        # accident while nested Mounts (StaticFiles) 404: the mount strips its
+        # own longer prefix a second time and never finds the file.
+        "path": environ.get("SCRIPT_NAME", "") + environ.get("PATH_INFO", ""),
+        "raw_path": (environ.get("SCRIPT_NAME", "") + environ.get("PATH_INFO", "")).encode("utf-8"),
         "query_string": environ.get("QUERY_STRING", "").encode("latin-1"),
         "root_path": environ.get("SCRIPT_NAME", ""),
         "headers": headers,

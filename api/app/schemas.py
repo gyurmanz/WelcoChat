@@ -322,6 +322,7 @@ class WelcoConversationCreate(BaseModel):
 
 class WelcoConversationCreateResponse(BaseModel):
     conversation_id: int
+    conversation_token: str
     last_message_id: int
 
 

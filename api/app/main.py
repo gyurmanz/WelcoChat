@@ -1,4 +1,5 @@
 # app/main.py
+import logging
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -9,6 +10,16 @@ from .database import Base, engine, SessionLocal
 from . import models
 from .routers import auth, billing, subscriptions, contact, welco, team, stats, live_chat, push
 from .seed_data import COUNTRIES, SERVICE_PLANS
+
+# Without this nothing below ERROR ever reaches Passenger's stderr.log, so the
+# app's own logger.info calls (notably the per-message token/cache counters in
+# welco_engine — the only way to tell prompt caching is still working) would go
+# nowhere. Third-party libraries stay at WARNING so the log stays readable.
+logging.basicConfig(
+    level=logging.WARNING,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+)
+logging.getLogger("app").setLevel(logging.INFO)
 
 # Táblák létrehozása (fejlesztéshez oké, később mehet alembic)
 Base.metadata.create_all(bind=engine)

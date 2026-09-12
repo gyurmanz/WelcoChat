@@ -3,11 +3,14 @@
 the customer's crawled site content is small enough (bounded in
 welco_crawler.py) to include directly in the system prompt on every call.
 """
+import logging
 import os
 
 from dotenv import load_dotenv
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-haiku-4-5-20251001")
@@ -83,11 +86,34 @@ def answer(
         response = client.messages.create(
             model=ANTHROPIC_MODEL,
             max_tokens=1024,
-            system=system_prompt,
+            # The knowledge base is the same bytes on every message of every
+            # conversation for this widget, and it dwarfs everything else in the
+            # request — cache it so only the visitor's turn is billed at full
+            # input price. Cached reads cost ~10% of base input, and the
+            # breakpoint goes at the end of the system block because everything
+            # that varies per request (history, the question) lives in messages,
+            # which renders after it.
+            system=[{
+                "type": "text",
+                "text": system_prompt,
+                "cache_control": {"type": "ephemeral"},
+            }],
             messages=messages,
         )
     except anthropic.AnthropicError:
         raise RuntimeError("Welco is temporarily unavailable, please try again shortly")
+
+    usage = getattr(response, "usage", None)
+    if usage is not None:
+        # The only ground truth that caching is actually working — a prompt
+        # change upstream can silently stop it and nothing else would show it.
+        logger.info(
+            "welco tokens: input=%s cache_write=%s cache_read=%s output=%s",
+            usage.input_tokens,
+            getattr(usage, "cache_creation_input_tokens", None),
+            getattr(usage, "cache_read_input_tokens", None),
+            usage.output_tokens,
+        )
 
     if response.stop_reason == "refusal":
         return "I'm not able to help with that. Let me connect you with the team.", True

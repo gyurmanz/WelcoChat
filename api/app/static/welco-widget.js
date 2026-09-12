@@ -72,6 +72,7 @@
   // messages go to it instead of the AI /message endpoint, and its replies
   // are picked up by polling.
   var activeConversationId = null;
+  var activeConversationToken = null;
   var lastSeenMessageId = 0;
   var pollTimer = null;
   var fallbackTimer = null;
@@ -107,6 +108,7 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         history: activeConversationId ? [] : history,
         activeConversationId: activeConversationId,
+        activeConversationToken: activeConversationToken,
         savedAt: Date.now(),
       }));
     } catch (e) { /* private browsing / quota — degrade silently */ }
@@ -368,13 +370,14 @@
   function handleClosed() {
     stopPolling();
     activeConversationId = null;
+    activeConversationToken = null;
     clearSavedState();
     addMessage("assistant", "This conversation has ended. You can keep chatting with the assistant.");
   }
 
   function startPolling() {
     pollTimer = setInterval(function () {
-      fetch(apiBase + "/widget/" + publicId + "/conversations/" + activeConversationId + "/messages?after_id=" + lastSeenMessageId)
+      fetch(apiBase + "/widget/" + publicId + "/conversations/" + activeConversationId + "/messages?after_id=" + lastSeenMessageId + "&token=" + encodeURIComponent(activeConversationToken || ""))
         .then(function (r) {
           if (!r.ok) throw new Error("poll failed");
           return r.json();
@@ -410,6 +413,7 @@
       })
       .then(function (data) {
         activeConversationId = data.conversation_id;
+        activeConversationToken = data.conversation_token;
         lastSeenMessageId = data.last_message_id;
         saveState();
         startPolling();
@@ -424,10 +428,11 @@
   // conversation is the source of truth — rebuild the whole visible thread
   // from it rather than trusting anything kept in memory (there is none,
   // this runs on a fresh page load).
-  function resumeConversation(conversationId) {
+  function resumeConversation(conversationId, conversationToken) {
     activeConversationId = conversationId;
+    activeConversationToken = conversationToken;
     attachBtn.style.display = "none";
-    fetch(apiBase + "/widget/" + publicId + "/conversations/" + conversationId)
+    fetch(apiBase + "/widget/" + publicId + "/conversations/" + conversationId + "?token=" + encodeURIComponent(conversationToken || ""))
       .then(function (r) {
         if (!r.ok) throw new Error("resume failed");
         return r.json();
@@ -452,6 +457,7 @@
         // Conversation gone or unreachable — drop the stale reference and
         // fall back to a fresh AI chat rather than getting stuck.
         activeConversationId = null;
+        activeConversationToken = null;
         clearSavedState();
         addMessage("assistant", greeting);
       });
@@ -509,8 +515,8 @@
       applyTheme();
 
       var saved = loadSavedState();
-      if (saved && saved.activeConversationId) {
-        resumeConversation(saved.activeConversationId);
+      if (saved && saved.activeConversationId && saved.activeConversationToken) {
+        resumeConversation(saved.activeConversationId, saved.activeConversationToken);
       } else if (saved && saved.history && saved.history.length) {
         restoreHistory(saved.history);
       } else {
@@ -542,7 +548,7 @@
     addMessage("user", text, null, image ? image.dataUrl : null);
 
     if (activeConversationId) {
-      fetch(apiBase + "/widget/" + publicId + "/conversations/" + activeConversationId + "/messages", {
+      fetch(apiBase + "/widget/" + publicId + "/conversations/" + activeConversationId + "/messages?token=" + encodeURIComponent(activeConversationToken || ""), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: text }),

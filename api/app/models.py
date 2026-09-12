@@ -216,6 +216,11 @@ class WelcoConversation(Base):
     Status = Column(String(20), nullable=False, default="waiting")
     Channel = Column(String(10), nullable=False, default="widget")  # widget | whatsapp
     VisitorPhone = Column(String(30), nullable=True)
+    # Unguessable per-conversation secret. The visitor-facing endpoints are
+    # public and keyed by a sequential Id, so without this any visitor on the
+    # customer's site could read — and post into — every other visitor's
+    # conversation just by counting up.
+    Token = Column(String(64), nullable=True, unique=True, index=True)
     Created = Column(
         DateTime,
         nullable=False,
